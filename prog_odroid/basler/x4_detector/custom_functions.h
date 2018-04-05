@@ -27,6 +27,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <math.h>
 #include <string.h>
 
+#define LEFT	0
+#define UP		1
+#define RIGHT	2
+#define DOWN	3
+
 using namespace cv;
 using namespace std;
 
@@ -38,5 +43,8 @@ double cst_angle( Point pt1, Point pt2, Point pt0 );
 
 // Find rectangular contour of random square
 Rect rect_extern_contour(const Square & square);
+
+// Find subtented angles from square (left, up, right, down : origin in the center of the image and positive on right and top of image)
+void sub_angles_from_square(const Square & square, float * sub_angles, const Point & roi_pos, const unsigned int & width, const unsigned int & height, const float * FOV_div2);
 
 #endif

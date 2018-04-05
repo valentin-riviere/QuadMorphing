@@ -56,7 +56,7 @@ static const uint32_t c_countOfImagesToGrab = 1000;
 // Camera Parameters
 const uint8_t MaxNumBuffer = 5;
 const uint16_t cam_width = 640, cam_height = 480;
-const uint16_t cam_offsetX = 320, cam_offsetY = 240;
+const uint16_t cam_offsetX = 0, cam_offsetY = 0;
 const uint16_t fps_max = 300;	// FPS max if USB_CAMERA enable, determine exposure max
 
 // OpenCV variables

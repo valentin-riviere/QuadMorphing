@@ -27,8 +27,8 @@ using namespace std;
 // Camera Parameters
 const uint8_t MaxNumBuffer = 5;
 const uint16_t cam_width = 800, cam_height = 600;
-const uint16_t cam_offsetX = 0, cam_offsetY = 0;
-const bool binning_on = true;
+const uint16_t cam_offsetX = 400, cam_offsetY = 300;
+const bool binning_on = false;
 const gcstring binning_mode("Average"); // Binning mode (Average/Sum)
 const uint16_t fps_max = 300;	// FPS max (only work for USB camera)
 const float expoAutoMax = 5000; // Max time for auto exposure (in us)

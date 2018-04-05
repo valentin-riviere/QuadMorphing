@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <string.h>
 
 // Debug Flags
-#define DEBUG_RECT_DETECT
+//#define DEBUG_RECT_DETECT	// Use to debug Square detection
 
 using namespace cv;
 using namespace std;
@@ -55,10 +55,15 @@ void SquaresDetector(const Mat & src, vector<Square> & squares, const int thresh
 
 // Draw squares
 void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Scalar & color = Scalar(0,255,0));
+void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Rect & roi, const Scalar & color = Scalar(0,255,0));
 void draw_squares(const Mat & src, const Square & square, Mat & dst, const Scalar & color = Scalar(0,255,0));
+void draw_squares(const Mat & src, const Square & square, Mat & dst, const Rect & roi, const Scalar & color = Scalar(0,255,0));
 
 // Select the more centered square
 void select_center_square(const vector<Square> & squares, Square & sel_square, const unsigned int & width, const unsigned int & height);
+
+// Select the smallest square
+void select_min_square(const vector<Square> & squares, Square & sel_square);
 
 // Update ROI
 void update_roi(Rect & ROI, const Square & sel_square, const uint16_t * roi_offsets, const unsigned int & width, const unsigned int & height);

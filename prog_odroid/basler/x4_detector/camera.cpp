@@ -44,14 +44,16 @@ void camera_init(CInstantCamera* cam, const unsigned int width, const unsigned i
 	GenApi::CCommandPtr acquisitionStart = nodemap.GetNode("AcquisitionStart");
 	GenApi::CEnumerationPtr triggerSelector = nodemap.GetNode("TriggerSelector");
 	GenApi::CEnumerationPtr triggerMode = nodemap.GetNode("TriggerMode");
-	widthPtr->SetValue(cam_width); heightPtr->SetValue(cam_height);
-	offsetXPtr->SetValue(cam_offsetX); offsetYPtr->SetValue(cam_offsetY);
-	reverseXPtr->SetValue(true); reverseYPtr->SetValue(true);
 	if (binning_on)
 	{
 		binningValuePtr->SetValue(2);
 		binningModePtr->FromString(binning_mode);
 	}
+	else
+		binningValuePtr->SetValue(1);
+	widthPtr->SetValue(cam_width); heightPtr->SetValue(cam_height);
+	offsetXPtr->SetValue(cam_offsetX); offsetYPtr->SetValue(cam_offsetY);
+	reverseXPtr->SetValue(true); reverseYPtr->SetValue(true);
 	autoExpoLowLim->SetValue(autoExpoLowLim->GetMin());
 	autoExpoUpLim->SetValue(expoAutoMax);
 	expoAuto->FromString("Continuous");

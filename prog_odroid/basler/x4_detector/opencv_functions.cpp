@@ -186,11 +186,27 @@ void SquaresDetector(const Mat & src, vector<Square> & squares, const int thresh
 void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Scalar & color)
 {
 	cvtColor(src,dst,COLOR_GRAY2BGR);
+
 	for( size_t i = 0; i < squares.size(); i++ )
 	{
 		for (unsigned j = 0 ; j < 4 ; j++)
 		{
 			Point p1(squares[i][j]), p2(squares[i][(j+1)%4]);
+			line(dst,p1,p2,color,2);
+		}
+	}
+}
+void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Rect & roi, const Scalar & color)
+{
+	cvtColor(src,dst,COLOR_GRAY2BGR);
+	
+	for( size_t i = 0; i < squares.size(); i++ )
+	{
+		for (unsigned j = 0 ; j < 4 ; j++)
+		{
+			Point p1(squares[i][j]), p2(squares[i][(j+1)%4]);
+			p1.x += roi.x; p1.y += roi.y;
+			p2.x += roi.x; p2.y += roi.y;
 			line(dst,p1,p2,color,2);
 		}
 	}
@@ -204,6 +220,25 @@ void draw_squares(const Mat & src, const Square & square, Mat & dst, const Scala
 		Point p1(square[j]), p2(square[(j+1)%4]);
 		line(dst,p1,p2,color,2);
 	}
+}
+void draw_squares(const Mat & src, const Square & square, Mat & dst, const Rect & roi, const Scalar & color)
+{
+	cvtColor(src,dst,COLOR_GRAY2BGR);
+	
+	for (unsigned j = 0 ; j < 4 ; j++)
+	{
+		Point p1(square[j]), p2(square[(j+1)%4]);
+		p1.x += roi.x; p1.y += roi.y;
+		p2.x += roi.x; p2.y += roi.y;
+		line(dst,p1,p2,color,2);
+	}
+	
+	// Draw ROI
+	Point p1(roi.x,roi.y), p2(roi.x+roi.width,roi.y), p3(roi.x+roi.width,roi.y+roi.height), p4(roi.x,roi.y+roi.height);
+	line(dst,p1,p2,Scalar(255,0,0),1);
+	line(dst,p2,p3,Scalar(255,0,0),1);
+	line(dst,p3,p4,Scalar(255,0,0),1);
+	line(dst,p4,p1,Scalar(255,0,0),1);
 }
 
 /**
@@ -222,13 +257,41 @@ void select_center_square(const vector<Square> & squares, Square & sel_square, c
 }
 
 /**
+ * @function select_min_square
+ */
+void select_min_square(const vector<Square> & squares, Square & sel_square)
+{
+	uint32_t area_min = numeric_limits<uint32_t>::max();
+	for( size_t i = 0; i < squares.size(); i++ )
+	{
+		Rect ext_contour = rect_extern_contour(squares[i]);
+		uint32_t area = ext_contour.width * ext_contour.height;
+
+		if (area < area_min)
+		{
+			area_min = area;
+			sel_square = squares[i];
+		}
+	}
+}
+
+/**
  * @function select_center_square
  */
 void update_roi(Rect & ROI, const Square & sel_square, const uint16_t * roi_offsets, const unsigned int & width, const unsigned int & height)
 {
 	Rect ext_contour = rect_extern_contour(sel_square);
-	if ((ROI.x = ROI.x + ext_contour.x - roi_offsets[0]) < 0) ROI.x = 0;
-	if ((ROI.y = ROI.y + ext_contour.y - roi_offsets[1]) < 0) ROI.y = 0;
-	if ((ROI.width = ext_contour.width + 2*roi_offsets[0]) + ROI.x > width) ROI.width = width - ROI.x;
-	if ((ROI.height = ext_contour.height + 2*roi_offsets[1]) + ROI.y > height) ROI.height = height - ROI.y;
+	uint16_t tmp;
+	tmp = ROI.x + ext_contour.x - roi_offsets[0];
+	if (tmp < 0 || tmp > width) ROI.x = 0;
+		else ROI.x = tmp;
+	tmp = ROI.y + ext_contour.y - roi_offsets[1];
+	if (tmp < 0 || tmp > height) ROI.y = 0;
+		else ROI.y = tmp;
+	tmp = ext_contour.width + 2*roi_offsets[0];
+	if (tmp + ROI.x > width) ROI.width = width - ROI.x;
+		else ROI.width = tmp;
+	tmp = ext_contour.height + 2*roi_offsets[1];
+	if (tmp + ROI.y > height) ROI.height = height - ROI.y;
+		else ROI.height = tmp;
 }
