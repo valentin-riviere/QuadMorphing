@@ -1,0 +1,8 @@
+1) Record images with Grab script in /home/odroid/basler/Grab
+	./Grab -k $IMG_PATH/calibration/cal 20
+2) Create XML list for opencv compatibility with imagelist_creator
+	./imagelist_creator image_list.xml $IMG_PATH/calibration*.png
+3) Calibrate camera with list, output in results/
+	./calibration -w=9 -h=6 -s=0.025 -o=results/camera_out.yml -op -oe -su -pt=chessboard image_list.xml
+4) Undistort image in src code
+	undistort( img_src, img_dst, cameraMatrix, distCoeffs, cameraMatrix );

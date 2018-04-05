@@ -1,0 +1,3 @@
+/home/odroid/opencv/test/HarrisCorner/CMakeFiles/edit_cache.dir
+/home/odroid/opencv/test/HarrisCorner/CMakeFiles/rebuild_cache.dir
+/home/odroid/opencv/test/HarrisCorner/CMakeFiles/HarrisCorner.dir
