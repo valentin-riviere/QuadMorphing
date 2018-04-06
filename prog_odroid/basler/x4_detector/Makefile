@@ -3,7 +3,7 @@
 
 # The program to build
 NAME   := x4_detector
-SRC_CPP:= Corner.cpp custom_functions.cpp img_processing.cpp camera.cpp
+SRC_CPP:= drawing.cpp class_types.cpp custom_functions.cpp img_processing.cpp camera.cpp
 SRC	   := $(SRC_CPP) x4_detector.cpp
 OBJ	   := $(SRC:.cpp=.o)
 
@@ -19,13 +19,6 @@ CXXFLAGS	:= -O2 -std=c++11
 DBGCXXFLAGS	:= -O0 -g -std=c++11
 LDFLAGS    	:= $(shell $(PYLON_ROOT)/bin/pylon-config --libs-rpath)
 LDLIBS     	:= $(shell $(PYLON_ROOT)/bin/pylon-config --libs) $(shell pkg-config opencv --libs)
-
-#DEBUG ?= 1
-#ifeq ($(DEBUG), 1)
-#	CXXFLAGS = DBGCXXFLAGS
-#else
-#	CXXFLAGS = RLSCXXFLAGS
-#endif
 
 # Rules for building
 all: $(NAME)

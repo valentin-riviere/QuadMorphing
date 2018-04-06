@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "opencv2/imgproc.hpp"
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
+#include "class_types.h"
 
 #include <iostream>
 #include <math.h>
@@ -38,8 +39,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using namespace cv;
 using namespace std;
 
-typedef vector<Point> Square;
-
 // finds a cosine of angle between vectors
 // from pt0->pt1 and from pt0->pt2
 double cst_angle( Point pt1, Point pt2, Point pt0 );
@@ -52,19 +51,6 @@ uint16_t tl_square(const Square & square);
 
 // Sort square BL->TL->TR->BR
 void sort_square_points(Square & square);
-
-// Draw squares
-void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Scalar & color = Scalar(0,255,0));
-void draw_squares(const Mat & src, const vector<Square> & squares, Mat & dst, const Rect & roi, const Scalar & color = Scalar(0,255,0));
-void draw_squares(const Mat & src, const Square & square, Mat & dst, const Scalar & color = Scalar(0,255,0));
-void draw_squares(const Mat & src, const Square & square, Mat & dst, const Rect & roi, const Scalar & color = Scalar(0,255,0));
-
-// Print squares
-void print_squares(const Mat & src, const vector<Square> & squares, const string & win_name, const uint16_t & t_wait = 10, const Scalar & color = Scalar(0,255,0));
-void print_squares(const Mat & src, const Square & square, const string & win_name, const uint16_t & t_wait = 10, const Scalar & color = Scalar(0,255,0));
-
-// Print image
-void print_img(const Mat & src, const string & win_name, const uint16_t & t_wait = 10);
 
 // Select the more centered square
 void select_center_square(const vector<Square> & squares, Square & sel_square, const unsigned int & width, const unsigned int & height);
