@@ -29,15 +29,19 @@ const uint16_t width = 800, height = 600;
 const uint16_t max_no_detect = 10;	// Maximum non detection before reinitialization
 
 // ROI
-const uint16_t roi_offsets[] = {50, 50}; // Offset on each sides of aperture to define ROI
+const uint16_t roi_offsets[] = {100, 100}; // Offset on each sides of aperture to define ROI
 
-// Angles (in rad)
+// Angles for subtented angles processing (in rad)
 const float FOV_div2[2] = {CV_PI/180.0*15.0, CV_PI/180.0*15.0};	// FOV/2 {width,height}
 float sub_angles[4] = {0, 0, 0, 0}; // Subtented angles Left/Up/Right/Down
 
+// Parameters for select square
+const uint16_t thresh_diff2 = 20*20;	// Diff^2 between 2 square centers (in px^2)
+const float thresh_ratio2 = 0.1;		// Diff between ratio^2 of 2 squares (no unit)
+
 // Name of windows
 const char* window_src_name = "Image src";
-const char* window_canny_name = "Image Canny";
+const char* window_detection_name = "Detected squares";
 const char* window_dst_name = "Image dst";
 
 // Parameters for undistortion
@@ -71,12 +75,12 @@ int main(int argc, char* argv[])
 	Mat cameraMatrix, distCoeffs;
 	vector<Square > squares;	// Output for Squares Detector
 	Square sel_square; 	// Selected square
-	Rect ROI(0,0,width,height);	// ROI
+	Rect roi(0,0,width,height);	// roi
 
 #ifdef VIEWER_ON
 	// Create windows
 	namedWindow(window_src_name, CV_WINDOW_AUTOSIZE );
-	namedWindow(window_canny_name, CV_WINDOW_AUTOSIZE );
+	namedWindow(window_detection_name, CV_WINDOW_AUTOSIZE );
 	namedWindow(window_dst_name, CV_WINDOW_AUTOSIZE );
 #endif
 
@@ -119,14 +123,14 @@ int main(int argc, char* argv[])
 					t_prev = t_start;
 
 					// Convert for openCV and get time
-					img_src = Mat(img_src.size(), img_src.type(),(uint8_t*) ptrGrabResult->GetBuffer());
-					img_tmp.release(); img_tmp = Mat(ROI.size(),CV_8UC1);	// Resize tmp matrix
-					img_dst.release(); img_dst = Mat(ROI.size(),CV_8UC1);	// Resize destination matrix
-					img_src(ROI).copyTo(img_tmp);							// select ROI
-					img_src(ROI).copyTo(img_dst);
+					img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
+					img_tmp.release(); img_tmp = Mat(roi.size(),CV_8UC1);	// Resize tmp matrix
+					img_dst.release(); img_dst = Mat(roi.size(),CV_8UC1);	// Resize destination matrix
+					img_src(roi).copyTo(img_tmp);							// select roi
+					img_src(roi).copyTo(img_dst);
 					img_time = ptrGrabResult->GetTimeStamp();				// Get acquisition time
 
-	#ifdef UNDISTORT		// Doesn't work with ROI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	#ifdef UNDISTORT		// Doesn't work with roi!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					undistort(img_tmp, img_dst, cameraMatrix, distCoeffs);
 					img_dst.copyTo(img_tmp);
 	#endif
@@ -148,13 +152,15 @@ int main(int argc, char* argv[])
 					SquaresDetector(img_tmp,squares,thresh_bin_square,k_approx_square,thresh_area_square,thresh_cos_square);
 
 					// Select square
-					if (!init_square_detection)	// Initialize detection with the more centered square
+					select_square(squares, sel_square, thresh_diff2, thresh_ratio2);
+
+					if (!init_square_detection)	// Initialize detection
 					{
 						usleep(time_init);
+						
 						cout << "Initialization...";
-						if (!squares.empty())
+						if (!sel_square.empty())
 						{
-							select_center_square(squares,sel_square,width,height);
 							init_square_detection = true;
 							no_detect = 0;
 							cout << "OK";
@@ -163,7 +169,7 @@ int main(int argc, char* argv[])
 					}
 					else
 					{
-						if (squares.empty())	// No detection
+						if (sel_square.empty())	// No detection
 						{
 							cout << "No detected squares: " << ++no_detect << "/" << max_no_detect << endl;
 							if (no_detect >= max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
@@ -172,25 +178,25 @@ int main(int argc, char* argv[])
 								cout << "Reinitialization..." << endl;
 							}
 						}
-						else	// Select square
+						else	// Subtented angles
 						{
 							no_detect = 0;
-							select_min_square(squares,sel_square);	// Select minimal area square
+							sub_angles_from_square(sel_square,sub_angles,roi.tl(),width,height,FOV_div2);
 						}
 					}
 
 					// Subtented angles
-					sub_angles_from_square(sel_square,sub_angles,ROI.tl(),width,height,FOV_div2);
-					cout << "Subtented angles : " << 180.0/CV_PI*sub_angles[0] << "\t" << 180.0/CV_PI*sub_angles[1] << "\t" << 180.0/CV_PI*sub_angles[2] << "\t" << 180.0/CV_PI*sub_angles[3] << endl;
+					if (init_square_detection)
+						cout << "Subtented angles : " << 180.0/CV_PI*sub_angles[0] << "\t" << 180.0/CV_PI*sub_angles[1] << "\t" << 180.0/CV_PI*sub_angles[2] << "\t" << 180.0/CV_PI*sub_angles[3] << endl;
 
 	#ifdef VIEWER_ON
 					if (init_square_detection)
-						draw_squares(img_src,sel_square,img_to_print,ROI);
+						draw_squares(img_src,sel_square,img_to_print,roi);
 					else
-						draw_squares(img_src,Square(4,Point(0,0)),img_to_print,ROI);
-					draw_squares(img_src,squares,img_dst,ROI);
+						draw_squares(img_src,Square(4,Point(0,0)),img_to_print,roi);
+					draw_squares(img_src,squares,img_dst,roi);
 					imshow(window_src_name,img_src);
-					imshow(window_canny_name, img_dst);
+					imshow(window_detection_name, img_dst);
 					imshow(window_dst_name,img_to_print); waitKey(10);
 	#endif
 
@@ -202,11 +208,14 @@ int main(int argc, char* argv[])
 					imwrite(str_buffer,img_to_print,save_param);
 	#endif
 
-					// Update ROI
-					if (init_square_detection)
-						update_roi(ROI,sel_square,roi_offsets,width,height);
-					else
-						ROI = Rect(0,0,width,height);	// Reinitialize ROI
+	#ifdef ROI
+					// Update roi
+					if (!sel_square.empty())
+						update_roi(roi,sel_square,roi_offsets,width,height);
+					else if (!init_square_detection)
+						roi = Rect(0,0,width,height);	// Reinitialize roi
+					// Else keep same ROI
+	#endif
 				}
 				else
 		        {
