@@ -34,16 +34,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <chrono>
 #include <unistd.h>
 #include "class_types.h"
+#include "drawing.h"
 #include "custom_functions.h"
 #include "img_processing.h"
 #include "camera.h"
 
 // Benchmark
-#define TIME_EXEC
+//#define TIME_EXEC
 
 // Debug flag
 #ifndef TIME_EXEC
-	#define VIEWER_ON	// Active viewer
+//	#define VIEWER_ON	// Active viewer
 //	#define SAVE_IMG	// Save images in results/
 #endif
 
@@ -52,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Image processing
 #ifndef ROI
-	#define UNDISTORT // Undistort image (check if it's working with ROI)
+	//#define UNDISTORT // Undistort image (check if it's working with ROI) => seems to not working
 #endif
 //#define CANNY	// Use Canny before detecting squares
 #define BLUR	// Blur images

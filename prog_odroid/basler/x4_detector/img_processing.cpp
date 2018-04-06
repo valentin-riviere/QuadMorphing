@@ -133,6 +133,9 @@ void SquaresDetector(const Mat & src, vector<Square> & squares, const int thresh
 	gray = src >= thresh_bin_square;
 #endif
 
+//	namedWindow("Digitized img", CV_WINDOW_AUTOSIZE );
+//	imshow("Digitized img",gray);
+
  	// find contours and store them all as a list
     findContours(gray, contours, RETR_LIST, CHAIN_APPROX_SIMPLE); 
 

@@ -56,7 +56,7 @@ const double ratio_canny = 3;
 const uint8_t kernel_size_canny = 3;
 
 // Parameters for squares detection
-const uint8_t thresh_bin_square = 65;		// Threshold to digitize image
+const uint8_t thresh_bin_square = 55;		// Threshold to digitize image
 const float k_approx_square = 0.02; 	// Ratio of perimeter for approximation error
 const float thresh_area_square = 1000.0;// Threshold for minimum area to detect
 const float thresh_cos_square = 0.1;	// Threshold on cos condition
@@ -189,11 +189,14 @@ int main(int argc, char* argv[])
 					if (init_square_detection)
 						cout << "Subtented angles : " << 180.0/CV_PI*sub_angles[0] << "\t" << 180.0/CV_PI*sub_angles[1] << "\t" << 180.0/CV_PI*sub_angles[2] << "\t" << 180.0/CV_PI*sub_angles[3] << endl;
 
-	#ifdef VIEWER_ON
+	#if defined VIEWER_ON || defined SAVE_IMG
 					if (init_square_detection)
 						draw_squares(img_src,sel_square,img_to_print,roi);
 					else
 						draw_squares(img_src,Square(4,Point(0,0)),img_to_print,roi);
+	#endif
+
+	#ifdef VIEWER_ON
 					draw_squares(img_src,squares,img_dst,roi);
 					imshow(window_src_name,img_src);
 					imshow(window_detection_name, img_dst);
@@ -202,8 +205,6 @@ int main(int argc, char* argv[])
 
 	#ifdef SAVE_IMG
 					// Save
-					sprintf(str_buffer,"results/rec_src_%d_%llu.png",num_img,img_time);
-					imwrite(str_buffer,img_src,save_param);
 					sprintf(str_buffer,"results/rec_dst_%d_%llu.png",num_img,img_time);
 					imwrite(str_buffer,img_to_print,save_param);
 	#endif
