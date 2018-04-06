@@ -1,0 +1,12 @@
+header_to_src.sh [-h] header_path dir_src... -- program to put licence header to src/headers files
+
+where:
+	-h			Show this help text
+	header_path	Path of the licence header
+	dir_src		Directory where sources/headers are
+
+Execute header_to_src.sh to src files (.cpp/.h/.c/.hpp/.sh) placed in directories passed as argument.
+
+It will add a licence header at the beginning of the source code.
+
+WARNING : The program doesn't check if a header is already present in source files.
