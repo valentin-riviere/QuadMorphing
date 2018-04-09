@@ -34,6 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Debug Flags
 //#define DEBUG_RECT_DETECT	// Use to debug Square detection
+#define PRINT_DIG_IMG	// Print digitized image
 
 using namespace cv;
 using namespace std;

@@ -59,10 +59,10 @@ void select_center_square(const vector<Square> & squares, Square & sel_square, c
 void select_min_square(const vector<Square> & squares, Square & sel_square);
 
 // Select the smallest square of the two squares with the same ratio (ratio^2 < thresh_ratio2) and same center (diff^2 < thresh_diff^2)
-void select_square(const vector<Square> & squares, Square & sel_square, const uint16_t & thresh_diff2, const float & thresh_ratio2);
+int8_t select_square(const vector<Square> & squares, Square & sel_square, const uint16_t & thresh_diff2, const float & thresh_ratio2);
 
-// Update ROI
-void update_roi(Rect & ROI, const Square & sel_square, const uint16_t * roi_offsets, const unsigned int & width, const unsigned int & height);
+// Update ROI : ROI = aperture + 2*roi_offset/100*aperture
+void update_roi(Rect & ROI, const Square & sel_square, const float * roi_offsets, const unsigned int & width, const unsigned int & height);
 
 // Find subtented angles from square (left, up, right, down : origin in the center of the image and positive on right and top of image)
 void sub_angles_from_square(const Square & square, float * sub_angles, const Point & roi_pos, const unsigned int & width, const unsigned int & height, const float * FOV_div2);

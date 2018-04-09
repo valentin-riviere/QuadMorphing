@@ -29,7 +29,7 @@ const uint16_t width = 800, height = 600;
 const uint16_t max_no_detect = 10;	// Maximum non detection before reinitialization
 
 // ROI
-const uint16_t roi_offsets[] = {100, 100}; // Offset on each sides of aperture to define ROI
+const float roi_offsets[2] = {25, 25}; // Offset on each sides of the aperture (in % of the aperture width on each side)
 
 // Angles for subtented angles processing (in rad)
 const float FOV_div2[2] = {CV_PI/180.0*15.0, CV_PI/180.0*15.0};	// FOV/2 {width,height}
@@ -37,7 +37,7 @@ float sub_angles[4] = {0, 0, 0, 0}; // Subtented angles Left/Up/Right/Down
 
 // Parameters for select square
 const uint16_t thresh_diff2 = 20*20;	// Diff^2 between 2 square centers (in px^2)
-const float thresh_ratio2 = 0.1;		// Diff between ratio^2 of 2 squares (no unit)
+const float thresh_ratio2 = 0.2;		// Diff between ratio^2 of 2 squares (no unit)
 
 // Name of windows
 const char* window_src_name = "Image src";
@@ -56,7 +56,7 @@ const double ratio_canny = 3;
 const uint8_t kernel_size_canny = 3;
 
 // Parameters for squares detection
-const uint8_t thresh_bin_square = 55;		// Threshold to digitize image
+const uint8_t thresh_bin_square = 100;	// Threshold to digitize image
 const float k_approx_square = 0.02; 	// Ratio of perimeter for approximation error
 const float thresh_area_square = 1000.0;// Threshold for minimum area to detect
 const float thresh_cos_square = 0.1;	// Threshold on cos condition
@@ -70,6 +70,7 @@ int main(int argc, char* argv[])
 	CGrabResultPtr ptrGrabResult;	// Ptr to results
 	bool init_square_detection = false; // To initialize square detection
 	uint16_t no_detect = 0;
+	int8_t state;
 	// OpenCV var init
 	Mat img_src = Mat(height,width,CV_8UC1), img_dst = Mat(height,width,CV_8UC1), img_tmp = Mat(height,width,CV_8UC1), img_to_print = Mat(height,width,CV_8UC3);
 	Mat cameraMatrix, distCoeffs;
@@ -152,7 +153,7 @@ int main(int argc, char* argv[])
 					SquaresDetector(img_tmp,squares,thresh_bin_square,k_approx_square,thresh_area_square,thresh_cos_square);
 
 					// Select square
-					select_square(squares, sel_square, thresh_diff2, thresh_ratio2);
+					state = select_square(squares, sel_square, thresh_diff2, thresh_ratio2);
 
 					if (!init_square_detection)	// Initialize detection
 					{
@@ -201,6 +202,40 @@ int main(int argc, char* argv[])
 					imshow(window_src_name,img_src);
 					imshow(window_detection_name, img_dst);
 					imshow(window_dst_name,img_to_print); waitKey(10);
+	#endif
+
+	#ifdef DEBUG
+					if(no_detect)
+					{
+						switch (state)
+						{
+							case -1:
+								cout << "No detected squares" << endl;
+								break;
+							case 0:
+								cout << "No pair squares" << endl;
+								break;
+							case 1:
+								cout << "No centered pair squares" << endl;
+								break;
+							case 2:
+								cout << "No similar ratio pair squares" << endl;
+								break;
+							default:
+								break;
+						}
+
+						if (init_square_detection)
+							draw_squares(img_src,sel_square,img_to_print,roi);
+						else
+							draw_squares(img_src,Square(4,Point(0,0)),img_to_print,roi);
+
+						draw_squares(img_src,squares,img_dst,roi);
+						imshow(window_src_name,img_src);
+						imshow(window_detection_name, img_dst);
+						imshow(window_dst_name,img_to_print); waitKey(10);
+						waitKey(0);
+					}
 	#endif
 
 	#ifdef SAVE_IMG

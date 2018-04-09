@@ -43,8 +43,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define TIME_EXEC
 
 // Debug flag
+#define DEBUG
 #ifndef TIME_EXEC
-//	#define VIEWER_ON	// Active viewer
+	#define VIEWER_ON	// Active viewer
 //	#define SAVE_IMG	// Save images in results/
 #endif
 

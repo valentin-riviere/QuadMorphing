@@ -153,8 +153,10 @@ void select_min_square(const vector<Square> & squares, Square & sel_square)
 /**
  * @function select_square
  */
-void select_square(const vector<Square> & squares, Square & sel_square, const uint16_t & thresh_diff2, const float & thresh_ratio2)
+int8_t select_square(const vector<Square> & squares, Square & sel_square, const uint16_t & thresh_diff2, const float & thresh_ratio2)
 {
+	int8_t out(-1); // Return value depends of passed step
+
 	vector<vector<Square> > squares_2;	// Vector of 2 associated squares
 	vector<Square> squares_out;
 	vector<Point> p;				// Centers of squares
@@ -176,6 +178,7 @@ void select_square(const vector<Square> & squares, Square & sel_square, const ui
 		c.y = (squares[i][0].y + squares[i][1].y + squares[i][2].y + squares[i][3].y)/4;
 
 		p.push_back(c);
+		out = 0;
 	}
 
 	// Distance^2 between squares centers
@@ -184,6 +187,7 @@ void select_square(const vector<Square> & squares, Square & sel_square, const ui
 		for( size_t j = i+1; j < p.size(); j++ )
 		{
 			uint32_t dist2 = (p[j].x-p[i].x)*(p[j].x-p[i].x)+(p[j].y-p[i].y)*(p[j].y-p[i].y);
+			out = 1;
 		#ifdef DEBUG_SEL_SQUARE
 			cout << "Center distance error : " <<  dist2 << endl;
 		#endif
@@ -191,6 +195,7 @@ void select_square(const vector<Square> & squares, Square & sel_square, const ui
 			{
 				vector<Square> s_2; s_2.push_back(squares[i]); s_2.push_back(squares[j]);
 				squares_2.push_back(s_2);
+				out = 2;
 			}
 		}
 	}
@@ -221,6 +226,7 @@ void select_square(const vector<Square> & squares, Square & sel_square, const ui
 			squares_out.push_back(s2);
 			areas.push_back(w1*h1);
 			areas.push_back(w2*h2);
+			out = 3;
 		}
 	}
 
@@ -246,25 +252,27 @@ void select_square(const vector<Square> & squares, Square & sel_square, const ui
 #ifdef DEBUG_SEL_SQUARE
 	print_squares(img,sel_square,"Final selection",0);
 #endif
+
+	return out;
 }
 
 /**
  * @function select_center_square
  */
-void update_roi(Rect & ROI, const Square & sel_square, const uint16_t * roi_offsets, const unsigned int & width, const unsigned int & height)
+void update_roi(Rect & ROI, const Square & sel_square, const float * roi_offsets, const unsigned int & width, const unsigned int & height)
 {
 	Rect ext_contour = rect_extern_contour(sel_square);
-	uint16_t tmp;
-	tmp = ROI.x + ext_contour.x - roi_offsets[0];
+	uint16_t tmp, o_w = ext_contour.width*roi_offsets[0]/100, o_h = ext_contour.height*roi_offsets[0]/100;
+	tmp = ROI.x + ext_contour.x - o_w;
 	if (tmp < 0 || tmp > width) ROI.x = 0;
 		else ROI.x = tmp;
-	tmp = ROI.y + ext_contour.y - roi_offsets[1];
+	tmp = ROI.y + ext_contour.y - o_h;
 	if (tmp < 0 || tmp > height) ROI.y = 0;
 		else ROI.y = tmp;
-	tmp = ext_contour.width + 2*roi_offsets[0];
+	tmp = ext_contour.width + 2*o_w;
 	if (tmp + ROI.x > width) ROI.width = width - ROI.x;
 		else ROI.width = tmp;
-	tmp = ext_contour.height + 2*roi_offsets[1];
+	tmp = ext_contour.height + 2*o_h;
 	if (tmp + ROI.y > height) ROI.height = height - ROI.y;
 		else ROI.height = tmp;
 }
