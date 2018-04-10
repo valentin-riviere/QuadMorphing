@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <errno.h>
 #include <string.h>
 #include <stdint.h>
+#include "types_convert.h"
 
 using namespace std;
 
@@ -66,12 +67,16 @@ int main(void)
 	}
 
 	// Write on Serial Port
-	char write_buffer[] = "TU_LE_SAIS";
+	float write_float[] = {3.14, -5.2e3};
+//	char write_buffer[] = "TU_LE_SAIS";
+	uint8_t write_buffer[8]; float_2_uint8(write_float,write_buffer,2);
 	unsigned char header = 170;
 	int bytes_written = 0;
 
+	// Write header
 	write(fd,&header,1);
-	bytes_written = write(fd,write_buffer,sizeof(write_buffer)-1);
+//	bytes_written = write(fd,write_buffer,sizeof(write_buffer)-1);
+	bytes_written = write(fd,write_buffer,sizeof(write_buffer));
 	if (bytes_written < 0)
 		cout << "UART TX error" << endl;
 
@@ -90,7 +95,12 @@ int main(void)
 	}while(bytes_read <= 0);
 
 	if (read_buffer[0] == header)
-		cout << &read_buffer[1] << endl;
+	{
+		float out[2];
+		uint8_2_float(&(read_buffer[1]),out,2);
+		cout << "1st : " << out[0] << endl;
+		cout << "2nd : " << out[1] << endl;
+	}
 
 	// Close device
 	close(fd);
