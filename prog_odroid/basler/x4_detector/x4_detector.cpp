@@ -20,8 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /// Global variables
 
 // Timing parameters
-const chrono::milliseconds t_polling(12); // Polling time (in ms)
-const uint32_t time_init = 100000;	// Duration between two initialization (in us)
+const chrono::milliseconds t_polling(20); // Polling time (in ms)
+const uint32_t time_init = 0;	// Duration between two initialization (in us)
 
 // Grabbing
 const uint16_t grab_time_out = 1000; // Time out in ms
@@ -29,7 +29,7 @@ const uint16_t width = 800, height = 600;
 const uint16_t max_no_detect = 10;	// Maximum non detection before reinitialization
 
 // ROI
-const float roi_offsets[2] = {25, 25}; // Offset on each sides of the aperture (in % of the aperture width on each side)
+const float roi_offsets[2] = {50, 50}; // Offset on each sides of the aperture (in % of the aperture width on each side)
 
 // Angles for subtented angles processing (in rad)
 const float FOV_div2[2] = {CV_PI/180.0*15.0, CV_PI/180.0*15.0};	// FOV/2 {width,height}
@@ -125,28 +125,36 @@ int main(int argc, char* argv[])
 
 					// Convert for openCV and get time
 					img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
+
+					// Copy data with ROI
+	#ifdef ROI
 					img_tmp.release(); img_tmp = Mat(roi.size(),CV_8UC1);	// Resize tmp matrix
 					img_dst.release(); img_dst = Mat(roi.size(),CV_8UC1);	// Resize destination matrix
 					img_src(roi).copyTo(img_tmp);							// select roi
 					img_src(roi).copyTo(img_dst);
-					img_time = ptrGrabResult->GetTimeStamp();				// Get acquisition time
+	#else
+					img_tmp = img_src;
+	#endif
+					
+					// Get acquisition time
+					img_time = ptrGrabResult->GetTimeStamp();
 
 	#ifdef UNDISTORT		// Doesn't work with roi!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					undistort(img_tmp, img_dst, cameraMatrix, distCoeffs);
-					img_dst.copyTo(img_tmp);
+					img_tmp = img_dst;
 	#endif
 
 	#ifdef BLUR
 					// Reduce noise with blur
 					blur(img_tmp, img_dst, Size(size_blur,size_blur));
-					img_dst.copyTo(img_tmp);
+					img_tmp = img_dst;
 	#endif
 
 	#ifdef CANNY
 					// Canny detector
 					Mat edges, cedges(img_tmp.size(),img_tmp.type(),Scalar(0));
 					Canny(img_tmp, img_dst, thresh_canny, thresh_canny*ratio_canny, kernel_size_canny);
-					img_dst.copyTo(img_tmp);
+					img_tmp = img_dst;
 	#endif
 
 					// Squares Detector [Suzuki 85]
