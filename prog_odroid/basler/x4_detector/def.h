@@ -40,10 +40,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "camera.h"
 
 // Benchmark
-//#define TIME_EXEC
+#define TIME_EXEC
 
 // Debug flag
-#define DEBUG
+//#define DEBUG
 #ifndef TIME_EXEC
 	#define VIEWER_ON	// Active viewer
 //	#define SAVE_IMG	// Save images in results/
