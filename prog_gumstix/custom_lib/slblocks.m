@@ -10,4 +10,4 @@ function blkStruct = slblocks
 		% 'My Library' is the library name that appears 
              % in the Library Browser
 
-		blkStruct.Browser = Browser; 
+		blkStruct.Browser = Browser;    
