@@ -74,6 +74,9 @@ Ts_Display = 1/20;
     display('     done!');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Acc calibration
+load('AccCalib_Transformation_X4morf_Robot'); 
+
 % Quadri's parameters
 RobotParameters;
 
