@@ -1,14 +1,2 @@
 # Ignore objects
 *.o
-
-prog_gumstix/CalibIMU/boost_thread-vc90-mt-1_43.dll
-prog_gumstix/CalibIMU/Client.h
-prog_gumstix/CalibIMU/data_acc.mat
-prog_gumstix/CalibIMU/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest
-prog_gumstix/CalibIMU/Microsoft.VC90.CRT/msvcp90.dll
-prog_gumstix/CalibIMU/Microsoft.VC90.CRT/msvcr90.dll
-prog_gumstix/CalibIMU/poi.mat
-prog_gumstix/CalibIMU/SfunCPP_RecoverVicon_SDK.cpp
-prog_gumstix/CalibIMU/SfunCPP_RecoverVicon_SDK.h
-prog_gumstix/CalibIMU/ViconDataStreamSDK_CPP.dll
-prog_gumstix/CalibIMU/ViconDataStreamSDK_CPP.lib
