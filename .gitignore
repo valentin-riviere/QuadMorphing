@@ -1,3 +1,5 @@
+# Ignore objects
+*.o
 
 prog_gumstix/CalibIMU/boost_thread-vc90-mt-1_43.dll
 prog_gumstix/CalibIMU/Client.h

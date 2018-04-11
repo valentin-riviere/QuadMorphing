@@ -67,9 +67,9 @@ int main(int argc, char* argv[])
 	uint64_t num_img = 0;	// Image index
 	uint64_t img_time;
 	chrono::high_resolution_clock::time_point t_start, t_prev = chrono::high_resolution_clock::now(), t_begin = chrono::high_resolution_clock::now();
-	CGrabResultPtr ptrGrabResult;	// Ptr to results
+	CGrabResultPtr ptrGrabResult;		// Ptr to results
 	bool init_square_detection = false; // To initialize square detection
-	uint16_t no_detect = 0;
+	uint8_t no_detect = 0;
 	int8_t state;
 	// OpenCV var init
 	Mat img_src = Mat(height,width,CV_8UC1), img_dst = Mat(height,width,CV_8UC1), img_tmp = Mat(height,width,CV_8UC1), img_to_print = Mat(height,width,CV_8UC3);
