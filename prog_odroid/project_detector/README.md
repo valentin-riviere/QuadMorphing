@@ -1,13 +1,16 @@
-# X4_detector
+# project_detector
 
-Use [Suzuki 85] and Ramer Douglas Peucker algorithm to extract squares from image.
-Then, the squares detected are compared in pairs :
-1) Distance between centers
-2) Ratio (width/height) between both
-3) Selection of the minimal area square
+Execute project_detector to detect square and send subtented angles to gumstix via Serial Communication.
 
-## Parameters :
-All parameters are define by global variables in x4_detector
+## To run :
+1) Edit GIT_REPO in makefile
+2) make / make debug
+3) Plug RX/TX CON10 (pins 6/8) to gumstix
+4) Run ./project_detector
+5) Run Gumstix model
+
+## Communication :
+### INPUT
 - uint16_t t_polling : Time between 2 frames
 - uint8_t MaxNumBuffer : Number of frames max per buffer
 - uint16_t width/height : Width/Height for camera
@@ -25,11 +28,8 @@ All parameters are define by global variables in x4_detector
 - uint16_t thresh_diff : Distance maximum between 2 square centers
 - float thresh_ratio : Maximal difference between 2 square ratios
 
-## Flags in def.h :
-- TIME_EXEC : Execute algo and measure time of execution
-- VIEWER_ON : Active viewer (need disabling TIME_EXEC)
-- DEBUG : Use to debug only when miss detection
-- ROI : Use ROI with roi_offsets parameters
-- BLUR : Blur image before detection
-- UNDISTORT : Not implemented yet (path_dist_coeffs is relative path to saved coeffs)
-- CANNY : Use Canny before detection (not tested yet)
+### OUTPUT
+- float sub_angles[4] : Subtented angles (in rad)
+- uint64_t frame_time : Frame time (in camera ticks)
+- uint8_t no_detect : Number of false detections
+- uint8_t init_detect : Initialization done/not done
