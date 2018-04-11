@@ -1,0 +1,8 @@
+# Ignore all excepts specified files
+*
+!.gitignore
+!calc_bias_fact.m
+!COM_CalibIMU.mdl
+!QUARC_CalibIMU.mdl
+!init_CalibIMU.mdl
+!README.txt
