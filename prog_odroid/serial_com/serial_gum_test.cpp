@@ -19,8 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <errno.h>
 #include <signal.h>
 #include "serial_lib.h"
+#include "types_convert.h"
 
 using namespace std;
+
+// Debug with RX/TX connected
+#define AUTO_DEBUG
 
 #define CONNECTION_POOL_TIME 500000	// In us, time between two read buffer for asking connection
 #define HEADER 170
@@ -53,7 +57,10 @@ int main(void)
 		return -1;
 	}
 
-send_start_serial();
+#ifdef AUTO_DEBUG
+	// Send start as Gumstix
+	send_start_serial();
+#endif
 	
 	// Program loop
 	while (loop_on)
@@ -77,9 +84,13 @@ send_start_serial();
 		}
 		else	// Socket is initialized
 		{
-			// Write on Serial Port two uint16_t
-			uint8_t write_buffer[] = {1,2,3,4};
-			bytes_written = header_write_serial(write_buffer,sizeof(write_buffer),HEADER);
+			// Convert in uint8
+			float f_send[] = {3.14, -5e3}, f_read[2];
+			uint8_t write_buffer[255]; // = {1,2,3,4};
+			float_2_uint8(f_send,write_buffer,2);
+
+			// Write on Serial Port
+			bytes_written = header_write_serial(write_buffer,sizeof(f_send),HEADER);
 			if (bytes_written < 0)	// If troubles, exit program
 			{
 				cout << "UART TX error: " << strerror(errno) << endl;
@@ -101,8 +112,15 @@ send_start_serial();
 			}
 			else	// read_buffer contains gumstix data
 			{
-				cout << read_buffer << endl;
 				gumstix_fail = 0;	// Reset gumstix fails when receive something
+				cout << bytes_read << " bytes read!" << endl;
+				for (uint8_t i = 0 ; i < bytes_read ; i++)
+					printf("%x ",read_buffer[i]);
+				cout << endl;
+				uint8_2_float(read_buffer, f_read, 2);
+				for (uint8_t i = 0 ; i < sizeof(f_read)/4 ; i++)
+					printf("%f ",f_read[i]);
+				cout << endl;
 			}
 		}
 	}

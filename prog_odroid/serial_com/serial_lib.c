@@ -99,7 +99,7 @@ int8_t header_write_serial(const uint8_t* write_buffer, const uint8_t NbByteToWr
 {
 	int bytes_written = 0;
 
-	write(fd,&header,1);
+	bytes_written = write(fd,&header,1);
 	bytes_written = write(fd,write_buffer,NbByteToWrite);
 	if (bytes_written < 0)
 		return -1;
