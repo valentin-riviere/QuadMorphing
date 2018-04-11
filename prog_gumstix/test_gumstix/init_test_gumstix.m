@@ -77,9 +77,6 @@ Ts_Display = 1/20;
 % Quadri's parameters
 RobotParameters;
 
-% Acc calibration
-load('AccCalib_Transformation_X4morf_Robot');    %%%%%% TO MODIFYYYYYYYYYYYYYYYYYYYYYY
-
 %%
     % Generation of files to copy on the gumstix
 GenereCOM(ComModelName, ComMinSampleTime);

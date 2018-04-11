@@ -32,7 +32,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1529"
+    ComputedModelVersion    "1.1569"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -64,7 +64,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[9]
+	Filter			[57]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -74,24 +74,24 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		6
+	Dimension		7
 	Object {
 	  $ObjectID		  5
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9355"
+	  Extents		  [1646.0, 849.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [525.26945292611424, 471.93776155275032]
+	}
+	Object {
+	  $ObjectID		  6
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1646.0, 849.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-209.27936792911737, 3.5824109305982148]
-	}
-	Object {
-	  $ObjectID		  6
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "9355"
-	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [294.76440240198019, 145.44432543973633]
+	  Offset		  [-260.73497112303016, -60.4175890694018]
 	}
 	Object {
 	  $ObjectID		  7
@@ -100,7 +100,7 @@ Model {
 	  LoadSaveID		  "9511"
 	  Extents		  [1646.0, 849.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-2.625, 0.0]
+	  Offset		  [-288.10450632519292, -255.0]
 	}
 	Object {
 	  $ObjectID		  8
@@ -108,8 +108,8 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "9548"
 	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [2.38]
-	  Offset		  [-1.1368683772161603e-13, 0.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [13.125, -78.3193277310925]
 	}
 	Object {
 	  $ObjectID		  9
@@ -129,6 +129,15 @@ Model {
 	  ZoomFactor		  [1.0]
 	  Offset		  [-181.50631531164629, -90.0]
 	}
+	Object {
+	  $ObjectID		  11
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10223"
+	  Extents		  [1646.0, 849.0]
+	  ZoomFactor		  [2.5]
+	  Offset		  [14.042857142857201, -86.4845676708512]
+	}
 	PropName		"EditorsInfo"
       }
     }
@@ -140,9 +149,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Apr 09 18:32:13 2018"
-  RTWModifiedTimeStamp	  445199532
-  ModelVersionFormat	  "1.%<AutoIncrement:1529>"
+  LastModifiedDate	  "Wed Apr 11 11:08:19 2018"
+  RTWModifiedTimeStamp	  445345695
+  ModelVersionFormat	  "1.%<AutoIncrement:1569>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -167,7 +176,7 @@ Model {
   BlockDescriptionStringDataTip	off
   ToolBar		  on
   StatusBar		  on
-  BrowserShowLibraryLinks off
+  BrowserShowLibraryLinks on
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
   PauseTimes		  "5"
@@ -184,7 +193,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    11
+    $ObjectID		    12
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "COM_test_gumstix"
     Array {
@@ -227,13 +236,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      12
+      $ObjectID		      13
       Version		      "1.15.1"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.15.1"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
@@ -270,7 +279,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.15.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -306,7 +315,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "1.15.1"
 	  BlockReduction	  on
 	  BooleanDataType	  on
@@ -350,7 +359,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "1.15.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -440,7 +449,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "1.15.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -480,7 +489,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "1.15.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
@@ -496,7 +505,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "1.15.1"
 	  SFSimEcho		  on
 	  SimCtrlC		  on
@@ -508,7 +517,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "1.15.1"
 	  SystemTargetFile	  "ert.tlc"
 	  TLCOptions		  ""
@@ -559,7 +568,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      21
+	      $ObjectID		      22
 	      Version		      "1.15.1"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -602,7 +611,7 @@ Model {
 	    }
 	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      22
+	      $ObjectID		      23
 	      Version		      "1.15.1"
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
@@ -735,7 +744,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  23
+	  $ObjectID		  24
 	  Version		  "1.15.1"
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -772,11 +781,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    12
+    $ObjectID		    13
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    24
+    $ObjectID		    25
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -975,12 +984,6 @@ Model {
       OutPortSampleTime	      "-1"
     }
     Block {
-      BlockType		      S-Function
-      FunctionName	      "system"
-      SFunctionModules	      "''"
-      PortCounts	      "[]"
-    }
-    Block {
       BlockType		      Saturate
       UpperLimitSource	      "Dialog"
       UpperLimit	      "0.5"
@@ -1046,7 +1049,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "10246"
+    SIDHighWatermark	    "10348"
     Block {
       BlockType		      Inport
       Name		      "Serial_In_Teensy"
@@ -1059,7 +1062,7 @@ Model {
       SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:15\n    ProcessRS232InportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Reception_Block;"
@@ -1068,7 +1071,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  15
 	  Object {
-	    $ObjectID		    26
+	    $ObjectID		    27
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
@@ -1077,7 +1080,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    27
+	    $ObjectID		    28
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1099,7 +1102,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    28
+	    $ObjectID		    29
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1131,7 +1134,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    29
+	    $ObjectID		    30
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1174,7 +1177,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    30
+	    $ObjectID		    31
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Reception Sample Time [s]"
@@ -1183,7 +1186,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    31
+	    $ObjectID		    32
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1199,7 +1202,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    32
+	    $ObjectID		    33
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
@@ -1209,7 +1212,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    33
+	    $ObjectID		    34
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1225,7 +1228,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    34
+	    $ObjectID		    35
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -1234,7 +1237,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    35
+	    $ObjectID		    36
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1251,7 +1254,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    36
+	    $ObjectID		    37
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -1260,7 +1263,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    37
+	    $ObjectID		    38
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -1270,7 +1273,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    38
+	    $ObjectID		    39
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1287,7 +1290,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    39
+	    $ObjectID		    40
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -1297,7 +1300,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    40
+	    $ObjectID		    41
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -1319,12 +1322,12 @@ Model {
       ZOrder		      29
       Port		      "2"
       IconDisplay	      "Port number"
-      OutDataTypeStr	      "int16"
+      OutDataTypeStr	      "uint8"
       PortDimensions	      "Gumstix.RS232.Reception(2).NbData"
       SampleTime	      "Gumstix.RS232.Reception(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		41
+	$ObjectID		42
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:15\n    ProcessRS232InportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Reception_Block;"
@@ -1333,16 +1336,16 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  15
 	  Object {
-	    $ObjectID		    42
+	    $ObjectID		    43
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "27"
+	    Value		    "26"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    43
+	    $ObjectID		    44
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1359,12 +1362,12 @@ Model {
 	    }
 	    Name		    "RS232_DataType"
 	    Prompt		    "RS232 Data Type"
-	    Value		    "int16"
+	    Value		    "unsigned char8"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 2);\n"
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    44
+	    $ObjectID		    45
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1396,7 +1399,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    45
+	    $ObjectID		    46
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1439,7 +1442,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    46
+	    $ObjectID		    47
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Reception Sample Time [s]"
@@ -1448,7 +1451,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    47
+	    $ObjectID		    48
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1464,7 +1467,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    48
+	    $ObjectID		    49
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
@@ -1474,7 +1477,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    49
+	    $ObjectID		    50
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1490,7 +1493,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    50
+	    $ObjectID		    51
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -1499,7 +1502,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    51
+	    $ObjectID		    52
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1516,7 +1519,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    52
+	    $ObjectID		    53
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -1525,7 +1528,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    53
+	    $ObjectID		    54
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -1535,7 +1538,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    54
+	    $ObjectID		    55
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1552,7 +1555,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    55
+	    $ObjectID		    56
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -1562,7 +1565,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    56
+	    $ObjectID		    57
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -1599,7 +1602,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"150"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In_from_Teensy"
@@ -1642,7 +1645,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "175"
+	    ZoomFactor		    "200"
 	    Block {
 	      BlockType		      Constant
 	      Name		      "FOV_x/y (in rad)"
@@ -1674,7 +1677,7 @@ Model {
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[1 2 2 1 1 1 4]"
+	      Inputs		      "[2 4 4 2 2 2 8]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1700,118 +1703,16 @@ Model {
 	      SampleTime	      "-1"
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "float32 to uint16 (BE)"
-	      SID		      "10243"
-	      RequirementInfo	      "{} %GIDa_a89b23cf_22b9_41d2_a1bc_a676d9075db7"
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)"
+	      SID		      "10332"
 	      Ports		      [1, 1]
 	      Position		      [195, 241, 280, 259]
-	      ZOrder		      92
-	      LibraryVersion	      "1.32"
-	      ErrorFcn		      "Stateflow.Translate.translate"
-	      PermitHierarchicalResolution "ExplicitOnly"
-	      TreatAsAtomicUnit	      on
-	      RequestExecContextInheritance off
-	      SFBlockType	      "MATLAB Function"
-	      Variant		      off
-	      System {
-		Name			"float32 to uint16 (BE)"
-		Location		[223, 338, 826, 833]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		SIDHighWatermark	"18"
-		Block {
-		  BlockType		  Inport
-		  Name			  "float32_array"
-		  SID			  "10243::1"
-		  Position		  [20, 101, 40, 119]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Demux
-		  Name			  " Demux "
-		  SID			  "10243::17"
-		  Ports			  [1, 1]
-		  Position		  [270, 230, 320, 270]
-		  ZOrder		  8
-		  Outputs		  "1"
-		}
-		Block {
-		  BlockType		  S-Function
-		  Name			  " SFunction "
-		  SID			  "10243::16"
-		  Tag			  "Stateflow S-Function COM_test_gumstix 9"
-		  Ports			  [1, 2]
-		  Position		  [180, 100, 230, 160]
-		  ZOrder		  7
-		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[1 2]"
-		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
-		  Port {
-		    PortNumber		    2
-		    Name		    "uint16_out"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
-		  }
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  " Terminator "
-		  SID			  "10243::18"
-		  Position		  [460, 241, 480, 259]
-		  ZOrder		  9
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "uint16_out"
-		  SID			  "10243::5"
-		  Position		  [460, 101, 480, 119]
-		  ZOrder		  -5
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  " SFunction "
-		  SrcPort		  1
-		  DstBlock		  " Demux "
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  2
-		  SrcBlock		  " Demux "
-		  SrcPort		  1
-		  DstBlock		  " Terminator "
-		  DstPort		  1
-		}
-		Line {
-		  Name			  "uint16_out"
-		  ZOrder		  3
-		  Labels		  [0, 0]
-		  SrcBlock		  " SFunction "
-		  SrcPort		  2
-		  DstBlock		  "uint16_out"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  "float32_array"
-		  SrcPort		  1
-		  DstBlock		  " SFunction "
-		  DstPort		  1
-		}
-	      }
+	      ZOrder		      250
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
 	    }
 	    Block {
 	      BlockType		      Constant
@@ -1836,6 +1737,78 @@ Model {
 	      SampleTime	      "-1"
 	    }
 	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)"
+	      SID		      "10326"
+	      Ports		      [1, 1]
+	      Position		      [195, 1, 280, 19]
+	      ZOrder		      244
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)1"
+	      SID		      "10327"
+	      Ports		      [1, 1]
+	      Position		      [195, 41, 280, 59]
+	      ZOrder		      245
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)2"
+	      SID		      "10328"
+	      Ports		      [1, 1]
+	      Position		      [195, 81, 280, 99]
+	      ZOrder		      246
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)3"
+	      SID		      "10329"
+	      Ports		      [1, 1]
+	      Position		      [195, 121, 280, 139]
+	      ZOrder		      247
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)4"
+	      SID		      "10330"
+	      Ports		      [1, 1]
+	      Position		      [195, 161, 280, 179]
+	      ZOrder		      248
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)5"
+	      SID		      "10331"
+	      Ports		      [1, 1]
+	      Position		      [195, 201, 280, 219]
+	      ZOrder		      249
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "width/height"
 	      SID		      "10214"
@@ -1856,25 +1829,25 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      17
+	      ZOrder		      50
 	      SrcBlock		      "width/height"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      2
+	      DstBlock		      "uint16 to uint8 (BE)1"
+	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      14
+	      ZOrder		      55
 	      SrcBlock		      "binning"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      4
+	      DstBlock		      "uint16 to uint8 (BE)3"
+	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      15
+	      ZOrder		      53
 	      SrcBlock		      "offset_x/y"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      3
+	      DstBlock		      "uint16 to uint8 (BE)2"
+	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      8
@@ -1884,39 +1857,81 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      13
+	      ZOrder		      56
 	      SrcBlock		      "expoAutoMax_us"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)4"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      49
+	      SrcBlock		      "MaxNumBuffer"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      58
+	      SrcBlock		      "grabTimeOut_ms"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)5"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      60
+	      SrcBlock		      "FOV_x/y (in rad)"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      61
+	      SrcBlock		      "float32 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      7
+	    }
+	    Line {
+	      ZOrder		      48
+	      SrcBlock		      "uint16 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      51
+	      SrcBlock		      "uint16 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      52
+	      SrcBlock		      "uint16 to uint8 (BE)2"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      54
+	      SrcBlock		      "uint16 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      57
+	      SrcBlock		      "uint16 to uint8 (BE)4"
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      18
-	      SrcBlock		      "MaxNumBuffer"
-	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      19
-	      SrcBlock		      "grabTimeOut_ms"
+	      ZOrder		      59
+	      SrcBlock		      "uint16 to uint8 (BE)5"
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      6
-	    }
-	    Line {
-	      ZOrder		      20
-	      SrcBlock		      "FOV_x/y (in rad)"
-	      SrcPort		      1
-	      DstBlock		      "float32 to uint16 (BE)"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      21
-	      SrcBlock		      "float32 to uint16 (BE)"
-	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      7
 	    }
 	  }
 	}
@@ -1932,7 +1947,7 @@ Model {
 	  System {
 	    Name		    "DETECTOR_PARAMETERS"
 	    Location		    [-8, 0, 1688, 1026]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1943,7 +1958,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "200"
+	    ZoomFactor		    "250"
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux6"
@@ -1953,7 +1968,7 @@ Model {
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[1 1 2 1 2 1 2]"
+	      Inputs		      "[2 2 4 2 4 2 4]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1979,346 +1994,40 @@ Model {
 	      SampleTime	      "-1"
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "float32 to int16 (BE)"
-	      SID		      "10244"
-	      RequirementInfo	      "{} %GIDa_8b95cdf7_5fb1_48c7_a2e9_ccae474b0dda"
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)"
+	      SID		      "10334"
 	      Ports		      [1, 1]
 	      Position		      [175, 41, 260, 59]
-	      ZOrder		      91
-	      LibraryVersion	      "1.32"
-	      ErrorFcn		      "Stateflow.Translate.translate"
-	      PermitHierarchicalResolution "ExplicitOnly"
-	      TreatAsAtomicUnit	      on
-	      RequestExecContextInheritance off
-	      SFBlockType	      "MATLAB Function"
-	      Variant		      off
-	      System {
-		Name			"float32 to int16 (BE)"
-		Location		[223, 338, 826, 833]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		SIDHighWatermark	"18"
-		Block {
-		  BlockType		  Inport
-		  Name			  "float32_array"
-		  SID			  "10244::1"
-		  Position		  [20, 101, 40, 119]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Demux
-		  Name			  " Demux "
-		  SID			  "10244::17"
-		  Ports			  [1, 1]
-		  Position		  [270, 230, 320, 270]
-		  ZOrder		  8
-		  Outputs		  "1"
-		}
-		Block {
-		  BlockType		  S-Function
-		  Name			  " SFunction "
-		  SID			  "10244::16"
-		  Tag			  "Stateflow S-Function COM_test_gumstix 10"
-		  Ports			  [1, 2]
-		  Position		  [180, 100, 230, 160]
-		  ZOrder		  7
-		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[1 2]"
-		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
-		  Port {
-		    PortNumber		    2
-		    Name		    "int16_out"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
-		  }
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  " Terminator "
-		  SID			  "10244::18"
-		  Position		  [460, 241, 480, 259]
-		  ZOrder		  9
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "int16_out"
-		  SID			  "10244::5"
-		  Position		  [460, 101, 480, 119]
-		  ZOrder		  -5
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  "float32_array"
-		  SrcPort		  1
-		  DstBlock		  " SFunction "
-		  DstPort		  1
-		}
-		Line {
-		  Name			  "int16_out"
-		  ZOrder		  2
-		  Labels		  [0, 0]
-		  SrcBlock		  " SFunction "
-		  SrcPort		  2
-		  DstBlock		  "int16_out"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  3
-		  SrcBlock		  " Demux "
-		  SrcPort		  1
-		  DstBlock		  " Terminator "
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  " SFunction "
-		  SrcPort		  1
-		  DstBlock		  " Demux "
-		  DstPort		  1
-		}
-	      }
+	      ZOrder		      245
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "float32 to int16 (BE)1"
-	      SID		      "10245"
-	      RequirementInfo	      "{} %GIDa_e4ddd6fb_9286_4c5b_9a8f_b8e6617d18bd"
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)1"
+	      SID		      "10335"
 	      Ports		      [1, 1]
 	      Position		      [175, 121, 260, 139]
-	      ZOrder		      92
-	      LibraryVersion	      "1.32"
-	      ErrorFcn		      "Stateflow.Translate.translate"
-	      PermitHierarchicalResolution "ExplicitOnly"
-	      TreatAsAtomicUnit	      on
-	      RequestExecContextInheritance off
-	      SFBlockType	      "MATLAB Function"
-	      Variant		      off
-	      System {
-		Name			"float32 to int16 (BE)1"
-		Location		[223, 338, 826, 833]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		SIDHighWatermark	"18"
-		Block {
-		  BlockType		  Inport
-		  Name			  "float32_array"
-		  SID			  "10245::1"
-		  Position		  [20, 101, 40, 119]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Demux
-		  Name			  " Demux "
-		  SID			  "10245::17"
-		  Ports			  [1, 1]
-		  Position		  [270, 230, 320, 270]
-		  ZOrder		  8
-		  Outputs		  "1"
-		}
-		Block {
-		  BlockType		  S-Function
-		  Name			  " SFunction "
-		  SID			  "10245::16"
-		  Tag			  "Stateflow S-Function COM_test_gumstix 11"
-		  Ports			  [1, 2]
-		  Position		  [180, 100, 230, 160]
-		  ZOrder		  7
-		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[1 2]"
-		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
-		  Port {
-		    PortNumber		    2
-		    Name		    "int16_out"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
-		  }
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  " Terminator "
-		  SID			  "10245::18"
-		  Position		  [460, 241, 480, 259]
-		  ZOrder		  9
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "int16_out"
-		  SID			  "10245::5"
-		  Position		  [460, 101, 480, 119]
-		  ZOrder		  -5
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  "float32_array"
-		  SrcPort		  1
-		  DstBlock		  " SFunction "
-		  DstPort		  1
-		}
-		Line {
-		  Name			  "int16_out"
-		  ZOrder		  2
-		  Labels		  [0, 0]
-		  SrcBlock		  " SFunction "
-		  SrcPort		  2
-		  DstBlock		  "int16_out"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  3
-		  SrcBlock		  " Demux "
-		  SrcPort		  1
-		  DstBlock		  " Terminator "
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  " SFunction "
-		  SrcPort		  1
-		  DstBlock		  " Demux "
-		  DstPort		  1
-		}
-	      }
+	      ZOrder		      246
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "float32 to int16 (BE)2"
-	      SID		      "10246"
-	      RequirementInfo	      "{} %GIDa_c45e3c3d_17a0_4f9b_84fd_e037fd2f8d06"
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)2"
+	      SID		      "10336"
 	      Ports		      [1, 1]
 	      Position		      [175, 201, 260, 219]
-	      ZOrder		      93
-	      LibraryVersion	      "1.32"
-	      ErrorFcn		      "Stateflow.Translate.translate"
-	      PermitHierarchicalResolution "ExplicitOnly"
-	      TreatAsAtomicUnit	      on
-	      RequestExecContextInheritance off
-	      SFBlockType	      "MATLAB Function"
-	      Variant		      off
-	      System {
-		Name			"float32 to int16 (BE)2"
-		Location		[223, 338, 826, 833]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		SIDHighWatermark	"18"
-		Block {
-		  BlockType		  Inport
-		  Name			  "float32_array"
-		  SID			  "10246::1"
-		  Position		  [20, 101, 40, 119]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Demux
-		  Name			  " Demux "
-		  SID			  "10246::17"
-		  Ports			  [1, 1]
-		  Position		  [270, 230, 320, 270]
-		  ZOrder		  8
-		  Outputs		  "1"
-		}
-		Block {
-		  BlockType		  S-Function
-		  Name			  " SFunction "
-		  SID			  "10246::16"
-		  Tag			  "Stateflow S-Function COM_test_gumstix 12"
-		  Ports			  [1, 2]
-		  Position		  [180, 100, 230, 160]
-		  ZOrder		  7
-		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[1 2]"
-		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
-		  Port {
-		    PortNumber		    2
-		    Name		    "int16_out"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
-		  }
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  " Terminator "
-		  SID			  "10246::18"
-		  Position		  [460, 241, 480, 259]
-		  ZOrder		  9
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "int16_out"
-		  SID			  "10246::5"
-		  Position		  [460, 101, 480, 119]
-		  ZOrder		  -5
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  "float32_array"
-		  SrcPort		  1
-		  DstBlock		  " SFunction "
-		  DstPort		  1
-		}
-		Line {
-		  Name			  "int16_out"
-		  ZOrder		  2
-		  Labels		  [0, 0]
-		  SrcBlock		  " SFunction "
-		  SrcPort		  2
-		  DstBlock		  "int16_out"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  3
-		  SrcBlock		  " Demux "
-		  SrcPort		  1
-		  DstBlock		  " Terminator "
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  " SFunction "
-		  SrcPort		  1
-		  DstBlock		  " Demux "
-		  DstPort		  1
-		}
-	      }
+	      ZOrder		      247
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
 	    }
 	    Block {
 	      BlockType		      Constant
@@ -2376,6 +2085,54 @@ Model {
 	      SampleTime	      "-1"
 	    }
 	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)"
+	      SID		      "10337"
+	      Ports		      [1, 1]
+	      Position		      [175, -39, 260, -21]
+	      ZOrder		      248
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)1"
+	      SID		      "10339"
+	      Ports		      [1, 1]
+	      Position		      [175, 1, 260, 19]
+	      ZOrder		      250
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)2"
+	      SID		      "10340"
+	      Ports		      [1, 1]
+	      Position		      [175, 81, 260, 99]
+	      ZOrder		      251
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)3"
+	      SID		      "10341"
+	      Ports		      [1, 1]
+	      Position		      [175, 161, 260, 179]
+	      ZOrder		      252
+	      LibraryVersion	      "1.19"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "Detector_param"
 	      SID		      "10232"
@@ -2392,74 +2149,102 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      17
+	      ZOrder		      55
 	      SrcBlock		      "thresh_ratio"
 	      SrcPort		      1
-	      DstBlock		      "float32 to int16 (BE)2"
+	      DstBlock		      "float32 to uint8 (BE)2"
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      18
+	      ZOrder		      58
 	      SrcBlock		      "blur_size"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
+	      DstBlock		      "uint16 to uint8 (BE)"
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      19
+	      ZOrder		      60
 	      SrcBlock		      "bin_square"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      2
+	      DstBlock		      "uint16 to uint8 (BE)1"
+	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      20
+	      ZOrder		      52
 	      SrcBlock		      "k_approx"
 	      SrcPort		      1
-	      DstBlock		      "float32 to int16 (BE)"
+	      DstBlock		      "float32 to uint8 (BE)"
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      21
+	      ZOrder		      61
 	      SrcBlock		      "thresh_area"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      4
-	    }
-	    Line {
-	      ZOrder		      22
-	      SrcBlock		      "thresh_cos"
-	      SrcPort		      1
-	      DstBlock		      "float32 to int16 (BE)1"
+	      DstBlock		      "uint16 to uint8 (BE)2"
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      23
-	      SrcBlock		      "thresh_diff"
+	      ZOrder		      54
+	      SrcBlock		      "thresh_cos"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      6
+	      DstBlock		      "float32 to uint8 (BE)1"
+	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      24
-	      SrcBlock		      "float32 to int16 (BE)"
+	      ZOrder		      63
+	      SrcBlock		      "thresh_diff"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)3"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      51
+	      SrcBlock		      "float32 to uint8 (BE)"
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      25
-	      SrcBlock		      "float32 to int16 (BE)1"
+	      ZOrder		      53
+	      SrcBlock		      "float32 to uint8 (BE)1"
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      26
-	      SrcBlock		      "float32 to int16 (BE)2"
+	      ZOrder		      56
+	      SrcBlock		      "float32 to uint8 (BE)2"
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      7
+	    }
+	    Line {
+	      ZOrder		      57
+	      SrcBlock		      "uint16 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      59
+	      SrcBlock		      "uint16 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      62
+	      SrcBlock		      "uint16 to uint8 (BE)2"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      64
+	      SrcBlock		      "uint16 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      6
 	    }
 	  }
 	}
@@ -2618,7 +2403,7 @@ Model {
 		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"238"
+		ZoomFactor		"175"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Sensors"
@@ -2641,7 +2426,7 @@ Model {
 		  BlockType		  Constant
 		  Name			  "Constant"
 		  SID			  "9551"
-		  Position		  [335, 80, 365, 110]
+		  Position		  [310, 77, 385, 113]
 		  ZOrder		  -5
 		  Value			  "single(Tacc)"
 		}
@@ -2777,7 +2562,7 @@ Model {
 		  ZOrder		  9
 		  SrcBlock		  "Constant"
 		  SrcPort		  1
-		  Points		  [30, 0; 0, 40]
+		  Points		  [10, 0; 0, 40]
 		  DstBlock		  "Product"
 		  DstPort		  1
 		}
@@ -3050,7 +2835,7 @@ Model {
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
 	  ShowName		  off
-	  GotoTag		  "Gyr_Data"
+	  GotoTag		  "Gyro_Data"
 	}
 	Block {
 	  BlockType		  From
@@ -3067,7 +2852,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er1"
 	  SID			  "9617"
-	  Position		  [655, 368, 740, 382]
+	  Position		  [700, 368, 785, 382]
 	  ZOrder		  -74
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3122,7 +2907,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er19"
 	  SID			  "9624"
-	  Position		  [655, 488, 740, 502]
+	  Position		  [700, 488, 785, 502]
 	  ZOrder		  -82
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3133,7 +2918,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er2"
 	  SID			  "10143"
-	  Position		  [655, 398, 740, 412]
+	  Position		  [700, 398, 785, 412]
 	  ZOrder		  37
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3144,7 +2929,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er3"
 	  SID			  "10144"
-	  Position		  [655, 428, 740, 442]
+	  Position		  [700, 428, 785, 442]
 	  ZOrder		  38
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3155,7 +2940,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er31"
 	  SID			  "9636"
-	  Position		  [655, 458, 740, 472]
+	  Position		  [700, 458, 785, 472]
 	  ZOrder		  -95
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3186,7 +2971,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er6"
 	  SID			  "9646"
-	  Position		  [655, 338, 740, 352]
+	  Position		  [700, 338, 785, 352]
 	  ZOrder		  -107
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -3255,7 +3040,7 @@ Model {
 	  Position		  [440, 626, 445, 874]
 	  ZOrder		  72
 	  ForegroundColor	  "red"
-	  Outputs		  "[8 4 1 1]"
+	  Outputs		  "[16 8 1 1]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -3400,7 +3185,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    57
+		    $ObjectID		    58
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -3408,42 +3193,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    58
+		    $ObjectID		    59
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    59
+		    $ObjectID		    60
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    60
+		    $ObjectID		    61
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    61
+		    $ObjectID		    62
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    62
+		    $ObjectID		    63
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    63
+		    $ObjectID		    64
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -3451,7 +3236,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    64
+		    $ObjectID		    65
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -3586,7 +3371,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    65
+		    $ObjectID		    66
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -3594,42 +3379,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    66
+		    $ObjectID		    67
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    67
+		    $ObjectID		    68
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    68
+		    $ObjectID		    69
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    69
+		    $ObjectID		    70
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    70
+		    $ObjectID		    71
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    71
+		    $ObjectID		    72
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -3637,7 +3422,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    72
+		    $ObjectID		    73
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -3772,7 +3557,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    73
+		    $ObjectID		    74
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -3780,42 +3565,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    74
+		    $ObjectID		    75
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    75
+		    $ObjectID		    76
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    76
+		    $ObjectID		    77
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    77
+		    $ObjectID		    78
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-30*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    78
+		    $ObjectID		    79
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "30*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    79
+		    $ObjectID		    80
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -3823,7 +3608,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    80
+		    $ObjectID		    81
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -3958,42 +3743,42 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    81
+		    $ObjectID		    82
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput);"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    5
 		    Object {
-		    $ObjectID		    82
+		    $ObjectID		    83
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    83
+		    $ObjectID		    84
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    84
+		    $ObjectID		    85
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "0*m*g"
 		    }
 		    Object {
-		    $ObjectID		    85
+		    $ObjectID		    86
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "1.3*m*g"
 		    }
 		    Object {
-		    $ObjectID		    86
+		    $ObjectID		    87
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -4301,10 +4086,10 @@ Model {
 	  Name			  "Out_from_Odroid_Demux"
 	  SID			  "10200"
 	  Ports			  [4, 1]
-	  Position		  [1235, 660, 1240, 835]
+	  Position		  [1310, 660, 1315, 835]
 	  ZOrder		  184
 	  ForegroundColor	  "red"
-	  Inputs		  "[1 12 1 10]"
+	  Inputs		  "[2 24 2 20]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -4383,916 +4168,112 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  SubSystem
+	  BlockType		  Reference
 	  Name			  "int16 to float (BE)"
-	  SID			  "10189"
-	  RequirementInfo	  "{} %GIDa_acacd347_8c8b_4fd9_bf2f_f65da192305e"
+	  SID			  "10314"
 	  Ports			  [1, 1]
 	  Position		  [495, 336, 580, 354]
-	  ZOrder		  173
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10189::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10189::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10189::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 1"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10189::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10189::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  233
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
+	  BlockType		  Reference
 	  Name			  "int16 to float (BE)1"
-	  SID			  "10190"
-	  RequirementInfo	  "{} %GIDa_e6e48144_1286_4908_b5e4_79703238bdec"
+	  SID			  "10315"
 	  Ports			  [1, 1]
 	  Position		  [495, 366, 580, 384]
-	  ZOrder		  174
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)1"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10190::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10190::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10190::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 2"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10190::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10190::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  235
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
+	  BlockType		  Reference
 	  Name			  "int16 to float (BE)2"
-	  SID			  "10191"
-	  RequirementInfo	  "{} %GIDa_503e7bf4_948d_4925_9b1d_bf529cd6f7ea"
+	  SID			  "10316"
 	  Ports			  [1, 1]
 	  Position		  [495, 396, 580, 414]
-	  ZOrder		  175
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)2"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10191::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10191::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10191::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 3"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10191::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10191::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  236
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "int16 to float (BE)3"
-	  SID			  "10192"
-	  RequirementInfo	  "{} %GIDa_7207c555_6ec3_4f91_865d_0d996efa633f"
+	  BlockType		  Reference
+	  Name			  "uint16 to uint8 (BE)"
+	  SID			  "10323"
+	  Ports			  [1, 1]
+	  Position		  [1190, 671, 1275, 689]
+	  ZOrder		  243
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint16 to uint8 (BE)1"
+	  SID			  "10325"
+	  Ports			  [1, 1]
+	  Position		  [1190, 761, 1275, 779]
+	  ZOrder		  245
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)"
+	  SID			  "10317"
 	  Ports			  [1, 1]
 	  Position		  [495, 621, 580, 639]
-	  ZOrder		  176
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)3"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10192::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10192::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10192::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 4"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10192::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10192::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  237
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "int16 to float (BE)4"
-	  SID			  "10193"
-	  RequirementInfo	  "{} %GIDa_4e950ce1_4485_4d62_ab71_8db11bd57fac"
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)1"
+	  SID			  "10318"
 	  Ports			  [1, 1]
 	  Position		  [495, 641, 580, 659]
-	  ZOrder		  177
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)4"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10193::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10193::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10193::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 5"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10193::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10193::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  238
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "int16 to float (BE)5"
-	  SID			  "10194"
-	  RequirementInfo	  "{} %GIDa_a35e1d79_66c7_46f1_975b_9b56d6f3161e"
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)2"
+	  SID			  "10319"
 	  Ports			  [1, 1]
 	  Position		  [495, 661, 580, 679]
-	  ZOrder		  178
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)5"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10194::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10194::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10194::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 6"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10194::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10194::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  239
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "int16 to float (BE)6"
-	  SID			  "10195"
-	  RequirementInfo	  "{} %GIDa_5959521f_3c83_4894_b00b_9f308a225e23"
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)3"
+	  SID			  "10320"
 	  Ports			  [1, 1]
 	  Position		  [495, 681, 580, 699]
-	  ZOrder		  179
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to float (BE)6"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10195::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10195::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10195::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 7"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"float32"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10195::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "float32"
-	      SID		      "10195::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "float32"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "float32"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "int16 to uint64 (BE)"
-	  SID			  "10196"
-	  RequirementInfo	  "{} %GIDa_72b42cca_baf1_497f_84e7_7b07f532fd0d"
-	  Ports			  [1, 1]
-	  Position		  [495, 711, 580, 729]
-	  ZOrder		  180
-	  LibraryVersion	  "1.32"
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  Variant		  off
-	  System {
-	    Name		    "int16 to uint64 (BE)"
-	    Location		    [223, 338, 826, 833]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "18"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "int16_array"
-	      SID		      "10196::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "10196::17"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      8
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "10196::16"
-	      Tag		      "Stateflow S-Function COM_test_gumstix 8"
-	      Ports		      [1, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      7
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[1 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"uint64_out"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "10196::18"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      9
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "uint64_out"
-	      SID		      "10196::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "uint64_out"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "uint64_out"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "int16_array"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  240
+	  LibraryVersion	  "1.19"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
 	}
 	Block {
 	  BlockType		  Outport
@@ -5317,14 +4298,14 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out_to_Odroid"
 	  SID			  "10164"
-	  Position		  [1320, 743, 1350, 757]
+	  Position		  [1395, 743, 1425, 757]
 	  ZOrder		  71
 	  ForegroundColor	  "red"
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  368
+	  ZOrder		  489
 	  SrcBlock		  "In_from_Teensy_Demux"
 	  SrcPort		  1
 	  DstBlock		  "int16 to float (BE)"
@@ -5366,7 +4347,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  370
+	  ZOrder		  491
 	  SrcBlock		  "In_from_Teensy_Demux"
 	  SrcPort		  2
 	  DstBlock		  "int16 to float (BE)1"
@@ -5443,7 +4424,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  373
+	  ZOrder		  493
 	  SrcBlock		  "In_from_Teensy_Demux"
 	  SrcPort		  3
 	  DstBlock		  "int16 to float (BE)2"
@@ -5464,21 +4445,21 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  369
+	  ZOrder		  490
 	  SrcBlock		  "int16 to float (BE)"
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er6"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  371
+	  ZOrder		  492
 	  SrcBlock		  "int16 to float (BE)1"
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  372
+	  ZOrder		  494
 	  SrcBlock		  "int16 to float (BE)2"
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er2"
@@ -5534,57 +4515,57 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  374
+	  ZOrder		  495
 	  SrcBlock		  "Sub_angles"
 	  SrcPort		  1
-	  DstBlock		  "int16 to float (BE)3"
+	  DstBlock		  "uint8 to float (BE)"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  376
+	  ZOrder		  498
 	  SrcBlock		  "Sub_angles"
 	  SrcPort		  2
-	  DstBlock		  "int16 to float (BE)4"
+	  DstBlock		  "uint8 to float (BE)1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  378
+	  ZOrder		  499
 	  SrcBlock		  "Sub_angles"
 	  SrcPort		  3
-	  DstBlock		  "int16 to float (BE)5"
+	  DstBlock		  "uint8 to float (BE)2"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  381
+	  ZOrder		  501
 	  SrcBlock		  "Sub_angles"
 	  SrcPort		  4
-	  DstBlock		  "int16 to float (BE)6"
+	  DstBlock		  "uint8 to float (BE)3"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  375
-	  SrcBlock		  "int16 to float (BE)3"
+	  ZOrder		  496
+	  SrcBlock		  "uint8 to float (BE)"
 	  SrcPort		  1
 	  DstBlock		  "Gyo\nAcc2"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  377
-	  SrcBlock		  "int16 to float (BE)4"
+	  ZOrder		  497
+	  SrcBlock		  "uint8 to float (BE)1"
 	  SrcPort		  1
 	  DstBlock		  "Gyo\nAcc2"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  379
-	  SrcBlock		  "int16 to float (BE)5"
+	  ZOrder		  500
+	  SrcBlock		  "uint8 to float (BE)2"
 	  SrcPort		  1
 	  DstBlock		  "Gyo\nAcc2"
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  380
-	  SrcBlock		  "int16 to float (BE)6"
+	  ZOrder		  502
+	  SrcBlock		  "uint8 to float (BE)3"
 	  SrcPort		  1
 	  DstBlock		  "Gyo\nAcc2"
 	  DstPort		  4
@@ -5594,20 +4575,6 @@ Model {
 	  SrcBlock		  "Gyo\nAcc2"
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er4"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  382
-	  SrcBlock		  "In_from_Odroid_Demux"
-	  SrcPort		  2
-	  DstBlock		  "int16 to uint64 (BE)"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  383
-	  SrcBlock		  "int16 to uint64 (BE)"
-	  SrcPort		  1
-	  DstBlock		  "Goto_Theta_er5"
 	  DstPort		  1
 	}
 	Line {
@@ -5632,10 +4599,10 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  396
+	  ZOrder		  506
 	  SrcBlock		  "T_poll_ms"
 	  SrcPort		  1
-	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstBlock		  "uint16 to uint8 (BE)"
 	  DstPort		  1
 	}
 	Line {
@@ -5646,11 +4613,11 @@ Model {
 	  DstPort		  4
 	}
 	Line {
-	  ZOrder		  394
+	  ZOrder		  508
 	  SrcBlock		  "Max_no_detection"
 	  SrcPort		  1
-	  DstBlock		  "Out_from_Odroid_Demux"
-	  DstPort		  3
+	  DstBlock		  "uint16 to uint8 (BE)1"
+	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  395
@@ -5658,6 +4625,27 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Out_from_Odroid_Demux"
 	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  505
+	  SrcBlock		  "uint16 to uint8 (BE)"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  507
+	  SrcBlock		  "uint16 to uint8 (BE)1"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  541
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  2
+	  DstBlock		  "Goto_Theta_er5"
+	  DstPort		  1
 	}
 	Annotation {
 	  SID			  "10140"
@@ -5680,7 +4668,7 @@ Model {
       Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		87
+	$ObjectID		88
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:14\n    ProcessConfigMask_COM(gcb, i);\nend"
 	Display			"image(imread('Configuration_v2.jpg'));"
@@ -5688,7 +4676,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  14
 	  Object {
-	    $ObjectID		    88
+	    $ObjectID		    89
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5705,7 +4693,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    89
+	    $ObjectID		    90
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5728,7 +4716,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    90
+	    $ObjectID		    91
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5745,7 +4733,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    91
+	    $ObjectID		    92
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5761,7 +4749,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    92
+	    $ObjectID		    93
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5777,7 +4765,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    93
+	    $ObjectID		    94
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5793,7 +4781,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    94
+	    $ObjectID		    95
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5809,7 +4797,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    95
+	    $ObjectID		    96
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5825,7 +4813,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    96
+	    $ObjectID		    97
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5841,7 +4829,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    97
+	    $ObjectID		    98
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5858,7 +4846,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    98
+	    $ObjectID		    99
 	    Type		    "edit"
 	    Name		    "MaxTaskPriority"
 	    Prompt		    "Maximum Task Priority [1-99]"
@@ -5867,7 +4855,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    99
+	    $ObjectID		    100
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5883,7 +4871,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    100
+	    $ObjectID		    101
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5900,7 +4888,7 @@ Model {
 	    TabName		    "Hardware"
 	  }
 	  Object {
-	    $ObjectID		    101
+	    $ObjectID		    102
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5949,7 +4937,7 @@ Model {
       SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		102
+	$ObjectID		103
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:13\n    ProcessRS232OutportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Emission_Block;"
@@ -5957,7 +4945,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  13
 	  Object {
-	    $ObjectID		    103
+	    $ObjectID		    104
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
@@ -5966,7 +4954,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    104
+	    $ObjectID		    105
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -5988,7 +4976,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    105
+	    $ObjectID		    106
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6020,7 +5008,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    106
+	    $ObjectID		    107
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6063,7 +5051,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    107
+	    $ObjectID		    108
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Sample Time [s]"
@@ -6072,7 +5060,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    108
+	    $ObjectID		    109
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6088,7 +5076,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    109
+	    $ObjectID		    110
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -6097,7 +5085,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    110
+	    $ObjectID		    111
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6114,7 +5102,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    111
+	    $ObjectID		    112
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -6123,7 +5111,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    112
+	    $ObjectID		    113
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -6133,7 +5121,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    113
+	    $ObjectID		    114
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6150,7 +5138,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    114
+	    $ObjectID		    115
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -6160,7 +5148,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    115
+	    $ObjectID		    116
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -6187,7 +5175,7 @@ Model {
       SampleTime	      "evalin('base', 'Gumstix.PWM.SampleTime')"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		116
+	$ObjectID		117
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:8\n    ProcessPWMmask_COM(gcb, i);\nend"
 	Display			"Display_PWM_Block;"
@@ -6196,7 +5184,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    117
+	    $ObjectID		    118
 	    Type		    "edit"
 	    Name		    "TimersList"
 	    Prompt		    "Active PWM (example: [8,9,10,11])"
@@ -6204,7 +5192,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 1);"
 	  }
 	  Object {
-	    $ObjectID		    118
+	    $ObjectID		    119
 	    Type		    "edit"
 	    Name		    "PwmFrequency"
 	    Prompt		    "PWM Frequency [Hz]"
@@ -6212,7 +5200,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 2);"
 	  }
 	  Object {
-	    $ObjectID		    119
+	    $ObjectID		    120
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6227,7 +5215,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 3);"
 	  }
 	  Object {
-	    $ObjectID		    120
+	    $ObjectID		    121
 	    Type		    "edit"
 	    Name		    "ServoMin"
 	    Prompt		    "Servo Min Value [tenth's of us]"
@@ -6236,7 +5224,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 4);"
 	  }
 	  Object {
-	    $ObjectID		    121
+	    $ObjectID		    122
 	    Type		    "edit"
 	    Name		    "ServoMax"
 	    Prompt		    "Servo Max Value [tenth's of us]"
@@ -6245,7 +5233,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 5);"
 	  }
 	  Object {
-	    $ObjectID		    122
+	    $ObjectID		    123
 	    Type		    "edit"
 	    Name		    "PWM_DefaultValue"
 	    Prompt		    "Default Pwm Value"
@@ -6253,7 +5241,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 6);"
 	  }
 	  Object {
-	    $ObjectID		    123
+	    $ObjectID		    124
 	    Type		    "edit"
 	    Name		    "PWM_SampleTime"
 	    Prompt		    "Refresh Sample Time [s]"
@@ -6261,7 +5249,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 7);"
 	  }
 	  Object {
-	    $ObjectID		    124
+	    $ObjectID		    125
 	    Type		    "checkbox"
 	    Name		    "PWM_KeepAfterStop"
 	    Prompt		    "Keep Default Pwm Value after program stop"
@@ -6280,12 +5268,12 @@ Model {
       ZOrder		      30
       Port		      "3"
       IconDisplay	      "Port number"
-      OutDataTypeStr	      "uint16"
+      OutDataTypeStr	      "uint8"
       PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
       SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		125
+	$ObjectID		126
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:13\n    ProcessRS232OutportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Emission_Block;"
@@ -6293,16 +5281,16 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  13
 	  Object {
-	    $ObjectID		    126
+	    $ObjectID		    127
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "4"
+	    Value		    "48"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 1);\n"
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    127
+	    $ObjectID		    128
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6319,12 +5307,12 @@ Model {
 	    }
 	    Name		    "RS232_DataType"
 	    Prompt		    "RS232 Data Type"
-	    Value		    "unsigned int16"
+	    Value		    "unsigned char8"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 2);\n"
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    128
+	    $ObjectID		    129
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6356,7 +5344,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    129
+	    $ObjectID		    130
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6399,7 +5387,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    130
+	    $ObjectID		    131
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Sample Time [s]"
@@ -6408,7 +5396,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    131
+	    $ObjectID		    132
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6424,7 +5412,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    132
+	    $ObjectID		    133
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -6433,7 +5421,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    133
+	    $ObjectID		    134
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6450,7 +5438,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    134
+	    $ObjectID		    135
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -6459,7 +5447,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    135
+	    $ObjectID		    136
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -6469,7 +5457,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    136
+	    $ObjectID		    137
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -6486,7 +5474,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    137
+	    $ObjectID		    138
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -6496,7 +5484,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    138
+	    $ObjectID		    139
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -6514,7 +5502,6 @@ Model {
       ZOrder		      13
       SrcBlock		      "Serial_In_Teensy"
       SrcPort		      1
-      Points		      [30, 0]
       DstBlock		      "GUMSTIX"
       DstPort		      1
     }
@@ -6536,7 +5523,6 @@ Model {
       ZOrder		      16
       SrcBlock		      "Serial_In_Odroid"
       SrcPort		      1
-      Points		      [30, 0]
       DstBlock		      "GUMSTIX"
       DstPort		      2
     }
@@ -6560,1465 +5546,20 @@ Stateflow {
     name		    "COM_test_gumstix"
     created		    "27-Feb-2012 19:38:42"
     isLibrary		    0
-    firstTarget		    86
+    firstTarget		    2
     sfVersion		    80000006
   }
-  chart {
-    id			    2
-    name		    "GUMSTIX/int16 to float (BE)"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 3 0 0]
-    firstTransition	    7
-    firstJunction	    6
-    viewObj		    2
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    4
-    chartFileNumber	    1
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    3
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    2
-    treeNode		    [2 0 0 0]
-    superState		    SUBCHART
-    subviewer		    2
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    4
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [2 0 5]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    5
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [2 4 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    6
-    position		    [23.5747 49.5747 7]
-    chart		    2
-    linkNode		    [2 0 0]
-    subviewer		    2
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    7
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      6
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    2
-    linkNode		    [2 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    2
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    8
-    name		    "GUMSTIX/int16 to float (BE)"
-    machine		    1
-    chart		    2
-  }
-  chart {
-    id			    9
-    name		    "GUMSTIX/int16 to float (BE)1"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 10 0 0]
-    firstTransition	    14
-    firstJunction	    13
-    viewObj		    9
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    11
-    chartFileNumber	    2
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    10
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    9
-    treeNode		    [9 0 0 0]
-    superState		    SUBCHART
-    subviewer		    9
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    11
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [9 0 12]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    12
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [9 11 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    13
-    position		    [23.5747 49.5747 7]
-    chart		    9
-    linkNode		    [9 0 0]
-    subviewer		    9
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    14
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      13
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    9
-    linkNode		    [9 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    9
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    15
-    name		    "GUMSTIX/int16 to float (BE)1"
-    machine		    1
-    chart		    9
-  }
-  chart {
-    id			    16
-    name		    "GUMSTIX/int16 to float (BE)2"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 17 0 0]
-    firstTransition	    21
-    firstJunction	    20
-    viewObj		    16
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    18
-    chartFileNumber	    3
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    17
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    16
-    treeNode		    [16 0 0 0]
-    superState		    SUBCHART
-    subviewer		    16
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    18
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [16 0 19]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    19
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [16 18 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    20
-    position		    [23.5747 49.5747 7]
-    chart		    16
-    linkNode		    [16 0 0]
-    subviewer		    16
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    21
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      20
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    16
-    linkNode		    [16 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    16
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    22
-    name		    "GUMSTIX/int16 to float (BE)2"
-    machine		    1
-    chart		    16
-  }
-  chart {
-    id			    23
-    name		    "GUMSTIX/int16 to float (BE)3"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 24 0 0]
-    firstTransition	    28
-    firstJunction	    27
-    viewObj		    23
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    25
-    chartFileNumber	    4
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    24
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    23
-    treeNode		    [23 0 0 0]
-    superState		    SUBCHART
-    subviewer		    23
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    25
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [23 0 26]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    26
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [23 25 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    27
-    position		    [23.5747 49.5747 7]
-    chart		    23
-    linkNode		    [23 0 0]
-    subviewer		    23
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    28
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      27
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    23
-    linkNode		    [23 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    23
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    29
-    name		    "GUMSTIX/int16 to float (BE)3"
-    machine		    1
-    chart		    23
-  }
-  chart {
-    id			    30
-    name		    "GUMSTIX/int16 to float (BE)4"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 31 0 0]
-    firstTransition	    35
-    firstJunction	    34
-    viewObj		    30
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    32
-    chartFileNumber	    5
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    31
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    30
-    treeNode		    [30 0 0 0]
-    superState		    SUBCHART
-    subviewer		    30
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    32
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [30 0 33]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    33
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [30 32 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    34
-    position		    [23.5747 49.5747 7]
-    chart		    30
-    linkNode		    [30 0 0]
-    subviewer		    30
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    35
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      34
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    30
-    linkNode		    [30 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    30
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    36
-    name		    "GUMSTIX/int16 to float (BE)4"
-    machine		    1
-    chart		    30
-  }
-  chart {
-    id			    37
-    name		    "GUMSTIX/int16 to float (BE)5"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 38 0 0]
-    firstTransition	    42
-    firstJunction	    41
-    viewObj		    37
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    39
-    chartFileNumber	    6
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    38
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    37
-    treeNode		    [37 0 0 0]
-    superState		    SUBCHART
-    subviewer		    37
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    39
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [37 0 40]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    40
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [37 39 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    41
-    position		    [23.5747 49.5747 7]
-    chart		    37
-    linkNode		    [37 0 0]
-    subviewer		    37
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    42
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      41
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    37
-    linkNode		    [37 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    37
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    43
-    name		    "GUMSTIX/int16 to float (BE)5"
-    machine		    1
-    chart		    37
-  }
-  chart {
-    id			    44
-    name		    "GUMSTIX/int16 to float (BE)6"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 45 0 0]
-    firstTransition	    49
-    firstJunction	    48
-    viewObj		    44
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    46
-    chartFileNumber	    7
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_float32_BE"
-    }
-  }
-  state {
-    id			    45
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    44
-    treeNode		    [44 0 0 0]
-    superState		    SUBCHART
-    subviewer		    44
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function float32 = int16_2_float32_BE(int16_array)\n% Convert int16 array (first byte is MSB / Bi"
-      "g Endian) to float32\n\nif mod(length(int16_array),2) ~= 0\n    error('int16_2_float32_BE : Input length must be"
-      " even');\nelse\n    float32 = single(zeros(1,length(int16_array)/2));\n\n    for i=1:length(int16_array)/2\n    "
-      "    bytepack = int32(int16_array(i));\n        bytepack = bitshift(bytepack,16);\n        bytepack = bitor(bytep"
-      "ack,bitand(65535,int32(int16_array(i+1))));\n        float32(i) = typecast(bytepack,'single'); \n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    46
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [44 0 47]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    47
-    ssIdNumber		    5
-    name		    "float32"
-    linkNode		    [44 46 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    48
-    position		    [23.5747 49.5747 7]
-    chart		    44
-    linkNode		    [44 0 0]
-    subviewer		    44
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    49
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      48
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    44
-    linkNode		    [44 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    44
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    50
-    name		    "GUMSTIX/int16 to float (BE)6"
-    machine		    1
-    chart		    44
-  }
-  chart {
-    id			    51
-    name		    "GUMSTIX/int16 to uint64 (BE)"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 52 0 0]
-    firstTransition	    56
-    firstJunction	    55
-    viewObj		    51
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    53
-    chartFileNumber	    8
-    disableImplicitCasting  1
-    eml {
-      name		      "int16_2_uint64_BE"
-    }
-  }
-  state {
-    id			    52
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    51
-    treeNode		    [51 0 0 0]
-    superState		    SUBCHART
-    subviewer		    51
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function uint64_out = int16_2_uint64_BE(int16_array)\n% Convert int16 array (first byte is MSB / "
-      "Big Endian) to uint64\n\nif mod(length(int16_array),4) ~= 0\n    error('int16_2_uint64_BE : Input length must mu"
-      "ltiple of 4');\nelse\n    uint64_out = uint64(zeros(1,length(int16_array)/4));\n\n    for i=1:length(int16_array"
-      ")/4\n        bytepack = bitshift(int64(int16_array(i)),16);\n        bytepack = bitshift(bitor(bytepack,bitand(i"
-      "nt64(int16_array(i+1)),65535)),16);\n        bytepack = bitshift(bitor(bytepack,bitand(int64(int16_array(i+2)),6"
-      "5535)),16);\n        uint64_out(i) = bitor(bytepack,bitand(int64(int16_array(i+3)),65535));\n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    53
-    ssIdNumber		    4
-    name		    "int16_array"
-    linkNode		    [51 0 54]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "int16"
-  }
-  data {
-    id			    54
-    ssIdNumber		    5
-    name		    "uint64_out"
-    linkNode		    [51 53 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "single"
-  }
-  junction {
-    id			    55
-    position		    [23.5747 49.5747 7]
-    chart		    51
-    linkNode		    [51 0 0]
-    subviewer		    51
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    56
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      55
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    51
-    linkNode		    [51 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    51
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    57
-    name		    "GUMSTIX/int16 to uint64 (BE)"
-    machine		    1
-    chart		    51
-  }
-  chart {
-    id			    58
-    name		    "GUMSTIX/CAMERA_PARAMETERS/float32 to uint16 (BE)"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 59 0 0]
-    firstTransition	    63
-    firstJunction	    62
-    viewObj		    58
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    60
-    chartFileNumber	    9
-    disableImplicitCasting  1
-    eml {
-      name		      "float32_2_uint16_BE"
-    }
-  }
-  state {
-    id			    59
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    58
-    treeNode		    [58 0 0 0]
-    superState		    SUBCHART
-    subviewer		    58
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function uint16_out = float32_2_uint16_BE(float32_array)\n% Convert float32 array (first byte is "
-      "MSB / Big Endian) to uint16\n\n    uint16_out = single(zeros(1,length(float32_array)*2));\n\n    for i=1:length("
-      "float32_array)\n        uint16_out(2*i:-1:2*i-1) = typecast(single(float32_array(i)),'uint16');\n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    60
-    ssIdNumber		    4
-    name		    "float32_array"
-    linkNode		    [58 0 61]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "single"
-  }
-  data {
-    id			    61
-    ssIdNumber		    5
-    name		    "uint16_out"
-    linkNode		    [58 60 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_UINT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "uint16"
-  }
-  junction {
-    id			    62
-    position		    [23.5747 49.5747 7]
-    chart		    58
-    linkNode		    [58 0 0]
-    subviewer		    58
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    63
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      62
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    58
-    linkNode		    [58 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    58
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    64
-    name		    "GUMSTIX/CAMERA_PARAMETERS/float32 to uint16 (BE)"
-    machine		    1
-    chart		    58
-  }
-  chart {
-    id			    65
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 66 0 0]
-    firstTransition	    70
-    firstJunction	    69
-    viewObj		    65
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    67
-    chartFileNumber	    10
-    disableImplicitCasting  1
-    eml {
-      name		      "float32_2_int16_BE"
-    }
-  }
-  state {
-    id			    66
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    65
-    treeNode		    [65 0 0 0]
-    superState		    SUBCHART
-    subviewer		    65
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function int16_out = float32_2_int16_BE(float32_array)\n% Convert float32 array (first byte is MS"
-      "B / Big Endian) to int16\n\n    int16_out = single(zeros(1,length(float32_array)*2));\n\n    for i=1:length(floa"
-      "t32_array)\n        int16_out(2*i:-1:2*i-1) = typecast(single(float32_array(i)),'int16');\n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    67
-    ssIdNumber		    4
-    name		    "float32_array"
-    linkNode		    [65 0 68]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "single"
-  }
-  data {
-    id			    68
-    ssIdNumber		    5
-    name		    "int16_out"
-    linkNode		    [65 67 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int16"
-  }
-  junction {
-    id			    69
-    position		    [23.5747 49.5747 7]
-    chart		    65
-    linkNode		    [65 0 0]
-    subviewer		    65
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    70
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      69
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    65
-    linkNode		    [65 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    65
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    71
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)"
-    machine		    1
-    chart		    65
-  }
-  chart {
-    id			    72
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)1"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 73 0 0]
-    firstTransition	    77
-    firstJunction	    76
-    viewObj		    72
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    74
-    chartFileNumber	    11
-    disableImplicitCasting  1
-    eml {
-      name		      "float32_2_int16_BE"
-    }
-  }
-  state {
-    id			    73
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    72
-    treeNode		    [72 0 0 0]
-    superState		    SUBCHART
-    subviewer		    72
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function int16_out = float32_2_int16_BE(float32_array)\n% Convert float32 array (first byte is MS"
-      "B / Big Endian) to int16\n\n    int16_out = single(zeros(1,length(float32_array)*2));\n\n    for i=1:length(floa"
-      "t32_array)\n        int16_out(2*i:-1:2*i-1) = typecast(single(float32_array(i)),'int16');\n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    74
-    ssIdNumber		    4
-    name		    "float32_array"
-    linkNode		    [72 0 75]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "single"
-  }
-  data {
-    id			    75
-    ssIdNumber		    5
-    name		    "int16_out"
-    linkNode		    [72 74 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int16"
-  }
-  junction {
-    id			    76
-    position		    [23.5747 49.5747 7]
-    chart		    72
-    linkNode		    [72 0 0]
-    subviewer		    72
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    77
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      76
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    72
-    linkNode		    [72 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    72
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    78
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)1"
-    machine		    1
-    chart		    72
-  }
-  chart {
-    id			    79
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)2"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 80 0 0]
-    firstTransition	    84
-    firstJunction	    83
-    viewObj		    79
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    5
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    81
-    chartFileNumber	    12
-    disableImplicitCasting  1
-    eml {
-      name		      "float32_2_int16_BE"
-    }
-  }
-  state {
-    id			    80
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    79
-    treeNode		    [79 0 0 0]
-    superState		    SUBCHART
-    subviewer		    79
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function int16_out = float32_2_int16_BE(float32_array)\n% Convert float32 array (first byte is MS"
-      "B / Big Endian) to int16\n\n    int16_out = single(zeros(1,length(float32_array)*2));\n\n    for i=1:length(floa"
-      "t32_array)\n        int16_out(2*i:-1:2*i-1) = typecast(single(float32_array(i)),'int16');\n    end\nend"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    81
-    ssIdNumber		    4
-    name		    "float32_array"
-    linkNode		    [79 0 82]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_SINGLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "single"
-  }
-  data {
-    id			    82
-    ssIdNumber		    5
-    name		    "int16_out"
-    linkNode		    [79 81 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	primitive		SF_INT16_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int16"
-  }
-  junction {
-    id			    83
-    position		    [23.5747 49.5747 7]
-    chart		    79
-    linkNode		    [79 0 0]
-    subviewer		    79
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    84
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      83
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    79
-    linkNode		    [79 0 0]
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    79
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  instance {
-    id			    85
-    name		    "GUMSTIX/DETECTOR_PARAMETERS/float32 to int16 (BE)2"
-    machine		    1
-    chart		    79
-  }
   target {
-    id			    86
+    id			    2
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 87]
+    linkNode		    [1 0 3]
   }
   target {
-    id			    87
+    id			    3
     name		    "rtw"
     machine		    1
-    linkNode		    [1 86 0]
+    linkNode		    [1 2 0]
   }
 }
