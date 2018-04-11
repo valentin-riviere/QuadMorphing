@@ -1,0 +1,7 @@
+# Ignore all excepts specified files
+*
+!.gitignore
+!COM_test_gumstix.mdl
+!init_test_gumstix.m
+!RobotParameters.m
+!UAVstruct_BusObject.m
