@@ -17,8 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "camera.h"
 
-void camera_init(CInstantCamera* cam, const unsigned int width, const unsigned int height, const unsigned int offset_x = 400, const unsigned int offset_y = 300, const uint8_t MaxNumBuffer = 5,
-const bool binning_on = false, const float expoAutoMax = 5000, const gcstring binning_mode = "Average")
+void camera_init(CInstantCamera* cam, const unsigned int width, const unsigned int height, const unsigned int offset_x, const unsigned int offset_y, const uint8_t MaxNumBuffer, const bool binning_on, const float expoAutoMax, const gcstring binning_mode)
 {
 	// Create an instant camera object with the camera device found first, get parameters and open camera
 	GenApi::INodeMap& nodemap = cam->GetNodeMap();

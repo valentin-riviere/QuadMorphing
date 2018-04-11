@@ -8,7 +8,7 @@ GIT_REPO := ../..
 DETECTOR_DIR := $(GIT_REPO)/prog_odroid/basler/x4_detector
 SERIAL_DIR := $(GIT_REPO)/prog_odroid/serial_com
 
-# The program to build
+# The program to build	
 NAME   := project_detector
 LIB_CPP:= $(DETECTOR_DIR)/camera.cpp $(DETECTOR_DIR)/class_types.cpp $(DETECTOR_DIR)/custom_functions.cpp $(DETECTOR_DIR)/drawing.cpp $(DETECTOR_DIR)/img_processing.cpp $(SERIAL_DIR)/serial_lib.c $(SERIAL_DIR)/types_convert.cpp
 SRC	   := $(LIB_CPP) project_detector.cpp

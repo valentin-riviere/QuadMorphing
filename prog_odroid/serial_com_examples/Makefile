@@ -1,10 +1,18 @@
 # Makefile for Basler pylon sample program
 .PHONY: all clean
 
+# GIT REPO path
+GIT_REPO := ../..
+
+# SRC_DIR
+CAMERA_DIR := $(GIT_REPO)/prog_odroid/libs/lib_camera
+DETECTOR_DIR := $(GIT_REPO)/prog_odroid/libs/lib_detection
+SERIAL_DIR := $(GIT_REPO)/prog_odroid/libs/lib_serial_com
+
 # The program to build
 NAME   := serial_gum_test
-LIB_CPP:= types_convert.cpp serial_lib.c
-SRC	   := $(LIB_CPP) serial_gum_test.cpp
+SRC_CPP:= $(wildcard $(CAMERA_DIR)/*.cpp) $(wildcard $(DETECTOR_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.c)
+SRC	   := $(SRC_CPP) serial_gum_test.cpp
 OBJ	   := $(SRC:.cpp=.o)
 
 # Installation directories for pylon
@@ -18,7 +26,7 @@ CXXFLAGS	:= -O2 -std=c++11
 # for debugging
 DBGCXXFLAGS	:= -O0 -g -std=c++11
 LDFLAGS    	:= $(shell $(PYLON_ROOT)/bin/pylon-config --libs-rpath)
-LDLIBS     	:= $(shell $(PYLON_ROOT)/bin/pylon-config --libs) $(shell pkg-config opencv --libs)
+LDLIBS     	:= $(shell $(PYLON_ROOT)/bin/pylon-config --libs) $(shell pkg-config opencv --libs) -I$(CAMERA_DIR) -I$(DETECTOR_DIR) -I$(SERIAL_DIR)
 
 # Rules for building
 all: $(NAME)
