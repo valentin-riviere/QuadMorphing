@@ -31,6 +31,7 @@ Ts_PositionLoop = 1/100;
 Ts_Wifi = 1/200;
 Ts_DSM = 1/50;      
 Ts_Display = 1/20;
+Ts_detector = 1/100;
 
 % specifics initialisation for model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
