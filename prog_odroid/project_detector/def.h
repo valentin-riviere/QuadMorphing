@@ -15,46 +15,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef DEF_H
 #define DEF_H
 
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/ximgproc.hpp"
-#include "opencv2/core.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/core/types.hpp"
-#include <pylon/PylonIncludes.h>
-#include <pylon/usb/BaslerUsbInstantCamera.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <iostream>
-#include <cmath>
-#include <chrono>
-#include <unistd.h>
-#include "class_types.h"
-#include "drawing.h"
-#include "custom_functions.h"
-#include "img_processing.h"
-#include "camera.h"
-
-// Benchmark
-#define TIME_EXEC
-
-// Debug flag
-//#define DEBUG
-#ifndef TIME_EXEC
-	#define VIEWER_ON	// Active viewer
-//	#define SAVE_IMG	// Save images in results/
-#endif
-
-// Use ROI
-//#define ROI
-
-// Image processing
-#ifndef ROI
-	//#define UNDISTORT // Undistort image (check if it's working with ROI) => seems to not working
-#endif
-//#define CANNY	// Use Canny before detecting squares
-#define BLUR	// Blur images
+#include "detection.h"
 
 using namespace cv;
 using namespace Pylon;
