@@ -122,16 +122,16 @@ int8_t header_read_serial(uint8_t* read_buffer, const uint8_t NbByteToRead, cons
 {
 	int bytes_read = 0;
 	
-	do	// Read one time and loop if read != header
+	do	// Read one time and loop if read != header && bytes_read > 0
 	{
 		bytes_read = read(fd,read_buffer,1);
 		if (bytes_read < 0)
 			return -1;
-		else
+		else if (bytes_read == 0)
 			usleep(TIME_PER_BYTE);	// Wait for next byte
-	}while (read_buffer[0] != header);
+	}while (read_buffer[0] != header && bytes_read > 0);
 
-	usleep(TIME_PER_BYTE*NbByteToRead);	// Wait for tram acquisition
+	usleep(TIME_PER_BYTE*NbByteToRead && bytes_read > 0);	// Wait for tram acquisition
 
 	bytes_read = read(fd,read_buffer,NbByteToRead);
 	if (bytes_read != NbByteToRead)	// If bytes_read != NbByteToRead

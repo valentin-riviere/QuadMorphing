@@ -14,6 +14,7 @@ NAME   := project_detector
 LIB_CPP:= $(wildcard $(CAMERA_DIR)/*.cpp) $(wildcard $(DETECTOR_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.c)
 SRC	   := $(LIB_CPP) project_detector.cpp
 OBJ	   := $(SRC:.cpp=.o)
+OBJ    := $(OBJ:.c=.o)
 
 # Installation directories for pylon
 PYLON_ROOT ?= /opt/pylon5
