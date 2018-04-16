@@ -18,7 +18,8 @@ close all;
     
 % %%%%%%%%%%%%%%%%%% section to be completed by user %%%%%%%%%%%%%%%%%%%%%
 
-ComModelName = 'test_gumstix';
+% test_gumstix_only_odroid or test_gumstix
+ComModelName = 'test_gumstix_only_odroid'; 
         
 %%%%%%%%% PARAMETERES %%%%%%%%%%
 

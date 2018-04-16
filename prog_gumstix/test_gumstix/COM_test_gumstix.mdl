@@ -32,7 +32,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1577"
+    ComputedModelVersion    "1.1580"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -55,7 +55,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1696.0, 1026.0]
+      Location		      [-8.0, -8.0, 1696.0, 1026.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -91,7 +91,7 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1646.0, 849.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-260.73497112303016, -60.4175890694018]
+	  Offset		  [-258.73497112303016, -113.15358923285639]
 	}
 	Object {
 	  $ObjectID		  7
@@ -149,9 +149,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Apr 11 14:46:16 2018"
-  RTWModifiedTimeStamp	  445358774
-  ModelVersionFormat	  "1.%<AutoIncrement:1577>"
+  LastModifiedDate	  "Thu Apr 12 12:39:15 2018"
+  RTWModifiedTimeStamp	  445437550
+  ModelVersionFormat	  "1.%<AutoIncrement:1580>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1035,7 +1035,7 @@ Model {
   }
   System {
     Name		    "COM_test_gumstix"
-    Location		    [-8, 0, 1688, 1026]
+    Location		    [-8, -8, 1688, 1018]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1054,7 +1054,7 @@ Model {
       BlockType		      Inport
       Name		      "Serial_In_Teensy"
       SID		      "8751"
-      Position		      [65, 275, 210, 385]
+      Position		      [-25, 160, 120, 270]
       ZOrder		      -2
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
@@ -1323,8 +1323,8 @@ Model {
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "uint8"
-      PortDimensions	      "Gumstix.RS232.Reception(2).NbData"
-      SampleTime	      "Gumstix.RS232.Reception(2).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Reception(1).NbData"
+      SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		42
@@ -1394,7 +1394,7 @@ Model {
 	    }
 	    Name		    "RS232_Port"
 	    Prompt		    "Serial Port"
-	    Value		    "/dev/ttyO3"
+	    Value		    "/dev/ttyO2"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 3);\n"
 	    TabName		    "Reception"
 	  }
@@ -1805,10 +1805,6 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      FontName		      "Arial"
-	      FontSize		      9
-	      FontWeight	      "normal"
-	      FontAngle		      "normal"
 	      ZOrder		      50
 	      SrcBlock		      "width/height"
 	      SrcPort		      1
@@ -4842,8 +4838,8 @@ Model {
       ZOrder		      -6
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
-      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
-      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		103
@@ -5178,8 +5174,8 @@ Model {
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "uint8"
-      PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
-      SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		126
@@ -5248,7 +5244,7 @@ Model {
 	    }
 	    Name		    "RS232_Port"
 	    Prompt		    "Serial Port"
-	    Value		    "/dev/ttyO3"
+	    Value		    "/dev/ttyO2"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 3);\n"
 	    TabName		    "Emission"
 	  }
@@ -5411,6 +5407,7 @@ Model {
       ZOrder		      13
       SrcBlock		      "Serial_In_Teensy"
       SrcPort		      1
+      Points		      [65, 0; 0, 115]
       DstBlock		      "GUMSTIX"
       DstPort		      1
     }
