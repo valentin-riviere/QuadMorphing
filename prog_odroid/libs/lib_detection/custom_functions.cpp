@@ -91,32 +91,6 @@ void sort_square_points(Square & square)
 }
 
 /**
- * @function sub_angles_from_square
- */
-void sub_angles_from_square(const Square & square, float * sub_angles, const Point & roi_pos, const unsigned int & width, const unsigned int & height, const float * FOV_div2)
-{
-	// Cpy of square
-	Square s(square);
-	// c[4] = Centers of segments left, up, right, down
-	Point c[4];
-
-	sort_square_points(s);
-
-	// Segments center
-	for (uint8_t i = 0 ; i < s.size() ; i++)
-	{
-		c[i].x = (s[i].x+s[(i+1)%4].x)/2;
-		c[i].y = (s[i].y+s[(i+1)%4].y)/2;
-	}
-
-	// Subtented angles
-	sub_angles[LEFT] = atan((2.0 * ((float)(c[0].x+roi_pos.x)/width) - 1.0)*tan(FOV_div2[0]));
-	sub_angles[RIGHT] = atan((2.0 * ((float)(c[2].x+roi_pos.x)/width) - 1.0)*tan(FOV_div2[0]));
-	sub_angles[UP] = atan((-2.0 * ((float)(c[1].y+roi_pos.y)/height) + 1.0)*tan(FOV_div2[1]));
-	sub_angles[DOWN] = atan((-2.0 * ((float)(c[3].y+roi_pos.y)/height) + 1.0)*tan(FOV_div2[1]));
-}
-
-/**
  * @function select_center_square
  */
 void select_center_square(const vector<Square> & squares, Square & sel_square, const unsigned int & width, const unsigned int & height)
@@ -275,4 +249,52 @@ void update_roi(Rect & ROI, const Square & sel_square, const float * roi_offsets
 	tmp = ext_contour.height + 2*o_h;
 	if (tmp + ROI.y > height) ROI.height = height - ROI.y;
 		else ROI.height = tmp;
+}
+
+/**
+ * @function sub_angles_from_square
+ */
+void sub_angles_from_square(const Square & square, float * sub_angles, const Point & roi_pos, const unsigned int & width, const unsigned int & height, const float * FOV_div2)
+{
+	// Cpy of square
+	Square s(square);
+	// c[4] = Centers of segments left, up, right, down
+	Point c[4];
+
+	sort_square_points(s);
+
+	// Segments center
+	for (uint8_t i = 0 ; i < s.size() ; i++)
+	{
+		c[i].x = (s[i].x+s[(i+1)%4].x)/2;
+		c[i].y = (s[i].y+s[(i+1)%4].y)/2;
+	}
+
+	// Subtented angles
+	sub_angles[LEFT] = atan((2.0 * ((float)(c[0].x+roi_pos.x)/width) - 1.0)*tan(FOV_div2[0]));
+	sub_angles[RIGHT] = atan((2.0 * ((float)(c[2].x+roi_pos.x)/width) - 1.0)*tan(FOV_div2[0]));
+	sub_angles[UP] = atan((-2.0 * ((float)(c[1].y+roi_pos.y)/height) + 1.0)*tan(FOV_div2[1]));
+	sub_angles[DOWN] = atan((-2.0 * ((float)(c[3].y+roi_pos.y)/height) + 1.0)*tan(FOV_div2[1]));
+}
+void sub_angles_from_square(const Square & square, float * sub_angles, const unsigned int & width, const unsigned int & height, const float * FOV_div2)
+{
+	// Cpy of square
+	Square s(square);
+	// c[4] = Centers of segments left, up, right, down
+	Point c[4];
+
+	sort_square_points(s);
+
+	// Segments center
+	for (uint8_t i = 0 ; i < s.size() ; i++)
+	{
+		c[i].x = (s[i].x+s[(i+1)%4].x)/2;
+		c[i].y = (s[i].y+s[(i+1)%4].y)/2;
+	}
+
+	// Subtented angles
+	sub_angles[LEFT] = atan((2.0 * ((float)(c[0].x)/width) - 1.0)*tan(FOV_div2[0]));
+	sub_angles[RIGHT] = atan((2.0 * ((float)(c[2].x)/width) - 1.0)*tan(FOV_div2[0]));
+	sub_angles[UP] = atan((-2.0 * ((float)(c[1].y)/height) + 1.0)*tan(FOV_div2[1]));
+	sub_angles[DOWN] = atan((-2.0 * ((float)(c[3].y)/height) + 1.0)*tan(FOV_div2[1]));
 }

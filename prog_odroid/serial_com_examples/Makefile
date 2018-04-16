@@ -11,9 +11,10 @@ SERIAL_DIR := $(GIT_REPO)/prog_odroid/libs/lib_serial_com
 
 # The program to build
 NAME   := serial_gum_test
-SRC_CPP:= $(wildcard $(CAMERA_DIR)/*.cpp) $(wildcard $(DETECTOR_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.c)
-SRC	   := $(SRC_CPP) serial_gum_test.cpp
+LIB_CPP:= $(wildcard $(CAMERA_DIR)/*.cpp) $(wildcard $(DETECTOR_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.c)
+SRC	   := $(LIB_CPP) serial_gum_test.cpp
 OBJ	   := $(SRC:.cpp=.o)
+OBJ    := $(OBJ:.c=.o)
 
 # Installation directories for pylon
 PYLON_ROOT ?= /opt/pylon5
