@@ -38,8 +38,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern int fd;	// Socket for Serial
 extern struct termios SerialPortSettings; // Serial struct configuration
 
-int8_t open_serial_port(const char* port);
+int open_serial_port(const char* port);
 int8_t close_serial_port(void);
+int8_t flush_buffers(void);
 int8_t start_asked(void);
 int8_t send_start_serial(void);
 // Read and write functions on serial port (NbByte < 255)

@@ -40,6 +40,9 @@ void uint8_2_float(const uint8_t * array8, float * float32, const uint8_t N = 1)
 void uint16_2_uint8(const uint16_t * array16, uint8_t * array8, const uint8_t N = 1);
 void int16_2_uint8(const int16_t * array16, uint8_t * array8, const uint8_t N = 1);
 
+// Convert N uint64_t array to 8*N uint8_t (Big Endian array uint8 : 1st byte = MSB)
+void uint64_2_uint8(const uint64_t * array64, uint8_t * array8, const uint8_t N = 1);
+
 // Convert N float array to 4*N uint8_t (Big Endian array uint8 : 1st byte = MSB)
 void float_2_uint8(const float * float32, uint8_t * array8, const uint8_t N = 1);
 

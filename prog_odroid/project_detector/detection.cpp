@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 extern bool loop_main;
 
-int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start)
+int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start, sem_t * sem)
 {
 	int16_t exitCode = 0; 	// The exit code
 	uint32_t num_img = 0;	// Image index
@@ -37,20 +37,23 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 		float sub_angles[4] = {0,0,0,0};
 		uint64_t img_time;
 		uint8_t no_detect = 0;
-		uint8_t init_square_detection = 0; // To initialize square detection	
+		uint8_t init_square_detection = 0; // To initialize square detection
+		sem_wait(sem);	// Critical section and copy stream in into tmp var
+			Stream_in s_in_cpy = *p_s_in;
+		sem_post(sem);
 	
 		// Wait until communication start
 		if (*p_sh_start == 0)
 		{
 			cout << "Detection : Wait Serial Connection." << endl;
-			usleep(10000);
+			usleep(WAIT_SERIAL_TIME);
 		}
 		else
 		{
 			cout << "Detection : Start." << endl;
 
 			// OpenCV var init
-			Mat img_src = Mat(p_s_in->height,p_s_in->width,CV_8UC1), img_dst = Mat(p_s_in->height,p_s_in->width,CV_8UC1), img_tmp = Mat(p_s_in->height,p_s_in->width,CV_8UC1), img_to_print = Mat(p_s_in->height,p_s_in->width,CV_8UC3);
+			Mat img_src = Mat(s_in_cpy.height,s_in_cpy.width,CV_8UC1), img_dst = Mat(s_in_cpy.height,s_in_cpy.width,CV_8UC1), img_tmp = Mat(s_in_cpy.height,s_in_cpy.width,CV_8UC1), img_to_print = Mat(s_in_cpy.height,s_in_cpy.width,CV_8UC3);
 			vector<Square > squares;	// Output for Squares Detector
 			Square sel_square; 			// Selected square
 
@@ -58,17 +61,20 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 			{
 				// Initialize and configure camera
 				CInstantCamera camera(CTlFactory::GetInstance().CreateFirstDevice());
-				camera_init(&camera,p_s_in->width,p_s_in->height, p_s_in->offset_x, p_s_in->offset_y, p_s_in->max_num_buffer, p_s_in->binning, p_s_in->expo_auto_max);
+				camera_init(&camera,s_in_cpy.width,s_in_cpy.height, s_in_cpy.offset_x, s_in_cpy.offset_y, s_in_cpy.max_num_buffer, s_in_cpy.binning, s_in_cpy.expo_auto_max);
 
 				// Start grabbing
 				camera.StartGrabbing(GrabStrategy_LatestImageOnly);
 				while (camera.IsGrabbing() && *p_sh_start == 1 && loop_main)
 				{
+					sem_wait(sem);	// Critical section and copy stream in into tmp var
+						s_in_cpy = *p_s_in;
+					sem_post(sem);
 					t_start = std::chrono::high_resolution_clock::now();
-					if (chrono::duration_cast<chrono::milliseconds>(t_start - t_prev) >= (chrono::milliseconds) p_s_in->t_poll)
+					if (chrono::duration_cast<chrono::milliseconds>(t_start - t_prev) >= (chrono::milliseconds) s_in_cpy.t_poll)
 					{
-						camera.RetrieveResult(p_s_in->grab_time_out,ptrGrabResult, TimeoutHandling_ThrowException);
-
+						camera.RetrieveResult(s_in_cpy.grab_time_out,ptrGrabResult, TimeoutHandling_ThrowException);
+cout << chrono::duration_cast<chrono::milliseconds>(t_start - t_prev).count() << endl;
 						if (ptrGrabResult->GrabSucceeded())
 						{
 							// Reinitialize timer
@@ -85,15 +91,15 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 
 			#ifdef BLUR
 							// Reduce noise with blur
-							blur(img_tmp, img_dst, Size((uint16_t) p_s_in->size_blur,(uint16_t) p_s_in->size_blur));
+							blur(img_tmp, img_dst, Size((uint16_t) s_in_cpy.size_blur,(uint16_t) s_in_cpy.size_blur));
 							img_tmp = img_dst;
 			#endif
 
 							// Squares Detector [Suzuki 85]
-							SquaresDetector(img_tmp,squares,(uint16_t) p_s_in->bin_square,p_s_in->k_square,p_s_in->area_square,p_s_in->cos_square);
+							SquaresDetector(img_tmp,squares,(uint16_t) s_in_cpy.bin_square,s_in_cpy.k_square,s_in_cpy.area_square,s_in_cpy.cos_square);
 
 							// Select square
-							state = select_square(squares, sel_square, p_s_in->thresh_diff2, p_s_in->thresh_ratio2);
+							state = select_square(squares, sel_square, s_in_cpy.thresh_diff2, s_in_cpy.thresh_ratio2);
 
 							if (!init_square_detection)	// Initialize detection
 							{
@@ -112,8 +118,8 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 							{
 								if (sel_square.empty())	// No detection
 								{
-									cout << "No detected squares: " << ++no_detect << "/" << (uint16_t) p_s_in->max_no_detect << endl;
-									if ( no_detect >= p_s_in->max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
+									cout << "No detected squares: " << ++no_detect << "/" << (uint16_t) s_in_cpy.max_no_detect << endl;
+									if ( no_detect >= s_in_cpy.max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
 									{
 										init_square_detection = 0;
 										cout << "Reinitialization..." << endl;
@@ -122,13 +128,13 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 								else	// Subtented angles
 								{
 									no_detect = 0;
-									sub_angles_from_square(sel_square,sub_angles,p_s_in->width,p_s_in->height,p_s_in->fov);
+									sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
 								}
 							}
 
 							// Subtented angles
 							if (init_square_detection)
-								cout << "Subtented angles : " << 180.0/CV_PI*sub_angles[0] << "\t" << 180.0/CV_PI*sub_angles[1] << "\t" << 180.0/CV_PI*sub_angles[2] << "\t" << 180.0/CV_PI*sub_angles[3] << endl;
+								cout << "Frame " << img_time << " : Subtented angles (in rad): " << sub_angles[0] << "\t" << sub_angles[1] << "\t" << sub_angles[2] << "\t" << sub_angles[3] << endl;
 
 			#ifdef DEBUG
 							if(no_detect)
@@ -153,7 +159,8 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 							}
 			#endif
 
-							// Update Dat Output Stream
+sem_wait(sem);	// Critical Section
+							// Update Data Output Stream
 							p_s_out->sub_angles[0]=sub_angles[0];
 							p_s_out->sub_angles[1]=sub_angles[1];
 							p_s_out->sub_angles[2]=sub_angles[2];
@@ -161,6 +168,7 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 							p_s_out->time_frame=img_time;
 							p_s_out->no_detect=no_detect;
 							p_s_out->init_detect=init_square_detection;
+sem_post(sem);
 
 							// Increment frame number
 							num_img++;

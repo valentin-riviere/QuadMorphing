@@ -30,7 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <cmath>
 #include <chrono>
 #include <unistd.h>
-#include "def.h"
+#include <semaphore.h>
+#include "class_def.h"
 #include "class_types.h"
 #include "drawing.h"
 #include "custom_functions.h"
@@ -39,10 +40,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define BLUR	// Blur images
 
+#define WAIT_SERIAL_TIME 100000 // Waiting time between checks for serial initialization (in us)
+
 using namespace cv;
 using namespace Pylon;
 using namespace std;
 
-int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start);
+int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start, sem_t * sem);
 
 #endif

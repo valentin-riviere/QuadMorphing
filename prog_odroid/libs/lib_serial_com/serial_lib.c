@@ -17,12 +17,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "serial_lib.h"
 
-
 int fd;	// Socket for Serial
 struct termios SerialPortSettings; // Serial struct configuration
 
 // Open and configure Serial Port
-int8_t open_serial_port(const char *port)
+int open_serial_port(const char *port)
 {
 	fd = open(port, O_RDWR | O_NOCTTY | O_NDELAY); // O_NONBLOCK : Non-blocking mode, O_NDELAY : No delay mode for reading
 	if (fd == -1)
@@ -43,12 +42,14 @@ int8_t open_serial_port(const char *port)
 	SerialPortSettings.c_oflag &= ~(OPOST);	// No output processing	
 	SerialPortSettings.c_cc[VMIN] = 0;		// wait 0 characters before read returning (no effect with NONBLOCK and NDELAY FLAG)
 	SerialPortSettings.c_cc[VTIME] = 0;		// Wait indefinitely (no effect with NONBLOCK and NDELAY FLAG)
-	tcflush(fd,TCIFLUSH);					// Flush RX buffer
-
+	
 	if (tcsetattr(fd,TCSANOW,&SerialPortSettings) != 0)	// Save configuration
 		return -1;
 
-	return 0;
+	sleep(1);				// Required to make flush
+	tcflush(fd,TCIOFLUSH);	// Flush RX/TX buffer
+
+	return fd;
 }
 
 // Close device
@@ -57,6 +58,17 @@ int8_t close_serial_port(void)
 	return close(fd);
 }
 
+int8_t flush_buffers(void)
+{
+	if (tcflush(fd,TCIOFLUSH) == 0)
+		return 1;
+	else
+		printf("Error with flush\n");
+
+	return 0;
+}
+
+// Start asked
 int8_t start_asked(void)
 {
 	uint8_t read_buffer[255], start_str[] = START_STREAM;

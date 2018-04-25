@@ -43,7 +43,6 @@ void uint8_2_float(const uint8_t * array8, float * float32, const uint8_t N)
 	for (uint8_t i = 0 ; i < N ; i++)
 	{
 		array32[i] = ( (uint32_t) array8[4*i] << 24) + ( (uint32_t) array8[4*i+1] << 16) + ( (uint32_t) array8[4*i+2] << 8) + (uint32_t) array8[4*i+3];
-		//printf("%x\n", float32[i]);
 	}
 
 	memcpy(float32,array32,4*N);
@@ -61,8 +60,7 @@ void uint16_2_uint8(const uint16_t * array16, uint8_t * array8, const uint8_t N)
 	for (uint8_t i = 0 ; i < N ; i++)
 	{
 		uint16_t tmp = ((uint32_t) array8[2*i] << 8) + (uint32_t) array8[2*i+1];
-		memcpy(&array8[2*i],&tmp,2);	
-		//printf("%x %x\n", array8[2*i], array8[2*i+1]);
+		memcpy(&array8[2*i],&tmp,2);
 	}
 	
 #else
@@ -78,12 +76,26 @@ void int16_2_uint8(const int16_t * array16, uint8_t * array8, const uint8_t N)
 	for (uint8_t i = 0 ; i < N ; i++)
 	{
 		uint16_t tmp = ((uint32_t) array8[2*i] << 8) + (uint32_t) array8[2*i+1];
-		memcpy(&array8[2*i],&tmp,2);	
-		//printf("%x %x\n", array8[2*i], array8[2*i+1]);
+		memcpy(&array8[2*i],&tmp,2);
 	}
 	
 #else
 	memcpy(array8,array16,2*N);
+#endif
+}
+
+void uint64_2_uint8(const uint64_t * array64, uint8_t * array8, const uint8_t N)
+{
+#ifdef L_ENDIAN
+	memcpy(array8,array64,8*N);
+
+	for (uint8_t i = 0 ; i < N ; i++)
+	{
+		uint64_t tmp = ((uint64_t) array8[8*i] << 56) + ((uint64_t) array8[8*i+1] << 48) + ((uint64_t) array8[8*i+2] << 40) + ((uint64_t) array8[8*i+3] << 32) + ((uint64_t) array8[8*i+4] << 24) + ((uint64_t) array8[8*i+5] << 16) + ((uint64_t) array8[8*i+6] << 8) + (uint64_t) array8[8*i+7];
+		memcpy(&array8[8*i],&tmp,8);
+	}
+#else
+	memcpy(array8,array64,8*N);
 #endif
 }
 
@@ -95,8 +107,7 @@ void float_2_uint8(const float * float32, uint8_t * array8, const uint8_t N)
 	for (uint8_t i = 0 ; i < N ; i++)
 	{
 		uint32_t tmp = ((uint32_t) array8[4*i] << 24) + ((uint32_t) array8[4*i+1] << 16) + ((uint32_t) array8[4*i+2] << 8) + (uint32_t) array8[4*i+3];
-		memcpy(&array8[4*i],&tmp,4);	
-		//printf("%x %x %x %x\n", array8[4*i], array8[4*i+1], array8[4*i+2], array8[4*i+3]);
+		memcpy(&array8[4*i],&tmp,4);
 	}
 	
 #else

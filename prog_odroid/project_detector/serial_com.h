@@ -19,8 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <errno.h>
 #include <signal.h>
 #include <chrono>
+#include <semaphore.h>
 #include "types_convert.h"
-#include "def.h"
+#include "class_def.h"
 #include "serial_lib.h"
 
 using namespace std;
@@ -33,7 +34,7 @@ using namespace std;
 #define NB_GUMSTIX_FAILED 3		// Number of failing read before re-initialization
 
 // Serial communication
-int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, uint8_t * p_sh_start);
+int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, uint8_t * p_sh_start, sem_t* sem);
 
 // Convert read bytes in stream_in data format
 void convert_stream_in(const uint8_t * read_buffer, Stream_in * p_s_in);
