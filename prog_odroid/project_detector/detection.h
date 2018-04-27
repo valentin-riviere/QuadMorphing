@@ -38,6 +38,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "img_processing.h"
 #include "camera.h"
 
+#define DEBUG
+#define TIME_EXEC	// To print execution time for each part of the code
+
 #define BLUR	// Blur images
 
 #define WAIT_SERIAL_TIME 100000 // Waiting time between checks for serial initialization (in us)
@@ -46,6 +49,6 @@ using namespace cv;
 using namespace Pylon;
 using namespace std;
 
-int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start, sem_t * sem);
+int detection(const Stream_in * p_s_in, Stream_out * p_s_out, bool * p_sh_start, sem_t * sem);
 
 #endif

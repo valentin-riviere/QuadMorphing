@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <sys/types.h>
 #include <sys/mman.h>
 #include <semaphore.h>
+#include <sys/resource.h>
 #include "def.h"
 #include "detection.h"
 #include "serial_com.h"
@@ -47,26 +48,22 @@ int main(int argc, char* argv[])
 
     int16_t exitCode = 0; 	// The exit code
 	pid_t pid;
-	uint8_t com_start = 0;	// To synchronize detection and communication
+	bool com_start = 0;	// To synchronize detection and communication
 
 	// Create shared memory
 	Stream_in* p_shs_in = (Stream_in*) mmap(NULL, sizeof(Stream_in), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, 0, 0);
 	Stream_out* p_shs_out = (Stream_out*) mmap(NULL, sizeof(Stream_out), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, 0, 0);
-	uint8_t* p_shstart = (uint8_t*) mmap(NULL, sizeof(com_start), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, 0, 0);
+	bool* p_shstart = (bool*) mmap(NULL, sizeof(bool), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, 0, 0);
 	sem_t* sem = (sem_t*) mmap(NULL, sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0);
-	//pthread_mutex_t* p_mutex = (pthread_mutex_t*) mmap(NULL, sizeof(pthread_mutex_t), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, 0, 0);
 	
 	// Initialize shared memory
 	memcpy(p_shstart,&com_start,sizeof(com_start));
 
-	// Mutex
-//	pthread_mutexattr_t attr;
-//	pthread_mutexattr_init(&attr);
-//	pthread_mutexattr_setpshared(&attr,PTHREAD_PROCESS_SHARED);
-//	pthread_mutex_init(p_mutex,&attr);
-
 	// Semaphore
 	sem_init(sem,1,1);
+
+	// Set nice value
+	setpriority(PRIO_PROCESS,0,-20);
 
 	// Fork
 	pid = fork();
@@ -87,7 +84,6 @@ int main(int argc, char* argv[])
 	munmap(p_shs_in,sizeof(p_shs_in));
 	munmap(p_shs_out,sizeof(p_shs_out));
 	munmap(p_shstart,sizeof(p_shstart));
-//	munmap(p_mutex,sizeof(p_mutex));
 	munmap(sem,sizeof(sem));
 
     return exitCode;

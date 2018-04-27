@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /// Global variables
 
 // Timing parameters
-const chrono::milliseconds t_polling(20); // Polling time (in ms)
+const chrono::milliseconds t_polling(10); // Polling time (in ms)
 const uint32_t time_init = 0;	// Duration between two initialization (in us)
 
 // Grabbing

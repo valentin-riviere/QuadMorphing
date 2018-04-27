@@ -29,12 +29,12 @@ using namespace std;
 #define WAIT_CONNECTION_TIME 100000	// In us, time between two read buffer for asking connection
 #define POLLING_TIME_MS 10	// Polling time for loop
 #define HEADER 170
-#define NB_BYTE_TO_READ 43
-#define NB_BYTE_TO_WRITE 26
+#define NB_BYTE_TO_READ 48
+#define NB_BYTE_TO_WRITE 28
 #define NB_GUMSTIX_FAILED 3		// Number of failing read before re-initialization
 
 // Serial communication
-int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, uint8_t * p_sh_start, sem_t* sem);
+int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start, sem_t* sem);
 
 // Convert read bytes in stream_in data format
 void convert_stream_in(const uint8_t * read_buffer, Stream_in * p_s_in);

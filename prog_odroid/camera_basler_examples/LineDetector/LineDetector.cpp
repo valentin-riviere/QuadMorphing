@@ -54,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ACQUISITION_CONTINUOUS
 
 // Usb flag for Frame Rate limitation but slow compilation
-//#define USB_CAMERA
+#define USB_CAMERA
 
 // Benchmark
 #define TIME_EXEC

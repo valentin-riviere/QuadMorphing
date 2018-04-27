@@ -19,16 +19,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 extern bool loop_main;
 
-int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_start, sem_t * sem)
+int detection(const Stream_in * p_s_in, Stream_out * p_s_out, bool * p_sh_start, sem_t * sem)
 {
 	int16_t exitCode = 0; 	// The exit code
 	uint32_t num_img = 0;	// Image index
 	chrono::high_resolution_clock::time_point t_start, t_prev = chrono::high_resolution_clock::now();
 	CGrabResultPtr ptrGrabResult;		// Ptr to results
-	int8_t state;
+	int16_t state;
 
 	// Before using any pylon methods, the pylon runtime must be initialized. 
     PylonInitialize();
+
+	// Create camera
+	CInstantCamera camera(CTlFactory::GetInstance().CreateFirstDevice());
 
 	// Main loop
 	while (loop_main)
@@ -36,14 +39,15 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 		// Outputs
 		float sub_angles[4] = {0,0,0,0};
 		uint64_t img_time;
-		uint8_t no_detect = 0;
-		uint8_t init_square_detection = 0; // To initialize square detection
+		uint16_t no_detect = 0;
+		uint16_t init_square_detection = 0; // To initialize square detection
 		sem_wait(sem);	// Critical section and copy stream in into tmp var
 			Stream_in s_in_cpy = *p_s_in;
+			bool com_start = *p_sh_start;
 		sem_post(sem);
 	
 		// Wait until communication start
-		if (*p_sh_start == 0)
+		if (com_start == 0)
 		{
 			cout << "Detection : Wait Serial Connection." << endl;
 			usleep(WAIT_SERIAL_TIME);
@@ -60,126 +64,167 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, uint8_t * p_sh_sta
 			try
 			{
 				// Initialize and configure camera
-				CInstantCamera camera(CTlFactory::GetInstance().CreateFirstDevice());
 				camera_init(&camera,s_in_cpy.width,s_in_cpy.height, s_in_cpy.offset_x, s_in_cpy.offset_y, s_in_cpy.max_num_buffer, s_in_cpy.binning, s_in_cpy.expo_auto_max);
 
 				// Start grabbing
 				camera.StartGrabbing(GrabStrategy_LatestImageOnly);
-				while (camera.IsGrabbing() && *p_sh_start == 1 && loop_main)
+				while (camera.IsGrabbing() && com_start == 1 && loop_main)
 				{
 					sem_wait(sem);	// Critical section and copy stream in into tmp var
 						s_in_cpy = *p_s_in;
+						com_start = *p_sh_start;
 					sem_post(sem);
-					t_start = std::chrono::high_resolution_clock::now();
-					if (chrono::duration_cast<chrono::milliseconds>(t_start - t_prev) >= (chrono::milliseconds) s_in_cpy.t_poll)
+
+#ifdef TIME_EXEC
+	t_start = std::chrono::high_resolution_clock::now();
+#endif
+
+					// Acquisition
+					if (camera.GetGrabResultWaitObject().Wait(0))
 					{
-						camera.RetrieveResult(s_in_cpy.grab_time_out,ptrGrabResult, TimeoutHandling_ThrowException);
-cout << chrono::duration_cast<chrono::milliseconds>(t_start - t_prev).count() << endl;
-						if (ptrGrabResult->GrabSucceeded())
+						camera.RetrieveResult(0,ptrGrabResult, TimeoutHandling_Return);
+
+#ifdef TIME_EXEC
+	cout << "Acquisition (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+#endif
+
+						t_start = std::chrono::high_resolution_clock::now();
+						if (chrono::duration_cast<chrono::milliseconds>(t_start - t_prev) >= (chrono::milliseconds) s_in_cpy.t_poll)
 						{
+							cout << "Time between two processing frames (ms) : " << chrono::duration_cast<chrono::milliseconds>(t_start - t_prev).count() << endl;
 							// Reinitialize timer
 							t_prev = t_start;
 
-							// Convert for openCV and get time
-							img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
-
-							// Copy data
-							img_tmp = img_src;
-					
-							// Get acquisition time
-							img_time = ptrGrabResult->GetTimeStamp();
-
-			#ifdef BLUR
-							// Reduce noise with blur
-							blur(img_tmp, img_dst, Size((uint16_t) s_in_cpy.size_blur,(uint16_t) s_in_cpy.size_blur));
-							img_tmp = img_dst;
-			#endif
-
-							// Squares Detector [Suzuki 85]
-							SquaresDetector(img_tmp,squares,(uint16_t) s_in_cpy.bin_square,s_in_cpy.k_square,s_in_cpy.area_square,s_in_cpy.cos_square);
-
-							// Select square
-							state = select_square(squares, sel_square, s_in_cpy.thresh_diff2, s_in_cpy.thresh_ratio2);
-
-							if (!init_square_detection)	// Initialize detection
+							if (ptrGrabResult->GrabSucceeded())
 							{
-								usleep(50);
-						
-								cout << "Initialization...";
-								if (!sel_square.empty())
-								{
-									init_square_detection = 1;
-									no_detect = 0;
-									cout << "OK";
+								img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
+
+	#ifdef TIME_EXEC
+		cout << "Convertion (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Copy data
+								img_tmp = img_src;
+				
+								// Get acquisition time
+								img_time = ptrGrabResult->GetTimeStamp();
+
+				#ifdef BLUR
+								// Reduce noise with blur
+								blur(img_tmp, img_dst, Size(s_in_cpy.size_blur,s_in_cpy.size_blur));
+								img_tmp = img_dst;
+				#endif
+
+	#ifdef TIME_EXEC
+		cout << "Blur (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Squares Detector [Suzuki 85]
+								SquaresDetector(img_tmp,squares,s_in_cpy.bin_square,s_in_cpy.k_square,s_in_cpy.area_square,s_in_cpy.cos_square);
+
+	#ifdef TIME_EXEC
+		cout << "Square detection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Select square
+								state = select_square(squares, sel_square, s_in_cpy.thresh_diff2, s_in_cpy.thresh_ratio2);
+
+	#ifdef TIME_EXEC
+		cout << "Square selection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								if (!init_square_detection)	// Initialize detection
+								{						
+									cout << "Initialization...";
+									if (!sel_square.empty())
+									{
+										init_square_detection = 1;
+										no_detect = 0;
+										cout << "OK";
+									}
+									cout << endl;
 								}
-								cout << endl;
+								else
+								{
+									if (sel_square.empty())	// No detection
+									{
+										cout << "No detected squares: " << ++no_detect << "/" <<  s_in_cpy.max_no_detect << endl;
+										if (no_detect >= s_in_cpy.max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
+										{
+											init_square_detection = 0;
+											cout << "Reinitialization..." << endl;
+										}
+									}
+									else	// Subtented angles
+									{
+										no_detect = 0;
+										sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
+									}
+								}
+
+	#ifdef TIME_EXEC
+		cout << "Sub angles computation (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Subtented angles
+								if (init_square_detection)
+									cout << "Frame " << img_time << " : Subtented angles (in rad): " << sub_angles[0] << "\t" << sub_angles[1] << "\t" << sub_angles[2] << "\t" << sub_angles[3] << endl;
+
+				#ifdef DEBUG
+								if(no_detect)
+								{
+									switch (state)
+									{
+										case -1:
+											cout << "No detected squares" << endl;
+											break;
+										case 0:
+											cout << "No pair squares" << endl;
+											break;
+										case 1:
+											cout << "No centered pair squares" << endl;
+											break;
+										case 2:
+											cout << "No similar ratio pair squares" << endl;
+											break;
+										default:
+											break;
+									}
+								}
+				#endif
+
+	sem_wait(sem);	// Critical Section
+								// Update Data Output Stream
+								p_s_out->sub_angles[0]=sub_angles[0];
+								p_s_out->sub_angles[1]=sub_angles[1];
+								p_s_out->sub_angles[2]=sub_angles[2];
+								p_s_out->sub_angles[3]=sub_angles[3];
+								p_s_out->time_frame=img_time;
+								p_s_out->no_detect=no_detect;
+								p_s_out->init_detect=init_square_detection;
+								com_start = *p_sh_start;
+	sem_post(sem);
+	#ifdef TIME_EXEC
+		cout << "Copy to class (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Increment frame number
+								num_img++;
 							}
 							else
 							{
-								if (sel_square.empty())	// No detection
-								{
-									cout << "No detected squares: " << ++no_detect << "/" << (uint16_t) s_in_cpy.max_no_detect << endl;
-									if ( no_detect >= s_in_cpy.max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
-									{
-										init_square_detection = 0;
-										cout << "Reinitialization..." << endl;
-									}
-								}
-								else	// Subtented angles
-								{
-									no_detect = 0;
-									sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
-								}
+								cout << "Error on grab : " << ptrGrabResult->GetErrorCode() << " " << ptrGrabResult->GetErrorDescription() << endl;
 							}
-
-							// Subtented angles
-							if (init_square_detection)
-								cout << "Frame " << img_time << " : Subtented angles (in rad): " << sub_angles[0] << "\t" << sub_angles[1] << "\t" << sub_angles[2] << "\t" << sub_angles[3] << endl;
-
-			#ifdef DEBUG
-							if(no_detect)
-							{
-								switch (state)
-								{
-									case -1:
-										cout << "No detected squares" << endl;
-										break;
-									case 0:
-										cout << "No pair squares" << endl;
-										break;
-									case 1:
-										cout << "No centered pair squares" << endl;
-										break;
-									case 2:
-										cout << "No similar ratio pair squares" << endl;
-										break;
-									default:
-										break;
-								}
-							}
-			#endif
-
-sem_wait(sem);	// Critical Section
-							// Update Data Output Stream
-							p_s_out->sub_angles[0]=sub_angles[0];
-							p_s_out->sub_angles[1]=sub_angles[1];
-							p_s_out->sub_angles[2]=sub_angles[2];
-							p_s_out->sub_angles[3]=sub_angles[3];
-							p_s_out->time_frame=img_time;
-							p_s_out->no_detect=no_detect;
-							p_s_out->init_detect=init_square_detection;
-sem_post(sem);
-
-							// Increment frame number
-							num_img++;
-						}
-						else
-						{
-						    cout << "Error: " << ptrGrabResult->GetErrorCode() << " " << ptrGrabResult->GetErrorDescription() << endl;
 						}
 					}
 				}	// End while
-
+				camera.StopGrabbing();
 				camera_close(&camera);
 			}
 			catch (const GenericException &e)
@@ -188,6 +233,9 @@ sem_post(sem);
 				cerr << "An exception occurred." << endl
 				<< e.GetDescription() << endl;
 				exitCode = 1;
+
+				camera.StopGrabbing();
+				camera_close(&camera);
 			}
 		}
 	} // End main loop

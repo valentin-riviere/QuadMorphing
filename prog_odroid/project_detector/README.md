@@ -12,16 +12,16 @@ Execute project_detector to detect square and send subtented angles to gumstix v
 ## Communication :
 ### INPUT
 - uint16_t t_polling : Time between 2 frames
-- uint8_t MaxNumBuffer : Number of frames max per buffer
+- uint16_t MaxNumBuffer : Number of frames max per buffer
 - uint16_t width/height : Width/Height for camera
 - uint16_t offset_x/y : offset_x/y for camera center
-- uint8_t binning : Binning on/off
+- uint16_t binning : Binning on/off
 - uint16_t expoAutoMax_us : Maximum exposure time for expoAuto (in us)
 - uint16_t grabTimeOut_ms : TimeOut to grab a frame (in ms)
 - float FOV_x/y : Field Of View on x/y (in rad)
-- uint8_t max_no_detection : Maximum of false detections before reinitialization of the detector
-- uint8_t blur_size : Matrix size for blurring (pre-processing of the image)
-- uint8_t bin_square : Threshold to digitize the image (in pixel 8bits-intensity)
+- uint16_t max_no_detection : Maximum of false detections before reinitialization of the detector
+- uint16_t blur_size : Matrix size for blurring (pre-processing of the image)
+- uint16_t bin_square : Threshold to digitize the image (in pixel 8bits-intensity)
 - float k_approx : Coefficient to approximate lines (percent/100 of contour length)
 - uint16_t thresh_area : Minimal size of a detected area (in px^2)
 - float thresh_cos : Threshold on cos between 2 segments to define a right-angle
@@ -31,5 +31,5 @@ Execute project_detector to detect square and send subtented angles to gumstix v
 ### OUTPUT
 - float sub_angles[4] : Subtented angles (in rad)
 - uint64_t frame_time : Frame time (in camera ticks)
-- uint8_t no_detect : Number of false detections
-- uint8_t init_detect : Initialization done/not done
+- uint16_t no_detect : Number of false detections
+- uint16_t init_detect : Initialization done/not done
