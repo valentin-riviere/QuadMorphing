@@ -9,7 +9,7 @@
 
 
 clc;
-clear all;
+clear all3
 close all;
 
         % add to path TOOLBOX_GUMSTIX
