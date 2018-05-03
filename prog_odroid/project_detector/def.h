@@ -18,6 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <iostream>
 #include "class_def.h"
 
+#define PRINT_DEBUG		// Print execution information
+#define T_PRINT	1000	// Time between two prints (in ms)
+
 using namespace std;
 
 #endif

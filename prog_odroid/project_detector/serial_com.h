@@ -20,14 +20,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <signal.h>
 #include <chrono>
 #include <semaphore.h>
+#include "def.h"
 #include "types_convert.h"
 #include "class_def.h"
 #include "serial_lib.h"
 
+//#define DEBUG_SERIAL
+
 using namespace std;
 
 #define WAIT_CONNECTION_TIME 100000	// In us, time between two read buffer for asking connection
-#define POLLING_TIME_MS 10	// Polling time for loop
+#define T_COM_MS 10	// Polling time for loop
 #define HEADER 170
 #define NB_BYTE_TO_READ 48
 #define NB_BYTE_TO_WRITE 28

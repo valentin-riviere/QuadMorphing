@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 	sem_t* sem = (sem_t*) mmap(NULL, sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0);
 	
 	// Initialize shared memory
-	memcpy(p_shstart,&com_start,sizeof(com_start));
+	*p_shstart = false;
 
 	// Semaphore
 	sem_init(sem,1,1);

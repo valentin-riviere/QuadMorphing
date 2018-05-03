@@ -71,13 +71,13 @@ int8_t flush_buffers(void)
 // Start asked
 int8_t start_asked(void)
 {
-	uint8_t read_buffer[255], start_str[] = START_STREAM;
+	uint8_t read_buffer[255] = {0}, start_str[] = START_STREAM;
 
 	if (read_serial(read_buffer,sizeof(START_STREAM)-1) != sizeof(START_STREAM)-1)
 		return 0;
 	else
 	{
-		for (uint8_t i ; i < sizeof(START_STREAM)-1 ; i++)
+		for (uint8_t i = 0; i < sizeof(START_STREAM)-1 ; i++)
 		{
 			if (read_buffer[i] != start_str[i])
 				return 0;
@@ -132,27 +132,42 @@ int8_t read_serial(uint8_t* read_buffer, const uint8_t NbByteToRead)
 
 int8_t header_read_serial(uint8_t* read_buffer, const uint8_t NbByteToRead, const uint8_t header)
 {
-	int bytes_read = 0;
+	int bytes_read = 0, bytes_read_tmp = 0;
+	uint8_t tmp_buf[255];
 	
 	bytes_read = read(fd,read_buffer,1);
-	if (bytes_read <= 0)
+	if (bytes_read <= 0)	// If empty => wait for next byte
 	{
-		usleep(TIME_PER_BYTE);	// Wait for next byte
+		usleep(TIME_PER_BYTE);	
 		bytes_read = read(fd,read_buffer,1);
 	}
 
-	while (read_buffer[0] != header && bytes_read > 0) 	// Read one time and loop if read != header && bytes_read > 0
+	if (bytes_read > 0)
 	{
-		if (bytes_read <= 0)
+		while (read_buffer[0] != header && bytes_read > 0) 	// Read one time and loop if read != header
+		{
 			usleep(TIME_PER_BYTE);	// Wait for next byte
-		bytes_read = read(fd,read_buffer,1);
-	} 
+			bytes_read = read(fd,read_buffer,1);
+		}
 
-	usleep(TIME_PER_BYTE*NbByteToRead);	// Wait for tram acquisition
+		if (read_buffer[0] == header)
+		{
+			usleep(TIME_PER_BYTE*NbByteToRead);	// Wait for tram acquisition
 
-	bytes_read = read(fd,read_buffer,NbByteToRead);
-	if (bytes_read != NbByteToRead)	// If bytes_read != NbByteToRead
-		return 0;
+			bytes_read_tmp = read(fd,&tmp_buf[1],NbByteToRead);
+
+			do	// Loop to clear buffer and take last stream
+			{
+				bytes_read = bytes_read_tmp;
+					
+				for (uint8_t i = 0 ; i < NbByteToRead ; i++)
+					read_buffer[i] = tmp_buf[i+1];
+
+				bytes_read_tmp = read(fd,tmp_buf,NbByteToRead+1) - 1;
+
+			}while (bytes_read_tmp == NbByteToRead);
+		}
+	}
 
 	return bytes_read;
 }

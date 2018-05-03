@@ -28,11 +28,12 @@ ostream& operator<<(ostream &f, Stream_in const * p_s_in)
 int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start, sem_t * sem)
 {
 	bool socket_on = false;	// Connection between odroid and RCB 2 is off
-	bool loop_on = true;	// Variable for program loop
 	int bytes_written = 0, bytes_read = 0, gumstix_fail = 0;
 	uint8_t read_buffer[NB_BYTE_TO_READ], write_buffer[NB_BYTE_TO_WRITE] = {0};
-	const chrono::milliseconds Duration_com(POLLING_TIME_MS); // Polling time for communication
-	chrono::high_resolution_clock::time_point cTime = chrono::high_resolution_clock::now(), pTime = chrono::high_resolution_clock::now();
+	const chrono::milliseconds Duration_com(T_COM_MS); // Polling time for communication
+	chrono::high_resolution_clock::time_point cTime = chrono::high_resolution_clock::now(), pTime = chrono::high_resolution_clock::now(), pTime_print = chrono::high_resolution_clock::now();
+	uint32_t overrun = 0;	// Nbr of overruns
+	uint32_t ticks = 0;		// Nbr of ticks in loop
 
 	// Open and configure Serial Port
 	if (open_serial_port("/dev/ttySAC0") < 0)
@@ -42,17 +43,30 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 	}
 	
 	// Program loop
-	while (loop_on && loop_main)
+	while (loop_main)
 	{
 		cTime = chrono::high_resolution_clock::now();
-		if(chrono::duration_cast<chrono::milliseconds>(cTime - pTime) >= Duration_com)
+
+		chrono::milliseconds duration = chrono::duration_cast<chrono::milliseconds>(cTime - pTime);
+		if(duration >= Duration_com)
 		{
+			// Reinitialize timer
 			pTime = cTime;
+
+#ifdef PRINT_DEBUG
+			if (duration > Duration_com && socket_on)
+			{
+				overrun++;
+				cout << "Serial Com : Overrun! (" << duration.count() << "/" << Duration_com.count() << "ms)" << endl;
+			}
+#endif
+
 			if (!socket_on)	// If socket is not initialized
 			{
-				sem_wait(sem);	// Critical section
-					*p_sh_start = 0;		// Detection is off
+				sem_wait(sem);				// Critical section
+					*p_sh_start = false;	// Reset detection if socket is off
 				sem_post(sem);
+
 				if (start_asked()) 	// If start received and connection is off
 				{
 					// Send start stream on Serial Port
@@ -61,6 +75,7 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 					socket_on = true;
 					gumstix_fail = 0;
 					cout << "Connection established!" << endl;
+					usleep(10000);
 				}
 				else	// Wait until next pool
 				{
@@ -69,7 +84,8 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 					usleep(WAIT_CONNECTION_TIME);
 				}
 			}
-			else	// Socket is initialized
+
+			if (socket_on)	// Socket is initialized
 			{
 				// Write on Serial Port
 				sem_wait(sem); // Critical section
@@ -79,41 +95,49 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 				if (bytes_written < 0)	// If troubles, exit program
 				{
 					cout << "UART TX error: " << strerror(errno) << endl;
-					loop_on = false;
+					loop_main = false;
 				}
 
 				// Read on Serial Port
-				sem_wait(sem); 	// Critical section
-					bool com_start = *p_sh_start;
-				sem_post(sem);
-//				if (!com_start)	// Read only at initialization
-//				{
-					bytes_read = header_read_serial(read_buffer,NB_BYTE_TO_READ,HEADER);
-					if (bytes_read < 0)		// If troubles, exit program
-					{
-						cout << "UART RX error: " << strerror(errno) << endl;
-						loop_on = false;
-					}
-					else if (bytes_read != NB_BYTE_TO_READ)	// If nothing to read => increment gumstix fails
-					{
-						if (++gumstix_fail >= NB_GUMSTIX_FAILED)
-							socket_on = false;
-						cout << "No stream received " << gumstix_fail << " / " << NB_GUMSTIX_FAILED << endl;
-						cout << "\t" << bytes_read << " bytes read! (" << NB_BYTE_TO_READ << " bytes expected)" << endl;
-					}
-					else	// read_buffer contains gumstix data
-					{
-						gumstix_fail = 0;		// Reset gumstix fails when receive something
-//						cout << bytes_read << " bytes read!" << endl;
-						sem_wait(sem);	// Critical section
-							p_s_in->convert_from_buffer(read_buffer);	// Convert bytes to struct stream_in data format
-							*p_sh_start = 1;							// Communication is active => detection is on
-						sem_post(sem);
-					}
-//				}
+				bytes_read = header_read_serial(read_buffer,NB_BYTE_TO_READ,HEADER);
+				if (bytes_read < 0)		// If troubles, exit program
+				{
+					cout << "UART RX error: " << strerror(errno) << endl;
+					loop_main = false;
+				}
+				else if (bytes_read != NB_BYTE_TO_READ)	// If nothing to read => increment gumstix fails
+				{
+					if (++gumstix_fail >= NB_GUMSTIX_FAILED)
+						socket_on = false;
+					cout << "No stream received " << gumstix_fail << " / " << NB_GUMSTIX_FAILED << endl;
+					cout << "\t" << bytes_read << " bytes read! (" << NB_BYTE_TO_READ << " bytes expected)" << endl;
+				}
+				else	// read_buffer contains gumstix data
+				{
+					gumstix_fail = 0;	// Reset gumstix fails when receive something
+#ifdef DEBUG_SERIAL
+					cout << "Received bytes :\n";
+					for (unsigned int i = 0 ; i < NB_BYTE_TO_READ ; i++)
+						printf("%d\n", (uint16_t) read_buffer[i], read_buffer[i]);
+#endif
+					sem_wait(sem);	// Critical section
+						p_s_in->convert_from_buffer(read_buffer);	// Convert bytes to struct stream_in data format
+						*p_sh_start = true;							// Detection is set
+					sem_post(sem);
+				}
+
+				ticks++;
 			}
 		}
-	}
+#ifdef PRINT_DEBUG
+		else if (chrono::duration_cast<chrono::milliseconds>(cTime - pTime_print) >= (chrono::milliseconds) T_PRINT)
+		{
+			pTime_print = cTime;
+			cout << "Communication Task (" << Duration_com.count() << "ms)" << endl;
+			cout << "\t\t" << "OverRuns : " << overrun << "/" << ticks << " ticks" << endl;
+		}
+#endif
+	} // End While
 
 	close_serial_port();
 
