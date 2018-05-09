@@ -83,7 +83,6 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, bool * p_sh_start,
 						if (duration > s_in_cpy.t_poll)
 						{
 							overrun++;
-							cout << "Detection : Overrun! (" << overrun << ")" << endl;
 						}
 #endif
 

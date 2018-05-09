@@ -57,7 +57,6 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 			if (duration > Duration_com && socket_on)
 			{
 				overrun++;
-				cout << "Serial Com : Overrun! (" << duration.count() << "/" << Duration_com.count() << "ms)" << endl;
 			}
 #endif
 
@@ -99,7 +98,7 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 				}
 
 				// Read on Serial Port
-				bytes_read = header_read_serial(read_buffer,NB_BYTE_TO_READ,HEADER);
+				bytes_read = header_wait_read_serial(read_buffer,NB_BYTE_TO_READ,HEADER);
 				if (bytes_read < 0)		// If troubles, exit program
 				{
 					cout << "UART RX error: " << strerror(errno) << endl;
@@ -109,7 +108,7 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 				{
 					if (++gumstix_fail >= NB_GUMSTIX_FAILED)
 						socket_on = false;
-					cout << "No stream received " << gumstix_fail << " / " << NB_GUMSTIX_FAILED << endl;
+					cout << "No stream received " << gumstix_fail << " / " << NB_GUMSTIX_FAILED;
 					cout << "\t" << bytes_read << " bytes read! (" << NB_BYTE_TO_READ << " bytes expected)" << endl;
 				}
 				else	// read_buffer contains gumstix data

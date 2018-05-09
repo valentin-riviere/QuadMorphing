@@ -1,0 +1,61 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:		detector
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Default-Start:	0 1 2 3 4 5 6
+# Default-Stop:
+# Short-Description:	Start detector DAEMON at boot time
+# Descritption:		Enable service provided by detector DAEMON
+### END INIT INFO
+
+DAEMON="/home/odroid/QuadMorphing/prog_odroid/project_detector/detector.sh"
+DAEMONUSER="root"
+daemon_NAME="detector"
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin"
+
+test -x $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+d_start () {
+        log_daemon_msg "Starting system $daemon_NAME Daemon"
+		start-stop-daemon --background --name $daemon_NAME --start --quiet --chuid $DAEMONUSER --exec $DAEMON
+        log_end_msg $?
+}
+ 
+d_stop () {
+        log_daemon_msg "Stopping system $daemon_NAME Daemon"
+        start-stop-daemon --name $daemon_NAME --stop --retry 5 --quiet --name $daemon_NAME
+		log_end_msg $?
+}
+ 
+case "$1" in
+ 
+        start|stop)
+                d_${1}
+                ;;
+ 
+        restart|reload|force-reload)
+                        d_stop
+                        d_start
+                ;;
+ 
+        force-stop)
+               d_stop
+                killall -q $daemon_NAME || true
+                sleep 2
+                killall -q -9 $daemon_NAME || true
+                ;;
+ 
+        status)
+                status_of_proc "$daemon_NAME" "$DAEMON" "system-wide $daemon_NAME" && exit 0 || exit $?
+                ;;
+        *)
+                echo "Usage: /etc/init.d/$daemon_NAME {start|stop|force-stop|restart|reload|force-reload|status}"
+                exit 1
+                ;;
+esac
+exit 0

@@ -48,6 +48,7 @@ int8_t write_serial(const uint8_t* str, const uint8_t NbByteToWrite);
 int8_t header_write_serial(const uint8_t* str, const uint8_t NbByteToWrite, const uint8_t header);
 int8_t read_serial(uint8_t* str, const uint8_t ByteToRead);
 int8_t header_read_serial(uint8_t* str, const uint8_t ByteToRead, const uint8_t header);
+int8_t header_wait_read_serial(uint8_t* str, const uint8_t ByteToRead, const uint8_t header);
 
 #ifdef __cplusplus
 	} // End extern C

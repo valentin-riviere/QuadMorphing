@@ -142,6 +142,51 @@ int8_t header_read_serial(uint8_t* read_buffer, const uint8_t NbByteToRead, cons
 		bytes_read = read(fd,read_buffer,1);
 	}
 
+
+	if (bytes_read > 0)
+	{
+		while (read_buffer[0] != header && bytes_read > 0) 	// Read one time and loop if read != header
+		{
+			usleep(TIME_PER_BYTE);	// Wait for next byte
+			bytes_read = read(fd,read_buffer,1);
+		}
+
+		if (read_buffer[0] == header)
+		{
+			usleep(TIME_PER_BYTE*NbByteToRead);	// Wait for tram acquisition
+
+			bytes_read_tmp = read(fd,&tmp_buf[1],NbByteToRead);
+
+			do	// Loop to clear buffer and take last stream
+			{
+				bytes_read = bytes_read_tmp;
+					
+				for (uint8_t i = 0 ; i < NbByteToRead ; i++)
+					read_buffer[i] = tmp_buf[i+1];
+
+				bytes_read_tmp = read(fd,tmp_buf,NbByteToRead+1) - 1;
+
+			}while (bytes_read_tmp == NbByteToRead);
+		}
+	}
+
+	return bytes_read;
+}
+
+int8_t header_wait_read_serial(uint8_t* read_buffer, const uint8_t NbByteToRead, const uint8_t header)
+{
+	int bytes_read = 0, bytes_read_tmp = 0;
+	uint8_t tmp_buf[255];
+	uint16_t wd = 0;
+	
+	bytes_read = read(fd,read_buffer,1);
+	while (bytes_read <= 0 && wd < 115)	// If empty => wait for next byte
+	{
+		usleep(TIME_PER_BYTE); wd++;
+		bytes_read = read(fd,read_buffer,1);
+	}
+
+
 	if (bytes_read > 0)
 	{
 		while (read_buffer[0] != header && bytes_read > 0) 	// Read one time and loop if read != header
