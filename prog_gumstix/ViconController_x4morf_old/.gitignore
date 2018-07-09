@@ -1,0 +1,6 @@
+# Ignore all excepts specified files
+*
+!.gitignore
+!*.mat
+!*.mdl
+!*.m

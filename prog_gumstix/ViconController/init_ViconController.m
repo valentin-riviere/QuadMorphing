@@ -18,8 +18,8 @@ close all;
     
 % %%%%%%%%%%%%%%%%%% section to be completed by user %%%%%%%%%%%%%%%%%%%%%
 
-HostModelName = 'ViconController_x4morf_quat';
-ComModelName = 'ViconController_x4morf_quat';
+HostModelName = 'ViconController';
+ComModelName = 'ViconController';
         
 %%%%%%%%% PARAMETERES %%%%%%%%%%
 
@@ -37,7 +37,7 @@ Ts_Display = 1/20;
 
 % specifics initialisation for model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    LandingHeight = 0.06;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
+    LandingHeight = 0.08;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
     g = 9.81;
     Mag_ref = [23806.2;...
                395.3;...
