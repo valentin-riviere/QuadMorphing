@@ -2,7 +2,7 @@
 *
 !.gitignore
 !AccCalib_Transformation_X4morf_Robot.mat
-!COM_test_gumstix.mdl
+!COM_*.mdl
 !init_test_gumstix.m
 !RobotParameters.m
 !UAVstruct_BusObject.m
