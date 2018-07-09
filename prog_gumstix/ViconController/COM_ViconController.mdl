@@ -42,7 +42,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3191"
+    ComputedModelVersion    "1.3219"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -126,7 +126,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "13880"
-	  Extents		  [1886.0, 879.0]
+	  Extents		  [1646.0, 889.0]
 	  ZoomFactor		  [1.5]
 	  Offset		  [98.125246337689418, -12.979483534510564]
 	}
@@ -136,8 +136,8 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "10176"
 	  Extents		  [1646.0, 889.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [63.305433245339486, 134.08870215826724]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-797.20292914600361, -198.13061295688885]
 	}
 	Object {
 	  $ObjectID		  11
@@ -146,16 +146,16 @@ Model {
 	  LoadSaveID		  "13137"
 	  Extents		  [1646.0, 889.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-876.62437150910046, -660.02923658562224]
+	  Offset		  [-382.28300702476417, -695.4970539215285]
 	}
 	Object {
 	  $ObjectID		  12
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "12775"
-	  Extents		  [1886.0, 919.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-8.236747717792241, -112.71378368551774]
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [13.129336412931309, -161.98360784046031]
 	}
 	Object {
 	  $ObjectID		  13
@@ -180,9 +180,9 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "9709"
-	  Extents		  [1886.0, 879.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-8.8762780332153852, 43.851631989038992]
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [-260.32712360520213, -169.95855122880346]
 	}
 	Object {
 	  $ObjectID		  16
@@ -198,18 +198,18 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "12760"
-	  Extents		  [1886.0, 919.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-2.0, 149.80053692446165]
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-48.766778370565021, 240.14229657017552]
 	}
 	Object {
 	  $ObjectID		  18
 	  IsActive		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9355"
 	  Extents		  [1646.0, 889.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [0.0, 0.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-15.877871747205351, -138.57399585083985]
 	}
 	Object {
 	  $ObjectID		  19
@@ -252,7 +252,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "9657"
-	  Extents		  [1886.0, 879.0]
+	  Extents		  [1646.0, 889.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-403.54758075499853, -178.21129037749927]
 	}
@@ -285,9 +285,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "arenebiorob"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 09 16:21:39 2018"
-  RTWModifiedTimeStamp	  453054099
-  ModelVersionFormat	  "1.%<AutoIncrement:3191>"
+  LastModifiedDate	  "Mon Jul 09 17:38:01 2018"
+  RTWModifiedTimeStamp	  453058500
+  ModelVersionFormat	  "1.%<AutoIncrement:3219>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1371,7 +1371,7 @@ Model {
   System {
     Name		    "COM_ViconController"
     Location		    [-1688, 30, 8, 1096]
-    Open		    on
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1384,7 +1384,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "14015"
+    SIDHighWatermark	    "14021"
     Block {
       BlockType		      Inport
       Name		      "In_from_Serial"
@@ -2053,7 +2053,7 @@ Model {
       System {
 	Name			"GUMSTIX"
 	Location		[-1688, 30, 8, 1096]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2602,7 +2602,7 @@ Model {
 	  Name			  "Attitude\ncontroller"
 	  SID			  "10176"
 	  Ports			  [10, 7]
-	  Position		  [755, 602, 875, 1063]
+	  Position		  [755, 602, 950, 1063]
 	  ZOrder		  45
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -2620,12 +2620,12 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "60"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "mode"
 	      SID		      "10177"
-	      Position		      [35, 8, 65, 22]
+	      Position		      [35, 88, 65, 102]
 	      ZOrder		      -1
 	      ForegroundColor	      "red"
 	      IconDisplay	      "Port number"
@@ -2722,7 +2722,7 @@ Model {
 	      Name		      "CTL_ATT_NL"
 	      SID		      "13137"
 	      Ports		      [10, 7, 1]
-	      Position		      [310, 187, 460, 718]
+	      Position		      [295, 187, 445, 718]
 	      ZOrder		      50
 	      RequestExecContextInheritance off
 	      Variant		      off
@@ -5342,7 +5342,7 @@ Model {
 	      Name		      "Multiport\nSwitch1"
 	      SID		      "10224"
 	      Ports		      [3, 1]
-	      Position		      [995, 266, 1100, 534]
+	      Position		      [995, 301, 1100, 569]
 	      ZOrder		      -15
 	      ForegroundColor	      "red"
 	      Inputs		      "2"
@@ -5355,7 +5355,7 @@ Model {
 	      Name		      "Multiport\nSwitch2"
 	      SID		      "10225"
 	      Ports		      [3, 1]
-	      Position		      [995, -29, 1100, 239]
+	      Position		      [995, 6, 1100, 274]
 	      ZOrder		      -15
 	      ForegroundColor	      "red"
 	      Inputs		      "2"
@@ -5368,7 +5368,7 @@ Model {
 	      Name		      "Mux1"
 	      SID		      "10226"
 	      Ports		      [3, 1]
-	      Position		      [905, 343, 910, 457]
+	      Position		      [905, 378, 910, 492]
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
@@ -5380,7 +5380,7 @@ Model {
 	      Name		      "Mux7"
 	      SID		      "10227"
 	      Ports		      [3, 1]
-	      Position		      [875, 48, 880, 162]
+	      Position		      [875, 83, 880, 197]
 	      ZOrder		      -16
 	      ForegroundColor	      "red"
 	      ShowName		      off
@@ -5391,7 +5391,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Omega_phi_ref"
 	      SID		      "10228"
-	      Position		      [810, 351, 840, 369]
+	      Position		      [810, 386, 840, 404]
 	      ZOrder		      -5
 	      ForegroundColor	      "orange"
 	      Value		      "0"
@@ -5402,7 +5402,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Omega_psi_ref"
 	      SID		      "10229"
-	      Position		      [810, 433, 840, 447]
+	      Position		      [810, 468, 840, 482]
 	      ZOrder		      -5
 	      ForegroundColor	      "orange"
 	      Value		      "0"
@@ -5413,7 +5413,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Omega_theta_ref"
 	      SID		      "10230"
-	      Position		      [810, 392, 840, 408]
+	      Position		      [810, 427, 840, 443]
 	      ZOrder		      -5
 	      ForegroundColor	      "orange"
 	      Value		      "0"
@@ -5424,7 +5424,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Torque_1"
 	      SID		      "10231"
-	      Position		      [790, 56, 820, 74]
+	      Position		      [790, 91, 820, 109]
 	      ZOrder		      -5
 	      ForegroundColor	      "red"
 	      Value		      "0"
@@ -5435,7 +5435,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Torque_2"
 	      SID		      "10232"
-	      Position		      [790, 96, 820, 114]
+	      Position		      [790, 131, 820, 149]
 	      ZOrder		      -5
 	      ForegroundColor	      "red"
 	      Value		      "0"
@@ -5446,7 +5446,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Torque_3"
 	      SID		      "10233"
-	      Position		      [790, 136, 820, 154]
+	      Position		      [790, 171, 820, 189]
 	      ZOrder		      -5
 	      ForegroundColor	      "red"
 	      Value		      "0"
@@ -5457,7 +5457,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Torques*"
 	      SID		      "10234"
-	      Position		      [1155, 98, 1185, 112]
+	      Position		      [1155, 133, 1185, 147]
 	      ZOrder		      -25
 	      ForegroundColor	      "red"
 	      IconDisplay	      "Port number"
@@ -5466,7 +5466,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Angles_ref_FF"
 	      SID		      "10235"
-	      Position		      [1145, 613, 1175, 627]
+	      Position		      [485, 448, 515, 462]
 	      ZOrder		      -26
 	      ForegroundColor	      "red"
 	      Port		      "2"
@@ -5476,7 +5476,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Omega_ref_FF"
 	      SID		      "10236"
-	      Position		      [1145, 393, 1175, 407]
+	      Position		      [1145, 428, 1175, 442]
 	      ZOrder		      -27
 	      ForegroundColor	      "red"
 	      Port		      "3"
@@ -5486,7 +5486,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Att_ctrl"
 	      SID		      "10237"
-	      Position		      [1145, 573, 1175, 587]
+	      Position		      [485, 373, 515, 387]
 	      ZOrder		      -28
 	      ForegroundColor	      "red"
 	      Port		      "4"
@@ -5496,7 +5496,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Att_ctrlON_afterRecov"
 	      SID		      "12226"
-	      Position		      [1145, 658, 1175, 672]
+	      Position		      [485, 523, 515, 537]
 	      ZOrder		      48
 	      ForegroundColor	      "red"
 	      Port		      "5"
@@ -5506,7 +5506,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "debugAtt"
 	      SID		      "13441"
-	      Position		      [1145, 703, 1175, 717]
+	      Position		      [485, 598, 515, 612]
 	      ZOrder		      535
 	      ForegroundColor	      "red"
 	      Port		      "6"
@@ -5516,7 +5516,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "dist_angle_out"
 	      SID		      "13502"
-	      Position		      [1145, 748, 1175, 762]
+	      Position		      [485, 673, 515, 687]
 	      ZOrder		      579
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -5556,14 +5556,8 @@ Model {
 	      SrcPort		      1
 	      Points		      [190, 0]
 	      Branch {
-		ZOrder			44
-		Points			[0, 80]
-		DstBlock		"Compare\nTo Constant2"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			8
-		Points			[470, 0]
+		ZOrder			139
+		Points			[0, -45; 470, 0]
 		Branch {
 		  ZOrder		  43
 		  Points		  [0, 295]
@@ -5575,6 +5569,11 @@ Model {
 		  DstBlock		  "Multiport\nSwitch2"
 		  DstPort		  1
 		}
+	      }
+	      Branch {
+		ZOrder			44
+		DstBlock		"Compare\nTo Constant2"
+		DstPort			1
 	      }
 	    }
 	    Line {
@@ -5602,7 +5601,7 @@ Model {
 	      ZOrder		      75
 	      SrcBlock		      "Compare\nTo Constant2"
 	      SrcPort		      1
-	      Points		      [40, 0]
+	      Points		      [25, 0]
 	      DstBlock		      "CTL_ATT_NL"
 	      DstPort		      enable
 	    }
@@ -5666,7 +5665,6 @@ Model {
 	      ZOrder		      83
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      3
-	      Points		      [60, 0; 0, 200]
 	      DstBlock		      "Att_ctrl"
 	      DstPort		      1
 	    }
@@ -5674,7 +5672,6 @@ Model {
 	      ZOrder		      87
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      1
-	      Points		      [1, 0; 0, -35]
 	      DstBlock		      "Multiport\nSwitch2"
 	      DstPort		      3
 	    }
@@ -5682,7 +5679,7 @@ Model {
 	      ZOrder		      78
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      2
-	      Points		      [107, 0; 0, 185]
+	      Points		      [122, 0; 0, 220]
 	      DstBlock		      "Multiport\nSwitch1"
 	      DstPort		      3
 	    }
@@ -5704,7 +5701,6 @@ Model {
 	      ZOrder		      77
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      5
-	      Points		      [11, 0; 0, 135]
 	      DstBlock		      "Att_ctrlON_afterRecov"
 	      DstPort		      1
 	    }
@@ -5712,7 +5708,6 @@ Model {
 	      ZOrder		      76
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      4
-	      Points		      [32, 0; 0, 165]
 	      DstBlock		      "Angles_ref_FF"
 	      DstPort		      1
 	    }
@@ -5734,7 +5729,6 @@ Model {
 	      ZOrder		      135
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      6
-	      Points		      [3, 0; 0, 105]
 	      DstBlock		      "debugAtt"
 	      DstPort		      1
 	    }
@@ -5749,7 +5743,6 @@ Model {
 	      ZOrder		      137
 	      SrcBlock		      "CTL_ATT_NL"
 	      SrcPort		      7
-	      Points		      [326, 0; 0, 75]
 	      DstBlock		      "dist_angle_out"
 	      DstPort		      1
 	    }
@@ -5760,13 +5753,13 @@ Model {
 	  Name			  "Attitude SetPoint\nManager"
 	  SID			  "9468"
 	  Ports			  [3, 2]
-	  Position		  [1020, 237, 1155, 333]
+	  Position		  [1020, 217, 1155, 313]
 	  ZOrder		  -4
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Attitude SetPoint\nManager"
-	    Location		    [-8, 1, 1914, 1056]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6270,7 +6263,7 @@ Model {
 	  Name			  "Compare\nTo Constant"
 	  SID			  "9480"
 	  Ports			  [1, 1]
-	  Position		  [820, 180, 865, 210]
+	  Position		  [760, 135, 805, 165]
 	  ZOrder		  -5
 	  ShowName		  off
 	  LibraryVersion	  "1.358"
@@ -6287,7 +6280,7 @@ Model {
 	  Name			  "Control Mix"
 	  SID			  "9483"
 	  Ports			  [3, 1]
-	  Position		  [1455, 516, 1540, 584]
+	  Position		  [1280, 511, 1365, 579]
 	  ZOrder		  -20
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -6929,7 +6922,7 @@ Model {
 	  BlockType		  DataTypeConversion
 	  Name			  "Convert1"
 	  SID			  "10343"
-	  Position		  [1135, 663, 1175, 677]
+	  Position		  [1270, 663, 1310, 677]
 	  ZOrder		  284
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -7445,7 +7438,7 @@ Model {
 	  Name			  "ESTIMATOR"
 	  SID			  "9511"
 	  Ports			  [4, 7]
-	  Position		  [1080, 18, 1215, 222]
+	  Position		  [1020, -27, 1155, 177]
 	  ZOrder		  -24
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -9177,7 +9170,7 @@ Model {
 	  Name			  "ESTIMATOR_PARAMETERS"
 	  SID			  "9566"
 	  Ports			  [0, 1]
-	  Position		  [670, 30, 800, 60]
+	  Position		  [610, -15, 740, 15]
 	  ZOrder		  -25
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -9361,16 +9354,6 @@ Model {
 	}
 	Block {
 	  BlockType		  From
-	  Name			  "From12"
-	  SID			  "9576"
-	  Position		  [340, 107, 435, 123]
-	  ZOrder		  -9
-	  BackgroundColor	  "lightBlue"
-	  ShowName		  off
-	  GotoTag		  "Position_Mode"
-	}
-	Block {
-	  BlockType		  From
 	  Name			  "From13"
 	  SID			  "13769"
 	  Position		  [1800, 789, 1905, 801]
@@ -9403,7 +9386,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From2"
 	  SID			  "10317"
-	  Position		  [880, 662, 960, 678]
+	  Position		  [1015, 662, 1095, 678]
 	  ZOrder		  71
 	  BackgroundColor	  "orange"
 	  ShowName		  off
@@ -9423,7 +9406,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From3"
 	  SID			  "10331"
-	  Position		  [1270, 564, 1355, 576]
+	  Position		  [1110, 559, 1195, 571]
 	  ZOrder		  273
 	  BackgroundColor	  "orange"
 	  ShowName		  off
@@ -9505,7 +9488,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys11"
 	  SID			  "9579"
-	  Position		  [1270, 523, 1350, 537]
+	  Position		  [1110, 518, 1190, 532]
 	  ZOrder		  -31
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -9591,7 +9574,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys19"
 	  SID			  "9584"
-	  Position		  [1540, 512, 1600, 528]
+	  Position		  [1380, 507, 1440, 523]
 	  ZOrder		  -37
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -9632,7 +9615,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys22"
 	  SID			  "9588"
-	  Position		  [340, 128, 450, 142]
+	  Position		  [570, 93, 680, 107]
 	  ZOrder		  -41
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -9654,7 +9637,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys24"
 	  SID			  "9590"
-	  Position		  [645, 188, 725, 202]
+	  Position		  [585, 143, 665, 157]
 	  ZOrder		  -42
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -9665,7 +9648,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys25"
 	  SID			  "9591"
-	  Position		  [555, 293, 635, 307]
+	  Position		  [555, 273, 635, 287]
 	  ZOrder		  -43
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9764,7 +9747,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys33"
 	  SID			  "9599"
-	  Position		  [870, 248, 950, 262]
+	  Position		  [870, 228, 950, 242]
 	  ZOrder		  -52
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
@@ -9828,7 +9811,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys39"
 	  SID			  "9603"
-	  Position		  [555, 258, 635, 272]
+	  Position		  [555, 238, 635, 252]
 	  ZOrder		  -57
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -9872,7 +9855,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys42"
 	  SID			  "12214"
-	  Position		  [1270, 543, 1350, 557]
+	  Position		  [1110, 538, 1190, 552]
 	  ZOrder		  404
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9943,9 +9926,20 @@ Model {
 	}
 	Block {
 	  BlockType		  From
+	  Name			  "From_Theta_r_phys49"
+	  SID			  "14019"
+	  Position		  [1705, 418, 1785, 432]
+	  ZOrder		  639
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "green"
+	  ShowName		  off
+	  GotoTag		  "Motors"
+	}
+	Block {
+	  BlockType		  From
 	  Name			  "From_Theta_r_phys5"
 	  SID			  "9608"
-	  Position		  [645, 78, 725, 92]
+	  Position		  [585, 33, 665, 47]
 	  ZOrder		  -63
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -10004,7 +9998,7 @@ Model {
 	  ZOrder		  490
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
-	  GotoTag		  "conditions"
+	  GotoTag		  "recov_cond"
 	}
 	Block {
 	  BlockType		  From
@@ -10063,7 +10057,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys6"
 	  SID			  "9613"
-	  Position		  [645, 93, 725, 107]
+	  Position		  [585, 48, 665, 62]
 	  ZOrder		  -68
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -10116,7 +10110,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys7"
 	  SID			  "9615"
-	  Position		  [1175, 688, 1255, 702]
+	  Position		  [1310, 688, 1390, 702]
 	  ZOrder		  -70
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -10159,7 +10153,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto"
 	  SID			  "10166"
-	  Position		  [915, 692, 1000, 718]
+	  Position		  [1050, 692, 1135, 718]
 	  ZOrder		  40
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -10169,7 +10163,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto1"
 	  SID			  "10167"
-	  Position		  [915, 757, 1000, 783]
+	  Position		  [1050, 757, 1135, 783]
 	  ZOrder		  41
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -10189,7 +10183,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto2"
 	  SID			  "10245"
-	  Position		  [915, 822, 1000, 848]
+	  Position		  [1050, 822, 1135, 848]
 	  ZOrder		  53
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -10199,7 +10193,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto3"
 	  SID			  "13442"
-	  Position		  [915, 952, 1000, 978]
+	  Position		  [1050, 952, 1135, 978]
 	  ZOrder		  482
 	  BackgroundColor	  "magenta"
 	  ShowName		  off
@@ -10259,7 +10253,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er10"
 	  SID			  "9618"
-	  Position		  [1440, 143, 1525, 157]
+	  Position		  [1380, 98, 1465, 112]
 	  ZOrder		  -75
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -10291,7 +10285,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er13"
 	  SID			  "9620"
-	  Position		  [1440, 173, 1525, 187]
+	  Position		  [1380, 128, 1465, 142]
 	  ZOrder		  -78
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -10302,7 +10296,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er14"
 	  SID			  "9621"
-	  Position		  [1440, 203, 1525, 217]
+	  Position		  [1380, 158, 1465, 172]
 	  ZOrder		  -79
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -10313,7 +10307,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er16"
 	  SID			  "9622"
-	  Position		  [1425, 253, 1510, 267]
+	  Position		  [1425, 233, 1510, 247]
 	  ZOrder		  -80
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -10324,7 +10318,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er17"
 	  SID			  "9623"
-	  Position		  [1425, 303, 1510, 317]
+	  Position		  [1425, 283, 1510, 297]
 	  ZOrder		  -81
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -10335,7 +10329,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er18"
 	  SID			  "10341"
-	  Position		  [1205, 663, 1290, 677]
+	  Position		  [1340, 663, 1425, 677]
 	  ZOrder		  281
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10408,7 +10402,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er24"
 	  SID			  "9628"
-	  Position		  [1440, 83, 1525, 97]
+	  Position		  [1380, 38, 1465, 52]
 	  ZOrder		  -87
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10419,7 +10413,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er25"
 	  SID			  "9629"
-	  Position		  [1440, 113, 1525, 127]
+	  Position		  [1380, 68, 1465, 82]
 	  ZOrder		  -88
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10430,7 +10424,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er26"
 	  SID			  "9630"
-	  Position		  [1440, 23, 1525, 37]
+	  Position		  [1380, -22, 1465, -8]
 	  ZOrder		  -89
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10441,7 +10435,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er27"
 	  SID			  "9631"
-	  Position		  [1440, 53, 1525, 67]
+	  Position		  [1380, 8, 1465, 22]
 	  ZOrder		  -90
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10452,7 +10446,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er28"
 	  SID			  "9632"
-	  Position		  [1460, 633, 1545, 647]
+	  Position		  [1595, 633, 1680, 647]
 	  ZOrder		  -91
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10463,7 +10457,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er29"
 	  SID			  "9633"
-	  Position		  [1795, 513, 1880, 527]
+	  Position		  [1585, 508, 1670, 522]
 	  ZOrder		  -92
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10506,7 +10500,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er32"
 	  SID			  "12227"
-	  Position		  [915, 893, 1025, 907]
+	  Position		  [1050, 893, 1160, 907]
 	  ZOrder		  407
 	  BackgroundColor	  "red"
 	  ShowName		  off
@@ -10516,7 +10510,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er33"
 	  SID			  "13436"
-	  Position		  [1205, 603, 1290, 617]
+	  Position		  [1340, 603, 1425, 617]
 	  ZOrder		  481
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -10527,7 +10521,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er34"
 	  SID			  "13461"
-	  Position		  [1455, 688, 1550, 702]
+	  Position		  [1590, 688, 1685, 702]
 	  ZOrder		  485
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -10548,7 +10542,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er36"
 	  SID			  "13503"
-	  Position		  [930, 1023, 1025, 1037]
+	  Position		  [1065, 1023, 1160, 1037]
 	  ZOrder		  489
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -10564,7 +10558,7 @@ Model {
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
-	  GotoTag		  "conditions"
+	  GotoTag		  "recov_cond"
 	}
 	Block {
 	  BlockType		  Goto
@@ -10829,7 +10823,7 @@ Model {
 	  Name			  "Gyo\nAcc"
 	  SID			  "9648"
 	  Ports			  [2, 1]
-	  Position		  [790, 76, 795, 109]
+	  Position		  [730, 31, 735, 64]
 	  ZOrder		  -16
 	  ForegroundColor	  "red"
 	  Inputs		  "2"
@@ -10840,7 +10834,7 @@ Model {
 	  Name			  "Gyo\nAcc1"
 	  SID			  "9649"
 	  Ports			  [2, 1]
-	  Position		  [835, 248, 840, 317]
+	  Position		  [835, 228, 840, 297]
 	  ZOrder		  -16
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -10963,19 +10957,6 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
-	  BlockType		  MultiPortSwitch
-	  Name			  "Index\nVector"
-	  SID			  "9656"
-	  Ports			  [4, 1]
-	  Position		  [585, 105, 625, 185]
-	  ZOrder		  -12
-	  Inputs		  "2"
-	  DataPortForDefault	  "Additional data port"
-	  DiagnosticForDefault	  "None"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
 	  BlockType		  Logic
 	  Name			  "Logical\nOperator"
 	  SID			  "13618"
@@ -11004,7 +10985,7 @@ Model {
 	  Name			  "Man/auto switch"
 	  SID			  "9707"
 	  Ports			  [3, 1]
-	  Position		  [1655, 477, 1690, 563]
+	  Position		  [1495, 472, 1530, 558]
 	  ZOrder		  -15
 	  ForegroundColor	  "red"
 	  Inputs		  "2"
@@ -11024,7 +11005,7 @@ Model {
 	  Name			  "Manual_Controller"
 	  SID			  "9657"
 	  Ports			  [2, 2]
-	  Position		  [705, 249, 810, 316]
+	  Position		  [705, 229, 810, 296]
 	  ZOrder		  -122
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -11448,7 +11429,7 @@ Model {
 		  }
 		  System {
 		    Name		    "Rescale\nRoll"
-		    Location		    [114, 271, 1902, 1578]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -12240,12 +12221,12 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "80"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "X_ref"
 	      SID		      "9711"
-	      Position		      [220, 293, 250, 307]
+	      Position		      [220, 288, 250, 302]
 	      ZOrder		      -3
 	      IconDisplay	      "Port number"
 	    }
@@ -12263,7 +12244,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Param_Pos"
 	      SID		      "9713"
-	      Position		      [220, 508, 250, 522]
+	      Position		      [220, 483, 250, 497]
 	      ZOrder		      -6
 	      NamePlacement	      "alternate"
 	      Port		      "3"
@@ -12273,7 +12254,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "FoldingScenarioON"
 	      SID		      "12228"
-	      Position		      [220, 353, 250, 367]
+	      Position		      [220, 358, 250, 372]
 	      ZOrder		      402
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -12338,15 +12319,15 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "ClosedLoop\nPosition SetPoint Generator"
 	      SID		      "9714"
-	      Ports		      [5, 1]
-	      Position		      [565, 282, 715, 418]
+	      Ports		      [4, 1]
+	      Position		      [565, 279, 715, 416]
 	      ZOrder		      -7
 	      ForegroundColor	      "blue"
 	      RequestExecContextInheritance off
 	      Variant		      off
 	      System {
 		Name			"ClosedLoop\nPosition SetPoint Generator"
-		Location		[-1688, 22, 8, 1088]
+		Location		[-1688, 30, 8, 1096]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -12378,20 +12359,11 @@ Model {
 		}
 		Block {
 		  BlockType		  Inport
-		  Name			  "ResetGenTraj"
-		  SID			  "12233"
-		  Position		  [-20, -22, 10, -8]
-		  ZOrder		  830
-		  Port			  "3"
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Inport
 		  Name			  "Folding_scenario_ON"
 		  SID			  "11455"
 		  Position		  [70, 408, 100, 422]
 		  ZOrder		  819
-		  Port			  "4"
+		  Port			  "3"
 		  IconDisplay		  "Port number"
 		}
 		Block {
@@ -12400,7 +12372,7 @@ Model {
 		  SID			  "13831"
 		  Position		  [70, 453, 100, 467]
 		  ZOrder		  880
-		  Port			  "5"
+		  Port			  "4"
 		  IconDisplay		  "Port number"
 		}
 		Block {
@@ -14163,14 +14135,6 @@ Model {
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
-		  BlockType		  Terminator
-		  Name			  "Terminator"
-		  SID			  "13573"
-		  Position		  [55, -25, 75, -5]
-		  ZOrder		  872
-		  ShowName		  off
-		}
-		Block {
 		  BlockType		  Demux
 		  Name			  "udp_received_from_gumstix\ndemux1"
 		  SID			  "9763"
@@ -14266,13 +14230,6 @@ Model {
 		  SrcPort		  1
 		  DstBlock		  "Switch"
 		  DstPort		  3
-		}
-		Line {
-		  ZOrder		  116
-		  SrcBlock		  "ResetGenTraj"
-		  SrcPort		  1
-		  DstBlock		  "Terminator"
-		  DstPort		  1
 		}
 		Line {
 		  ZOrder		  88
@@ -14509,24 +14466,6 @@ Model {
 	      }
 	    }
 	    Block {
-	      BlockType		      Reference
-	      Name		      "Compare\nTo Constant"
-	      SID		      "13775"
-	      Ports		      [1, 1]
-	      Position		      [780, 835, 810, 865]
-	      ZOrder		      493
-	      BlockMirror	      on
-	      ShowName		      off
-	      LibraryVersion	      "1.358"
-	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
-	      SourceType	      "Compare To Constant"
-	      ContentPreviewEnabled   off
-	      relop		      "<"
-	      const		      "4"
-	      OutDataTypeStr	      "boolean"
-	      ZeroCross		      on
-	    }
-	    Block {
 	      BlockType		      Delay
 	      Name		      "Delay"
 	      SID		      "13777"
@@ -14536,7 +14475,7 @@ Model {
 	      BlockMirror	      on
 	      ShowName		      off
 	      InputPortMap	      "u0"
-	      DelayLength	      "	1"
+	      DelayLength	      "1"
 	      InitialCondition	      "0"
 	    }
 	    Block {
@@ -14544,7 +14483,7 @@ Model {
 	      Name		      "Demux"
 	      SID		      "13382"
 	      Ports		      [1, 3]
-	      Position		      [295, 442, 300, 588]
+	      Position		      [305, 454, 310, 526]
 	      ZOrder		      484
 	      ShowName		      off
 	      Outputs		      "[12 12 12]"
@@ -14555,7 +14494,7 @@ Model {
 	      Name		      "Euler 2 Quaternion1"
 	      SID		      "9765"
 	      Ports		      [1, 1]
-	      Position		      [1330, 539, 1450, 581]
+	      Position		      [1475, 741, 1585, 769]
 	      ZOrder		      -4
 	      ShowName		      off
 	      LibraryVersion	      "1.32"
@@ -14668,33 +14607,12 @@ Model {
 	      BlockType		      From
 	      Name		      "From_Theta_r_phys1"
 	      SID		      "9766"
-	      Position		      [445, 318, 525, 332]
+	      Position		      [450, 323, 530, 337]
 	      ZOrder		      -11
 	      ForegroundColor	      "red"
 	      BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
 	      ShowName		      off
 	      GotoTag		      "Vicon"
-	    }
-	    Block {
-	      BlockType		      From
-	      Name		      "From_Theta_r_phys11"
-	      SID		      "12262"
-	      Position		      [445, 343, 525, 357]
-	      ZOrder		      430
-	      ForegroundColor	      "red"
-	      BackgroundColor	      "yellow"
-	      ShowName		      off
-	      GotoTag		      "restartPosGen"
-	    }
-	    Block {
-	      BlockType		      From
-	      Name		      "From_Theta_r_phys13"
-	      SID		      "12372"
-	      Position		      [325, 533, 430, 547]
-	      ZOrder		      480
-	      BackgroundColor	      "red"
-	      ShowName		      off
-	      GotoTag		      "Active_recovery"
 	    }
 	    Block {
 	      BlockType		      From
@@ -14706,27 +14624,6 @@ Model {
 	      BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
 	      ShowName		      off
 	      GotoTag		      "Omega_CF"
-	    }
-	    Block {
-	      BlockType		      From
-	      Name		      "From_Theta_r_phys2"
-	      SID		      "13383"
-	      Position		      [915, 543, 1020, 557]
-	      ZOrder		      485
-	      BackgroundColor	      "red"
-	      ShowName		      off
-	      GotoTag		      "Active_recovery"
-	    }
-	    Block {
-	      BlockType		      From
-	      Name		      "From_Theta_r_phys3"
-	      SID		      "9767"
-	      Position		      [1460, 303, 1540, 317]
-	      ZOrder		      -13
-	      ForegroundColor	      "red"
-	      BackgroundColor	      "[0.501961, 1.000000, 0.501961]"
-	      ShowName		      off
-	      GotoTag		      "X_ref_FF"
 	    }
 	    Block {
 	      BlockType		      From
@@ -14765,7 +14662,7 @@ Model {
 	      BlockType		      From
 	      Name		      "From_Theta_r_phys6"
 	      SID		      "13847"
-	      Position		      [1230, 553, 1310, 567]
+	      Position		      [1355, 748, 1435, 762]
 	      ZOrder		      499
 	      ForegroundColor	      "red"
 	      BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
@@ -14776,7 +14673,7 @@ Model {
 	      BlockType		      From
 	      Name		      "From_Theta_r_phys7"
 	      SID		      "9771"
-	      Position		      [1460, 598, 1540, 612]
+	      Position		      [1355, 793, 1435, 807]
 	      ZOrder		      -18
 	      ForegroundColor	      "red"
 	      BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
@@ -14787,22 +14684,11 @@ Model {
 	      BlockType		      Goto
 	      Name		      "Goto15"
 	      SID		      "12361"
-	      Position		      [325, 351, 435, 369]
+	      Position		      [320, 321, 430, 339]
 	      ZOrder		      451
 	      BackgroundColor	      "lightBlue"
 	      ShowName		      off
 	      GotoTag		      "Folding_scenario_ON"
-	    }
-	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto_Theta_er1"
-	      SID		      "9772"
-	      Position		      [1440, 353, 1525, 367]
-	      ZOrder		      399
-	      ForegroundColor	      "blue"
-	      BackgroundColor	      "[0.501961, 1.000000, 0.501961]"
-	      ShowName		      off
-	      GotoTag		      "X_ref_FF"
 	    }
 	    Block {
 	      BlockType		      Goto
@@ -14838,21 +14724,11 @@ Model {
 	      GotoTag		      "Omega_CF"
 	    }
 	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto_Theta_er7"
-	      SID		      "12381"
-	      Position		      [305, 653, 405, 667]
-	      ZOrder		      466
-	      BackgroundColor	      "red"
-	      ShowName		      off
-	      GotoTag		      "Active_recovery"
-	    }
-	    Block {
 	      BlockType		      Demux
 	      Name		      "In_from_RS232_Demux2"
 	      SID		      "9778"
 	      Ports		      [1, 2]
-	      Position		      [1570, 270, 1575, 345]
+	      Position		      [1570, 340, 1575, 415]
 	      ZOrder		      -7
 	      ForegroundColor	      "red"
 	      ShowName		      off
@@ -14870,18 +14746,6 @@ Model {
 	      ShowName		      off
 	      Outputs		      "[6 3 3]"
 	      DisplayOption	      "bar"
-	    }
-	    Block {
-	      BlockType		      Logic
-	      Name		      "Logical\nOperator"
-	      SID		      "13406"
-	      Ports		      [1, 1]
-	      Position		      [460, 531, 490, 549]
-	      ZOrder		      486
-	      ShowName		      off
-	      Operator		      "NOT"
-	      AllPortsSameDT	      off
-	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Logic
@@ -14905,17 +14769,34 @@ Model {
 	      OutPortSampleTime	      "Ts_PositionLoop"
 	    }
 	    Block {
+	      BlockType		      Reference
+	      Name		      "Reset PID term\nafter recovery (state = 4)"
+	      SID		      "13775"
+	      Ports		      [1, 1]
+	      Position		      [780, 835, 810, 865]
+	      ZOrder		      493
+	      BlockMirror	      on
+	      LibraryVersion	      "1.358"
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	      SourceType	      "Compare To Constant"
+	      ContentPreviewEnabled   off
+	      relop		      "<"
+	      const		      "4"
+	      OutDataTypeStr	      "boolean"
+	      ZeroCross		      on
+	    }
+	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Vicon Position \nController"
 	      SID		      "12457"
-	      Ports		      [10, 5]
-	      Position		      [1065, 321, 1200, 739]
+	      Ports		      [11, 5]
+	      Position		      [1065, 340, 1200, 760]
 	      ZOrder		      478
 	      RequestExecContextInheritance off
 	      Variant		      off
 	      System {
 		Name			"Vicon Position \nController"
-		Location		[-8, 0, 1928, 1056]
+		Location		[-1688, 30, 8, 1096]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -14932,7 +14813,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "X_ref"
 		  SID			  "12458"
-		  Position		  [-215, 43, -185, 57]
+		  Position		  [-215, 18, -185, 32]
 		  ZOrder		  -1
 		  ForegroundColor	  "red"
 		  IconDisplay		  "Port number"
@@ -14941,7 +14822,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "X_mes"
 		  SID			  "12459"
-		  Position		  [-215, 228, -185, 242]
+		  Position		  [-215, 103, -185, 117]
 		  ZOrder		  -2
 		  ForegroundColor	  "red"
 		  Port			  "2"
@@ -14951,7 +14832,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "Angles_est"
 		  SID			  "12460"
-		  Position		  [-215, 363, -185, 377]
+		  Position		  [-215, 348, -185, 362]
 		  ZOrder		  -3
 		  ForegroundColor	  "red"
 		  Port			  "3"
@@ -14961,7 +14842,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "Omega_est"
 		  SID			  "12461"
-		  Position		  [-215, 413, -185, 427]
+		  Position		  [-215, 398, -185, 412]
 		  ZOrder		  404
 		  ForegroundColor	  "red"
 		  Port			  "4"
@@ -14969,9 +14850,9 @@ Model {
 		}
 		Block {
 		  BlockType		  Inport
-		  Name			  "Param_Pos_PID"
+		  Name			  "PID_term"
 		  SID			  "12462"
-		  Position		  [-215, 293, -185, 307]
+		  Position		  [-215, 248, -185, 262]
 		  ZOrder		  -4
 		  ForegroundColor	  "red"
 		  Port			  "5"
@@ -14981,7 +14862,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "Active_Recovery"
 		  SID			  "12463"
-		  Position		  [-215, 503, -185, 517]
+		  Position		  [-215, 443, -185, 457]
 		  ZOrder		  392
 		  ForegroundColor	  "red"
 		  Port			  "6"
@@ -14999,29 +14880,39 @@ Model {
 		}
 		Block {
 		  BlockType		  Inport
+		  Name			  "PID_term_recov"
+		  SID			  "14016"
+		  Position		  [-215, 508, -185, 522]
+		  ZOrder		  505
+		  ForegroundColor	  "red"
+		  Port			  "8"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
 		  Name			  "folded"
 		  SID			  "13808"
-		  Position		  [-215, 738, -185, 752]
+		  Position		  [-215, 723, -185, 737]
 		  ZOrder		  497
-		  Port			  "8"
+		  Port			  "9"
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "scenario_num"
 		  SID			  "13846"
-		  Position		  [-215, 793, -185, 807]
+		  Position		  [-215, 778, -185, 792]
 		  ZOrder		  503
-		  Port			  "9"
+		  Port			  "10"
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "T0_horGap"
 		  SID			  "13870"
-		  Position		  [-215, 848, -185, 862]
+		  Position		  [-215, 833, -185, 847]
 		  ZOrder		  504
-		  Port			  "10"
+		  Port			  "11"
 		  IconDisplay		  "Port number"
 		}
 		Block {
@@ -15029,7 +14920,7 @@ Model {
 		  Name			  "Delay"
 		  SID			  "13823"
 		  Ports			  [1, 1]
-		  Position		  [465, 673, 500, 687]
+		  Position		  [465, 658, 500, 672]
 		  ZOrder		  501
 		  ShowName		  off
 		  InputPortMap		  "u0"
@@ -15051,7 +14942,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys1"
 		  SID			  "12464"
-		  Position		  [725, 78, 805, 92]
+		  Position		  [725, 58, 805, 72]
 		  ZOrder		  399
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15062,7 +14953,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys2"
 		  SID			  "12465"
-		  Position		  [185, 153, 265, 167]
+		  Position		  [185, 118, 265, 132]
 		  ZOrder		  -5
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15073,7 +14964,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys3"
 		  SID			  "12466"
-		  Position		  [725, 188, 805, 202]
+		  Position		  [725, 148, 805, 162]
 		  ZOrder		  398
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15084,7 +14975,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys4"
 		  SID			  "12467"
-		  Position		  [185, 223, 265, 237]
+		  Position		  [185, 183, 265, 197]
 		  ZOrder		  -6
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15106,7 +14997,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys6"
 		  SID			  "12469"
-		  Position		  [715, 463, 795, 477]
+		  Position		  [705, 418, 785, 432]
 		  ZOrder		  401
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "blue"
@@ -15117,7 +15008,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys7"
 		  SID			  "12470"
-		  Position		  [185, 363, 265, 377]
+		  Position		  [185, 313, 265, 327]
 		  ZOrder		  402
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "blue"
@@ -15128,7 +15019,7 @@ Model {
 		  BlockType		  From
 		  Name			  "From_Theta_r_phys8"
 		  SID			  "12471"
-		  Position		  [185, 433, 265, 447]
+		  Position		  [185, 378, 265, 392]
 		  ZOrder		  407
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "blue"
@@ -15139,7 +15030,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto_Theta_er1"
 		  SID			  "12472"
-		  Position		  [-70, 363, 15, 377]
+		  Position		  [-70, 348, 15, 362]
 		  ZOrder		  400
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "blue"
@@ -15150,7 +15041,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto_Theta_er2"
 		  SID			  "12473"
-		  Position		  [-70, 218, 15, 232]
+		  Position		  [-70, 93, 15, 107]
 		  ZOrder		  -8
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15161,7 +15052,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto_Theta_er3"
 		  SID			  "12474"
-		  Position		  [-100, 73, -15, 87]
+		  Position		  [-100, 48, -15, 62]
 		  ZOrder		  -9
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -15172,7 +15063,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto_Theta_er4"
 		  SID			  "12475"
-		  Position		  [-70, 238, 15, 252]
+		  Position		  [-70, 113, 15, 127]
 		  ZOrder		  -10
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -15183,7 +15074,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto_Theta_er5"
 		  SID			  "12476"
-		  Position		  [-70, 413, 15, 427]
+		  Position		  [-70, 398, 15, 412]
 		  ZOrder		  406
 		  ForegroundColor	  "red"
 		  BackgroundColor	  "blue"
@@ -15195,7 +15086,7 @@ Model {
 		  Name			  "Logical\nOperator"
 		  SID			  "13821"
 		  Ports			  [2, 1]
-		  Position		  [705, 562, 725, 593]
+		  Position		  [705, 497, 725, 528]
 		  ZOrder		  499
 		  ShowName		  off
 		  Operator		  "OR"
@@ -15207,7 +15098,7 @@ Model {
 		  Name			  "Logical\nOperator1"
 		  SID			  "13822"
 		  Ports			  [2, 1]
-		  Position		  [610, 657, 640, 688]
+		  Position		  [615, 642, 645, 673]
 		  ZOrder		  500
 		  ShowName		  off
 		  AllPortsSameDT	  off
@@ -15218,7 +15109,7 @@ Model {
 		  Name			  "Logical\nOperator2"
 		  SID			  "13824"
 		  Ports			  [1, 1]
-		  Position		  [550, 674, 575, 686]
+		  Position		  [555, 659, 580, 671]
 		  ZOrder		  502
 		  ShowName		  off
 		  Operator		  "NOT"
@@ -15251,14 +15142,14 @@ Model {
 		  BlockType		  SubSystem
 		  Name			  "PositionController1"
 		  SID			  "12480"
-		  Ports			  [16, 4]
-		  Position		  [830, 9, 1065, 876]
+		  Ports			  [17, 4]
+		  Position		  [830, -25, 1055, 785]
 		  ZOrder		  373
 		  RequestExecContextInheritance	off
 		  Variant		  off
 		  System {
 		    Name		    "PositionController1"
-		    Location		    [-8, 0, 1928, 1056]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -15270,7 +15161,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "125"
+		    ZoomFactor		    "60"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "X_ref"
@@ -15308,11 +15199,20 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Inport
+		    Name		    "A_ref"
+		    SID			    "14020"
+		    Position		    [25, 13, 55, 27]
+		    ZOrder		    515
+		    Port		    "5"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
 		    Name		    "Kp"
 		    SID			    "12485"
 		    Position		    [25, 488, 55, 502]
 		    ZOrder		    -6
-		    Port		    "5"
+		    Port		    "6"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15321,7 +15221,7 @@ Model {
 		    SID			    "12486"
 		    Position		    [25, 543, 55, 557]
 		    ZOrder		    -7
-		    Port		    "6"
+		    Port		    "7"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15330,7 +15230,7 @@ Model {
 		    SID			    "12487"
 		    Position		    [25, 593, 55, 607]
 		    ZOrder		    -8
-		    Port		    "7"
+		    Port		    "8"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15339,7 +15239,7 @@ Model {
 		    SID			    "12488"
 		    Position		    [25, 648, 55, 662]
 		    ZOrder		    -9
-		    Port		    "8"
+		    Port		    "9"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15348,7 +15248,7 @@ Model {
 		    SID			    "12489"
 		    Position		    [25, 708, 55, 722]
 		    ZOrder		    12
-		    Port		    "9"
+		    Port		    "10"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15357,7 +15257,7 @@ Model {
 		    SID			    "12490"
 		    Position		    [25, 248, 55, 262]
 		    ZOrder		    84
-		    Port		    "10"
+		    Port		    "11"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15366,7 +15266,7 @@ Model {
 		    SID			    "12491"
 		    Position		    [25, 773, 55, 787]
 		    ZOrder		    86
-		    Port		    "11"
+		    Port		    "12"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15375,17 +15275,17 @@ Model {
 		    SID			    "12492"
 		    Position		    [25, 308, 55, 322]
 		    ZOrder		    93
-		    Port		    "12"
+		    Port		    "13"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Balistic/Recov Gain_thrust"
 		    SID			    "13569"
-		    Position		    [1435, 288, 1465, 302]
+		    Position		    [1510, 323, 1540, 337]
 		    ZOrder		    146
 		    ForegroundColor	    "blue"
-		    Port		    "13"
+		    Port		    "14"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15395,7 +15295,7 @@ Model {
 		    Position		    [25, 843, 55, 857]
 		    ZOrder		    497
 		    ForegroundColor	    "red"
-		    Port		    "14"
+		    Port		    "15"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15404,7 +15304,7 @@ Model {
 		    SID			    "13848"
 		    Position		    [25, 918, 55, 932]
 		    ZOrder		    506
-		    Port		    "15"
+		    Port		    "16"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -15413,7 +15313,7 @@ Model {
 		    SID			    "13871"
 		    Position		    [25, 998, 55, 1012]
 		    ZOrder		    512
-		    Port		    "16"
+		    Port		    "17"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -16485,7 +16385,7 @@ Model {
 		    BlockType		    Constant
 		    Name		    "Constant1"
 		    SID			    "13816"
-		    Position		    [1500, 442, 1575, 458]
+		    Position		    [1540, 442, 1615, 458]
 		    ZOrder		    501
 		    ShowName		    off
 		    Value		    "Tmin*g*4"
@@ -16495,7 +16395,7 @@ Model {
 		    BlockType		    Constant
 		    Name		    "Constant2"
 		    SID			    "13817"
-		    Position		    [1500, 412, 1575, 428]
+		    Position		    [1545, 412, 1620, 428]
 		    ZOrder		    502
 		    ShowName		    off
 		    Value		    "Tmax*g*4"
@@ -16528,302 +16428,11 @@ Model {
 		    Name		    "Demux2"
 		    SID			    "13819"
 		    Ports		    [1, 2]
-		    Position		    [1550, 195, 1555, 390]
+		    Position		    [1580, 270, 1585, 385]
 		    ZOrder		    504
 		    ShowName		    off
 		    Outputs		    "2"
 		    DisplayOption	    "bar"
-		    }
-		    Block {
-		    BlockType		    SubSystem
-		    Name		    "Derivation"
-		    SID			    "12544"
-		    Ports		    [1, 1]
-		    Position		    [630, 1, 710, 39]
-		    ZOrder		    73
-		    RequestExecContextInheritance off
-		    Variant		    off
-		    System {
-		    Name		    "Derivation"
-		    Location		    [1, 1, 1919, 1039]
-		    Open		    off
-		    ModelBrowserVisibility  off
-		    ModelBrowserWidth	    200
-		    ScreenColor		    "white"
-		    PaperOrientation	    "landscape"
-		    PaperPositionMode	    "auto"
-		    PaperType		    "A4"
-		    PaperUnits		    "centimeters"
-		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-		    TiledPageScale	    1
-		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
-		    Block {
-		    BlockType		    Inport
-		    Name		    "In1"
-		    SID			    "12545"
-		    Position		    [105, 193, 135, 207]
-		    ZOrder		    -1
-		    IconDisplay		    "Port number"
-		    }
-		    Block {
-		    BlockType		    Demux
-		    Name		    "Demux"
-		    SID			    "12546"
-		    Ports		    [1, 3]
-		    Position		    [185, 63, 190, 337]
-		    ZOrder		    1
-		    ShowName		    off
-		    Outputs		    "3"
-		    DisplayOption	    "bar"
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative"
-		    SID			    "12547"
-		    Ports		    [1, 1]
-		    Position		    [270, 92, 330, 128]
-		    ZOrder		    70
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "Velocity_0(1)"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative1"
-		    SID			    "12548"
-		    Ports		    [1, 1]
-		    Position		    [270, 182, 330, 218]
-		    ZOrder		    71
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "Velocity_0(2)"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative2"
-		    SID			    "12549"
-		    Ports		    [1, 1]
-		    Position		    [270, 272, 330, 308]
-		    ZOrder		    72
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "Velocity_0(3)"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative3"
-		    SID			    "12550"
-		    Ports		    [1, 1]
-		    Position		    [440, 92, 500, 128]
-		    ZOrder		    73
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "0"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative4"
-		    SID			    "12551"
-		    Ports		    [1, 1]
-		    Position		    [440, 182, 500, 218]
-		    ZOrder		    74
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "0"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Discrete Derivative5"
-		    SID			    "12552"
-		    Ports		    [1, 1]
-		    Position		    [440, 272, 500, 308]
-		    ZOrder		    75
-		    ShowName		    off
-		    LibraryVersion	    "1.358"
-		    SourceBlock		    "simulink/Discrete/Discrete Derivative"
-		    SourceType		    "Discrete Derivative"
-		    ContentPreviewEnabled   off
-		    gainval		    "1.0"
-		    ICPrevScaledInput	    "0"
-		    InputProcessing	    "Inherited"
-		    OutMin		    "[]"
-		    OutMax		    "[]"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutputDataTypeScalingMode "Inherit via internal rule"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^-10"
-		    LockScale		    off
-		    RndMeth		    "Floor"
-		    DoSatur		    off
-		    }
-		    Block {
-		    BlockType		    Mux
-		    Name		    "Mux"
-		    SID			    "12553"
-		    Ports		    [3, 1]
-		    Position		    [550, 65, 555, 335]
-		    ZOrder		    2
-		    ShowName		    off
-		    Inputs		    "3"
-		    DisplayOption	    "bar"
-		    }
-		    Block {
-		    BlockType		    Outport
-		    Name		    "Out1"
-		    SID			    "12554"
-		    Position		    [635, 193, 665, 207]
-		    ZOrder		    -2
-		    IconDisplay		    "Port number"
-		    }
-		    Line {
-		    ZOrder		    1
-		    SrcBlock		    "In1"
-		    SrcPort		    1
-		    DstBlock		    "Demux"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    2
-		    SrcBlock		    "Mux"
-		    SrcPort		    1
-		    DstBlock		    "Out1"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    3
-		    SrcBlock		    "Demux"
-		    SrcPort		    1
-		    DstBlock		    "Discrete Derivative"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    4
-		    SrcBlock		    "Discrete Derivative"
-		    SrcPort		    1
-		    DstBlock		    "Discrete Derivative3"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    5
-		    SrcBlock		    "Demux"
-		    SrcPort		    2
-		    DstBlock		    "Discrete Derivative1"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    6
-		    SrcBlock		    "Discrete Derivative1"
-		    SrcPort		    1
-		    DstBlock		    "Discrete Derivative4"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    7
-		    SrcBlock		    "Demux"
-		    SrcPort		    3
-		    DstBlock		    "Discrete Derivative2"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    8
-		    SrcBlock		    "Discrete Derivative2"
-		    SrcPort		    1
-		    DstBlock		    "Discrete Derivative5"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    9
-		    SrcBlock		    "Discrete Derivative3"
-		    SrcPort		    1
-		    DstBlock		    "Mux"
-		    DstPort		    1
-		    }
-		    Line {
-		    ZOrder		    10
-		    SrcBlock		    "Discrete Derivative4"
-		    SrcPort		    1
-		    DstBlock		    "Mux"
-		    DstPort		    2
-		    }
-		    Line {
-		    ZOrder		    11
-		    SrcBlock		    "Discrete Derivative5"
-		    SrcPort		    1
-		    DstBlock		    "Mux"
-		    DstPort		    3
-		    }
-		    }
 		    }
 		    Block {
 		    BlockType		    Product
@@ -16875,7 +16484,7 @@ Model {
 		    BlockType		    From
 		    Name		    "From12"
 		    SID			    "13812"
-		    Position		    [1660, 468, 1730, 482]
+		    Position		    [1700, 468, 1770, 482]
 		    ZOrder		    500
 		    BackgroundColor	    "darkGreen"
 		    ShowName		    off
@@ -16905,7 +16514,7 @@ Model {
 		    BlockType		    From
 		    Name		    "From15"
 		    SID			    "13853"
-		    Position		    [1660, 633, 1730, 647]
+		    Position		    [1700, 633, 1770, 647]
 		    ZOrder		    511
 		    BackgroundColor	    "darkGreen"
 		    ShowName		    off
@@ -19687,7 +19296,7 @@ Model {
 		    Name		    "Product1"
 		    SID			    "13818"
 		    Ports		    [2, 1]
-		    Position		    [1590, 377, 1620, 433]
+		    Position		    [1640, 377, 1670, 433]
 		    ZOrder		    503
 		    ForegroundColor	    "blue"
 		    ShowName		    off
@@ -19712,7 +19321,7 @@ Model {
 		    Name		    "Saturation\nDynamic"
 		    SID			    "13802"
 		    Ports		    [3, 1]
-		    Position		    [1655, 415, 1735, 455]
+		    Position		    [1695, 415, 1775, 455]
 		    ZOrder		    149
 		    ShowName		    off
 		    LibraryVersion	    "1.358"
@@ -19834,7 +19443,7 @@ Model {
 		    BlockType		    Switch
 		    Name		    "Thrust during\nfolding"
 		    SID			    "13811"
-		    Position		    [1745, 412, 1795, 538]
+		    Position		    [1785, 412, 1835, 538]
 		    ZOrder		    499
 		    Criteria		    "u2 > Threshold"
 		    InputSameDT		    off
@@ -19844,7 +19453,7 @@ Model {
 		    BlockType		    Switch
 		    Name		    "Thrust during\nfolding1"
 		    SID			    "13852"
-		    Position		    [1745, 577, 1795, 703]
+		    Position		    [1785, 577, 1835, 703]
 		    ZOrder		    510
 		    Criteria		    "u2 > Threshold"
 		    InputSameDT		    off
@@ -20469,18 +20078,8 @@ Model {
 		    ZOrder		    62
 		    SrcBlock		    "X_ref"
 		    SrcPort		    1
-		    Points		    [21, 0]
-		    Branch {
-		    ZOrder		    63
-		    Points		    [0, -100]
-		    DstBlock		    "Derivation"
-		    DstPort		    1
-		    }
-		    Branch {
-		    ZOrder		    64
 		    DstBlock		    "udp_received_from_gumstix\ndemux4"
 		    DstPort		    1
-		    }
 		    }
 		    Line {
 		    ZOrder		    65
@@ -20592,8 +20191,8 @@ Model {
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    81
-		    SrcBlock		    "Derivation"
+		    ZOrder		    265
+		    SrcBlock		    "A_ref"
 		    SrcPort		    1
 		    DstBlock		    "Switch2"
 		    DstPort		    3
@@ -20985,7 +20584,7 @@ Model {
 		    ZOrder		    220
 		    SrcBlock		    "Divide"
 		    SrcPort		    1
-		    Points		    [18, 0; 0, 70]
+		    Points		    [16, 0; 0, 70; 42, 0]
 		    Branch {
 		    ZOrder		    234
 		    DstBlock		    "Saturation\nDynamic"
@@ -21018,7 +20617,7 @@ Model {
 		    ZOrder		    228
 		    SrcBlock		    "Product1"
 		    SrcPort		    1
-		    Points		    [13, 0; 0, 15]
+		    Points		    [3, 0; 0, 15]
 		    DstBlock		    "Saturation\nDynamic"
 		    DstPort		    1
 		    }
@@ -21040,7 +20639,6 @@ Model {
 		    ZOrder		    232
 		    SrcBlock		    "Demux2"
 		    SrcPort		    1
-		    Points		    [51, 0; 0, 55]
 		    DstBlock		    "Product"
 		    DstPort		    1
 		    }
@@ -21048,7 +20646,7 @@ Model {
 		    ZOrder		    233
 		    SrcBlock		    "Demux2"
 		    SrcPort		    2
-		    Points		    [13, 0; 0, 50]
+		    Points		    [13, 0; 0, 35]
 		    DstBlock		    "Product1"
 		    DstPort		    1
 		    }
@@ -21099,7 +20697,7 @@ Model {
 		    ZOrder		    263
 		    SrcBlock		    "Thrust during\nfolding1"
 		    SrcPort		    1
-		    Points		    [69, 0; 0, -145]
+		    Points		    [29, 0; 0, -145]
 		    DstBlock		    "1 : Vertical gap\n2 : Horizontal gap"
 		    DstPort		    3
 		    }
@@ -21116,7 +20714,7 @@ Model {
 		  BlockType		  RateTransition
 		  Name			  "Rate Transition1"
 		  SID			  "12758"
-		  Position		  [-155, 404, -120, 436]
+		  Position		  [-155, 389, -120, 421]
 		  ZOrder		  405
 		  ShowName		  off
 		  OutPortSampleTime	  "Ts_PositionLoop"
@@ -21125,7 +20723,7 @@ Model {
 		  BlockType		  RateTransition
 		  Name			  "Rate Transition4"
 		  SID			  "12759"
-		  Position		  [-155, 354, -120, 386]
+		  Position		  [-155, 339, -120, 371]
 		  ZOrder		  382
 		  ShowName		  off
 		  OutPortSampleTime	  "Ts_PositionLoop"
@@ -21135,7 +20733,7 @@ Model {
 		  Name			  "Recov desactivation\nwhen scenario OFF"
 		  SID			  "13820"
 		  Ports			  [1, 1]
-		  Position		  [385, 640, 445, 690]
+		  Position		  [385, 625, 445, 675]
 		  ZOrder		  498
 		  LibraryVersion	  "1.358"
 		  SourceBlock		  "simulink/Logic and Bit\nOperations/Detect Fall\nNonpositive"
@@ -21149,8 +20747,8 @@ Model {
 		  BlockType		  SubSystem
 		  Name			  "Recovery state machine"
 		  SID			  "12760"
-		  Ports			  [9, 7]
-		  Position		  [340, -18, 490, 618]
+		  Ports			  [10, 7]
+		  Position		  [340, -31, 490, 606]
 		  ZOrder		  394
 		  ForegroundColor	  "blue"
 		  RequestExecContextInheritance	off
@@ -21169,7 +20767,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "125"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Xref"
@@ -21249,12 +20847,22 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Inport
+		    Name		    "Param_Pos_PID_recov"
+		    SID			    "14018"
+		    Position		    [260, 458, 290, 472]
+		    ZOrder		    506
+		    ForegroundColor	    "red"
+		    Port		    "9"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
 		    Name		    "Conditions"
 		    SID			    "13558"
 		    Position		    [195, 483, 225, 497]
 		    ZOrder		    255
 		    ForegroundColor	    "blue"
-		    Port		    "9"
+		    Port		    "10"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
@@ -21342,7 +20950,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "80"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Xmes"
@@ -24698,18 +24306,8 @@ Model {
 		    ZOrder		    14
 		    SrcBlock		    "PID_term"
 		    SrcPort		    1
-		    Points		    [103, 0]
-		    Branch {
-		    ZOrder		    15
-		    Points		    [0, -310]
-		    DstBlock		    "State machine"
-		    DstPort		    5
-		    }
-		    Branch {
-		    ZOrder		    16
 		    DstBlock		    "Mux"
 		    DstPort		    3
-		    }
 		    }
 		    Line {
 		    ZOrder		    17
@@ -24785,21 +24383,21 @@ Model {
 		    DstBlock		    "State machine"
 		    DstPort		    6
 		    }
+		    Line {
+		    ZOrder		    28
+		    SrcBlock		    "Param_Pos_PID_recov"
+		    SrcPort		    1
+		    DstBlock		    "State machine"
+		    DstPort		    5
+		    }
 		  }
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  "Terminator"
-		  SID			  "12935"
-		  Position		  [-100, 50, -80, 70]
-		  ZOrder		  391
 		}
 		Block {
 		  BlockType		  Demux
 		  Name			  "udp_received_from_gumstix\ndemux1"
 		  SID			  "12936"
 		  Ports			  [1, 4]
-		  Position		  [-140, 9, -135, 91]
+		  Position		  [-140, -16, -135, 66]
 		  ZOrder		  -7
 		  ForegroundColor	  "red"
 		  ShowName		  off
@@ -24811,7 +24409,7 @@ Model {
 		  Name			  "udp_received_from_gumstix\ndemux2"
 		  SID			  "12937"
 		  Ports			  [1, 2]
-		  Position		  [-100, 215, -95, 255]
+		  Position		  [-100, 90, -95, 130]
 		  ZOrder		  -7
 		  ForegroundColor	  "red"
 		  ShowName		  off
@@ -24823,7 +24421,7 @@ Model {
 		  Name			  "udp_received_from_gumstix\ndemux6"
 		  SID			  "12938"
 		  Ports			  [1, 4]
-		  Position		  [655, 222, 660, 443]
+		  Position		  [655, 219, 660, 406]
 		  ZOrder		  375
 		  ShowName		  off
 		  Outputs		  "[3 3 3 3]"
@@ -24894,6 +24492,7 @@ Model {
 		  ZOrder		  2
 		  SrcBlock		  "PositionController1"
 		  SrcPort		  3
+		  Points		  [133, 0; 0, 70]
 		  DstBlock		  "Thrust_ref"
 		  DstPort		  1
 		}
@@ -24936,7 +24535,7 @@ Model {
 		  ZOrder		  8
 		  SrcBlock		  "PositionController1"
 		  SrcPort		  1
-		  Points		  [37, 0; 0, 195]
+		  Points		  [47, 0; 0, 235]
 		  DstBlock		  "Mux1"
 		  DstPort		  1
 		}
@@ -24944,6 +24543,7 @@ Model {
 		  ZOrder		  9
 		  SrcBlock		  "PositionController1"
 		  SrcPort		  2
+		  Points		  [70, 0; 0, 55]
 		  DstBlock		  "Mux1"
 		  DstPort		  2
 		}
@@ -24959,43 +24559,44 @@ Model {
 		  SrcBlock		  "udp_received_from_gumstix\ndemux6"
 		  SrcPort		  1
 		  DstBlock		  "PositionController1"
-		  DstPort		  5
+		  DstPort		  6
 		}
 		Line {
 		  ZOrder		  12
 		  SrcBlock		  "udp_received_from_gumstix\ndemux6"
 		  SrcPort		  2
 		  DstBlock		  "PositionController1"
-		  DstPort		  6
+		  DstPort		  7
 		}
 		Line {
 		  ZOrder		  13
 		  SrcBlock		  "udp_received_from_gumstix\ndemux6"
 		  SrcPort		  3
 		  DstBlock		  "PositionController1"
-		  DstPort		  7
+		  DstPort		  8
 		}
 		Line {
 		  ZOrder		  14
 		  SrcBlock		  "udp_received_from_gumstix\ndemux6"
 		  SrcPort		  4
 		  DstBlock		  "PositionController1"
-		  DstPort		  8
+		  DstPort		  9
 		}
 		Line {
-		  ZOrder		  15
+		  ZOrder		  138
 		  SrcBlock		  "udp_received_from_gumstix\ndemux1"
 		  SrcPort		  3
-		  DstBlock		  "Terminator"
-		  DstPort		  1
+		  Points		  [119, 0; 0, -80; 601, 0; 0, 245]
+		  DstBlock		  "PositionController1"
+		  DstPort		  5
 		}
 		Line {
 		  ZOrder		  16
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  4
-		  Points		  [60, 0; 0, 225]
+		  Points		  [60, 0; 0, 180]
 		  DstBlock		  "PositionController1"
-		  DstPort		  10
+		  DstPort		  11
 		}
 		Line {
 		  ZOrder		  17
@@ -25020,7 +24621,7 @@ Model {
 		}
 		Line {
 		  ZOrder		  20
-		  SrcBlock		  "Param_Pos_PID"
+		  SrcBlock		  "PID_term"
 		  SrcPort		  1
 		  DstBlock		  "Recovery state machine"
 		  DstPort		  5
@@ -25031,8 +24632,8 @@ Model {
 		  SrcPort		  1
 		  Points		  [403, 0]
 		  Branch {
-		    ZOrder		    95
-		    Points		    [0, 155]
+		    ZOrder		    132
+		    Points		    [0, 200]
 		    DstBlock		    "Recov desactivation\nwhen scenario OFF"
 		    DstPort		    1
 		  }
@@ -25046,7 +24647,7 @@ Model {
 		  ZOrder		  22
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  3
-		  Points		  [78, 0; 0, 125]
+		  Points		  [78, 0; 0, 115]
 		  DstBlock		  "udp_received_from_gumstix\ndemux6"
 		  DstPort		  1
 		}
@@ -25054,16 +24655,15 @@ Model {
 		  ZOrder		  23
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  2
-		  Points		  [122, 0]
+		  Points		  [208, 0]
 		  Branch {
-		    ZOrder		    47
-		    Points		    [0, 20]
+		    ZOrder		    135
 		    DstBlock		    "PositionController1"
 		    DstPort		    3
 		  }
 		  Branch {
 		    ZOrder		    24
-		    Points		    [0, -200]
+		    Points		    [0, -190]
 		    DstBlock		    "Mux2"
 		    DstPort		    2
 		  }
@@ -25072,10 +24672,10 @@ Model {
 		  ZOrder		  26
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  1
-		  Points		  [81, 0]
+		  Points		  [166, 0]
 		  Branch {
-		    ZOrder		    73
-		    Points		    [0, -145]
+		    ZOrder		    137
+		    Points		    [0, -135]
 		    DstBlock		    "Mux2"
 		    DstPort		    1
 		  }
@@ -25089,7 +24689,7 @@ Model {
 		  ZOrder		  29
 		  SrcBlock		  "udp_received_from_gumstix\ndemux1"
 		  SrcPort		  2
-		  Points		  [244, 0; 0, 50]
+		  Points		  [244, 0; 0, 45]
 		  DstBlock		  "Recovery state machine"
 		  DstPort		  2
 		}
@@ -25126,7 +24726,7 @@ Model {
 		  SrcBlock		  "From_Theta_r_phys6"
 		  SrcPort		  1
 		  DstBlock		  "PositionController1"
-		  DstPort		  9
+		  DstPort		  10
 		}
 		Line {
 		  ZOrder		  36
@@ -25160,9 +24760,9 @@ Model {
 		  ZOrder		  40
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  6
-		  Points		  [23, 0; 0, 155]
+		  Points		  [23, 0; 0, 90]
 		  DstBlock		  "PositionController1"
-		  DstPort		  12
+		  DstPort		  13
 		}
 		Line {
 		  ZOrder		  41
@@ -25175,6 +24775,7 @@ Model {
 		  ZOrder		  45
 		  SrcBlock		  "PositionController1"
 		  SrcPort		  4
+		  Points		  [133, 0; 0, 85]
 		  DstBlock		  "XYZ_PIDterm"
 		  DstPort		  1
 		}
@@ -25182,7 +24783,7 @@ Model {
 		  ZOrder		  46
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  7
-		  Points		  [9, 0; 0, 370]
+		  Points		  [9, 0; 0, 380]
 		  DstBlock		  "state"
 		  DstPort		  1
 		}
@@ -25191,7 +24792,7 @@ Model {
 		  SrcBlock		  "Demux"
 		  SrcPort		  1
 		  DstBlock		  "Recovery state machine"
-		  DstPort		  9
+		  DstPort		  10
 		}
 		Line {
 		  ZOrder		  69
@@ -25204,29 +24805,30 @@ Model {
 		  ZOrder		  70
 		  SrcBlock		  "Demux"
 		  SrcPort		  2
-		  Points		  [138, 0; 0, 90]
+		  Points		  [79, 0; 0, 111; 628, 0; 0, -106]
 		  DstBlock		  "PositionController1"
-		  DstPort		  13
+		  DstPort		  14
 		}
 		Line {
 		  ZOrder		  71
 		  SrcBlock		  "folded"
 		  SrcPort		  1
+		  Points		  [971, 0; 0, -80]
 		  DstBlock		  "PositionController1"
-		  DstPort		  14
+		  DstPort		  15
 		}
 		Line {
 		  ZOrder		  96
 		  SrcBlock		  "Logical\nOperator"
 		  SrcPort		  1
 		  DstBlock		  "PositionController1"
-		  DstPort		  11
+		  DstPort		  12
 		}
 		Line {
 		  ZOrder		  97
 		  SrcBlock		  "Recovery state machine"
 		  SrcPort		  5
-		  Points		  [44, 0; 0, 180]
+		  Points		  [44, 0; 0, 125]
 		  DstBlock		  "Logical\nOperator"
 		  DstPort		  1
 		}
@@ -25234,7 +24836,7 @@ Model {
 		  ZOrder		  100
 		  SrcBlock		  "Logical\nOperator1"
 		  SrcPort		  1
-		  Points		  [9, 0; 0, -90]
+		  Points		  [4, 0; 0, -140]
 		  DstBlock		  "Logical\nOperator"
 		  DstPort		  2
 		}
@@ -25272,15 +24874,24 @@ Model {
 		  ZOrder		  106
 		  SrcBlock		  "scenario_num"
 		  SrcPort		  1
+		  Points		  [986, 0; 0, -90]
 		  DstBlock		  "PositionController1"
-		  DstPort		  15
+		  DstPort		  16
 		}
 		Line {
 		  ZOrder		  107
 		  SrcBlock		  "T0_horGap"
 		  SrcPort		  1
+		  Points		  [995, 0]
 		  DstBlock		  "PositionController1"
-		  DstPort		  16
+		  DstPort		  17
+		}
+		Line {
+		  ZOrder		  133
+		  SrcBlock		  "PID_term_recov"
+		  SrcPort		  1
+		  DstBlock		  "Recovery state machine"
+		  DstPort		  9
 		}
 	      }
 	    }
@@ -25295,20 +24906,10 @@ Model {
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
-	      BlockType		      Switch
-	      Name		      "ctrl scenario/ctrl recovery"
-	      SID		      "13380"
-	      Position		      [525, 502, 580, 578]
-	      ZOrder		      482
-	      Criteria		      "u2 > Threshold"
-	      InputSameDT	      off
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
 	      BlockType		      Outport
 	      Name		      "Angles_ref"
 	      SID		      "10061"
-	      Position		      [1630, 428, 1660, 442]
+	      Position		      [1630, 458, 1660, 472]
 	      ZOrder		      -40
 	      IconDisplay	      "Port number"
 	    }
@@ -25316,7 +24917,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Thrust_ref"
 	      SID		      "10062"
-	      Position		      [1630, 503, 1660, 517]
+	      Position		      [1630, 543, 1660, 557]
 	      ZOrder		      -41
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -25325,7 +24926,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "X_ref_FF"
 	      SID		      "10063"
-	      Position		      [1630, 283, 1660, 297]
+	      Position		      [1630, 353, 1660, 367]
 	      ZOrder		      -42
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -25334,7 +24935,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "V_ref_FF"
 	      SID		      "10064"
-	      Position		      [1630, 318, 1660, 332]
+	      Position		      [1630, 388, 1660, 402]
 	      ZOrder		      -43
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -25343,7 +24944,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Quaternion"
 	      SID		      "10065"
-	      Position		      [1630, 553, 1660, 567]
+	      Position		      [1630, 748, 1660, 762]
 	      ZOrder		      -45
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -25352,7 +24953,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Omega"
 	      SID		      "10066"
-	      Position		      [1630, 598, 1660, 612]
+	      Position		      [1630, 793, 1660, 807]
 	      ZOrder		      -46
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -25379,6 +24980,7 @@ Model {
 	      ZOrder		      316
 	      SrcBlock		      "From_Theta_r_phys40"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Vicon Position \nController"
 	      DstPort		      2
 	    }
@@ -25393,6 +24995,7 @@ Model {
 	      ZOrder		      309
 	      SrcBlock		      "ClosedLoop\nPosition SetPoint Generator"
 	      SrcPort		      1
+	      Points		      [330, 0]
 	      DstBlock		      "Vicon Position \nController"
 	      DstPort		      1
 	    }
@@ -25411,9 +25014,10 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      14
-	      SrcBlock		      "From_Theta_r_phys3"
+	      ZOrder		      487
+	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      1
+	      Points		      [0, 0]
 	      DstBlock		      "In_from_RS232_Demux2"
 	      DstPort		      1
 	    }
@@ -25474,17 +25078,10 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      311
-	      SrcBlock		      "Vicon Position \nController"
-	      SrcPort		      1
-	      DstBlock		      "Goto_Theta_er1"
-	      DstPort		      1
-	    }
-	    Line {
 	      ZOrder		      315
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      4
-	      Points		      [56, 0; 0, 20]
+	      Points		      [0, 0]
 	      DstBlock		      "XYZ_PIDterm"
 	      DstPort		      1
 	    }
@@ -25494,23 +25091,16 @@ Model {
 	      SrcPort		      1
 	      Points		      [55, 0]
 	      Branch {
-		ZOrder			405
-		Points			[0, 15]
+		ZOrder			486
 		DstBlock		"ClosedLoop\nPosition SetPoint Generator"
-		DstPort			4
+		DstPort			3
 	      }
 	      Branch {
-		ZOrder			382
+		ZOrder			485
+		Points			[0, -35]
 		DstBlock		"Goto15"
 		DstPort			1
 	      }
-	    }
-	    Line {
-	      ZOrder		      197
-	      SrcBlock		      "From_Theta_r_phys11"
-	      SrcPort		      1
-	      DstBlock		      "ClosedLoop\nPosition SetPoint Generator"
-	      DstPort		      3
 	    }
 	    Line {
 	      ZOrder		      349
@@ -25520,17 +25110,10 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      268
-	      SrcBlock		      "Active Recovery"
-	      SrcPort		      1
-	      DstBlock		      "Goto_Theta_er7"
-	      DstPort		      1
-	    }
-	    Line {
 	      ZOrder		      325
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      3
-	      Points		      [208, 0; 0, -20]
+	      Points		      [0, 0]
 	      DstBlock		      "Thrust_ref"
 	      DstPort		      1
 	    }
@@ -25545,7 +25128,7 @@ Model {
 	      ZOrder		      324
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      2
-	      Points		      [210, 0; 0, -10]
+	      Points		      [0, 0]
 	      DstBlock		      "Angles_ref"
 	      DstPort		      1
 	    }
@@ -25553,26 +25136,19 @@ Model {
 	      ZOrder		      326
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      5
-	      Points		      [26, 0]
+	      Points		      [0, 0; 26, 0]
 	      Branch {
-		ZOrder			459
-		Points			[0, -10]
+		ZOrder			480
+		Points			[0, -30]
 		DstBlock		"State"
 		DstPort			1
 	      }
 	      Branch {
 		ZOrder			454
-		Points			[0, 150]
+		Points			[0, 130]
 		DstBlock		"Delay"
 		DstPort			1
 	      }
-	    }
-	    Line {
-	      ZOrder		      350
-	      SrcBlock		      "From_Theta_r_phys13"
-	      SrcPort		      1
-	      DstBlock		      "Logical\nOperator"
-	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      351
@@ -25585,21 +25161,22 @@ Model {
 	      ZOrder		      362
 	      SrcBlock		      "Demux"
 	      SrcPort		      3
-	      DstBlock		      "ctrl scenario/ctrl recovery"
-	      DstPort		      3
+	      Points		      [158, 0; 0, 115]
+	      DstBlock		      "Vicon Position \nController"
+	      DstPort		      8
 	    }
 	    Line {
-	      ZOrder		      355
-	      SrcBlock		      "From_Theta_r_phys2"
+	      ZOrder		      488
+	      SrcBlock		      "Active Recovery"
 	      SrcPort		      1
+	      Points		      [689, 0; 0, -110]
 	      DstBlock		      "Vicon Position \nController"
 	      DstPort		      6
 	    }
 	    Line {
-	      ZOrder		      357
-	      SrcBlock		      "ctrl scenario/ctrl recovery"
-	      SrcPort		      1
-	      Points		      [10, 0; 0, -50]
+	      ZOrder		      363
+	      SrcBlock		      "Demux"
+	      SrcPort		      2
 	      DstBlock		      "ctrl scenario/ctrl normal"
 	      DstPort		      1
 	    }
@@ -25611,26 +25188,12 @@ Model {
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      363
-	      SrcBlock		      "Demux"
-	      SrcPort		      2
-	      DstBlock		      "ctrl scenario/ctrl recovery"
-	      DstPort		      1
-	    }
-	    Line {
 	      ZOrder		      364
 	      SrcBlock		      "Demux"
 	      SrcPort		      1
-	      Points		      [317, 0; 0, 65]
+	      Points		      [307, 0; 0, 65]
 	      DstBlock		      "ctrl scenario/ctrl normal"
 	      DstPort		      3
-	    }
-	    Line {
-	      ZOrder		      430
-	      SrcBlock		      "Logical\nOperator"
-	      SrcPort		      1
-	      DstBlock		      "ctrl scenario/ctrl recovery"
-	      DstPort		      2
 	    }
 	    Line {
 	      ZOrder		      429
@@ -25656,7 +25219,7 @@ Model {
 	    }
 	    Line {
 	      ZOrder		      437
-	      SrcBlock		      "Compare\nTo Constant"
+	      SrcBlock		      "Reset PID term\nafter recovery (state = 4)"
 	      SrcPort		      1
 	      Points		      [-20, 0]
 	      DstBlock		      "Logical\nOperator1"
@@ -25666,31 +25229,31 @@ Model {
 	      ZOrder		      438
 	      SrcBlock		      "Delay"
 	      SrcPort		      1
-	      DstBlock		      "Compare\nTo Constant"
+	      DstBlock		      "Reset PID term\nafter recovery (state = 4)"
 	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      450
 	      SrcBlock		      "folded"
 	      SrcPort		      1
-	      Points		      [755, 0; 0, -125]
+	      Points		      [755, 0; 0, -85]
 	      DstBlock		      "Vicon Position \nController"
-	      DstPort		      8
+	      DstPort		      9
 	    }
 	    Line {
 	      ZOrder		      451
 	      SrcBlock		      "speed_ctrl_ON"
 	      SrcPort		      1
 	      DstBlock		      "ClosedLoop\nPosition SetPoint Generator"
-	      DstPort		      5
+	      DstPort		      4
 	    }
 	    Line {
 	      ZOrder		      453
 	      SrcBlock		      "scenario_num"
 	      SrcPort		      1
-	      Points		      [768, 0; 0, -120]
+	      Points		      [768, 0; 0, -80]
 	      DstBlock		      "Vicon Position \nController"
-	      DstPort		      9
+	      DstPort		      10
 	    }
 	    Line {
 	      ZOrder		      457
@@ -25703,9 +25266,9 @@ Model {
 	      ZOrder		      460
 	      SrcBlock		      "T0_horGap"
 	      SrcPort		      1
-	      Points		      [789, 0; 0, -115]
+	      Points		      [789, 0; 0, -75]
 	      DstBlock		      "Vicon Position \nController"
-	      DstPort		      10
+	      DstPort		      11
 	    }
 	  }
 	}
@@ -25713,7 +25276,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition1"
 	  SID			  "10067"
-	  Position		  [990, 34, 1020, 56]
+	  Position		  [930, -11, 960, 11]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25778,7 +25341,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition15"
 	  SID			  "10071"
-	  Position		  [1385, 519, 1415, 541]
+	  Position		  [1225, 514, 1255, 536]
 	  ZOrder		  348
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25821,7 +25384,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition19"
 	  SID			  "10075"
-	  Position		  [1265, 684, 1290, 706]
+	  Position		  [1400, 684, 1425, 706]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25832,7 +25395,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition2"
 	  SID			  "10076"
-	  Position		  [990, 84, 1020, 106]
+	  Position		  [930, 39, 960, 61]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25873,7 +25436,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition23"
 	  SID			  "10335"
-	  Position		  [1385, 559, 1415, 581]
+	  Position		  [1225, 554, 1255, 576]
 	  ZOrder		  277
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25914,7 +25477,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition27"
 	  SID			  "10082"
-	  Position		  [655, 254, 685, 276]
+	  Position		  [655, 234, 685, 256]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25925,7 +25488,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition28"
 	  SID			  "10083"
-	  Position		  [970, 244, 1000, 266]
+	  Position		  [970, 224, 1000, 246]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25936,19 +25499,8 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition29"
 	  SID			  "10336"
-	  Position		  [980, 658, 1010, 682]
+	  Position		  [1115, 658, 1145, 682]
 	  ZOrder		  278
-	  ForegroundColor	  "red"
-	  ShowName		  off
-	  Deterministic		  off
-	  OutPortSampleTime	  "Ts_AttitudeLoop"
-	}
-	Block {
-	  BlockType		  RateTransition
-	  Name			  "Rate Transition3"
-	  SID			  "10084"
-	  Position		  [480, 104, 510, 126]
-	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
 	  Deterministic		  off
@@ -25958,7 +25510,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition30"
 	  SID			  "10085"
-	  Position		  [1615, 509, 1645, 531]
+	  Position		  [1455, 504, 1485, 526]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25979,7 +25531,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition32"
 	  SID			  "12215"
-	  Position		  [1385, 539, 1415, 561]
+	  Position		  [1225, 534, 1255, 556]
 	  ZOrder		  405
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -26060,7 +25612,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition4"
 	  SID			  "10094"
-	  Position		  [990, 184, 1020, 206]
+	  Position		  [930, 139, 960, 161]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -26175,7 +25727,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition5"
 	  SID			  "10100"
-	  Position		  [655, 289, 685, 311]
+	  Position		  [655, 269, 685, 291]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -26297,17 +25849,6 @@ Model {
 	  ForegroundColor	  "red"
 	  ShowName		  off
 	  Deterministic		  off
-	}
-	Block {
-	  BlockType		  RateTransition
-	  Name			  "Rate Transition62"
-	  SID			  "10104"
-	  Position		  [480, 124, 510, 146]
-	  ZOrder		  -10
-	  ForegroundColor	  "red"
-	  ShowName		  off
-	  Deterministic		  off
-	  OutPortSampleTime	  "Ts_AttitudeLoop"
 	}
 	Block {
 	  BlockType		  RateTransition
@@ -26436,7 +25977,7 @@ Model {
 	  Name			  "Selector1"
 	  SID			  "10109"
 	  Ports			  [1, 1]
-	  Position		  [755, 179, 795, 211]
+	  Position		  [695, 134, 735, 166]
 	  ZOrder		  -17
 	  ShowName		  off
 	  InputPortWidth	  "3"
@@ -26485,20 +26026,9 @@ Model {
 	}
 	Block {
 	  BlockType		  DataTypeConversion
-	  Name			  "To int16"
-	  SID			  "10111"
-	  Position		  [1725, 511, 1770, 529]
-	  ZOrder		  -7
-	  ForegroundColor	  "red"
-	  ShowName		  off
-	  RndMeth		  "Nearest"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  DataTypeConversion
 	  Name			  "To single2"
 	  SID			  "10113"
-	  Position		  [885, 176, 935, 214]
+	  Position		  [825, 131, 875, 169]
 	  ZOrder		  -7
 	  ForegroundColor	  "red"
 	  RndMeth		  "Nearest"
@@ -26531,7 +26061,7 @@ Model {
 	  Name			  "Torques \nDisturbances"
 	  SID			  "10115"
 	  Ports			  [2, 2]
-	  Position		  [1305, 614, 1445, 721]
+	  Position		  [1440, 614, 1580, 721]
 	  ZOrder		  -179
 	  RequestExecContextInheritance	off
 	  Variant		  off
@@ -27543,7 +27073,7 @@ Model {
 	  Name			  "Torques saturation"
 	  SID			  "10281"
 	  Ports			  [2, 2]
-	  Position		  [1020, 624, 1120, 686]
+	  Position		  [1155, 624, 1255, 686]
 	  ZOrder		  68
 	  NamePlacement		  "alternate"
 	  RequestExecContextInheritance	off
@@ -28414,13 +27944,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3026
-	  SrcBlock		  "To int16"
-	  SrcPort		  1
-	  DstBlock		  "Goto_Theta_er29"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  2660
 	  SrcBlock		  "From_Theta_r_phys61"
 	  SrcPort		  1
@@ -28440,23 +27963,6 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Rate Transition24"
 	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  24
-	  SrcBlock		  "Man/auto switch"
-	  SrcPort		  1
-	  Points		  [5, 0]
-	  Branch {
-	    ZOrder		    3028
-	    Points		    [0, -95]
-	    DstBlock		    "CTL_monitor1"
-	    DstPort		    3
-	  }
-	  Branch {
-	    ZOrder		    1849
-	    DstBlock		    "To int16"
-	    DstPort		    1
-	  }
 	}
 	Line {
 	  ZOrder		  27
@@ -28673,7 +28179,7 @@ Model {
 	  ZOrder		  70
 	  SrcBlock		  "Gyo\nAcc2"
 	  SrcPort		  1
-	  Points		  [3, 0; 0, -35]
+	  Points		  [3, 0; 0, -55]
 	  DstBlock		  "Attitude SetPoint\nManager"
 	  DstPort		  3
 	}
@@ -28831,7 +28337,7 @@ Model {
 	  Points		  [10, 0]
 	  Branch {
 	    ZOrder		    3507
-	    Points		    [0, -45; 506, 0; 0, -95]
+	    Points		    [0, -37; 247, 0; 0, -108]
 	    DstBlock		    "Man/auto switch"
 	    DstPort		    1
 	  }
@@ -28962,59 +28468,12 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  112
-	  SrcBlock		  "From_Theta_r_phys22"
-	  SrcPort		  1
-	  DstBlock		  "Rate Transition62"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  113
+	  ZOrder		  3514
 	  Labels		  [0, 0]
-	  SrcBlock		  "Index\nVector"
+	  SrcBlock		  "From_Theta_r_phys22"
 	  SrcPort		  1
 	  DstBlock		  "ESTIMATOR"
 	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  114
-	  SrcBlock		  "From12"
-	  SrcPort		  1
-	  DstBlock		  "Rate Transition3"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  115
-	  SrcBlock		  "Rate Transition3"
-	  SrcPort		  1
-	  DstBlock		  "Index\nVector"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  116
-	  SrcBlock		  "Rate Transition62"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  Branch {
-	    ZOrder		    117
-	    DstBlock		    "Index\nVector"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    118
-	    Points		    [0, 20]
-	    Branch {
-	      ZOrder		      119
-	      Points		      [0, 20]
-	      DstBlock		      "Index\nVector"
-	      DstPort		      4
-	    }
-	    Branch {
-	      ZOrder		      120
-	      DstBlock		      "Index\nVector"
-	      DstPort		      3
-	    }
-	  }
 	}
 	Line {
 	  ZOrder		  122
@@ -30449,6 +29908,20 @@ Model {
 	  SrcBlock		  "Rate Transition67"
 	  SrcPort		  1
 	  DstBlock		  "Manual Switch"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3515
+	  SrcBlock		  "From_Theta_r_phys49"
+	  SrcPort		  1
+	  DstBlock		  "CTL_monitor1"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  3519
+	  SrcBlock		  "Man/auto switch"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er29"
 	  DstPort		  1
 	}
 	Annotation {

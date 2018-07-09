@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3182"
+    ComputedModelVersion    "1.3190"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -56,11 +56,11 @@ Model {
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10324"
 	  Extents		  [1886.0, 879.0]
-	  ZoomFactor		  [0.6]
-	  Offset		  [1148.4604726082255, 223.39480867284124]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-288.62505611933875, -40.615901104314212]
 	}
 	Object {
 	  $ObjectID		  6
@@ -82,9 +82,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "arenebiorob"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 09 16:55:12 2018"
-  RTWModifiedTimeStamp	  453056102
-  ModelVersionFormat	  "1.%<AutoIncrement:3182>"
+  LastModifiedDate	  "Mon Jul 09 17:37:38 2018"
+  RTWModifiedTimeStamp	  453058657
+  ModelVersionFormat	  "1.%<AutoIncrement:3190>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -5805,7 +5805,7 @@ Model {
   System {
     Name		    "QUARC_ViconController"
     Location		    [-8, -8, 1928, 1048]
-    Open		    on
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -5816,7 +5816,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "60"
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "12398"
     Block {
@@ -5824,14 +5824,14 @@ Model {
       Name		      "Att CTL Param"
       SID		      "10324"
       Ports		      [1, 1]
-      Position		      [2195, 851, 2265, 879]
+      Position		      [2315, 851, 2385, 879]
       ZOrder		      251
       RequestExecContextInheritance off
       Variant		      off
       System {
 	Name			"Att CTL Param"
-	Location		[-1920, 0, -960, 1080]
-	Open			off
+	Location		[-8, -8, 1928, 1048]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -5875,7 +5875,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "Balistic Gain_thrust_sat"
+	  Name			  "Balistic Gain_thrust_sat (during folded)\nTsat = Tmax*Gain"
 	  SID			  "12132"
 	  Position		  [105, 532, 135, 548]
 	  ZOrder		  561
@@ -5993,16 +5993,16 @@ Model {
 	  BlockType		  Constant
 	  Name			  "Phi"
 	  SID			  "11999"
-	  Position		  [105, 357, 135, 373]
+	  Position		  [-10, 357, 20, 373]
 	  ZOrder		  543
 	  ForegroundColor	  "magenta"
 	  Value			  "20"
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "Recov Gain_thrust0"
+	  Name			  "Recov Gain_thrust0 (state 1)\nT= m*g*Gain\n"
 	  SID			  "12008"
-	  Position		  [105, 497, 135, 513]
+	  Position		  [-10, 497, 20, 513]
 	  ZOrder		  551
 	  ForegroundColor	  "magenta"
 	  Value			  "1.2"
@@ -6031,7 +6031,7 @@ Model {
 	  BlockType		  Constant
 	  Name			  "dPhi"
 	  SID			  "12001"
-	  Position		  [105, 427, 135, 443]
+	  Position		  [-10, 427, 20, 443]
 	  ZOrder		  545
 	  ForegroundColor	  "magenta"
 	  Value			  "200"
@@ -6065,15 +6065,16 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "kTorques_perso"
-	  SID			  "11849"
-	  Position		  [35, 215, 200, 245]
-	  ZOrder		  540
-	  Value			  "[38/3 10 1]' %[12 10 1]'"
+	  Name			  "kTorques_Flight"
+	  SID			  "12123"
+	  Position		  [-245, -15, -80, 15]
+	  ZOrder		  560
+	  NamePlacement		  "alternate"
+	  Value			  "[38*1/3 30*1/3 3]'"
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "kTorques_perso1"
+	  Name			  "kTorques_Landing"
 	  SID			  "11851"
 	  Position		  [-245, 45, -80, 75]
 	  ZOrder		  559
@@ -6081,12 +6082,11 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "kTorques_perso2"
-	  SID			  "12123"
-	  Position		  [-245, -15, -80, 15]
-	  ZOrder		  560
-	  NamePlacement		  "alternate"
-	  Value			  "[38*1/3 30*1/3 3]'"
+	  Name			  "kTorques_perso"
+	  SID			  "11849"
+	  Position		  [35, 215, 200, 245]
+	  ZOrder		  540
+	  Value			  "[38/3 10 1]' %[12 10 1]'"
 	}
 	Block {
 	  BlockType		  Outport
@@ -6220,7 +6220,7 @@ Model {
 	}
 	Line {
 	  ZOrder		  55
-	  SrcBlock		  "Recov Gain_thrust0"
+	  SrcBlock		  "Recov Gain_thrust0 (state 1)\nT= m*g*Gain\n"
 	  SrcPort		  1
 	  DstBlock		  "Conditions for Recovery state machine"
 	  DstPort		  5
@@ -6241,14 +6241,14 @@ Model {
 	}
 	Line {
 	  ZOrder		  68
-	  SrcBlock		  "kTorques_perso2"
+	  SrcBlock		  "kTorques_Flight"
 	  SrcPort		  1
 	  DstBlock		  "Switch"
 	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  67
-	  SrcBlock		  "kTorques_perso1"
+	  SrcBlock		  "kTorques_Landing"
 	  SrcPort		  1
 	  DstBlock		  "Switch"
 	  DstPort		  3
@@ -6262,7 +6262,7 @@ Model {
 	}
 	Line {
 	  ZOrder		  87
-	  SrcBlock		  "Balistic Gain_thrust_sat"
+	  SrcBlock		  "Balistic Gain_thrust_sat (during folded)\nTsat = Tmax*Gain"
 	  SrcPort		  1
 	  DstBlock		  "Conditions for Recovery state machine"
 	  DstPort		  6
@@ -15555,7 +15555,7 @@ Model {
       Variant		      off
       System {
 	Name			"Position CTL Param"
-	Location		[-1920, 0, -960, 1080]
+	Location		[-8, -8, 1928, 1048]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -15572,8 +15572,9 @@ Model {
 	  BlockType		  Inport
 	  Name			  "Param_speed_ctrlX"
 	  SID			  "12103"
-	  Position		  [130, 283, 160, 297]
+	  Position		  [-65, 293, -35, 307]
 	  ZOrder		  448
+	  NamePlacement		  "alternate"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -15612,7 +15613,7 @@ Model {
 	  Name			  "Scenario ctrl"
 	  SID			  "9942"
 	  Ports			  [4, 1]
-	  Position		  [5, 234, 10, 396]
+	  Position		  [-125, 239, -120, 401]
 	  ZOrder		  -16
 	  ForegroundColor	  "orange"
 	  DisplayOption		  "bar"
@@ -15641,7 +15642,7 @@ Model {
 	  BlockType		  Constant
 	  Name			  "Tf_Int1"
 	  SID			  "9945"
-	  Position		  [-395, 365, -155, 385]
+	  Position		  [-525, 370, -285, 390]
 	  ZOrder		  -5
 	  ForegroundColor	  "orange"
 	  Value			  "exp(-1/(.1/3)*ComMinSampleTime)*[1 1 1]"
@@ -15671,7 +15672,7 @@ Model {
 	  BlockType		  Switch
 	  Name			  "ctrl speed/ctrl pos"
 	  SID			  "12104"
-	  Position		  [240, 270, 290, 310]
+	  Position		  [240, 270, 295, 330]
 	  ZOrder		  449
 	  Criteria		  "u2 > Threshold"
 	  InputSameDT		  off
@@ -15684,17 +15685,17 @@ Model {
 	  Position		  [25, 80, 175, 100]
 	  ZOrder		  3
 	  ForegroundColor	  "orange"
-	  Value			  "[4*3/4 4 3]"
+	  Value			  "[3 4 3]"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "kd1"
 	  SID			  "9947"
-	  Position		  [-340, 285, -190, 305]
+	  Position		  [-470, 290, -320, 310]
 	  ZOrder		  -5
 	  ForegroundColor	  "orange"
-	  Value			  "[4*3/4 6 3]"
+	  Value			  "[3 6 3]"
 	  VectorParams1D	  off
 	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
 	}
@@ -15744,7 +15745,7 @@ Model {
 	  BlockType		  Constant
 	  Name			  "ki2"
 	  SID			  "9949"
-	  Position		  [-350, 325, -200, 345]
+	  Position		  [-480, 330, -330, 350]
 	  ZOrder		  -5
 	  ForegroundColor	  "orange"
 	  Value			  "[0.5 2 1.3]"
@@ -15767,17 +15768,17 @@ Model {
 	  Position		  [25, 40, 175, 60]
 	  ZOrder		  1
 	  ForegroundColor	  "orange"
-	  Value			  "[3*2/3 3 11]"
+	  Value			  "[2 3 11]"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "kp1"
 	  SID			  "9951"
-	  Position		  [-340, 245, -190, 265]
+	  Position		  [-470, 250, -320, 270]
 	  ZOrder		  -5
 	  ForegroundColor	  "orange"
-	  Value			  "[3*2/3 8 11]"
+	  Value			  "[2 8 11]"
 	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
 	}
 	Block {
@@ -15919,7 +15920,6 @@ Model {
 	  ZOrder		  36
 	  SrcBlock		  "ctrl speed/ctrl pos"
 	  SrcPort		  1
-	  Points		  [48, 0; 0, 10]
 	  DstBlock		  "Mux"
 	  DstPort		  2
 	}
@@ -15927,7 +15927,6 @@ Model {
 	  ZOrder		  37
 	  SrcBlock		  "Scenario ctrl"
 	  SrcPort		  1
-	  Points		  [187, 0; 0, -10]
 	  DstBlock		  "ctrl speed/ctrl pos"
 	  DstPort		  3
 	}
@@ -15970,7 +15969,7 @@ Model {
 	  ZOrder		  44
 	  SrcBlock		  "Scenario start parameter"
 	  SrcPort		  1
-	  Points		  [133, 0; 0, 165]
+	  Points		  [133, 0; 0, 170]
 	  DstBlock		  "ctrl speed/ctrl pos"
 	  DstPort		  1
 	}
@@ -16691,7 +16690,7 @@ Model {
       Name		      "Selector2"
       SID		      "12118"
       Ports		      [1, 1]
-      Position		      [2135, 858, 2170, 872]
+      Position		      [2175, 858, 2210, 872]
       ZOrder		      440
       ShowName		      off
       InputPortWidth	      "9"
