@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-PropConf = 'Tmotor';
+PropConf = 'F30';
 
 phi_ref = 0;    % [deg]
 theta_ref = 0;  % [deg]
@@ -99,6 +99,16 @@ c = 1.6e-2;         % [m] rotor chord
 r = 6.0e-2;         % [m] rotor radius
 a = 6.0;            % [-] lift slope coefficient
 switch PropConf
+    case 'F30'
+        MinArmed = 1000;        % [us]
+        MinThrottle = 1100;     % [us]
+        MaxThrottle = 2000;     % [us]
+        
+        Tprop_CL = 0.1; % [s] time constant of the closed loop for propeller's rotation rate (2nd order) tf(1, [1/(7*2*pi) 1])^2
+        cTm = 1.0194e-7;      % [kg.s^2.rad^-2] thrust coefficient
+        cQm = 1.0031e-9;     % [kg.s^2.rad^-2] drag coefficient
+        Tmax = .8155;       % [kg] maximum thrust achievable per rotor
+        Tmin = .0097;       % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle) 
     case 'Tmotor'
         MinArmed = 1000;        % [us]
         MinThrottle = 1100;     % [us]
