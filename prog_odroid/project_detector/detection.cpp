@@ -83,7 +83,6 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, bool * p_sh_start,
 						if (duration > s_in_cpy.t_poll)
 						{
 							overrun++;
-							cout << "Detection : Overrun! (" << overrun << ")" << endl;
 						}
 #endif
 
@@ -102,143 +101,145 @@ t_start = std::chrono::high_resolution_clock::now();
 						sem_post(sem);
 
 						// Acquisition
-						camera.RetrieveResult(s_in_cpy.t_poll,ptrGrabResult, TimeoutHandling_Return);
-
-#ifdef TIME_EXEC
-cout << "Acquisition and copy shared vars (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-#endif
-
-						if (ptrGrabResult->GrabSucceeded())
+						if (camera.RetrieveResult(s_in_cpy.t_poll,ptrGrabResult, TimeoutHandling_Return))
 						{
-							img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
 
-#ifdef TIME_EXEC
-	cout << "Convertion (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
+	#ifdef TIME_EXEC
+	cout << "Acquisition and copy shared vars (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+	#endif
 
-							// Copy data
-							img_tmp = img_src;
+							if (ptrGrabResult->GrabSucceeded())
+							{
+								img_src = Mat(img_src.size(), img_src.type(), (uint8_t*) ptrGrabResult->GetBuffer());
+
+	#ifdef TIME_EXEC
+		cout << "Convertion (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Copy data
+								img_tmp = img_src;
 			
-							// Get acquisition time
-							img_time = ptrGrabResult->GetTimeStamp();
+								// Get acquisition time
+								img_time = ptrGrabResult->GetTimeStamp();
 
-#ifdef BLUR
-							// Reduce noise with blur
-							blur(img_tmp, img_dst, Size(s_in_cpy.size_blur,s_in_cpy.size_blur));
-							img_tmp = img_dst;
-#endif
+	#ifdef BLUR
+								// Reduce noise with blur
+								blur(img_tmp, img_dst, Size(s_in_cpy.size_blur,s_in_cpy.size_blur));
+								img_tmp = img_dst;
+	#endif
 
-#ifdef TIME_EXEC
-	cout << "Blur (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
+	#ifdef TIME_EXEC
+		cout << "Blur (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
 
-							// Squares Detector [Suzuki 85]
-							SquaresDetector(img_tmp,squares,s_in_cpy.bin_square,s_in_cpy.k_square,s_in_cpy.area_square,s_in_cpy.cos_square);
+								// Squares Detector [Suzuki 85]
+								SquaresDetector(img_tmp,squares,s_in_cpy.bin_square,s_in_cpy.k_square,s_in_cpy.area_square,s_in_cpy.cos_square);
 
-#ifdef TIME_EXEC
-	cout << "Square detection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
+	#ifdef TIME_EXEC
+		cout << "Square detection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
 
-							// Select square
-							state = select_square(squares, sel_square, s_in_cpy.thresh_diff2, s_in_cpy.thresh_ratio2);
+								// Select square
+								state = select_square(squares, sel_square, s_in_cpy.thresh_diff2, s_in_cpy.thresh_ratio2);
 
-#ifdef TIME_EXEC
-	cout << "Square selection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
+	#ifdef TIME_EXEC
+		cout << "Square selection (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
 
-							if (!init_square_detection)	// Initialize detection
-							{	
-#ifdef DEBUG_DETECTION				
-								cout << "Initialization...";
-#endif
-								if (!sel_square.empty())
-								{
-									init_square_detection = 1;
-									no_detect = 0;
-									sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
-									cout << "Detection OK";
+								if (!init_square_detection)	// Initialize detection
+								{	
+	#ifdef DEBUG_DETECTION				
+									cout << "Initialization...";
+	#endif
+									if (!sel_square.empty())
+									{
+										init_square_detection = 1;
+										no_detect = 0;
+										sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
+										cout << "Detection OK";
+									}
+									cout << endl;
 								}
-								cout << endl;
+								else
+								{
+									if (sel_square.empty())	// No detection
+									{
+										cout << "No detected squares: " << ++no_detect << "/" <<  s_in_cpy.max_no_detect << endl;
+										if (no_detect >= s_in_cpy.max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
+										{
+											init_square_detection = 0;
+											cout << "Reinitialization..." << endl;
+										}
+									}
+									else	// Subtented angles
+									{
+										no_detect = 0;
+										sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
+									}
+								}
+
+	#ifdef TIME_EXEC
+		cout << "Sub angles computation (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+	#ifdef PRINT_SUBANGLES
+								// Print Subtented angles
+								if (init_square_detection)
+									cout << "Frame " << img_time << " : Subtented angles (in rad): " << sub_angles[0] << "\t" << sub_angles[1] << "\t" << sub_angles[2] << "\t" << sub_angles[3] << endl;
+	#endif
+
+	#ifdef DEBUG_DETECTION
+								if(no_detect)
+								{
+									switch (state)
+									{
+										case -1:
+											cout << "No detected squares" << endl;
+											break;
+										case 0:
+											cout << "No pair squares" << endl;
+											break;
+										case 1:
+											cout << "No centered pair squares" << endl;
+											break;
+										case 2:
+											cout << "No similar ratio pair squares" << endl;
+											break;
+										default:
+											break;
+									}
+								}
+	#endif
+
+	sem_wait(sem);	// Critical Section
+								// Update Data Output Stream
+								p_s_out->sub_angles[0]=sub_angles[0];
+								p_s_out->sub_angles[1]=sub_angles[1];
+								p_s_out->sub_angles[2]=sub_angles[2];
+								p_s_out->sub_angles[3]=sub_angles[3];
+								p_s_out->time_frame=img_time;
+								p_s_out->no_detect=no_detect;
+								p_s_out->init_detect=init_square_detection;
+								com_start = *p_sh_start;
+	sem_post(sem);
+
+	#ifdef TIME_EXEC
+		cout << "Copy to class (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
+		t_start = std::chrono::high_resolution_clock::now();
+	#endif
+
+								// Increment frame number
+								num_img++;
 							}
 							else
 							{
-								if (sel_square.empty())	// No detection
-								{
-									cout << "No detected squares: " << ++no_detect << "/" <<  s_in_cpy.max_no_detect << endl;
-									if (no_detect >= s_in_cpy.max_no_detect)	// If (no detection >= max_no_detect) => reinitialization
-									{
-										init_square_detection = 0;
-										cout << "Reinitialization..." << endl;
-									}
-								}
-								else	// Subtented angles
-								{
-									no_detect = 0;
-									sub_angles_from_square(sel_square,sub_angles,s_in_cpy.width,s_in_cpy.height,s_in_cpy.fov);
-								}
+								cout << "Error on grab : " << ptrGrabResult->GetErrorCode() << " " << ptrGrabResult->GetErrorDescription() << endl;
 							}
-
-#ifdef TIME_EXEC
-	cout << "Sub angles computation (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
-
-#ifdef PRINT_SUBANGLES
-							// Print Subtented angles
-							if (init_square_detection)
-								cout << "Frame " << img_time << " : Subtented angles (in rad): " << sub_angles[0] << "\t" << sub_angles[1] << "\t" << sub_angles[2] << "\t" << sub_angles[3] << endl;
-#endif
-
-#ifdef DEBUG_DETECTION
-							if(no_detect)
-							{
-								switch (state)
-								{
-									case -1:
-										cout << "No detected squares" << endl;
-										break;
-									case 0:
-										cout << "No pair squares" << endl;
-										break;
-									case 1:
-										cout << "No centered pair squares" << endl;
-										break;
-									case 2:
-										cout << "No similar ratio pair squares" << endl;
-										break;
-									default:
-										break;
-								}
-							}
-#endif
-
-sem_wait(sem);	// Critical Section
-							// Update Data Output Stream
-							p_s_out->sub_angles[0]=sub_angles[0];
-							p_s_out->sub_angles[1]=sub_angles[1];
-							p_s_out->sub_angles[2]=sub_angles[2];
-							p_s_out->sub_angles[3]=sub_angles[3];
-							p_s_out->time_frame=img_time;
-							p_s_out->no_detect=no_detect;
-							p_s_out->init_detect=init_square_detection;
-							com_start = *p_sh_start;
-sem_post(sem);
-
-#ifdef TIME_EXEC
-	cout << "Copy to class (ms) : " << chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t_start).count() << endl;
-	t_start = std::chrono::high_resolution_clock::now();
-#endif
-
-							// Increment frame number
-							num_img++;
-						}
-						else
-						{
-							cout << "Error on grab : " << ptrGrabResult->GetErrorCode() << " " << ptrGrabResult->GetErrorDescription() << endl;
 						}
 					}
 #ifdef PRINT_DEBUG

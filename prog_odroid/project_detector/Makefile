@@ -10,9 +10,9 @@ DETECTOR_DIR := $(GIT_REPO)/prog_odroid/libs/lib_detection
 SERIAL_DIR := $(GIT_REPO)/prog_odroid/libs/lib_serial_com
 
 # The program to build	
-NAME   := project_detector
+NAME   := detector
 LIB_CPP:= $(wildcard $(CAMERA_DIR)/*.cpp) $(wildcard $(DETECTOR_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.cpp) $(wildcard $(SERIAL_DIR)/*.c) detection.cpp serial_com.cpp class_def.cpp
-SRC	   := $(LIB_CPP) project_detector.cpp
+SRC	   := $(LIB_CPP) detector.cpp
 OBJ	   := $(SRC:.cpp=.o)
 OBJ    := $(OBJ:.c=.o)
 

@@ -25,6 +25,7 @@ void camera_init(CInstantCamera* cam, const unsigned int width, const unsigned i
 
 	// Print the model name of the camera.
 	cout << "Using device " << cam->GetDeviceInfo().GetModelName() << endl;
+	cout << "Parameters : " << width << "x" << height << ", offset : (" << offset_x << "," << offset_y << "), maxBuff " << MaxNumBuffer << ", bin " << binning_on << ", expoAutoMax " << expoAutoMax << "us" << endl;
 
 	// Camera parameters
 	cam->MaxNumBuffer = MaxNumBuffer;
