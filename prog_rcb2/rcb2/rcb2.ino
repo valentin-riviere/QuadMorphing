@@ -55,6 +55,7 @@ volatile int16_t SetPoint_us[NB_ROTOR]; 					// SetPoints (inputs for regulation
 // **************
 // Complementary Filter
 // **************
+float deltat = 0.0f;          			// integration interval for Mahony filter
 static float Omega_hat[3]   = {0.0, 0.0, 0.0};  // [rad/s] debiased 
 static float B_hat[3]       = {0.0, 0.0, 0.0};   // [rad/s] gyro's bias
 static float Q_hat[4]       = {1.0, 0.0, 0.0, 0.0};
@@ -154,7 +155,9 @@ void setup()
 	configureReceiver();
 	initMotors();
 	initRegul();
+#ifdef TACHY_ON
 	setupTachys();
+#endif
 
 	Serial.println("Init...OK");
 
@@ -182,7 +185,7 @@ void loop()
 	else if (currentTime >= PilotTime)
 	{
 		PilotTime = currentTime + PILOT_SAMPLE_TIME;
-
+		
 		Pilot_loop();
 
 		#ifdef ECHO_TIME_EXEC_RCB2
@@ -224,13 +227,15 @@ void loop()
 		#endif
 	}
 	
-	#ifdef ECHO_DISPLAY
+	
 		// each 1s, 1Hz, Display Loop
 		if (currentTime >= DispTime)
 		{
 			DispTime = currentTime + DISP_SAMPLE_TIME;
 
-			DisplayMenu();
+			#ifdef ECHO_DISPLAY
+				DisplayMenu();
+			#endif
 
 			#ifdef ECHO_TIME_EXEC_RCB2
 				t_exec_DisplayMenu = micros()-currentTime;
@@ -240,7 +245,6 @@ void loop()
 				DisplayTimeExecRCB2();
 			#endif
 		}
-	#endif
 
 	currentTime = micros();
 }
@@ -310,7 +314,8 @@ void one_step()
 					}
 					else if (RegulSig.RegulState == OPEN_LOOP)
 					{
-						RegulSig.TimeUp_PWM_ESC[i] = SetPoint_us[i];
+						RegulSig.TimeUp_PWM_ESC[i] = Saturate(ComputeFeedForward(us2freq_table((float)SetPoint_us[i])), MIN_TIMEUP_PWM, MAX_TIMEUP_PWM);
+						// RegulSig.TimeUp_PWM_ESC[i] = SetPoint_us[i];
 					}
 				}
 				else

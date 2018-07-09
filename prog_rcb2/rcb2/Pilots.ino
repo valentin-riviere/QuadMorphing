@@ -116,7 +116,7 @@ void RxPilot(void)
 	IMU_getADC_full();
 
 	// estimate attitude
-	EstimateAttitude_CF();
+	EstimateAttitude();
 	
 	// CompuetRxAttitudeSetPoint
 	ComputeEulerSetPoint();
@@ -145,20 +145,65 @@ void RxPilot(void)
 
 void AutoPilot(void)
 {
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	int32_t t_exec;
+	uint32_t TestTime = micros();
+#endif
+
 	// recover IMU values
 	IMU_getADC_full();
-	
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	t_exec = micros()-TestTime;
+	Serial.print("\nIMU_getADC_full(): ");
+	Serial.println(t_exec);
+#endif
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	TestTime = micros();
+#endif
+
 	// estimate attitude
-	EstimateAttitude_CF();
+	EstimateAttitude();
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	t_exec = micros()-TestTime;
+	Serial.print("\nEstimateAttitude(): ");
+	Serial.println(t_exec);
+#endif
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	TestTime = micros();
+#endif
 
 	// CompuetRxAttitudeSetPoint
 	ComputeEulerSetPoint();
 
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	t_exec = micros()-TestTime;
+	Serial.print("\nComputeEulerSetPoint(): ");
+	Serial.println(t_exec);
+#endif
+
 	// enforce the throttle setpoint to just compensate the robot's weight
 	ThrottleSetPoint = ROBOT_WEIGHT*9.81;
 
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	TestTime = micros();
+#endif
+
 	// Compute motor reference
 	StabilizeAttitude();
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	t_exec = micros()-TestTime;
+	Serial.print("\nStabilizeAttitude(): ");
+	Serial.println(t_exec);
+#endif
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	TestTime = micros();
+#endif
 
 	//if (rcData[THROTTLE] < 1050)
 	if (MotorsArmed == 0)
@@ -177,6 +222,12 @@ void AutoPilot(void)
 			WriteMotors();
 		}
 	}
+
+#ifdef ECHO_TIME_EXEC_AUTOPILOT
+	t_exec = micros()-TestTime;
+	Serial.print("\nWriteMotors(): ");
+	Serial.println(t_exec);
+#endif
 }
 
 void GumstixPilot_FirstStep(void)
@@ -189,6 +240,11 @@ sei();
 	IMU_getADC_full();
 
 	// copy acc(in g)/ang_speed(in rad/s)/mag(in mG)/pressure(in mBar) values in DataToSend
+#ifdef USE_TEENSY_CAL	// If Teensy calibration used
+	accADC[0] = accADC[0] + accelBias[0];
+	accADC[1] = accADC[1] + accelBias[1];
+	accADC[2] = accADC[2] - accelBias[2];
+#endif
 	memcpy(DataToSend, accADC, 12);     	// copy 3*4bytes (3*float32)
 	memcpy(&DataToSend[6], gyroADC, 12); 	// copy 3*4bytes (3*float32)
 	memcpy(&DataToSend[12], magADC, 12); 	// copy 3*4bytes (3*float32)
@@ -216,8 +272,12 @@ sei();
 	n_offset = 0;
 
 	// estimate attitude in case of gumstix failure
-	EstimateAttitude_CF();
+	EstimateAttitude();
 
+	// TEST
+	int16_t buff[5];
+	WaitnInt16_RS232(buff,NB_DATA_TO_RECEIVE+1);
+	
 	Serial.println("  => GumstixPilot activated!");
 }
 
@@ -249,14 +309,12 @@ cli();
 	#endif 
 sei();
 
-cli();
 	// read motor setpoint
 	#ifdef HEADER_RS232_ON
 		n_read = HeaderReadnInt16_RS232(motor, NB_DATA_TO_RECEIVE, 170);
 	#else
 		n_read = ReadnInt16_RS232(motor, NB_DATA_TO_RECEIVE);
 	#endif
-sei();
 
 	// up to date motor PWM
 	// NB: if n_read < NB_MOTOR only the n_read first motor will be updated 
@@ -298,5 +356,5 @@ sei();
 	}
 
 	// estimate attitude in case of gumstix failure
-	EstimateAttitude_CF();
+	EstimateAttitude();
 }

@@ -19,6 +19,7 @@ extern int32_t t_exec_max_Pilot_loop;
 extern int32_t t_exec_max_RX_loop;
 extern int32_t t_exec_max_CheckBattery;
 extern int32_t t_exec_max_DisplayMenu;
+extern float accelBias[3];
 
 void DisplayMenu(void)
 {
@@ -34,7 +35,9 @@ void DisplayMenu(void)
 	Serial.println(str);
 	sprintf((char*)str,"--TimeUpPWM--\t%.2f\t%.2f\t%.2f\t%.2f",RegulSig.TimeUp_PWM_ESC[0],RegulSig.TimeUp_PWM_ESC[1],RegulSig.TimeUp_PWM_ESC[2],RegulSig.TimeUp_PWM_ESC[3]);
 	Serial.println(str);
-	sprintf((char*)str,"\nIMU\t\tROLL\tPITCH\tYAW\n--Acc--\t\t%f\t%f\t%f\tg",accADC[ROLL],accADC[PITCH],accADC[YAW]);
+	sprintf((char*)str,"\nRAW IMU\t\tROLL\tPITCH\tYAW\n--Acc--\t\t%f\t%f\t%f\tg",accADC[ROLL],accADC[PITCH],accADC[YAW]);
+	Serial.println(str);
+	sprintf((char*)str,"\nUNBIAS IMU\t\tROLL\tPITCH\tYAW\n--Acc--\t\t%f\t%f\t%f\tg",accADC[ROLL]+accelBias[0],accADC[PITCH]+accelBias[1],accADC[YAW]-accelBias[2]);
 	Serial.println(str);
 	sprintf((char*)str,"--Gyro--\t%f\t%f\t%f\trad/s",gyroADC[ROLL],gyroADC[PITCH],gyroADC[YAW]);
 	Serial.println(str);
@@ -85,4 +88,7 @@ void DisplayTimeExecRCB2(void)
 	Serial.println(t_exec_DisplayMenu);
 	Serial.print("DisplayMenu() Max: ");
 	Serial.println(t_exec_max_DisplayMenu);
+	
+	Serial.print("All: ");
+	Serial.println(t_exec_oneStep+t_exec_Pilot_loop+t_exec_RX_loop+t_exec_CheckBattery+t_exec_DisplayMenu);
 }

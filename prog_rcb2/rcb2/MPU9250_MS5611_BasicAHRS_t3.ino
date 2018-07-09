@@ -22,6 +22,11 @@
  */
 #include "Def.h"
 #include "i2c_t3.h"
+#include "config.h"
+
+// Global variables
+static uint32_t lastUpdate = 0, firstUpdate = 0; // used to calculate integration interval
+static uint32_t Now = 0;                         // used to calculate integration interval
 
 // See MS5611-02BA03 Low Voltage Barometric Pressure Sensor Data Sheet
 #define MS5611_RESET      0x1E
@@ -225,8 +230,8 @@ double dT, OFFSET, SENS, T2, OFFSET2, SENS2;// First order and second order corr
 int16_t accelCount[3];// Stores the 16-bit signed accelerometer sensor output
 int16_t gyroCount[3]; // Stores the 16-bit signed gyro sensor output
 int16_t magCount[3];  // Stores the 16-bit signed magnetometer sensor output
-float magCalibration[3] = {0.94,1.10,0.98}, magbias[3] = {626,-1438,714};// Factory mag calibration and mag bias for raw data
-float gyroBias[3] = {0, 0, 0}, accelBias[3] = {0, 0, 0};    // Bias corrections for gyro and accelerometer
+float magCalibration[3] = {0.9,1.17,0.96}, magbias[3] = {-350,368,-506};// Factory mag calibration and mag bias for raw data
+float gyroBias[3] = {0, 0, 0}, accelBias[3] = {ACC_BIAS_X, ACC_BIAS_Y, ACC_BIAS_Z};    // Bias corrections for gyro and accelerometer in robot frame
 int16_t tempCount;          // temperature raw count output
 float   temperature;        // Stores the MPU9250 gyro internal chip temperature in degrees Celsius
 double Temperature, Pressure;// stores MS5611 pressures sensor pressure and temperature
@@ -276,8 +281,14 @@ void initSensors()
     Serial.print("y-axis self test: gyration trim within : "); Serial.print(SelfTest[4],1); Serial.println("% of factory value");
     Serial.print("z-axis self test: gyration trim within : "); Serial.print(SelfTest[5],1); Serial.println("% of factory value");
     delay(1000);
-    
+  
+#ifdef ACC_CALIB
   calibrateMPU9250(gyroBias, accelBias);// Calibrate gyro and accelerometers, load biases in bias registers
+#endif
+  
+  Serial.print("X-Axis AccelBias "); Serial.println(accelBias[0]);
+  Serial.print("Y-Axis AccelBias "); Serial.println(accelBias[1]);
+  Serial.print("Z-Axis AccelBias "); Serial.println(accelBias[2]);
  
   initMPU9250(); 
   Serial.println("MPU9250 initialized for active data mode....");// Initialize device for active mode read of acclerometer, gyroscope, and temperature
@@ -311,14 +322,14 @@ void initSensors()
   getMres();
   
 // Mag bias and calibration if needed
-  #ifdef MAG_CALIB
+#ifdef MAG_CALIB
 	calibrateAK8963(magbias, magCalibration);
-  #endif
   
-  //  Serial.println("Calibration values: ");
-  Serial.print("X-Axis sensitivity adjustment value "); Serial.println(magCalibration[0], 2);
-  Serial.print("Y-Axis sensitivity adjustment value "); Serial.println(magCalibration[1], 2);
-  Serial.print("Z-Axis sensitivity adjustment value "); Serial.println(magCalibration[2], 2);
+	//  Serial.println("Calibration values: ");
+	Serial.print("X-Axis sensitivity adjustment value "); Serial.println(magCalibration[0], 2);
+	Serial.print("Y-Axis sensitivity adjustment value "); Serial.println(magCalibration[1], 2);
+	Serial.print("Z-Axis sensitivity adjustment value "); Serial.println(magCalibration[2], 2);
+#endif
   
 // Reset the MS5611 pressure sensor
   MS5611Reset();
@@ -348,32 +359,39 @@ void initSensors()
 }
 
 void IMU_getADC_full()
-{  
-// If intPin goes high, all data registers have new data
-  if (readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {// check if data ready interrupt
-// if (digitalRead(intPin)) {// On interrupt, read data
-    readAccelData(accelCount);// Read the x/y/z adc values
- 
-  // Now we'll calculate the accleration value into actual g's
-    accADC[0] = (float)accelCount[0]*aRes - accelBias[0];// get actual g value, this depends on scale being set
-    accADC[1] = (float)accelCount[1]*aRes - accelBias[1];   
-    accADC[2] = (float)accelCount[2]*aRes - accelBias[2];
-   
-    readGyroData(gyroCount);// Read the x/y/z adc values
+{
+	// If intPin goes high, all data registers have new data
+	if (readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01)
+	{// check if data ready interrupt
+		// if (digitalRead(intPin)) {// On interrupt, read data
+		readAccelData(accelCount);// Read the x/y/z adc values
 
-  // Calculate the gyro value into actual rad per second
-    gyroADC[0] = (float)gyroCount[0]*gRes*deg2rad;// get actual gyro value, this depends on scale being set
-    gyroADC[1] = (float)gyroCount[1]*gRes*deg2rad;  
-    gyroADC[2] = (float)gyroCount[2]*gRes*deg2rad;   
-  
-    readMagData(magCount);// Read the x/y/z adc values
+		// Now we'll calculate the accleration value into actual g's
+		accADC[0] = (float)-accelCount[0]*aRes; //- accelBias[0]; Unbias, do in estimator // get actual g value, this depends on scale being set
+		accADC[1] = (float)-accelCount[1]*aRes; //- accelBias[1];   
+		accADC[2] = (float)accelCount[2]*aRes; //- accelBias[2];
 
-  // Calculate the magnetometer values in milliGauss
-  // Include factory calibration per data sheet and user environmental corrections
-    magADC[1] = (((float) magCount[0]-magbias[0])*mRes*magCalibration[0]);// get actual magnetometer value, this depends on scale being set
-    magADC[0] = (((float) magCount[1]-magbias[1])*mRes*magCalibration[1]);
-    magADC[2] = -(((float) magCount[2]-magbias[2])*mRes*magCalibration[2]);
-  }
+		readGyroData(gyroCount);// Read the x/y/z adc values
+
+		// Calculate the gyro value into actual rad per second
+		gyroADC[0] = (float)-gyroCount[0]*gRes*deg2rad;// get actual gyro value, this depends on scale being set
+		gyroADC[1] = (float)-gyroCount[1]*gRes*deg2rad;  
+		gyroADC[2] = (float)gyroCount[2]*gRes*deg2rad;   
+
+#ifdef MAG_USAGE
+		readMagData(magCount);// Read the x/y/z adc values
+
+		// Calculate the magnetometer values in milliGauss
+		// Include factory calibration per data sheet and user environmental corrections
+		magADC[1] = (((float) magCount[0]-magbias[0])*mRes*magCalibration[0]);// get actual magnetometer value, this depends on scale being set
+		magADC[0] = -(((float) magCount[1]-magbias[1])*mRes*magCalibration[1]);
+		magADC[2] = -(((float) magCount[2]-magbias[2])*mRes*magCalibration[2]);
+#endif
+		
+		Now = micros();
+		deltat = ((Now - lastUpdate)/1000000.0f); // set integration time by time elapsed since last filter update
+		lastUpdate = Now;
+	}
   
 #ifdef DEBUG_IMU
     Serial.print("ax = "); Serial.print((int)1000*accADC[0]);  
@@ -551,7 +569,7 @@ void initMPU9250()
 // be higher than 1 / 0.0059 = 170 Hz
 // DLPF_CFG = bits 2:0 = 011; this limits the sample rate to 1000 Hz for both
 // With the MPU9250, it is possible to get gyro sample rates of 32 kHz (!), 8 kHz, or 1 kHz
-  writeByte(MPU9250_ADDRESS, CONFIG, 0x03);  
+  writeByte(MPU9250_ADDRESS, CONFIG, MPU9250_DLPF_CFG);  
 
 // Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
   writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);// Use a 200 Hz rate; a rate consistent with the filter update rate 

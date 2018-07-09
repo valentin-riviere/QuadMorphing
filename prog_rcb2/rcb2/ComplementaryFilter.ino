@@ -11,6 +11,21 @@ You should have received a copy of the GNU General Public License along with thi
 */
 #include "Def.h"
 
+extern float deltat;
+static float eInt[3] = {0.0f, 0.0f, 0.0f};
+extern float accelBias[3];
+
+void EstimateAttitude(void)
+{
+#ifdef defined(CF_ESTIMATOR)
+	EstimateAttitude_CF();
+#elif defined(MAHONY_ESTIMATOR)
+	EstimateAttitude_Mahony();
+#else
+	EstimateAttitude_Mahony();
+#endif
+}
+
 void EstimateAttitude_CF(void)
 {
 	// around 1900us of execution time
@@ -28,12 +43,12 @@ void EstimateAttitude_CF(void)
 	int i;
 
 	// accelerometer
-	a_bar[0] = accADC[0];
-	a_bar[1] = accADC[1];
-	a_bar[2] = accADC[2];
+	a_bar[0] = accADC[0] + accelBias[0];
+	a_bar[1] = accADC[1] + accelBias[1];
+	a_bar[2] = accADC[2] - accelBias[2];
 	
 	// magnetometer Not used by quat and euler angles
-#ifdef EULER_MAG_USED
+#ifdef MAG_USAGE
 	m_bar[0] = magADC[0];
 	m_bar[1] = magADC[1];
 	m_bar[2] = magADC[2]; 
@@ -115,6 +130,115 @@ void EstimateAttitude_CF(void)
 	Q_hat[1] /= norm_Q;
 	Q_hat[2] /= norm_Q;
 	Q_hat[3] /= norm_Q;
+
+	// deduce Euler Angles
+	EulerAngles[0] = -atan2(2*(Q_hat[2]*Q_hat[3]-Q_hat[0]*Q_hat[1]), Q_hat[0]*Q_hat[0] - Q_hat[1]*Q_hat[1] - Q_hat[2]*Q_hat[2] + Q_hat[3]*Q_hat[3]);
+	EulerAngles[1] = asin(2*(Q_hat[1]*Q_hat[3]+Q_hat[0]*Q_hat[2]));
+	EulerAngles[2] = -atan2(2*(Q_hat[1]*Q_hat[2]-Q_hat[0]*Q_hat[3]), Q_hat[0]*Q_hat[0] + Q_hat[1]*Q_hat[1] - Q_hat[2]*Q_hat[2] - Q_hat[3]*Q_hat[3]);
+}
+
+void EstimateAttitude_Mahony(void)
+{
+	float q1 = Q_hat[0], q2 = Q_hat[1], q3 = Q_hat[2], q4 = Q_hat[3];   // short name local variable for readability
+	float ax, ay, az;
+	ax = (accADC[0] + accelBias[0]); ay = (accADC[1] + accelBias[1]); az = (accADC[2] - accelBias[2]);
+	float gx = gyroADC[0], gy = gyroADC[1], gz = gyroADC[2];
+	float mx, my, mz;
+#ifdef MAG_USAGE
+	mx = magADC[0];
+	my = magADC[1];
+	mz = magADC[2]; 
+#else
+	mx = 1;
+	my = 0;
+	mz = 0;
+#endif
+	float norm;
+	float hx, hy, bx, bz;
+	float vx, vy, vz, wx, wy, wz;
+	float ex, ey, ez;
+	float pa, pb, pc;
+
+	// Auxiliary variables to avoid repeated arithmetic
+	float q1q1 = q1 * q1;
+	float q1q2 = q1 * q2;
+	float q1q3 = q1 * q3;
+	float q1q4 = q1 * q4;
+	float q2q2 = q2 * q2;
+	float q2q3 = q2 * q3;
+	float q2q4 = q2 * q4;
+	float q3q3 = q3 * q3;
+	float q3q4 = q3 * q4;
+	float q4q4 = q4 * q4;   
+
+	// Normalise accelerometer measurement
+	norm = sqrtf(ax * ax + ay * ay + az * az);
+	if (norm == 0.0f) return; // handle NaN
+	norm = 1.0f / norm;        // use reciprocal for division
+	ax *= norm;
+	ay *= norm;
+	az *= norm;
+
+	// Normalise magnetometer measurement
+	norm = sqrtf(mx * mx + my * my + mz * mz);
+	if (norm == 0.0f) return; // handle NaN
+	norm = 1.0f / norm;        // use reciprocal for division
+	mx *= norm;
+	my *= norm;
+	mz *= norm;
+
+	// Reference direction of Earth's magnetic field
+	hx = 2.0f * mx * (0.5f - q3q3 - q4q4) + 2.0f * my * (q2q3 - q1q4) + 2.0f * mz * (q2q4 + q1q3);
+	hy = 2.0f * mx * (q2q3 + q1q4) + 2.0f * my * (0.5f - q2q2 - q4q4) + 2.0f * mz * (q3q4 - q1q2);
+	bx = sqrtf((hx * hx) + (hy * hy));
+	bz = 2.0f * mx * (q2q4 - q1q3) + 2.0f * my * (q3q4 + q1q2) + 2.0f * mz * (0.5f - q2q2 - q3q3);
+
+	// Estimated direction of gravity and magnetic field
+	vx = 2.0f * (q2q4 - q1q3);
+	vy = 2.0f * (q1q2 + q3q4);
+	vz = q1q1 - q2q2 - q3q3 + q4q4;
+	wx = 2.0f * bx * (0.5f - q3q3 - q4q4) + 2.0f * bz * (q2q4 - q1q3);
+	wy = 2.0f * bx * (q2q3 - q1q4) + 2.0f * bz * (q1q2 + q3q4);
+	wz = 2.0f * bx * (q1q3 + q2q4) + 2.0f * bz * (0.5f - q2q2 - q3q3);  
+
+	// Error is cross product between estimated direction and measured direction of gravity
+	ex = (ay * vz - az * vy) + (my * wz - mz * wy);
+	ey = (az * vx - ax * vz) + (mz * wx - mx * wz);
+	ez = (ax * vy - ay * vx) + (mx * wy - my * wx);
+	if (KI_MAH > 0.0f)
+	{
+		eInt[0] += ex;      // accumulate integral error
+		eInt[1] += ey;
+		eInt[2] += ez;
+	}
+	else
+	{
+		eInt[0] = 0.0f;     // prevent integral wind up
+		eInt[1] = 0.0f;
+		eInt[2] = 0.0f;
+	}
+
+	// Apply feedback terms
+	gx = gx + KP_MAH * ex + KI_MAH * eInt[0];
+	gy = gy + KP_MAH * ey + KI_MAH * eInt[1];
+	gz = gz + KP_MAH * ez + KI_MAH * eInt[2];
+
+	// Integrate rate of change of quaternion
+	pa = q2;
+	pb = q3;
+	pc = q4;
+	q1 = q1 + (-q2 * gx - q3 * gy - q4 * gz) * (0.5f * deltat);
+	q2 = pa + (q1 * gx + pb * gz - pc * gy) * (0.5f * deltat);
+	q3 = pb + (q1 * gy - pa * gz + pc * gx) * (0.5f * deltat);
+	q4 = pc + (q1 * gz + pa * gy - pb * gx) * (0.5f * deltat);
+
+	// Normalise quaternion
+	norm = sqrtf(q1 * q1 + q2 * q2 + q3 * q3 + q4 * q4);
+	norm = 1.0f / norm;
+	Q_hat[0] = q1 * norm;
+	Q_hat[1] = q2 * norm;
+	Q_hat[2] = q3 * norm;
+	Q_hat[3] = q4 * norm;
 
 	// deduce Euler Angles
 	EulerAngles[0] = -atan2(2*(Q_hat[2]*Q_hat[3]-Q_hat[0]*Q_hat[1]), Q_hat[0]*Q_hat[0] - Q_hat[1]*Q_hat[1] - Q_hat[2]*Q_hat[2] + Q_hat[3]*Q_hat[3]);

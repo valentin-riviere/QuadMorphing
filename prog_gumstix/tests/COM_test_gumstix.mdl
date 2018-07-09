@@ -32,7 +32,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1580"
+    ComputedModelVersion    "1.1608"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -55,7 +55,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1696.0, 1026.0]
+      Location		      [-8.0, 0.0, 1696.0, 1026.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -77,21 +77,21 @@ Model {
 	Dimension		7
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "9355"
 	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [498.03817000806669, 430.14997732172822]
+	  ZoomFactor		  [1.75]
+	  Offset		  [503.84529449168684, 364.86834990071179]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1646.0, 849.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-258.73497112303016, -113.15358923285639]
+	  Offset		  [-220.10612185999605, -41.581466075271067]
 	}
 	Object {
 	  $ObjectID		  7
@@ -149,17 +149,17 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 12 12:39:15 2018"
-  RTWModifiedTimeStamp	  445437550
-  ModelVersionFormat	  "1.%<AutoIncrement:1580>"
+  LastModifiedDate	  "Wed Jun 06 13:06:55 2018"
+  RTWModifiedTimeStamp	  450191214
+  ModelVersionFormat	  "1.%<AutoIncrement:1608>"
   ConfigurationManager	  "none"
-  SampleTimeColors	  off
+  SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  off
   ShowLineDimensions	  on
   ShowPortDataTypes	  on
-  ShowDesignRanges	  off
+  ShowDesignRanges	  on
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  on
@@ -1030,12 +1030,27 @@ Model {
       IsWebBlock	      off
     }
     Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      AllowDiffInputSizes     off
+    }
+    Block {
       BlockType		      Terminator
     }
   }
   System {
     Name		    "COM_test_gumstix"
-    Location		    [-8, -8, 1688, 1018]
+    Location		    [-8, 0, 1688, 1026]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1049,12 +1064,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "10348"
+    SIDHighWatermark	    "10362"
     Block {
       BlockType		      Inport
       Name		      "Serial_In_Teensy"
       SID		      "8751"
-      Position		      [-25, 160, 120, 270]
+      Position		      [65, 275, 210, 385]
       ZOrder		      -2
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
@@ -1206,7 +1221,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
-	    Value		    "0.00022"
+	    Value		    "0.001"
 	    Visible		    "off"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 7);"
 	    TabName		    "Reception"
@@ -1323,8 +1338,8 @@ Model {
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "uint8"
-      PortDimensions	      "Gumstix.RS232.Reception(1).NbData"
-      SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Reception(2).NbData"
+      SampleTime	      "Gumstix.RS232.Reception(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		42
@@ -1340,7 +1355,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "26"
+	    Value		    "28"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
 	    TabName		    "Reception"
 	  }
@@ -1471,7 +1486,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
-	    Value		    "0.00022"
+	    Value		    "0.001"
 	    Visible		    "off"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 7);"
 	    TabName		    "Reception"
@@ -1602,7 +1617,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"175"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In_from_Teensy"
@@ -1633,7 +1648,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "CAMERA_PARAMETERS"
-	    Location		    [-8, 0, 1688, 1026]
+	    Location		    [-8, -8, 1688, 1018]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1677,7 +1692,7 @@ Model {
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[1 4 4 1 2 2 8]"
+	      Inputs		      "[2 4 4 2 2 2 8]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1709,7 +1724,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 241, 280, 259]
 	      ZOrder		      250
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1743,7 +1758,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 41, 280, 59]
 	      ZOrder		      245
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1755,7 +1770,19 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 81, 280, 99]
 	      ZOrder		      246
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)3"
+	      SID		      "10353"
+	      Ports		      [1, 1]
+	      Position		      [195, 1, 280, 19]
+	      ZOrder		      251
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1767,7 +1794,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 161, 280, 179]
 	      ZOrder		      248
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1779,7 +1806,19 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 201, 280, 219]
 	      ZOrder		      249
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)6"
+	      SID		      "10354"
+	      Ports		      [1, 1]
+	      Position		      [195, 121, 280, 139]
+	      ZOrder		      252
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1857,7 +1896,7 @@ Model {
 	      ZOrder		      72
 	      SrcBlock		      "MaxNumBuffer"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
+	      DstBlock		      "uint16 to uint8 (BE)3"
 	      DstPort		      1
 	    }
 	    Line {
@@ -1878,8 +1917,8 @@ Model {
 	      ZOrder		      73
 	      SrcBlock		      "binning"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      4
+	      DstBlock		      "uint16 to uint8 (BE)6"
+	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      57
@@ -1894,6 +1933,20 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      6
+	    }
+	    Line {
+	      ZOrder		      78
+	      SrcBlock		      "uint16 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      79
+	      SrcBlock		      "uint16 to uint8 (BE)6"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      4
 	    }
 	  }
 	}
@@ -1930,7 +1983,7 @@ Model {
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[1 1 4 2 4 2 4]"
+	      Inputs		      "[2 2 4 2 4 2 4]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1962,7 +2015,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 41, 260, 59]
 	      ZOrder		      245
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1974,7 +2027,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 121, 260, 139]
 	      ZOrder		      246
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1986,7 +2039,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 201, 260, 219]
 	      ZOrder		      247
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -2048,12 +2101,36 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)"
+	      SID		      "10356"
+	      Ports		      [1, 1]
+	      Position		      [175, 1, 260, 19]
+	      ZOrder		      253
+	      LibraryVersion	      "1.21"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)1"
+	      SID		      "10357"
+	      Ports		      [1, 1]
+	      Position		      [175, -39, 260, -21]
+	      ZOrder		      254
+	      LibraryVersion	      "1.21"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
 	      Name		      "uint16 to uint8 (BE)2"
 	      SID		      "10340"
 	      Ports		      [1, 1]
 	      Position		      [175, 81, 260, 99]
 	      ZOrder		      251
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -2065,7 +2142,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 161, 260, 179]
 	      ZOrder		      252
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.21"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -2146,15 +2223,15 @@ Model {
 	      ZOrder		      72
 	      SrcBlock		      "blur_size"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
+	      DstBlock		      "uint16 to uint8 (BE)1"
 	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      73
 	      SrcBlock		      "bin_square"
 	      SrcPort		      1
-	      DstBlock		      "Mux6"
-	      DstPort		      2
+	      DstBlock		      "uint16 to uint8 (BE)"
+	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      62
@@ -2170,24 +2247,27 @@ Model {
 	      DstBlock		      "Mux6"
 	      DstPort		      6
 	    }
+	    Line {
+	      ZOrder		      76
+	      SrcBlock		      "uint16 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      77
+	      SrcBlock		      "uint16 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      2
+	    }
 	  }
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Default"
-	  SID			  "9509"
-	  Position		  [870, 428, 1070, 452]
-	  ZOrder		  -5
-	  ForegroundColor	  "orange"
-	  Value			  "[1100 1100 1100]"
-	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
-	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Default1"
 	  SID			  "10142"
-	  Position		  [875, 503, 1075, 527]
+	  Position		  [950, 903, 1150, 927]
 	  ZOrder		  36
 	  ForegroundColor	  "orange"
 	  Value			  "[70 70]"
@@ -2196,12 +2276,23 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "Default2"
-	  SID			  "10160"
-	  Position		  [870, 388, 1070, 412]
-	  ZOrder		  69
+	  Name			  "Default3"
+	  SID			  "10350"
+	  Position		  [855, 548, 1055, 572]
+	  ZOrder		  245
 	  ForegroundColor	  "orange"
-	  Value			  "[1500]"
+	  Value			  "[1101 1102 1103 1104]"
+	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Default4"
+	  SID			  "10351"
+	  Position		  [855, 518, 1055, 542]
+	  ZOrder		  246
+	  ForegroundColor	  "orange"
+	  Value			  "[1151 1152 1153 1154]"
 	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
 	  SampleTime		  "-1"
 	}
@@ -2875,7 +2966,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er4"
 	  SID			  "10172"
-	  Position		  [655, 653, 740, 667]
+	  Position		  [765, 653, 850, 667]
 	  ZOrder		  79
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
@@ -2885,7 +2976,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er5"
 	  SID			  "10197"
-	  Position		  [655, 713, 740, 727]
+	  Position		  [765, 713, 850, 727]
 	  ZOrder		  181
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
@@ -2906,7 +2997,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er7"
 	  SID			  "10198"
-	  Position		  [655, 773, 740, 787]
+	  Position		  [765, 773, 850, 787]
 	  ZOrder		  182
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
@@ -2916,7 +3007,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er8"
 	  SID			  "10199"
-	  Position		  [655, 833, 740, 847]
+	  Position		  [765, 833, 850, 847]
 	  ZOrder		  183
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
@@ -2930,18 +3021,6 @@ Model {
 	  Position		  [955, 151, 960, 184]
 	  ZOrder		  -16
 	  ForegroundColor	  "red"
-	  Inputs		  "2"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  Mux
-	  Name			  "Gyo\nAcc1"
-	  SID			  "10159"
-	  Ports			  [2, 1]
-	  Position		  [1200, 378, 1205, 462]
-	  ZOrder		  68
-	  ForegroundColor	  "red"
-	  ShowName		  off
 	  Inputs		  "2"
 	  DisplayOption		  "bar"
 	}
@@ -2964,7 +3043,7 @@ Model {
 	  Position		  [440, 626, 445, 874]
 	  ZOrder		  72
 	  ForegroundColor	  "red"
-	  Outputs		  "[16 8 1 1]"
+	  Outputs		  "[16 8 2 2]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -4013,7 +4092,7 @@ Model {
 	  Position		  [1310, 660, 1315, 835]
 	  ZOrder		  184
 	  ForegroundColor	  "red"
-	  Inputs		  "[2 22 1 18]"
+	  Inputs		  "[2 24 2 20]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -4051,9 +4130,19 @@ Model {
 	}
 	Block {
 	  BlockType		  RateTransition
+	  Name			  "Rate Transition3"
+	  SID			  "10352"
+	  Position		  [765, 529, 815, 561]
+	  ZOrder		  247
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Deterministic		  off
+	}
+	Block {
+	  BlockType		  RateTransition
 	  Name			  "Rate Transition37"
 	  SID			  "10091"
-	  Position		  [1130, 504, 1160, 526]
+	  Position		  [1205, 904, 1235, 926]
 	  ZOrder		  32
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -4071,6 +4160,17 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "10349"
+	  Position		  [1120, 525, 1190, 565]
+	  ZOrder		  244
+	  Criteria		  "u2 > Threshold"
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
 	  BlockType		  Constant
 	  Name			  "T_poll_ms"
 	  SID			  "10217"
@@ -4085,7 +4185,7 @@ Model {
 	  BlockType		  DataTypeConversion
 	  Name			  "To single3"
 	  SID			  "10114"
-	  Position		  [1190, 496, 1240, 534]
+	  Position		  [1265, 896, 1315, 934]
 	  ZOrder		  31
 	  ForegroundColor	  "red"
 	  RndMeth		  "Nearest"
@@ -4098,7 +4198,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 336, 580, 354]
 	  ZOrder		  233
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4110,7 +4210,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 366, 580, 384]
 	  ZOrder		  235
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4122,7 +4222,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 396, 580, 414]
 	  ZOrder		  236
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4134,7 +4234,19 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [1190, 671, 1275, 689]
 	  ZOrder		  243
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint16 to uint8 (BE)1"
+	  SID			  "10355"
+	  Ports			  [1, 1]
+	  Position		  [1190, 761, 1275, 779]
+	  ZOrder		  248
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4146,7 +4258,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 621, 580, 639]
 	  ZOrder		  237
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4158,7 +4270,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 641, 580, 659]
 	  ZOrder		  238
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4170,7 +4282,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 661, 580, 679]
 	  ZOrder		  239
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -4182,8 +4294,32 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 681, 580, 699]
 	  ZOrder		  240
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.21"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to uint16 (BE)"
+	  SID			  "10358"
+	  Ports			  [1, 1]
+	  Position		  [495, 771, 580, 789]
+	  ZOrder		  249
+	  LibraryVersion	  "1.21"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to uint16 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to uint16 (BE)1"
+	  SID			  "10359"
+	  Ports			  [1, 1]
+	  Position		  [495, 831, 580, 849]
+	  ZOrder		  250
+	  LibraryVersion	  "1.21"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to uint16 (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
 	}
@@ -4191,7 +4327,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out_to_Teensy"
 	  SID			  "10138"
-	  Position		  [1320, 413, 1350, 427]
+	  Position		  [1395, 538, 1425, 552]
 	  ZOrder		  -182
 	  ForegroundColor	  "red"
 	  IconDisplay		  "Port number"
@@ -4200,7 +4336,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out_to_PWM"
 	  SID			  "10139"
-	  Position		  [1320, 508, 1350, 522]
+	  Position		  [1395, 908, 1425, 922]
 	  ZOrder		  33
 	  ForegroundColor	  "red"
 	  Port			  "2"
@@ -4385,27 +4521,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  289
-	  SrcBlock		  "Default"
-	  SrcPort		  1
-	  DstBlock		  "Gyo\nAcc1"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  291
-	  SrcBlock		  "Default2"
-	  SrcPort		  1
-	  DstBlock		  "Gyo\nAcc1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  292
-	  SrcBlock		  "Gyo\nAcc1"
-	  SrcPort		  1
-	  DstBlock		  "Out_to_Teensy"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  305
 	  SrcBlock		  "Gyo\nAcc"
 	  SrcPort		  1
@@ -4493,14 +4608,14 @@ Model {
 	  ZOrder		  384
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  3
-	  DstBlock		  "Goto_Theta_er7"
+	  DstBlock		  "uint8 to uint16 (BE)"
 	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  385
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  4
-	  DstBlock		  "Goto_Theta_er8"
+	  DstBlock		  "uint8 to uint16 (BE)1"
 	  DstPort		  1
 	}
 	Line {
@@ -4542,14 +4657,73 @@ Model {
 	  ZOrder		  542
 	  SrcBlock		  "Max_no_detection"
 	  SrcPort		  1
-	  DstBlock		  "Out_from_Odroid_Demux"
-	  DstPort		  3
+	  DstBlock		  "uint16 to uint8 (BE)1"
+	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  541
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  2
 	  DstBlock		  "Goto_Theta_er5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  547
+	  SrcBlock		  "Default4"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  548
+	  SrcBlock		  "Default3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  549
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out_to_Teensy"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  550
+	  SrcBlock		  "Rate Transition3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  551
+	  SrcBlock		  "uint16 to uint8 (BE)1"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  563
+	  SrcBlock		  "uint8 to uint16 (BE)1"
+	  SrcPort		  1
+	  Points		  [137, 0]
+	  Branch {
+	    ZOrder		    556
+	    Points		    [0, -295]
+	    DstBlock		    "Rate Transition3"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    546
+	    DstBlock		    "Goto_Theta_er8"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  562
+	  SrcBlock		  "uint8 to uint16 (BE)"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er7"
 	  DstPort		  1
 	}
 	Annotation {
@@ -4649,7 +4823,7 @@ Model {
 	    }
 	    Name		    "PrintfMode"
 	    Prompt		    "Verbose mode activated in the Gumstix console"
-	    Value		    "on"
+	    Value		    "off"
 	    Callback		    "ProcessConfigMask_COM(gcb, 4);"
 	    TabName		    "Input-Ouput Verbose"
 	  }
@@ -4838,8 +5012,8 @@ Model {
       ZOrder		      -6
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
-      PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
-      SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		103
@@ -5150,7 +5324,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "PWM_SampleTime"
 	    Prompt		    "Refresh Sample Time [s]"
-	    Value		    "ComMinSampleTime*3"
+	    Value		    "ComMinSampleTime"
 	    Callback		    "ProcessPWMmask_COM(gcb, 7);"
 	  }
 	  Object {
@@ -5174,8 +5348,8 @@ Model {
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "uint8"
-      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
-      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		126
@@ -5190,7 +5364,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "43"
+	    Value		    "48"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 1);\n"
 	    TabName		    "Emission"
 	  }
@@ -5407,7 +5581,6 @@ Model {
       ZOrder		      13
       SrcBlock		      "Serial_In_Teensy"
       SrcPort		      1
-      Points		      [65, 0; 0, 115]
       DstBlock		      "GUMSTIX"
       DstPort		      1
     }

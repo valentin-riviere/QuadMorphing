@@ -43,6 +43,7 @@ void configureReceiver()
 /**************************************************************************************/
 void isr_throttle() // Throttle interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -54,10 +55,12 @@ void isr_throttle() // Throttle interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[THROTTLE] = dTime;
 	}
+sei();
 }
 
 void isr_aux1() // Aux1 interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -69,10 +72,12 @@ void isr_aux1() // Aux1 interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[AUX1] = dTime;
 	}
+sei();
 }
 
 void isr_aux2() // Aux2 interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -84,10 +89,12 @@ void isr_aux2() // Aux2 interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[AUX2] = dTime;
 	}
+sei();
 }
 
 void isr_yaw() // Yaw interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -99,10 +106,12 @@ void isr_yaw() // Yaw interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[YAW] = dTime;
 	}
+sei();
 }
 
 void isr_pitch() // Pitch interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -114,10 +123,12 @@ void isr_pitch() // Pitch interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[PITCH] = dTime;
 	}
+sei();
 }
 
 void isr_roll() // Roll interruption
 {
+cli();
 	uint16_t cTime = micros();
 
 	static uint16_t eTime;
@@ -129,6 +140,7 @@ void isr_roll() // Roll interruption
 	{
 		dTime = cTime-eTime; if (900<dTime && dTime<2200) rcValue[ROLL] = dTime;
 	}
+sei();
 }
 
 /**************************************************************************************/

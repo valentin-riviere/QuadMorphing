@@ -9,7 +9,7 @@
 
 
 clc;
-clear all3
+clear all;
 close all;
 
         % add to path TOOLBOX_GUMSTIX
@@ -18,15 +18,15 @@ close all;
     
 % %%%%%%%%%%%%%%%%%% section to be completed by user %%%%%%%%%%%%%%%%%%%%%
 
-% test_gumstix_only_odroid or test_gumstix
-ComModelName = 'test_gumstix_only_odroid'; 
-        
+% test_gumstix_only_odroid or test_gumstix_without_odroid or test_gumstix
+% or test_pwm
+ComModelName = 'test_pwm';
+
 %%%%%%%%% PARAMETERES %%%%%%%%%%
 
 % Sample time initialisation
-ComMinSampleTime    = 1/400;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
+ComMinSampleTime    = 1/200;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
 
-Ts_Eye = 1/400;
 Ts_AttitudeLoop = 1/200;
 Ts_PositionLoop = 1/100;
 Ts_Wifi = 1/200;

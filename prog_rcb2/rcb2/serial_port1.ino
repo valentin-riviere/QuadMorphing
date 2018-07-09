@@ -561,47 +561,77 @@ int8_t HeaderReadnInt16_RS232(int16_t *ToRead, uint8_t NbToRead, uint8_t Header)
        // return the number of Int16 read
   uint8_t ByteRead;
   uint8_t NbRead = 0; 
-  uint8_t Header_read;
+  uint8_t Header_read = 0;
   
-  Header_read = Serial1.read();
-  #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
-    Serial.print("Header: ");
-    Serial.println(Header_read);
-  #else
-   if (Serial1.available() == 0)
-   {
-     delayMicroseconds(TIME_PER_BYTE_BR115200);
-   }
-  #endif
-  while(Serial1.available() && Header_read!=Header)
-  {
-    Header_read = Serial1.read();
-    #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
-      Serial.print("Header: ");
-      Serial.println(Header_read);
-    #else
-      if (Serial1.available() == 0)
-      {
-        delayMicroseconds(TIME_PER_BYTE_BR115200);
-      }
-    #endif
-  }
-  delayMicroseconds(TIME_PER_BYTE_BR115200*NB_INT16_BYTE);
-  while((Serial1.available() >= NB_INT16_BYTE) && NbRead < NbToRead) 
-  {
-    ToRead[NbRead] = ((int16_t)Serial1.read() | (int16_t)Serial1.read()<<8);
-    #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
-      Serial.println(ToRead[NbRead]);
-    #else
-      if (Serial1.available() == 0)
-      {
-        delayMicroseconds(TIME_PER_BYTE_BR115200*NB_INT16_BYTE);
-      }
-    #endif
-    NbRead ++;
-  }
+  // Header_read = Serial1.read();
+  // #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
+    // Serial.print("Header 1: ");
+    // Serial.println(Header_read);
+  // #endif
   
+   // if (Serial1.available() == 0)
+   // {
+     // delayMicroseconds(TIME_PER_BYTE_BR115200);
+   // }
+
+  // while(Serial1.available() < 2*(NbToRead+1) && Header_read!=Header && Serial1.available() > 0)
+  // {
+    // Header_read = Serial1.read();
+	
+    // #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
+      // Serial.print("Header 2: ");
+      // Serial.println(Header_read);
+    // #endif
+  // }
+  // if (Header_read == Header)
+  // {
+		// delayMicroseconds(TIME_PER_BYTE_BR115200*NB_INT16_BYTE);
+		// while((Serial1.available() >= NB_INT16_BYTE) && NbRead < NbToRead) 
+		// {
+			// ToRead[NbRead] = ((int16_t)Serial1.read() | (int16_t)Serial1.read()<<8);
+			// #if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
+				// Serial.println("Read bytes: ");
+				// Serial.println(ToRead[NbRead]);
+			// #endif
+
+			// NbRead++;
+		// }
+  // }
   
+	boolean header_rcv = false;
+
+	while((Serial1.available() >= NB_INT16_BYTE) && NbRead < NbToRead) 
+	{
+		delayMicroseconds(TIME_PER_BYTE_BR115200);
+		
+cli();
+		ByteRead = Serial1.read();
+sei();
+		#if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
+			Serial.println("Read bytes: ");
+			Serial.println(ByteRead);
+		#endif
+		if (ByteRead == Header)
+		{
+			header_rcv = true;
+			NbRead == 0;
+		}
+		else if (header_rcv)
+		{
+			delayMicroseconds(TIME_PER_BYTE_BR115200);
+cli();
+			ToRead[NbRead] = ((int16_t)ByteRead | (int16_t)Serial1.read()<<8);
+sei();
+
+			#if defined(ECHO_PRINTF) || defined(ECHO_ONLY_GUM)
+				Serial.println("Read int16_t: ");
+				Serial.println(ToRead[NbRead]);
+			#endif
+			
+			NbRead++;
+		}
+	}
+
   return(NbRead);
 }
 

@@ -12,34 +12,56 @@ You should have received a copy of the GNU General Public License along with thi
 #include "Def.h"
 
 // RX SetPoints
+// Old values
+// #define MAX_ANGLE_SETPOINT 0.349065850398866f  // 20*PI/180
+// #define MIN_ANGLE_SETPOINT -0.349065850398866  // -20*PI/180
+// #define MAX_THROTTLE_SETPOINT  4.0  // m*g*1.5 = 0.307*9.81*1.35
+// #define MIN_THROTTLE_SETPOINT  0.0   // 0*m*g
+// #define RX_MAX  2000
+// #define RX_MIN  1000
+// #define RX_DEADZONE  10.0f
+// #define Dt_AttCtl 0.005f
+// #define b_PWM   754.5836543402008f
+// #define a_PWM   1.214176533723936f
+// #define OMEGA_ROTOR_SQUARE_MAX 1052120.0f
+// #define OMEGA_ROTOR_SQUARE_MIN 80932.0f
 #define MAX_ANGLE_SETPOINT 0.349065850398866f  // 20*PI/180
-#define MIN_ANGLE_SETPOINT -0.349065850398866  // -20*PI/180
-#define MAX_THROTTLE_SETPOINT  4.0  // m*g*1.5 = 0.307*9.81*1.35
-#define MIN_THROTTLE_SETPOINT  0.0   // 0*m*g
-#define RX_MAX  2000
-#define RX_MIN  1000
+#define MIN_ANGLE_SETPOINT -0.349065850398866f  // -20*PI/180
+#define MAX_THROTTLE_SETPOINT  9.71f  // m*g*1.5 = 0.733*9.81*1.35
+#define MIN_THROTTLE_SETPOINT  0.0f   // 0*m*g
+#define RX_MAX  2000.0f
+#define RX_MIN  1000.0f
 #define RX_DEADZONE  10.0f
 #define Dt_AttCtl 0.005f
-#define b_PWM   754.5836543402008f
-#define a_PWM   1.214176533723936f
-#define OMEGA_ROTOR_SQUARE_MAX 1052120.0f
-#define OMEGA_ROTOR_SQUARE_MIN 80932.0f
+#define b_PWM   985.0f
+#define a_PWM   0.3651f
+#define OMEGA_ROTOR_SQUARE_MAX 7728400.0f
+#define OMEGA_ROTOR_SQUARE_MIN 99225.0f
 
 // CONTROLLER PARAMETERS
 #define OMEGA_MAX_SETPOINT             3.490658503988659f  // 200*pi/180 [rad/sec]
 #define DELTA_THRUST_MAX_SETPOINT      0.047088f           // 2*l*(cT*omega_r_max^2-cT*omega_r_min^2)/5  with omega_r_max = 1026 rad/sec (corresponding to 130.0g) and omega_r_min = 284 rad/sec (corresponding to 10.0g), cT in N/((rad/sec)^2)
 #define DELTA_THRUST_MAX_SETPOINT_YAW  0.000366579943907f  // 2*(cQ*omega_r_max^2-cQ*omega_r_min^2)/5
-#define PWM_MIN 1120
+#define PWM_MIN 1100
 #define PWM_MAX 2000
 
-static float Kp_Euler[3] = {6.0, 6.0, 6.0};
+// Old values
+// static float Kp_Euler[3] = {6.0, 6.0, 6.0};
+// static float Kp_Omega[3] = {0.02, 0.018, 0.001};
+// static float Ki_Omega[3] = {0.2, 0.2, 0.018};
+static float Kp_Euler[3] = {5.0, 5.0, 5.0};
 static float Kp_Omega[3] = {0.02, 0.018, 0.001};
-static float Ki_Omega[3] = {0.2, 0.2, 0.018};
+static float Ki_Omega[3] = {0, 0, 0};
 
-static float iGamma[4][4] = {	206249.5936883, -2062495.9368830, -2062495.9368830,  264932139.0601118, 
-								206249.5936883,  2062495.9368830, -2062495.9368830, -264932139.0601118, 
-								206249.5936883,  2062495.9368830,  2062495.9368830,  264932139.0601118,
-								206249.5936883,  -2062495.9368830,  2062495.9368830, -264932139.0601118};
+// Old values
+// static float iGamma[4][4] = {	206249.5936883, -2062495.9368830, -2062495.9368830,  264932139.0601118, 
+								// 206249.5936883,  2062495.9368830, -2062495.9368830, -264932139.0601118, 
+								// 206249.5936883,  2062495.9368830,  2062495.9368830,  264932139.0601118,
+								// 206249.5936883,  -2062495.9368830,  2062495.9368830, -264932139.0601118};
+static float iGamma[4][4] = {	277000, -3968000, -1984000,  25405000,
+								277000,  3968000, -1984000, -25405000,
+								277000,  3968000,  1984000,  25405000,
+								277000, -3968000,  1984000, -25405000};
 
 static float Rx_a_att = ((float)MAX_ANGLE_SETPOINT - (float)MIN_ANGLE_SETPOINT)/((float)RX_MAX - (float)RX_MIN -2.0*(float)RX_DEADZONE);
 static float Rx_b = (float)RX_MIN + (float)(RX_MAX-RX_MIN)/2.0;
@@ -102,7 +124,7 @@ void StabilizeAttitude(void)
 	Torques[YAW] = Saturate(ErrorOmega + Int_OmegaLoop[YAW], -DELTA_THRUST_MAX_SETPOINT_YAW, DELTA_THRUST_MAX_SETPOINT_YAW);
 
 	// Determine the corresponding rotor's speed for previous torques
-	Command[0] = ThrottleSetPoint/(cos(EulerAngles[ROLL])*cos(EulerAngles[PITCH]));
+	Command[0] = ThrottleSetPoint/abs(cos(EulerAngles[ROLL])*cos(EulerAngles[PITCH]));
 	Command[1] = Torques[ROLL];
 	Command[2] = Torques[PITCH];
 	Command[3] = Torques[YAW];
@@ -115,9 +137,32 @@ void StabilizeAttitude(void)
 			Omega_Rotor[i] += iGamma[i][j]*Command[j];
 		}
 		Omega_Rotor[i] = sqrt(Saturate(Omega_Rotor[i], OMEGA_ROTOR_SQUARE_MIN, OMEGA_ROTOR_SQUARE_MAX));
-		// convert the rotor speed to PWM
+		// convert the rotor speed (rad/s-1) to PWM (us)
 		motor[i] = Saturate(a_PWM*Omega_Rotor[i] + b_PWM, PWM_MIN, PWM_MAX);
 	}
+	
+#ifdef DEBUG_STAB_ATT
+	static uint32_t pTime = 0;
+	uint32_t cTime = millis();
+
+	if ((cTime-pTime) >= DEBUG_STAB_TIME)
+	{
+		pTime = cTime;
+
+		char str[255];
+
+		sprintf((char*)str,"\nOmegaSetPoint (Roll/Pitch/Yaw/Min/Max): \t%f\t%f\t%f\t%f\t%f",OmegaSetPoint[ROLL],OmegaSetPoint[PITCH],OmegaSetPoint[YAW],-OMEGA_MAX_SETPOINT,OMEGA_MAX_SETPOINT);
+		Serial.println(str);
+		sprintf((char*)str,"Thrust : \t%f",Command[0]);
+		Serial.println(str);
+		sprintf((char*)str,"Torques (Roll/Pitch/Yaw/MinForRollPitch/MaxForRollPitch): \t%f\t%f\t%f\t%f\t%f",Torques[ROLL],Torques[PITCH],Torques[YAW],-DELTA_THRUST_MAX_SETPOINT,DELTA_THRUST_MAX_SETPOINT);
+		Serial.println(str);
+		sprintf((char*)str,"Omega Rotor (rad.s-1) (1/2/3/4/Min/Max): \t%f\t%f\t%f\t%f\t%f\t%f",Omega_Rotor[0],Omega_Rotor[1],Omega_Rotor[2],Omega_Rotor[3],sqrt(OMEGA_ROTOR_SQUARE_MIN),sqrt(OMEGA_ROTOR_SQUARE_MAX));
+		Serial.println(str);
+		sprintf((char*)str,"PWM (us) (1/2/3/4/Min/Max): \t%d\t%d\t%d\t%d\t%d\t%d\n",motor[0],motor[1],motor[2],motor[3],PWM_MIN,PWM_MAX);
+		Serial.println(str);
+	}
+#endif
 }
 
 float DeadZone(float Input, float DeadZone)

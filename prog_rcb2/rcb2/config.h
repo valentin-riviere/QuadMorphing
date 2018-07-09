@@ -15,6 +15,9 @@ It will not help on feedback wobbles, so change only when copter is randomly twi
 balancing options ran out. Uncomment only one option!
 IMPORTANT! Change low pass filter setting changes PID behaviour, so retune your PID's after changing LPF.*/
  
+#ifndef CONFIG_H
+#define CONFIG_H
+
 //#define MPU9250_LPF_256HZ     // This is the default setting, no need to uncomment, just for reference
 //#define MPU9250_LPF_188HZ
 //#define MPU9250_LPF_98HZ
@@ -22,3 +25,33 @@ IMPORTANT! Change low pass filter setting changes PID behaviour, so retune your 
 #define MPU9250_LPF_20HZ
 //#define MPU9250_LPF_10HZ
 //#define MPU9250_LPF_5HZ       // Use this only in extreme cases, rather change motors and/or props
+
+//MPU9250 Gyro LPF setting
+#if defined(MPU9250_LPF_256HZ) || defined(MPU9250_LPF_188HZ) || defined(MPU9250_LPF_98HZ) || defined(MPU9250_LPF_42HZ) || defined(MPU9250_LPF_20HZ) || defined(MPU9250_LPF_10HZ) || defined(MPU9250_LPF_5HZ)
+  #if defined(MPU9250_LPF_256HZ)
+    #define MPU9250_DLPF_CFG   0
+  #endif
+  #if defined(MPU9250_LPF_188HZ)
+    #define MPU9250_DLPF_CFG   1
+  #endif
+  #if defined(MPU9250_LPF_98HZ)
+    #define MPU9250_DLPF_CFG   2
+  #endif
+  #if defined(MPU9250_LPF_42HZ)
+    #define MPU9250_DLPF_CFG   3
+  #endif
+  #if defined(MPU9250_LPF_20HZ)
+    #define MPU9250_DLPF_CFG   4
+  #endif
+  #if defined(MPU9250_LPF_10HZ)
+    #define MPU9250_DLPF_CFG   5
+  #endif
+  #if defined(MPU9250_LPF_5HZ)
+    #define MPU9250_DLPF_CFG   6
+  #endif
+#else
+    //Default settings LPF 256Hz/8000Hz sample
+    #define MPU9250_DLPF_CFG   0
+#endif
+
+#endif

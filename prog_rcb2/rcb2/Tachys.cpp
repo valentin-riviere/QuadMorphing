@@ -107,6 +107,6 @@ void setupTachys(void)
 	attachInterrupt(digitalPinToInterrupt(PIN_T2), isr_2, CHANGE);
 	attachInterrupt(digitalPinToInterrupt(PIN_T3), isr_3, CHANGE);
 	attachInterrupt(digitalPinToInterrupt(PIN_T4), isr_4, CHANGE);
-	
+
 	timer_overflow_IC.begin(overflowIC,65536);
 }

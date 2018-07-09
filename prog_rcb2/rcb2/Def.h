@@ -18,15 +18,22 @@ You should have received a copy of the GNU General Public License along with thi
 
 	// #define ECHO_PRINTF   // Debug (not so useful)
 	// #define ECHO_ONLY_GUM // Activate only echo for gumstix debug
-	// #define ECHO_TIME_EXEC_RCB2	// Display execution time of differents rcb2 loop (need ECHO_DISPLAY FLAG)
+	// #define ECHO_TIME_EXEC_RCB2	// Display execution time of differents rcb2 loop
 	// #define ECHO_TIME_EXEC_PILOT  	// Display execution time of differents pilots loop (need disable ECHO_PRINTF)
+	// #define ECHO_TIME_EXEC_AUTOPILOT // Display execution time for all functions in autopilot
 	// #define RC_OFF  // If defined (manual mode = 0), no RC needed
 	
 	/********************************************/
 	
 	// Display data
-	#define ECHO_DISPLAY
+	// #define ECHO_DISPLAY
 
+	// Estimator (select only one)
+	#define CF_ESTIMATOR
+	// #define MAHONY_ESTIMATOR
+	// Mahony filter
+	#define KP_MAH 2.0f * 5.0f // these are the free parameters in the Mahony filter and fusion scheme, Kp for proportional feedback, Ki for integral
+	#define KI_MAH 0.0f
 	// Complementary filter
 	#define rad2deg    57.295779513082323f
 	#define IMU_2_rad  0.001065264436032f
@@ -67,12 +74,18 @@ You should have received a copy of the GNU General Public License along with thi
 	#define MAXCHECK 1900
 
 	/************** IMU **************/
+	// #define DEBUG_IMU  // set to get Serial output for IMU debugging
 	#define MPU6050_ADDRESS	0x68
 	#define MPU9250_ADDRESS 0x69  // IMU Device address
 	#define AK8963_ADDRESS 0x0C   // Address of magnetometer
 	#define MS5611_ADDRESS 0x77   // Address of altimeter
-	// #define DEBUG_IMU  // set to get Serial output for IMU debugging
-	// #define MAG_CALIB
+	// #define MAG_USAGE	// Use Magnetometer (slow acquisition, doesn't work with CLOSED_LOOP)
+	// #define MAG_CALIB // Calibration
+	// #define ACC_CALIB
+	#define ACC_BIAS_X 0.00f	// Bias for accelerometer (only used for manual and autopilot)
+	#define ACC_BIAS_Y 0.05f
+	#define ACC_BIAS_Z 0.03f
+	#define USE_TEENSY_CAL	// Define to use Teensy calibration for gumstix data
 	
 	/************** I2C IMU **************/
 	// See i2c_t3 library
@@ -89,8 +102,7 @@ You should have received a copy of the GNU General Public License along with thi
 	#define NB_ROTOR	4
 
 	/************** AUTOPILOT **************/
-	#define EULER_MAG_USED		// Use magnetometer measures for Euler angles computation for autopilot
-	#define ROBOT_WEIGHT 0.650	// Robot weight for autopilot
+	#define ROBOT_WEIGHT 0.733	// Robot weight for autopilot
 
 	/**************** RX ****************/
 	#define THROTTLEPIN                26
@@ -114,7 +126,7 @@ You should have received a copy of the GNU General Public License along with thi
 	/****************************    Motor minthrottle    *******************************/
 	/* Set the minimum throttle command sent to the ESC (Electronic Speed Controller)
 	 This is the minimum value that allow motors to run at a idle speed  */
-	#define MINTHROTTLE 1110
+	#define MINTHROTTLE 1080
 	//#define MINTHROTTLE	1080  // with the rotor speed controllers
 
 	/****************************    Mincommand          *******************************/
@@ -136,8 +148,8 @@ You should have received a copy of the GNU General Public License along with thi
 	
 	/**************** Regulation ****************/	
 	// #define DEBUG_REGUL
-	#define US_2_FREQ_a	0.4522	// a and b value with one magnet
-	#define US_2_FREQ_b 1078	// y = a.x + b (x:us to y:Hz)
+	#define US_2_FREQ_a	0.4522f	// a and b value with one magnet
+	#define US_2_FREQ_b 449.0f	// y = a.x - b (x:us to y:Hz)
 
 	#define IC_2_sec	0.000002	// Convert IC measure (half-period in us) in sec
 
@@ -155,7 +167,8 @@ You should have received a copy of the GNU General Public License along with thi
 	#define ROTOR_INIT_TIME_us 1000000 // Time needed to make the rotor start
 	#define ESC_INIT_TIME_us 	500000	// Time needed to make the rotor start
 	
-	#define REGUL_STATUS CLOSED_LOOP	// OPEN_LOOP or CLOSED_LOOP or IDLE
+	// #define TACHY_ON 			// If tachys are presented
+	#define REGUL_STATUS OPEN_LOOP	// OPEN_LOOP or CLOSED_LOOP (need tachys on) or IDLE // WARNING in closed loop: disable mag acquisition
 	
 	#define PWM_SP				{1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000}	// Correspond to Omega SP below
 	#define OMEGA_SP_HZ			{48, 115, 169, 212, 251, 287, 330, 379, 425, 455}				// Omega SetPoints (in Hz) and A/b for LookUp Table
@@ -163,6 +176,10 @@ You should have received a copy of the GNU General Public License along with thi
 	#define b_HZ_TO_US			{1027, 989, 908, 850, 802, 941, 1030, 964, 509}
 	
 	#define NB_MAGNET_PER_ROTOR 6
+	
+	/**************** Stabilization during manual control ****************/
+	// #define DEBUG_STAB_ATT	// Debug stabilization attitude
+	#define DEBUG_STAB_TIME 300 // Time between two prints
 	
 	/**************** Filter Regulation ****************/
 	#define FILTER_ORDER 		2			// 0: no filtering, 1: first order filter (fc = 1/30kHz), 2: second order filter (fc = 1/30kHz, m=1)

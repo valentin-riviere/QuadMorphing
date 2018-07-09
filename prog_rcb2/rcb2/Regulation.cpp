@@ -87,13 +87,13 @@ void initRegul(void)
 
 float us2freq_table(float SetPoint_us)
 {
-	if(SetPoint_us > MAXTHROTTLE)
+	if(SetPoint_us > (float) MAXTHROTTLE)
 	{
 		return(0.0);
 	}
-	else if(SetPoint_us >= MINTHROTTLE)
+	else if(SetPoint_us >= (float) MINTHROTTLE)
 	{
-		return(US_2_FREQ_a*SetPoint_us+US_2_FREQ_b);
+		return(US_2_FREQ_a*SetPoint_us-US_2_FREQ_b);
 	}
 	else
 	{
@@ -107,7 +107,7 @@ void StartRotor(uint8_t RotorNum)
 
 	if (RegulSig.ESCStatus[RotorNum] != ARMED)
 	{
-		StartESC(RotorNum);	
+		StartESC(RotorNum);
 	}
 	else // ESC ARMED
 	{
