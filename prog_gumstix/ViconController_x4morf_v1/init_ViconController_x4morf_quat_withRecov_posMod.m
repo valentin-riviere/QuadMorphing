@@ -14,12 +14,12 @@ close all;
 
         % add to path TOOLBOX_GUMSTIX
 %     display('Add GUMSTIX_VERDEX library to Matlab Path...')
-%     addpath(pwd); % to know auto_path() function
+%     addpath(pwd); % to know auto_path() function 
     
 % %%%%%%%%%%%%%%%%%% section to be completed by user %%%%%%%%%%%%%%%%%%%%%
 
-HostModelName = 'ViconController_x4morf_quat';
-ComModelName = 'ViconController_x4morf_quat';
+HostModelName = 'ViconController_x4morf_quat_withRecov_posMod';
+ComModelName = 'ViconController_x4morf_quat_withRecov_posMod';
         
 %%%%%%%%% PARAMETERES %%%%%%%%%%
 
@@ -27,7 +27,6 @@ ComModelName = 'ViconController_x4morf_quat';
 ComMinSampleTime    = 1/400;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
 HostMinSampleTime   = 1/400;     % put here your sample time in seconds for Host
 
-Ts_Eye = 1/400;
 Ts_AttitudeLoop = 1/200;
 Ts_PositionLoop = 1/100;
 Ts_Wifi = 1/200;
@@ -37,7 +36,7 @@ Ts_Display = 1/20;
 
 % specifics initialisation for model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    LandingHeight = 0.06;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
+    LandingHeight = 0.08;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
     g = 9.81;
     Mag_ref = [23806.2;...
                395.3;...
@@ -81,10 +80,13 @@ Ts_Display = 1/20;
 RobotParameters;
 
 % Acc calibration
-load('AccCalib_Transformation_X4morf_Robot');    %%%%%% TO MODIFYYYYYYYYYYYYYYYYYYYYYY
+load('AccCalib_Transformation_X4morf_Robot');
+
+% Model for folding/unfolding
+load('modelFolding3');
 
 %%
-    % Generation of files to copy on the gumstix
+% Generation of files to copy on the gumstix
 GenereCOM(ComModelName, ComMinSampleTime);
 
 %% DO NOT MODIFY THIS PART!

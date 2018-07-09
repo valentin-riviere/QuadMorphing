@@ -29,7 +29,7 @@ Execute project_detector to detect square and send subtented angles to gumstix v
 - float thresh_ratio : Maximal difference between 2 square ratios
 
 ### OUTPUT
-- float sub_angles[4] : Subtented angles (in rad)
+- float sub_angles[4] : Subtented angles left, up, right, down (in rad)
 - uint64_t frame_time : Frame time (in camera ticks)
 - uint16_t no_detect : Number of false detections
 - uint16_t init_detect : Initialization done/not done
