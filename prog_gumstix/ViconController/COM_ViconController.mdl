@@ -1,10 +1,10 @@
 Model {
-  Name			  "COM_ViconController_x4morf_quat_withRecov_posMod"
+  Name			  "COM_ViconController"
   Version		  8.6
   MdlSubVersion		  0
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
-    NumRootInports	    2
+    NumRootInports	    3
     Inport {
       Name		      "In_from_Serial"
       BusObject		      ""
@@ -15,7 +15,12 @@ Model {
       BusObject		      ""
       OutputFunctionCall      "off"
     }
-    NumRootOutports	    3
+    Inport {
+      Name		      "Serial_In_Odroid"
+      BusObject		      ""
+      OutputFunctionCall      "off"
+    }
+    NumRootOutports	    4
     Outport {
       Name		      "Out_to_Serial1"
       BusObject		      ""
@@ -31,8 +36,13 @@ Model {
       BusObject		      ""
       BusOutputAsStruct	      "off"
     }
+    Outport {
+      Name		      "Serial_Out_Odroid"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3129"
+    ComputedModelVersion    "1.3191"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -50,239 +60,222 @@ Model {
     $PropName		    "BdWindowsInfo"
     $ObjectID		    1
     $ClassName		    "Simulink.BDWindowsInfo"
-    Array {
-      Type		      "Simulink.WindowInfo"
-      Dimension		      2
+    Object {
+      $PropName		      "WindowsInfo"
+      $ObjectID		      2
+      $ClassName	      "Simulink.WindowInfo"
+      IsActive		      [1]
+      Location		      [-1688.0, 30.0, 1696.0, 1066.0]
       Object {
-	$ObjectID		2
-	IsActive		[0]
-	Location		[-1928.0, 0.0, 1936.0, 1096.0]
-	Object {
-	  $PropName		  "ModelBrowserInfo"
-	  $ObjectID		  3
-	  $ClassName		  "Simulink.ModelBrowserInfo"
-	  Visible		  [0]
-	  DockPosition		  "Left"
-	  Width			  [50]
-	  Height		  [50]
-	  Filter		  [9]
-	}
-	Object {
-	  $PropName		  "ExplorerBarInfo"
-	  $ObjectID		  4
-	  $ClassName		  "Simulink.ExplorerBarInfo"
-	  Visible		  [1]
-	}
-	Array {
-	  Type			  "Simulink.EditorInfo"
-	  Dimension		  19
-	  Object {
-	    $ObjectID		    5
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9511"
-	    Extents		    [1886.0, 879.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [196.56631499024297, -94.314788994145772]
-	  }
-	  Object {
-	    $ObjectID		    6
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9483"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [2.0]
-	    Offset		    [0.0, 0.0]
-	  }
-	  Object {
-	    $ObjectID		    7
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9486"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-159.0, -307.48779970310568]
-	  }
-	  Object {
-	    $ObjectID		    8
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "10115"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.5]
-	    Offset		    [40.216243184220275, -123.20250448619026]
-	  }
-	  Object {
-	    $ObjectID		    9
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9714"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-176.90482164448247, -284.67011287891324]
-	  }
-	  Object {
-	    $ObjectID		    10
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "10176"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-76.844598031208875, -46.0]
-	  }
-	  Object {
-	    $ObjectID		    11
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "13137"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-58.549300399891649, -740.20755006716547]
-	  }
-	  Object {
-	    $ObjectID		    12
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "10318"
-	    Extents		    [1886.0, 879.0]
-	    ZoomFactor		    [1.75]
-	    Offset		    [-8.125, 0.0]
-	  }
-	  Object {
-	    $ObjectID		    13
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "12775"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-8.236747717792241, -112.71378368551774]
-	  }
-	  Object {
-	    $ObjectID		    14
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "12640"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.25]
-	    Offset		    [-84.424999999999955, -289.59999999999997]
-	  }
-	  Object {
-	    $ObjectID		    15
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "13462"
-	    Extents		    [1886.0, 879.0]
-	    ZoomFactor		    [1.5]
-	    Offset		    [128.08509045172946, -89.591025389932014]
-	  }
-	  Object {
-	    $ObjectID		    16
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9709"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.25]
-	    Offset		    [455.36768043409779, 210.19363429641061]
-	  }
-	  Object {
-	    $ObjectID		    17
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "10281"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.75]
-	    Offset		    [34.285714285714334, -131.42857142857144]
-	  }
-	  Object {
-	    $ObjectID		    18
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "12760"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [-2.0, 149.80053692446165]
-	  }
-	  Object {
-	    $ObjectID		    19
-	    IsActive		    [1]
-	    ViewObjType		    "SimulinkTopLevel"
-	    LoadSaveID		    "0"
-	    Extents		    [1886.0, 919.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [0.0, 0.0]
-	  }
-	  Object {
-	    $ObjectID		    20
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "13576"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.5]
-	    Offset		    [0.0, 0.0]
-	  }
-	  Object {
-	    $ObjectID		    21
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "9355"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.25]
-	    Offset		    [25.716390279243228, 401.78856441569548]
-	  }
-	  Object {
-	    $ObjectID		    22
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "13775"
-	    Extents		    [1886.0, 879.0]
-	    ZoomFactor		    [1.0]
-	    Offset		    [0.0, 0.0]
-	  }
-	  Object {
-	    $ObjectID		    23
-	    IsActive		    [0]
-	    ViewObjType		    "SimulinkSubsys"
-	    LoadSaveID		    "13115"
-	    Extents		    [1872.0, 878.0]
-	    ZoomFactor		    [1.25]
-	    Offset		    [209.84691547154216, 48.0]
-	  }
-	  PropName		  "EditorsInfo"
-	}
+	$PropName		"ModelBrowserInfo"
+	$ObjectID		3
+	$ClassName		"Simulink.ModelBrowserInfo"
+	Visible			[0]
+	DockPosition		"Left"
+	Width			[50]
+	Height			[50]
+	Filter			[57]
       }
       Object {
-	$ObjectID		24
-	IsActive		[1]
-	Location		[-8.0, 0.0, 1936.0, 1056.0]
+	$PropName		"ExplorerBarInfo"
+	$ObjectID		4
+	$ClassName		"Simulink.ExplorerBarInfo"
+	Visible			[1]
+      }
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		21
 	Object {
-	  $PropName		  "ModelBrowserInfo"
-	  $ObjectID		  25
-	  $ClassName		  "Simulink.ModelBrowserInfo"
-	  Visible		  [0]
-	  DockPosition		  "Left"
-	  Width			  [50]
-	  Height		  [50]
-	  Filter		  [9]
+	  $ObjectID		  5
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9511"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [196.56631499024297, -94.314788994145772]
 	}
 	Object {
-	  $PropName		  "ExplorerBarInfo"
-	  $ObjectID		  26
-	  $ClassName		  "Simulink.ExplorerBarInfo"
-	  Visible		  [1]
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9483"
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [2.0]
+	  Offset		  [0.0, 0.0]
 	}
 	Object {
-	  $PropName		  "EditorsInfo"
-	  $ObjectID		  27
-	  $ClassName		  "Simulink.EditorInfo"
-	  IsActive		  [1]
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9486"
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-159.0, -307.48779970310568]
+	}
+	Object {
+	  $ObjectID		  8
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10115"
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [40.216243184220275, -123.20250448619026]
+	}
+	Object {
+	  $ObjectID		  9
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13880"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [98.125246337689418, -12.979483534510564]
+	}
+	Object {
+	  $ObjectID		  10
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10176"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [63.305433245339486, 134.08870215826724]
+	}
+	Object {
+	  $ObjectID		  11
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13137"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [-876.62437150910046, -660.02923658562224]
+	}
+	Object {
+	  $ObjectID		  12
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "12775"
-	  Extents		  [1886.0, 882.0]
+	  Extents		  [1886.0, 919.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [158.11218242203108, -134.71378368551774]
+	  Offset		  [-8.236747717792241, -112.71378368551774]
 	}
+	Object {
+	  $ObjectID		  13
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "12640"
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-84.424999999999955, -289.59999999999997]
+	}
+	Object {
+	  $ObjectID		  14
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13462"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [128.08509045172946, -89.591025389932014]
+	}
+	Object {
+	  $ObjectID		  15
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9709"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-8.8762780332153852, 43.851631989038992]
+	}
+	Object {
+	  $ObjectID		  16
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "10281"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [34.285714285714334, -131.42857142857144]
+	}
+	Object {
+	  $ObjectID		  17
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "12760"
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-2.0, 149.80053692446165]
+	}
+	Object {
+	  $ObjectID		  18
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  19
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13576"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  20
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13934"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.7499999999999998]
+	  Offset		  [-13.48922710502444, -80.814051277240679]
+	}
+	Object {
+	  $ObjectID		  21
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13775"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  22
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "13115"
+	  Extents		  [1872.0, 878.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [209.84691547154216, 48.0]
+	}
+	Object {
+	  $ObjectID		  23
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9657"
+	  Extents		  [1886.0, 879.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-403.54758075499853, -178.21129037749927]
+	}
+	Object {
+	  $ObjectID		  24
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9665"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-407.70335444572208, -120.20563713625677]
+	}
+	Object {
+	  $ObjectID		  25
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "9691"
+	  Extents		  [1646.0, 889.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, -3.9999932050704956]
+	}
+	PropName		"EditorsInfo"
       }
-      PropName		      "WindowsInfo"
     }
   }
   CheckForProblematicBlocks "on"
@@ -292,9 +285,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "arenebiorob"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Aug 03 15:02:16 2017"
-  RTWModifiedTimeStamp	  423673328
-  ModelVersionFormat	  "1.%<AutoIncrement:3129>"
+  LastModifiedDate	  "Mon Jul 09 16:21:39 2018"
+  RTWModifiedTimeStamp	  453054099
+  ModelVersionFormat	  "1.%<AutoIncrement:3191>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -305,7 +298,7 @@ Model {
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
-  ShowStorageClass	  off
+  ShowStorageClass	  on
   ShowTestPointIcons	  on
   ShowSignalResolutionIcons on
   ShowViewerIcons	  on
@@ -319,7 +312,7 @@ Model {
   BlockDescriptionStringDataTip	off
   ToolBar		  on
   StatusBar		  on
-  BrowserShowLibraryLinks off
+  BrowserShowLibraryLinks on
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
   PauseTimes		  "5"
@@ -336,13 +329,13 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    28
+    $ObjectID		    26
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "COM_ViconController_x4morf_quat_withRecov_posMod"
+    model_		    "COM_ViconController"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "COM_ViconController_x4morf_quat_withRecov_posMod"
+      Cell		      "COM_ViconController"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -379,13 +372,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      29
+      $ObjectID		      27
       Version		      "1.15.1"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  30
+	  $ObjectID		  28
 	  Version		  "1.15.1"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
@@ -422,7 +415,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  31
+	  $ObjectID		  29
 	  Version		  "1.15.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -458,7 +451,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  32
+	  $ObjectID		  30
 	  Version		  "1.15.1"
 	  BlockReduction	  on
 	  BooleanDataType	  on
@@ -502,7 +495,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  33
+	  $ObjectID		  31
 	  Version		  "1.15.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -592,7 +585,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  34
+	  $ObjectID		  32
 	  Version		  "1.15.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -632,7 +625,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  35
+	  $ObjectID		  33
 	  Version		  "1.15.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
@@ -648,7 +641,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  36
+	  $ObjectID		  34
 	  Version		  "1.15.1"
 	  SFSimEcho		  on
 	  SimCtrlC		  on
@@ -660,7 +653,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  37
+	  $ObjectID		  35
 	  Version		  "1.15.1"
 	  SystemTargetFile	  "ert.tlc"
 	  TLCOptions		  ""
@@ -711,7 +704,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      38
+	      $ObjectID		      36
 	      Version		      "1.15.1"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -754,7 +747,7 @@ Model {
 	    }
 	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      39
+	      $ObjectID		      37
 	      Version		      "1.15.1"
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
@@ -887,7 +880,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  40
+	  $ObjectID		  38
 	  Version		  "1.15.1"
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -924,11 +917,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    29
+    $ObjectID		    27
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    41
+    $ObjectID		    39
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1154,6 +1147,12 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      ManualSwitch
+      CurrentSetting	      "1"
+      varsize		      off
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Memory
       X0		      "0"
       InheritSampleTime	      off
@@ -1370,8 +1369,8 @@ Model {
     }
   }
   System {
-    Name		    "COM_ViconController_x4morf_quat_withRecov_posMod"
-    Location		    [-1928, 0, 8, 1096]
+    Name		    "COM_ViconController"
+    Location		    [-1688, 30, 8, 1096]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1383,22 +1382,22 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "13879"
+    SIDHighWatermark	    "14015"
     Block {
       BlockType		      Inport
       Name		      "In_from_Serial"
       SID		      "8751"
-      Position		      [55, 525, 200, 635]
+      Position		      [40, 405, 185, 515]
       ZOrder		      -2
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
-      PortDimensions	      "Gumstix.RS232.Reception(1).NbData"
-      SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Reception(2).NbData"
+      SampleTime	      "Gumstix.RS232.Reception(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		42
+	$ObjectID		40
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:15\n    ProcessRS232InportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Reception_Block;"
@@ -1407,16 +1406,16 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  15
 	  Object {
-	    $ObjectID		    43
+	    $ObjectID		    41
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "11"
+	    Value		    "27"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    44
+	    $ObjectID		    42
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1438,7 +1437,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    45
+	    $ObjectID		    43
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1470,7 +1469,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    46
+	    $ObjectID		    44
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1513,7 +1512,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    47
+	    $ObjectID		    45
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Reception Sample Time [s]"
@@ -1522,7 +1521,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    48
+	    $ObjectID		    46
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1538,7 +1537,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    49
+	    $ObjectID		    47
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
@@ -1548,7 +1547,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    50
+	    $ObjectID		    48
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1564,7 +1563,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    51
+	    $ObjectID		    49
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -1573,7 +1572,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    52
+	    $ObjectID		    50
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1590,7 +1589,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    53
+	    $ObjectID		    51
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -1599,7 +1598,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    54
+	    $ObjectID		    52
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -1609,7 +1608,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    55
+	    $ObjectID		    53
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1626,7 +1625,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    56
+	    $ObjectID		    54
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -1636,7 +1635,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    57
+	    $ObjectID		    55
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -1654,7 +1653,7 @@ Model {
       BlockType		      Inport
       Name		      "In_from_UDP_1"
       SID		      "8826"
-      Position		      [40, 275, 185, 385]
+      Position		      [40, 240, 185, 350]
       ZOrder		      24
       Port		      "2"
       IconDisplay	      "Port number"
@@ -1664,7 +1663,7 @@ Model {
       SampleTime	      "Gumstix.UDP.Reception(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		58
+	$ObjectID		56
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:8\n    ProcessUDPInportMask_COM(gcb, i);\nend\n"
 	Display			"Display_UDP_Reception_Block;"
@@ -1673,15 +1672,15 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  9
 	  Object {
-	    $ObjectID		    59
+	    $ObjectID		    57
 	    Type		    "edit"
 	    Name		    "UDP_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "106"
+	    Value		    "117"
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 1);"
 	  }
 	  Object {
-	    $ObjectID		    60
+	    $ObjectID		    58
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1702,7 +1701,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 2);"
 	  }
 	  Object {
-	    $ObjectID		    61
+	    $ObjectID		    59
 	    Type		    "edit"
 	    Name		    "UDP_remoteIPaddress"
 	    Prompt		    "Remote peer's IP address (IPv4)"
@@ -1710,7 +1709,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 3);"
 	  }
 	  Object {
-	    $ObjectID		    62
+	    $ObjectID		    60
 	    Type		    "edit"
 	    Name		    "UDP_remotePort"
 	    Prompt		    "Remote peer's Port (1023<port<65536)"
@@ -1718,7 +1717,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 4);"
 	  }
 	  Object {
-	    $ObjectID		    63
+	    $ObjectID		    61
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1733,7 +1732,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 5);"
 	  }
 	  Object {
-	    $ObjectID		    64
+	    $ObjectID		    62
 	    Type		    "edit"
 	    Name		    "UDP_localPort"
 	    Prompt		    "Local Port (1023<port<65536)"
@@ -1741,7 +1740,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 6);"
 	  }
 	  Object {
-	    $ObjectID		    65
+	    $ObjectID		    63
 	    Type		    "edit"
 	    Name		    "UDP_SampleTime"
 	    Prompt		    "Reception Sample Time [s]"
@@ -1749,7 +1748,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 7);"
 	  }
 	  Object {
-	    $ObjectID		    66
+	    $ObjectID		    64
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1764,7 +1763,7 @@ Model {
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 8);"
 	  }
 	  Object {
-	    $ObjectID		    67
+	    $ObjectID		    65
 	    Type		    "edit"
 	    Name		    "UDP_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
@@ -1777,19 +1776,284 @@ Model {
       }
     }
     Block {
+      BlockType		      Inport
+      Name		      "Serial_In_Odroid"
+      SID		      "13988"
+      Position		      [40, 570, 185, 680]
+      ZOrder		      30
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "uint8"
+      PortDimensions	      "Gumstix.RS232.Reception(1).NbData"
+      SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		66
+	$ClassName		"Simulink.Mask"
+	Initialization		"for i=1:1:15\n    ProcessRS232InportMask_COM(gcb, i);\nend\n"
+	Display			"Display_RS232_Reception_Block;"
+	IconOpaque		"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  15
+	  Object {
+	    $ObjectID		    67
+	    Type		    "edit"
+	    Name		    "RS232_NbData"
+	    Prompt		    "Number of Received Data"
+	    Value		    "28"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    68
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      8
+	      Cell		      "double64"
+	      Cell		      "float32"
+	      Cell		      "int32"
+	      Cell		      "unsigned int32"
+	      Cell		      "int16"
+	      Cell		      "unsigned int16"
+	      Cell		      "char8"
+	      Cell		      "unsigned char8"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_DataType"
+	    Prompt		    "RS232 Data Type"
+	    Value		    "unsigned char8"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 2);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    69
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      18
+	      Cell		      "/dev/ttyO0"
+	      Cell		      "/dev/ttyO1"
+	      Cell		      "/dev/ttyO2"
+	      Cell		      "/dev/ttyO3"
+	      Cell		      "/dev/ttyO4"
+	      Cell		      "/dev/ttyO5"
+	      Cell		      "/dev/ttyO6"
+	      Cell		      "/dev/ttyO7"
+	      Cell		      "/dev/ttyO8"
+	      Cell		      "/dev/ttyO9"
+	      Cell		      "/dev/ttyO10"
+	      Cell		      "/dev/ttyO11"
+	      Cell		      "/dev/ttyO12"
+	      Cell		      "/dev/ttyO13"
+	      Cell		      "/dev/ttyO14"
+	      Cell		      "/dev/ttyO15"
+	      Cell		      "/dev/ttyUSB0"
+	      Cell		      "/dev/ttyUSB1"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_Port"
+	    Prompt		    "Serial Port"
+	    Value		    "/dev/ttyO2"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 3);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    70
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      29
+	      Cell		      "50"
+	      Cell		      "75"
+	      Cell		      "110"
+	      Cell		      "134"
+	      Cell		      "150"
+	      Cell		      "200"
+	      Cell		      "300"
+	      Cell		      "600"
+	      Cell		      "1200"
+	      Cell		      "1800"
+	      Cell		      "2400"
+	      Cell		      "4800"
+	      Cell		      "9600"
+	      Cell		      "19200"
+	      Cell		      "38400"
+	      Cell		      "57600"
+	      Cell		      "115200"
+	      Cell		      "230400"
+	      Cell		      "460800"
+	      Cell		      "576000"
+	      Cell		      "921600"
+	      Cell		      "1000000"
+	      Cell		      "1152000"
+	      Cell		      "1500000"
+	      Cell		      "2000000"
+	      Cell		      "2500000"
+	      Cell		      "3000000"
+	      Cell		      "3500000"
+	      Cell		      "4000000"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_BaudRate"
+	    Prompt		    "BaudRate"
+	    Value		    "115200"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 4);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    71
+	    Type		    "edit"
+	    Name		    "RS232_SampleTime"
+	    Prompt		    "Reception Sample Time [s]"
+	    Value		    "Ts_detector"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 5);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    72
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      2
+	      Cell		      "ON (wait the n data)"
+	      Cell		      "OFF (try to read the n data)"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_BlockingReception"
+	    Prompt		    "Blocking Reception"
+	    Value		    "OFF (try to read the n data)"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 6);\n"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    73
+	    Type		    "edit"
+	    Name		    "RS232_BlockingTimeOut"
+	    Prompt		    "Blocking Time Out [s]"
+	    Value		    "0.001"
+	    Visible		    "off"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 7);"
+	    TabName		    "Reception"
+	  }
+	  Object {
+	    $ObjectID		    74
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      2
+	      Cell		      "None"
+	      Cell		      "1 byte"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StreamHeaderReception"
+	    Prompt		    "Stream Header"
+	    Value		    "1 byte"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 8);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    75
+	    Type		    "edit"
+	    Name		    "RS232_StreamHeaderValue"
+	    Prompt		    "Stream header value [0-255]"
+	    Value		    "170"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 9);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    76
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "WaitStart -> SendStart"
+	      Cell		      "SendStart -> WaitStart"
+	      Cell		      "None"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StartProtocol"
+	    Prompt		    "START Protocols"
+	    Value		    "SendStart -> WaitStart"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 10);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    77
+	    Type		    "edit"
+	    Name		    "RS232_StartTimeOut"
+	    Prompt		    "Start Stream Waiting TimeOut [ms]"
+	    Value		    "100"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 11);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    78
+	    Type		    "edit"
+	    Name		    "RS232_StartStream"
+	    Prompt		    "Start Message"
+	    Value		    "START"
+	    Evaluate		    "off"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 12);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    79
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "WaitStop -> SendStop"
+	      Cell		      "SendStop -> WaitStop"
+	      Cell		      "None"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StopProtocol"
+	    Prompt		    "STOP Protocols"
+	    Value		    "None"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 13);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    80
+	    Type		    "edit"
+	    Name		    "RS232_StopTimeOut"
+	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
+	    Value		    "100"
+	    Visible		    "off"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 14);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    81
+	    Type		    "edit"
+	    Name		    "RS232_StopStream"
+	    Prompt		    "Stop Message"
+	    Value		    "STOP"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    Callback		    "ProcessRS232InportMask_COM(gcb, 15);\n"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "GUMSTIX"
       SID		      "9355"
-      Ports		      [2, 3]
-      Position		      [260, 206, 610, 704]
+      Ports		      [3, 4]
+      Position		      [260, 208, 610, 707]
       ZOrder		      28
       ForegroundColor	      "yellow"
       RequestExecContextInheritance off
       Variant		      off
       System {
 	Name			"GUMSTIX"
-	Location		[-1928, 0, 8, 1096]
-	Open			on
+	Location		[-1688, 30, 8, 1096]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1800,36 +2064,35 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In_from_UDP"
 	  SID			  "9356"
-	  Position		  [-110, 388, -80, 402]
+	  Position		  [-110, 433, -80, 447]
 	  ZOrder		  -1
 	  ForegroundColor	  "red"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "In_from_RS232"
-	  SID			  "9357"
-	  Position		  [-110, 1178, -80, 1192]
-	  ZOrder		  -2
-	  ForegroundColor	  "green"
+	  Name			  "In_from_Teensy"
+	  SID			  "13923"
+	  Position		  [-110, 1183, -80, 1197]
+	  ZOrder		  584
+	  ForegroundColor	  "red"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Demux
-	  Name			  " "
-	  SID			  "10344"
-	  Ports			  [1, 2]
-	  Position		  [70, 515, 75, 615]
-	  ZOrder		  285
+	  BlockType		  Inport
+	  Name			  "In_from_Odroid"
+	  SID			  "13974"
+	  Position		  [-110, 1463, -80, 1477]
+	  ZOrder		  598
 	  ForegroundColor	  "red"
-	  Outputs		  "2"
-	  DisplayOption		  "bar"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Demux
@@ -1884,14 +2147,14 @@ Model {
 	  Name			  "Arena Security"
 	  SID			  "13115"
 	  Ports			  [4, 2]
-	  Position		  [1955, 884, 2080, 981]
+	  Position		  [1945, 1069, 2070, 1166]
 	  ZOrder		  465
 	  NamePlacement		  "alternate"
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Arena Security"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2064,7 +2327,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "13121::16"
-		  Tag			  "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 8"
+		  Tag			  "Stateflow S-Function COM_ViconController 8"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
 		  ZOrder		  7
@@ -2338,14 +2601,14 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Attitude\ncontroller"
 	  SID			  "10176"
-	  Ports			  [12, 7]
-	  Position		  [755, 600, 875, 1060]
+	  Ports			  [10, 7]
+	  Position		  [755, 602, 875, 1063]
 	  ZOrder		  45
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Attitude\ncontroller"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2357,7 +2620,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "125"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "mode"
@@ -2381,7 +2644,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Q_est"
 	      SID		      "10179"
-	      Position		      [35, 243, 65, 257]
+	      Position		      [35, 253, 65, 267]
 	      ZOrder		      -3
 	      ForegroundColor	      "red"
 	      Port		      "3"
@@ -2391,7 +2654,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Omega_est"
 	      SID		      "10180"
-	      Position		      [35, 288, 65, 302]
+	      Position		      [35, 308, 65, 322]
 	      ZOrder		      -4
 	      ForegroundColor	      "red"
 	      Port		      "4"
@@ -2401,7 +2664,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Param_Att"
 	      SID		      "10181"
-	      Position		      [35, 333, 65, 347]
+	      Position		      [35, 363, 65, 377]
 	      ZOrder		      -5
 	      ForegroundColor	      "red"
 	      Port		      "5"
@@ -2411,7 +2674,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Pos"
 	      SID		      "10182"
-	      Position		      [35, 423, 65, 437]
+	      Position		      [35, 473, 65, 487]
 	      ZOrder		      -6
 	      ForegroundColor	      "red"
 	      Port		      "6"
@@ -2421,7 +2684,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Active Recovery"
 	      SID		      "11819"
-	      Position		      [35, 378, 65, 392]
+	      Position		      [35, 418, 65, 432]
 	      ZOrder		      1
 	      ForegroundColor	      "red"
 	      Port		      "7"
@@ -2431,7 +2694,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "cutAttCtrlOrder"
 	      SID		      "11823"
-	      Position		      [35, 513, 65, 527]
+	      Position		      [35, 583, 65, 597]
 	      ZOrder		      47
 	      Port		      "8"
 	      IconDisplay	      "Port number"
@@ -2440,27 +2703,9 @@ Model {
 	      BlockType		      Inport
 	      Name		      "state"
 	      SID		      "13015"
-	      Position		      [35, 558, 65, 572]
+	      Position		      [35, 638, 65, 652]
 	      ZOrder		      49
 	      Port		      "9"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Gamma [deg]"
-	      SID		      "13321"
-	      Position		      [35, 603, 65, 617]
-	      ZOrder		      520
-	      Port		      "10"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "PsiOmegaMax"
-	      SID		      "13352"
-	      Position		      [35, 648, 65, 662]
-	      ZOrder		      534
-	      Port		      "11"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -2469,21 +2714,21 @@ Model {
 	      SID		      "13498"
 	      Position		      [35, 693, 65, 707]
 	      ZOrder		      578
-	      Port		      "12"
+	      Port		      "10"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "CTL_ATT_NL"
 	      SID		      "13137"
-	      Ports		      [12, 7, 1]
+	      Ports		      [10, 7, 1]
 	      Position		      [310, 187, 460, 718]
 	      ZOrder		      50
 	      RequestExecContextInheritance off
 	      Variant		      off
 	      System {
 		Name			"CTL_ATT_NL"
-		Location		[-1928, 0, 8, 1096]
+		Location		[-1688, 30, 8, 1096]
 		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2495,7 +2740,7 @@ Model {
 		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"100"
+		ZoomFactor		"80"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Angles_ref"
@@ -2578,30 +2823,11 @@ Model {
 		}
 		Block {
 		  BlockType		  Inport
-		  Name			  "Gamma [deg]"
-		  SID			  "13320"
-		  Position		  [-480, -367, -450, -353]
-		  ZOrder		  531
-		  NamePlacement		  "alternate"
-		  Port			  "10"
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Inport
-		  Name			  "PsiOmegaMax"
-		  SID			  "13351"
-		  Position		  [-480, -342, -450, -328]
-		  ZOrder		  533
-		  Port			  "11"
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Inport
 		  Name			  "Dist_torques"
 		  SID			  "13497"
 		  Position		  [140, -572, 170, -558]
 		  ZOrder		  577
-		  Port			  "12"
+		  Port			  "10"
 		  IconDisplay		  "Port number"
 		}
 		Block {
@@ -2624,7 +2850,7 @@ Model {
 		  Variant		  off
 		  System {
 		    Name		    "Angles\nDisturbances"
-		    Location		    [-1928, 0, 8, 1096]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -2931,7 +3157,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "13485::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 9"
+		    Tag			    "Stateflow S-Function COM_ViconController 9"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
 		    ZOrder		    4
@@ -3405,7 +3631,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "13171::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 5"
+		    Tag			    "Stateflow S-Function COM_ViconController 5"
 		    Ports		    [12, 8]
 		    Position		    [180, 95, 230, 355]
 		    ZOrder		    4
@@ -3934,7 +4160,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "13193::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 7"
+		    Tag			    "Stateflow S-Function COM_ViconController 7"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    ZOrder		    4
@@ -4242,7 +4468,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "13231::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 2"
+		    Tag			    "Stateflow S-Function COM_ViconController 2"
 		    Ports		    [1, 4]
 		    Position		    [180, 102, 230, 203]
 		    ZOrder		    4
@@ -4465,22 +4691,6 @@ Model {
 		  SID			  "13268"
 		  Position		  [500, -95, 520, -75]
 		  ZOrder		  524
-		  ShowName		  off
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  "Terminator6"
-		  SID			  "13376"
-		  Position		  [-400, -370, -380, -350]
-		  ZOrder		  539
-		  ShowName		  off
-		}
-		Block {
-		  BlockType		  Terminator
-		  Name			  "Terminator7"
-		  SID			  "13378"
-		  Position		  [-400, -345, -380, -325]
-		  ZOrder		  540
 		  ShowName		  off
 		}
 		Block {
@@ -4888,20 +5098,6 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  160
-		  SrcBlock		  "Gamma [deg]"
-		  SrcPort		  1
-		  DstBlock		  "Terminator6"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  162
-		  SrcBlock		  "PsiOmegaMax"
-		  SrcPort		  1
-		  DstBlock		  "Terminator7"
-		  DstPort		  1
-		}
-		Line {
 		  ZOrder		  158
 		  SrcBlock		  "Constant5"
 		  SrcPort		  1
@@ -5135,7 +5331,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Constant"
 	      SID		      "10223"
-	      Position		      [205, 459, 280, 491]
+	      Position		      [205, 519, 280, 551]
 	      ZOrder		      -5
 	      Value		      "LandingHeight"
 	      OutDataTypeStr	      "single"
@@ -5528,20 +5724,6 @@ Model {
 	      DstPort		      9
 	    }
 	    Line {
-	      ZOrder		      89
-	      SrcBlock		      "Gamma [deg]"
-	      SrcPort		      1
-	      DstBlock		      "CTL_ATT_NL"
-	      DstPort		      10
-	    }
-	    Line {
-	      ZOrder		      90
-	      SrcBlock		      "PsiOmegaMax"
-	      SrcPort		      1
-	      DstBlock		      "CTL_ATT_NL"
-	      DstPort		      11
-	    }
-	    Line {
 	      ZOrder		      127
 	      SrcBlock		      "Param_Att"
 	      SrcPort		      1
@@ -5561,7 +5743,7 @@ Model {
 	      SrcBlock		      "Dist_torques"
 	      SrcPort		      1
 	      DstBlock		      "CTL_ATT_NL"
-	      DstPort		      12
+	      DstPort		      10
 	    }
 	    Line {
 	      ZOrder		      137
@@ -5738,6 +5920,319 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  SubSystem
+	  Name			  "CAMERA_PARAMETERS"
+	  SID			  "13934"
+	  Ports			  [0, 1]
+	  Position		  [1810, 1575, 1940, 1605]
+	  ZOrder		  592
+	  RequestExecContextInheritance	off
+	  Variant		  off
+	  System {
+	    Name		    "CAMERA_PARAMETERS"
+	    Location		    [-1688, 30, 8, 1096]
+	    Open		    on
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "175"
+	    Block {
+	      BlockType		      Constant
+	      Name		      "FOV_x/y (in rad)"
+	      SID		      "13935"
+	      Position		      [25, 241, 130, 259]
+	      ZOrder		      5
+	      ForegroundColor	      "orange"
+	      Value		      "[pi*15/180 pi*10/180]"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "MaxNumBuffer"
+	      SID		      "13936"
+	      Position		      [25, 1, 130, 19]
+	      ZOrder		      3
+	      ForegroundColor	      "orange"
+	      Value		      "5"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux6"
+	      SID		      "13937"
+	      Ports		      [7, 1]
+	      Position		      [350, -8, 355, 268]
+	      ZOrder		      -16
+	      ForegroundColor	      "orange"
+	      ShowName		      off
+	      Inputs		      "[2 4 4 2 2 2 8]"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "binning"
+	      SID		      "13938"
+	      Position		      [25, 121, 130, 139]
+	      ZOrder		      -5
+	      ForegroundColor	      "orange"
+	      Value		      "0"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "expoAutoMax_us"
+	      SID		      "13939"
+	      Position		      [25, 161, 130, 179]
+	      ZOrder		      2
+	      ForegroundColor	      "orange"
+	      Value		      "5000"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)"
+	      SID		      "13940"
+	      Ports		      [1, 1]
+	      Position		      [195, 241, 280, 259]
+	      ZOrder		      250
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "grabTimeOut_ms"
+	      SID		      "13941"
+	      Position		      [25, 201, 130, 219]
+	      ZOrder		      4
+	      ForegroundColor	      "orange"
+	      Value		      "1000"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "offset_x/y"
+	      SID		      "13942"
+	      Position		      [25, 81, 130, 99]
+	      ZOrder		      -5
+	      ForegroundColor	      "orange"
+	      Value		      "[400 300]"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)1"
+	      SID		      "13943"
+	      Ports		      [1, 1]
+	      Position		      [195, 41, 280, 59]
+	      ZOrder		      245
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)2"
+	      SID		      "13944"
+	      Ports		      [1, 1]
+	      Position		      [195, 81, 280, 99]
+	      ZOrder		      246
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)3"
+	      SID		      "13945"
+	      Ports		      [1, 1]
+	      Position		      [195, 1, 280, 19]
+	      ZOrder		      251
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)4"
+	      SID		      "13946"
+	      Ports		      [1, 1]
+	      Position		      [195, 161, 280, 179]
+	      ZOrder		      248
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)5"
+	      SID		      "13947"
+	      Ports		      [1, 1]
+	      Position		      [195, 201, 280, 219]
+	      ZOrder		      249
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)6"
+	      SID		      "13948"
+	      Ports		      [1, 1]
+	      Position		      [195, 121, 280, 139]
+	      ZOrder		      252
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "width/height"
+	      SID		      "13949"
+	      Position		      [25, 41, 130, 59]
+	      ZOrder		      1
+	      ForegroundColor	      "orange"
+	      Value		      "[800 600]"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Cam_param"
+	      SID		      "13950"
+	      Position		      [395, 123, 425, 137]
+	      ZOrder		      -22
+	      ForegroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "width/height"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      2
+	      SrcBlock		      "offset_x/y"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)2"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3
+	      SrcBlock		      "Mux6"
+	      SrcPort		      1
+	      DstBlock		      "Cam_param"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      4
+	      SrcBlock		      "expoAutoMax_us"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)4"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "grabTimeOut_ms"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)5"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      6
+	      SrcBlock		      "FOV_x/y (in rad)"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      7
+	      SrcBlock		      "float32 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      7
+	    }
+	    Line {
+	      ZOrder		      8
+	      SrcBlock		      "MaxNumBuffer"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)3"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      9
+	      SrcBlock		      "uint16 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      10
+	      SrcBlock		      "uint16 to uint8 (BE)2"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      11
+	      SrcBlock		      "binning"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      12
+	      SrcBlock		      "uint16 to uint8 (BE)4"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      5
+	    }
+	    Line {
+	      ZOrder		      13
+	      SrcBlock		      "uint16 to uint8 (BE)5"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      6
+	    }
+	    Line {
+	      ZOrder		      14
+	      SrcBlock		      "uint16 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      15
+	      SrcBlock		      "uint16 to uint8 (BE)6"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      4
+	    }
+	  }
+	}
+	Block {
 	  BlockType		  Mux
 	  Name			  "CTL_att_monitor"
 	  SID			  "9477"
@@ -5798,7 +6293,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Control Mix"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -5851,7 +6346,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Control_mix"
-		Location		[-1928, 0, 8, 1096]
+		Location		[-1688, 30, 8, 1096]
 		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -5983,7 +6478,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "10325::24"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 10"
+		    Tag			    "Stateflow S-Function COM_ViconController 10"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
 		    ZOrder		    10
@@ -6434,22 +6929,383 @@ Model {
 	  BlockType		  DataTypeConversion
 	  Name			  "Convert1"
 	  SID			  "10343"
-	  Position		  [1190, 726, 1240, 764]
+	  Position		  [1135, 663, 1175, 677]
 	  ZOrder		  284
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  RndMeth		  "Nearest"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Convert2"
+	  SID			  "14008"
+	  Position		  [65, 1246, 115, 1284]
+	  ZOrder		  631
 	  ForegroundColor	  "red"
 	  RndMeth		  "Nearest"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  DataTypeConversion
-	  Name			  "Data Type Conversion"
-	  SID			  "9508"
-	  Position		  [-25, 1166, 25, 1204]
-	  ZOrder		  -7
-	  ForegroundColor	  "green"
-	  ShowName		  off
-	  RndMeth		  "Floor"
+	  Name			  "Convert3"
+	  SID			  "14009"
+	  Position		  [65, 1216, 115, 1254]
+	  ZOrder		  632
+	  ForegroundColor	  "red"
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Nearest"
 	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "DETECTOR_PARAMETERS"
+	  SID			  "13951"
+	  Ports			  [0, 1]
+	  Position		  [1810, 1635, 1940, 1665]
+	  ZOrder		  595
+	  RequestExecContextInheritance	off
+	  Variant		  off
+	  System {
+	    Name		    "DETECTOR_PARAMETERS"
+	    Location		    [-1688, 22, 8, 1088]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "175"
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Max_no_detection"
+	      SID		      "13968"
+	      Position		      [25, -80, 130, -60]
+	      ZOrder		      598
+	      ForegroundColor	      "orange"
+	      Value		      "5"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux6"
+	      SID		      "13952"
+	      Ports		      [8, 1]
+	      Position		      [315, -91, 320, 231]
+	      ZOrder		      -16
+	      ForegroundColor	      "orange"
+	      ShowName		      off
+	      Inputs		      "[2 2 2 4 2 4 2 4]"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "bin_square"
+	      SID		      "13953"
+	      Position		      [25, 1, 130, 19]
+	      ZOrder		      3
+	      ForegroundColor	      "orange"
+	      Value		      "100"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "blur_size"
+	      SID		      "13954"
+	      Position		      [25, -39, 130, -21]
+	      ZOrder		      15
+	      ForegroundColor	      "orange"
+	      Value		      "3"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)"
+	      SID		      "13955"
+	      Ports		      [1, 1]
+	      Position		      [175, 41, 260, 59]
+	      ZOrder		      245
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)1"
+	      SID		      "13956"
+	      Ports		      [1, 1]
+	      Position		      [175, 121, 260, 139]
+	      ZOrder		      246
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)2"
+	      SID		      "13957"
+	      Ports		      [1, 1]
+	      Position		      [175, 201, 260, 219]
+	      ZOrder		      247
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "k_approx"
+	      SID		      "13958"
+	      Position		      [25, 41, 130, 59]
+	      ZOrder		      1
+	      ForegroundColor	      "orange"
+	      Value		      "0.02"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_area"
+	      SID		      "13959"
+	      Position		      [25, 81, 130, 99]
+	      ZOrder		      -5
+	      ForegroundColor	      "orange"
+	      Value		      "1000"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_cos"
+	      SID		      "13960"
+	      Position		      [25, 121, 130, 139]
+	      ZOrder		      -5
+	      ForegroundColor	      "orange"
+	      Value		      "0.1"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_diff"
+	      SID		      "13961"
+	      Position		      [25, 161, 130, 179]
+	      ZOrder		      2
+	      ForegroundColor	      "orange"
+	      Value		      "20*20"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_ratio"
+	      SID		      "13962"
+	      Position		      [25, 201, 130, 219]
+	      ZOrder		      4
+	      ForegroundColor	      "orange"
+	      Value		      "0.2"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)"
+	      SID		      "13963"
+	      Ports		      [1, 1]
+	      Position		      [175, 1, 260, 19]
+	      ZOrder		      253
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)1"
+	      SID		      "13964"
+	      Ports		      [1, 1]
+	      Position		      [175, -39, 260, -21]
+	      ZOrder		      254
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)2"
+	      SID		      "13965"
+	      Ports		      [1, 1]
+	      Position		      [175, 81, 260, 99]
+	      ZOrder		      251
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)3"
+	      SID		      "13966"
+	      Ports		      [1, 1]
+	      Position		      [175, 161, 260, 179]
+	      ZOrder		      252
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)4"
+	      SID		      "13972"
+	      Ports		      [1, 1]
+	      Position		      [175, -79, 260, -61]
+	      ZOrder		      599
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Detector_param"
+	      SID		      "13967"
+	      Position		      [360, 63, 390, 77]
+	      ZOrder		      -22
+	      ForegroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "Mux6"
+	      SrcPort		      1
+	      DstBlock		      "Detector_param"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      2
+	      SrcBlock		      "thresh_ratio"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)2"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3
+	      SrcBlock		      "k_approx"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      4
+	      SrcBlock		      "thresh_area"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)2"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "thresh_cos"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      6
+	      SrcBlock		      "thresh_diff"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)3"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      21
+	      SrcBlock		      "float32 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      19
+	      SrcBlock		      "float32 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      6
+	    }
+	    Line {
+	      ZOrder		      17
+	      SrcBlock		      "float32 to uint8 (BE)2"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      8
+	    }
+	    Line {
+	      ZOrder		      10
+	      SrcBlock		      "blur_size"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      11
+	      SrcBlock		      "bin_square"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      20
+	      SrcBlock		      "uint16 to uint8 (BE)2"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      5
+	    }
+	    Line {
+	      ZOrder		      18
+	      SrcBlock		      "uint16 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      7
+	    }
+	    Line {
+	      ZOrder		      23
+	      SrcBlock		      "uint16 to uint8 (BE)1"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      22
+	      SrcBlock		      "uint16 to uint8 (BE)"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      16
+	      SrcBlock		      "Max_no_detection"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)4"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      24
+	      SrcBlock		      "uint16 to uint8 (BE)4"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      1
+	    }
+	  }
 	}
 	Block {
 	  BlockType		  DataTypeConversion
@@ -6492,6 +7348,39 @@ Model {
 	  ZOrder		  527
 	  ForegroundColor	  "red"
 	  ShowName		  off
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion5"
+	  SID			  "13993"
+	  Position		  [490, 1470, 525, 1490]
+	  ZOrder		  615
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion6"
+	  SID			  "13994"
+	  Position		  [490, 1495, 525, 1515]
+	  ZOrder		  616
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion7"
+	  SID			  "14005"
+	  Position		  [490, 1445, 525, 1465]
+	  ZOrder		  627
+	  ShowName		  off
+	  OutDataTypeStr	  "single"
 	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
@@ -6562,7 +7451,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "ESTIMATOR"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6625,7 +7514,7 @@ Model {
 	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		68
+		$ObjectID		82
 		$ClassName		"Simulink.Mask"
 		Type			"COMPLEMENTARY FILTER"
 		Description		"This block assure a complementary filtering of IMU's data and vicon's data.\n\nka: the gain to adjust "
@@ -6636,7 +7525,7 @@ Model {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  4
 		  Object {
-		    $ObjectID		    69
+		    $ObjectID		    83
 		    Type		    "edit"
 		    Name		    "Ts_param"
 		    Prompt		    "Sample Time [s]"
@@ -6644,7 +7533,7 @@ Model {
 		    TabName		    "Filter's Parameters"
 		  }
 		  Object {
-		    $ObjectID		    70
+		    $ObjectID		    84
 		    Type		    "edit"
 		    Name		    "b0_param"
 		    Prompt		    "Initial bias [deg/s]"
@@ -6652,7 +7541,7 @@ Model {
 		    TabName		    "Initial states"
 		  }
 		  Object {
-		    $ObjectID		    71
+		    $ObjectID		    85
 		    Type		    "edit"
 		    Name		    "Q0_param"
 		    Prompt		    "Initial Quaternion"
@@ -6660,7 +7549,7 @@ Model {
 		    TabName		    "Initial states"
 		  }
 		  Object {
-		    $ObjectID		    72
+		    $ObjectID		    86
 		    Type		    "edit"
 		    Name		    "acc_ref_param"
 		    Prompt		    "Accelerometer Reference"
@@ -6886,7 +7775,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "9523::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 1"
+		    Tag			    "Stateflow S-Function COM_ViconController 1"
 		    Ports		    [10, 4]
 		    Position		    [180, 100, 230, 320]
 		    ZOrder		    4
@@ -7460,7 +8349,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "9543::8829"
-		  Tag			  "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 3"
+		  Tag			  "Stateflow S-Function COM_ViconController 3"
 		  Ports			  [3, 3]
 		  Position		  [180, 100, 230, 180]
 		  ZOrder		  4
@@ -7635,7 +8524,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "9546::8829"
-		  Tag			  "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 15"
+		  Tag			  "Stateflow S-Function COM_ViconController 15"
 		  Ports			  [1, 4]
 		  Position		  [180, 102, 230, 203]
 		  ZOrder		  4
@@ -8444,11 +9333,21 @@ Model {
 	  BlockType		  From
 	  Name			  "From1"
 	  SID			  "9575"
-	  Position		  [1615, 962, 1710, 978]
+	  Position		  [1605, 1147, 1700, 1163]
 	  ZOrder		  35
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  GotoTag		  "duty_cycle_pwm"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From10"
+	  SID			  "13998"
+	  Position		  [1855, 858, 1960, 872]
+	  ZOrder		  620
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "odroid_data"
 	}
 	Block {
 	  BlockType		  From
@@ -8492,9 +9391,19 @@ Model {
 	}
 	Block {
 	  BlockType		  From
+	  Name			  "From15"
+	  SID			  "14012"
+	  Position		  [1805, 1448, 1910, 1462]
+	  ZOrder		  635
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "odroid_parameters"
+	}
+	Block {
+	  BlockType		  From
 	  Name			  "From2"
 	  SID			  "10317"
-	  Position		  [880, 657, 960, 673]
+	  Position		  [880, 662, 960, 678]
 	  ZOrder		  71
 	  BackgroundColor	  "orange"
 	  ShowName		  off
@@ -8534,7 +9443,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From5"
 	  SID			  "12395"
-	  Position		  [565, 884, 670, 896]
+	  Position		  [565, 939, 670, 951]
 	  ZOrder		  421
 	  BackgroundColor	  "orange"
 	  ShowName		  off
@@ -8549,16 +9458,6 @@ Model {
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  GotoTag		  "gamma"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From7"
-	  SID			  "13874"
-	  Position		  [575, 962, 655, 978]
-	  ZOrder		  578
-	  BackgroundColor	  "orange"
-	  ShowName		  off
-	  GotoTag		  "gamma_model"
 	}
 	Block {
 	  BlockType		  From
@@ -8595,7 +9494,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys10"
 	  SID			  "9578"
-	  Position		  [575, 643, 655, 657]
+	  Position		  [580, 668, 660, 682]
 	  ZOrder		  -30
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -8649,7 +9548,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys15"
 	  SID			  "9581"
-	  Position		  [575, 723, 655, 737]
+	  Position		  [580, 758, 660, 772]
 	  ZOrder		  -35
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -8713,7 +9612,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys20"
 	  SID			  "9586"
-	  Position		  [575, 603, 655, 617]
+	  Position		  [580, 623, 660, 637]
 	  ZOrder		  -39
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
@@ -8723,7 +9622,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys21"
 	  SID			  "13815"
-	  Position		  [65, 893, 170, 907]
+	  Position		  [65, 888, 170, 902]
 	  ZOrder		  558
 	  BackgroundColor	  "red"
 	  ShowName		  off
@@ -8854,7 +9753,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys32"
 	  SID			  "10240"
-	  Position		  [565, 763, 645, 777]
+	  Position		  [565, 803, 645, 817]
 	  ZOrder		  49
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "yellow"
@@ -8875,7 +9774,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys34"
 	  SID			  "10241"
-	  Position		  [565, 803, 645, 817]
+	  Position		  [565, 848, 645, 862]
 	  ZOrder		  48
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -8886,7 +9785,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys35"
 	  SID			  "11820"
-	  Position		  [565, 843, 670, 857]
+	  Position		  [565, 893, 670, 907]
 	  ZOrder		  391
 	  BackgroundColor	  "red"
 	  ShowName		  off
@@ -8918,7 +9817,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys38"
 	  SID			  "13125"
-	  Position		  [1625, 888, 1705, 902]
+	  Position		  [1615, 1073, 1695, 1087]
 	  ZOrder		  466
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
@@ -8962,7 +9861,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys41"
 	  SID			  "13014"
-	  Position		  [575, 923, 655, 937]
+	  Position		  [575, 983, 655, 997]
 	  ZOrder		  425
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -9036,20 +9935,11 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys48"
 	  SID			  "13126"
-	  Position		  [1625, 913, 1705, 927]
+	  Position		  [1615, 1098, 1695, 1112]
 	  ZOrder		  467
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
 	  GotoTag		  "Manu"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From_Theta_r_phys49"
-	  SID			  "13353"
-	  Position		  [575, 1003, 655, 1017]
-	  ZOrder		  479
-	  ShowName		  off
-	  GotoTag		  "PsiOmegaMax"
 	}
 	Block {
 	  BlockType		  From
@@ -9099,7 +9989,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys53"
 	  SID			  "13499"
-	  Position		  [575, 1043, 655, 1057]
+	  Position		  [575, 1028, 655, 1042]
 	  ZOrder		  487
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -9140,7 +10030,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys57"
 	  SID			  "13781"
-	  Position		  [1625, 938, 1705, 952]
+	  Position		  [1615, 1123, 1695, 1137]
 	  ZOrder		  545
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9226,7 +10116,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys7"
 	  SID			  "9615"
-	  Position		  [1175, 683, 1255, 697]
+	  Position		  [1175, 688, 1255, 702]
 	  ZOrder		  -70
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -9237,7 +10127,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From_Theta_r_phys8"
 	  SID			  "9616"
-	  Position		  [575, 683, 670, 697]
+	  Position		  [580, 713, 675, 727]
 	  ZOrder		  -71
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9269,7 +10159,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto"
 	  SID			  "10166"
-	  Position		  [910, 687, 995, 713]
+	  Position		  [915, 692, 1000, 718]
 	  ZOrder		  40
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -9279,7 +10169,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto1"
 	  SID			  "10167"
-	  Position		  [910, 752, 995, 778]
+	  Position		  [915, 757, 1000, 783]
 	  ZOrder		  41
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -9299,7 +10189,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto2"
 	  SID			  "10245"
-	  Position		  [910, 817, 995, 843]
+	  Position		  [915, 822, 1000, 848]
 	  ZOrder		  53
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
 	  ShowName		  off
@@ -9309,7 +10199,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto3"
 	  SID			  "13442"
-	  Position		  [910, 947, 995, 973]
+	  Position		  [915, 952, 1000, 978]
 	  ZOrder		  482
 	  BackgroundColor	  "magenta"
 	  ShowName		  off
@@ -9349,7 +10239,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto7"
 	  SID			  "13860"
-	  Position		  [160, 786, 270, 804]
+	  Position		  [160, 776, 270, 794]
 	  ZOrder		  573
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
@@ -9358,13 +10248,12 @@ Model {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er1"
-	  SID			  "9617"
-	  Position		  [110, 1153, 195, 1167]
-	  ZOrder		  -74
-	  ForegroundColor	  "green"
-	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  SID			  "13975"
+	  Position		  [315, 1373, 400, 1387]
+	  ZOrder		  602
+	  BackgroundColor	  "cyan"
 	  ShowName		  off
-	  GotoTag		  "Acc_Data"
+	  GotoTag		  "sub_angles"
 	}
 	Block {
 	  BlockType		  Goto
@@ -9422,16 +10311,6 @@ Model {
 	}
 	Block {
 	  BlockType		  Goto
-	  Name			  "Goto_Theta_er15"
-	  SID			  "10316"
-	  Position		  [240, 583, 325, 597]
-	  ZOrder		  287
-	  BackgroundColor	  "orange"
-	  ShowName		  off
-	  GotoTag		  "gamma"
-	}
-	Block {
-	  BlockType		  Goto
 	  Name			  "Goto_Theta_er16"
 	  SID			  "9622"
 	  Position		  [1425, 253, 1510, 267]
@@ -9456,7 +10335,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er18"
 	  SID			  "10341"
-	  Position		  [1460, 738, 1545, 752]
+	  Position		  [1205, 663, 1290, 677]
 	  ZOrder		  281
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9466,13 +10345,12 @@ Model {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er19"
-	  SID			  "9624"
-	  Position		  [110, 1243, 195, 1257]
-	  ZOrder		  -82
-	  ForegroundColor	  "green"
-	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  SID			  "13977"
+	  Position		  [315, 1493, 400, 1507]
+	  ZOrder		  604
+	  BackgroundColor	  "cyan"
 	  ShowName		  off
-	  GotoTag		  "V_bat"
+	  GotoTag		  "no_detect"
 	}
 	Block {
 	  BlockType		  Goto
@@ -9519,13 +10397,12 @@ Model {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er23"
-	  SID			  "11355"
-	  Position		  [100, 1333, 185, 1347]
-	  ZOrder		  372
-	  ForegroundColor	  "green"
-	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  SID			  "13978"
+	  Position		  [315, 1553, 400, 1567]
+	  ZOrder		  605
+	  BackgroundColor	  "cyan"
 	  ShowName		  off
-	  GotoTag		  "NanoWii_data"
+	  GotoTag		  "init_detect"
 	}
 	Block {
 	  BlockType		  Goto
@@ -9575,7 +10452,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er28"
 	  SID			  "9632"
-	  Position		  [1460, 628, 1545, 642]
+	  Position		  [1460, 633, 1545, 647]
 	  ZOrder		  -91
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "green"
@@ -9618,19 +10495,18 @@ Model {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er31"
-	  SID			  "9636"
-	  Position		  [110, 1198, 195, 1212]
-	  ZOrder		  -95
-	  ForegroundColor	  "green"
-	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  SID			  "13995"
+	  Position		  [665, 1463, 750, 1477]
+	  ZOrder		  617
+	  BackgroundColor	  "cyan"
 	  ShowName		  off
-	  GotoTag		  "RX_Data"
+	  GotoTag		  "odroid_data"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er32"
 	  SID			  "12227"
-	  Position		  [910, 888, 1020, 902]
+	  Position		  [915, 893, 1025, 907]
 	  ZOrder		  407
 	  BackgroundColor	  "red"
 	  ShowName		  off
@@ -9651,7 +10527,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er34"
 	  SID			  "13461"
-	  Position		  [1455, 683, 1550, 697]
+	  Position		  [1455, 688, 1550, 702]
 	  ZOrder		  485
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -9672,7 +10548,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er36"
 	  SID			  "13503"
-	  Position		  [925, 1018, 1020, 1032]
+	  Position		  [930, 1023, 1025, 1037]
 	  ZOrder		  489
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "magenta"
@@ -9716,7 +10592,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto_Theta_er4"
 	  SID			  "9640"
-	  Position		  [235, 533, 335, 547]
+	  Position		  [230, 558, 330, 572]
 	  ZOrder		  272
 	  BackgroundColor	  "orange"
 	  ShowName		  off
@@ -9820,6 +10696,17 @@ Model {
 	}
 	Block {
 	  BlockType		  Goto
+	  Name			  "Goto_Theta_er49"
+	  SID			  "13924"
+	  Position		  [250, 1138, 335, 1152]
+	  ZOrder		  582
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "Gyro_Data"
+	}
+	Block {
+	  BlockType		  Goto
 	  Name			  "Goto_Theta_er5"
 	  SID			  "9645"
 	  Position		  [185, 48, 270, 62]
@@ -9831,14 +10718,78 @@ Model {
 	}
 	Block {
 	  BlockType		  Goto
-	  Name			  "Goto_Theta_er6"
-	  SID			  "9646"
-	  Position		  [110, 1108, 195, 1122]
-	  ZOrder		  -107
+	  Name			  "Goto_Theta_er50"
+	  SID			  "13925"
+	  Position		  [250, 1258, 335, 1272]
+	  ZOrder		  581
 	  ForegroundColor	  "red"
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
 	  ShowName		  off
-	  GotoTag		  "Gyro_Data"
+	  GotoTag		  "V_bat"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er51"
+	  SID			  "13926"
+	  Position		  [250, 1168, 335, 1182]
+	  ZOrder		  585
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "Mag_Data"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er52"
+	  SID			  "13927"
+	  Position		  [250, 1198, 335, 1212]
+	  ZOrder		  586
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "Pres_Data"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er53"
+	  SID			  "13928"
+	  Position		  [250, 1228, 335, 1242]
+	  ZOrder		  580
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "RX_Data"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er54"
+	  SID			  "13929"
+	  Position		  [250, 1108, 335, 1122]
+	  ZOrder		  579
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "Acc_Data"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er55"
+	  SID			  "14013"
+	  Position		  [160, 813, 270, 827]
+	  ZOrder		  636
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "odroid_parameters"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er6"
+	  SID			  "13976"
+	  Position		  [315, 1433, 400, 1447]
+	  ZOrder		  603
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "frame_time"
 	}
 	Block {
 	  BlockType		  Goto
@@ -9932,25 +10883,59 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  Mux
+	  Name			  "Gyo\nAcc5"
+	  SID			  "13979"
+	  Ports			  [4, 1]
+	  Position		  [160, 1337, 165, 1423]
+	  ZOrder		  601
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Gyo\nAcc6"
+	  SID			  "13990"
+	  Ports			  [4, 1]
+	  Position		  [585, 1414, 590, 1521]
+	  ZOrder		  612
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Inputs		  "[4 2 1 1]"
+	  DisplayOption		  "bar"
+	}
+	Block {
 	  BlockType		  Demux
-	  Name			  "In_from_RS232_Demux"
-	  SID			  "9652"
+	  Name			  "In_from_Odroid_Demux"
+	  SID			  "13980"
 	  Ports			  [1, 4]
-	  Position		  [80, 1095, 85, 1270]
-	  ZOrder		  -7
-	  ForegroundColor	  "green"
-	  Outputs		  "[3 3 4 1]"
+	  Position		  [-10, 1346, -5, 1594]
+	  ZOrder		  599
+	  ForegroundColor	  "red"
+	  Outputs		  "[16 8 2 2]"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "In_from_Teensy_Demux"
+	  SID			  "13930"
+	  Ports			  [1, 6]
+	  Position		  [-10, 1102, -5, 1278]
+	  ZOrder		  583
+	  ForegroundColor	  "red"
+	  Outputs		  "[6 6 6 4 4 1]"
 	  DisplayOption		  "bar"
 	}
 	Block {
 	  BlockType		  Demux
 	  Name			  "In_from_UDP_Demux"
 	  SID			  "9653"
-	  Ports			  [1, 9]
-	  Position		  [-15, 20, -10, 770]
+	  Ports			  [1, 10]
+	  Position		  [-15, 22, -10, 853]
 	  ZOrder		  -7
 	  ForegroundColor	  "green"
-	  Outputs		  "[1 10 17 4 36 24 2 2 10]"
+	  Outputs		  "[1 10 17 4 36 24 1 2 10 12]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -10007,7 +10992,7 @@ Model {
 	  Name			  "Logical\nOperator1"
 	  SID			  "13800"
 	  Ports			  [1, 1]
-	  Position		  [200, 889, 225, 911]
+	  Position		  [200, 889, 220, 901]
 	  ZOrder		  551
 	  ShowName		  off
 	  Operator		  "NOT"
@@ -10028,6 +11013,13 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  ManualSwitch
+	  Name			  "Manual Switch"
+	  SID			  "14010"
+	  Position		  [2145, 1447, 2175, 1483]
+	  ZOrder		  633
+	}
+	Block {
 	  BlockType		  SubSystem
 	  Name			  "Manual_Controller"
 	  SID			  "9657"
@@ -10038,8 +11030,8 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Manual_Controller"
-	    Location		    [-8, 0, 1928, 1056]
-	    Open		    off
+	    Location		    [-1688, 30, 8, 1096]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -10144,8 +11136,8 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"RX Angles Ref \nGenerator"
-		Location		[132, 267, 618, 1340]
-		Open			off
+		Location		[-1688, 30, 8, 1096]
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -10207,7 +11199,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    73
+		    $ObjectID		    87
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -10215,42 +11207,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    74
+		    $ObjectID		    88
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    75
+		    $ObjectID		    89
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    76
+		    $ObjectID		    90
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    77
+		    $ObjectID		    91
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    78
+		    $ObjectID		    92
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    79
+		    $ObjectID		    93
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -10258,7 +11250,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    80
+		    $ObjectID		    94
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -10393,7 +11385,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    81
+		    $ObjectID		    95
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -10401,42 +11393,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    82
+		    $ObjectID		    96
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    83
+		    $ObjectID		    97
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    84
+		    $ObjectID		    98
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    85
+		    $ObjectID		    99
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    86
+		    $ObjectID		    100
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "20*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    87
+		    $ObjectID		    101
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -10444,7 +11436,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    88
+		    $ObjectID		    102
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -10579,7 +11571,7 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    89
+		    $ObjectID		    103
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput-2*DeadZone);\nBias_Scale = MinInput+(MaxIn"
 		    "put-MinInput)/2;"
@@ -10587,42 +11579,42 @@ Model {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    7
 		    Object {
-		    $ObjectID		    90
+		    $ObjectID		    104
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    91
+		    $ObjectID		    105
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    92
+		    $ObjectID		    106
 		    Type		    "edit"
 		    Name		    "DeadZone"
 		    Prompt		    "Dead Zone"
 		    Value		    "10"
 		    }
 		    Object {
-		    $ObjectID		    93
+		    $ObjectID		    107
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "-30*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    94
+		    $ObjectID		    108
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "30*pi/180"
 		    }
 		    Object {
-		    $ObjectID		    95
+		    $ObjectID		    109
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -10630,7 +11622,7 @@ Model {
 		    Visible		    "off"
 		    }
 		    Object {
-		    $ObjectID		    96
+		    $ObjectID		    110
 		    Type		    "edit"
 		    Name		    "BiasScale"
 		    Prompt		    "Bias_Scale"
@@ -10765,42 +11757,42 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    97
+		    $ObjectID		    111
 		    $ClassName		    "Simulink.Mask"
 		    Initialization	    "Gscale = (MaxOutput-MinOutput)/(MaxInput-MinInput);"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    5
 		    Object {
-		    $ObjectID		    98
+		    $ObjectID		    112
 		    Type		    "edit"
 		    Name		    "MinInput"
 		    Prompt		    "Minimum Input"
 		    Value		    "1000"
 		    }
 		    Object {
-		    $ObjectID		    99
+		    $ObjectID		    113
 		    Type		    "edit"
 		    Name		    "MaxInput"
 		    Prompt		    "Maximum Input"
 		    Value		    "2000"
 		    }
 		    Object {
-		    $ObjectID		    100
+		    $ObjectID		    114
 		    Type		    "edit"
 		    Name		    "MinOutput"
 		    Prompt		    "Minimum Output"
 		    Value		    "0*m*g"
 		    }
 		    Object {
-		    $ObjectID		    101
+		    $ObjectID		    115
 		    Type		    "edit"
 		    Name		    "MaxOutput"
 		    Prompt		    "Maximum Output"
 		    Value		    "1.3*m*g"
 		    }
 		    Object {
-		    $ObjectID		    102
+		    $ObjectID		    116
 		    Type		    "edit"
 		    Name		    "G_Scale"
 		    Prompt		    "G_Scale"
@@ -10812,8 +11804,8 @@ Model {
 		  }
 		  System {
 		    Name		    "Rescale2\nThrottle"
-		    Location		    [81, 52, 1869, 1359]
-		    Open		    off
+		    Location		    [-1688, 30, 8, 1096]
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -11203,377 +12195,25 @@ Model {
 	}
 	Block {
 	  BlockType		  Mux
-	  Name			  "Out_to_UDP_Mux"
-	  SID			  "9708"
-	  Ports			  [12, 1]
-	  Position		  [2145, -10, 2150, 830]
-	  ZOrder		  -16
+	  Name			  "Out_from_Odroid_Demux"
+	  SID			  "13969"
+	  Ports			  [3, 1]
+	  Position		  [2090, 1502, 2095, 1678]
+	  ZOrder		  591
 	  ForegroundColor	  "red"
-	  Inputs		  "[1 1 9 10 15 15 11 18 3 22 11 3]"
+	  Inputs		  "[2 24 22]"
 	  DisplayOption		  "bar"
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "PWM/deg convert"
-	  SID			  "13863"
-	  Ports			  [2, 2]
-	  Position		  [125, 515, 225, 615]
-	  ZOrder		  -266
-	  RequestExecContextInheritance	off
-	  Variant		  off
-	  System {
-	    Name		    "PWM/deg convert"
-	    Location		    [-8, 1, 1914, 1056]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "200"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Mode"
-	      SID		      "13864"
-	      Position		      [10, 13, 40, 27]
-	      ZOrder		      290
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Value"
-	      SID		      "13865"
-	      Position		      [10, 118, 40, 132]
-	      ZOrder		      291
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Switch
-	      Name		      "Mode folding"
-	      SID		      "10345"
-	      Position		      [275, 52, 325, 138]
-	      ZOrder		      286
-	      Criteria		      "u2 > Threshold"
-	      InputSameDT	      off
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Switch
-	      Name		      "Mode folding1"
-	      SID		      "10405"
-	      Position		      [275, 185, 325, 275]
-	      ZOrder		      288
-	      Criteria		      "u2 > Threshold"
-	      InputSameDT	      off
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      SubSystem
-	      Name		      "PWM to gamma"
-	      SID		      "10406"
-	      Ports		      [1, 1]
-	      Position		      [100, 248, 215, 272]
-	      ZOrder		      289
-	      ForegroundColor	      "red"
-	      NamePlacement	      "alternate"
-	      RequestExecContextInheritance off
-	      Variant		      off
-	      System {
-		Name			"PWM to gamma"
-		Location		[-8, 0, 1928, 1056]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"175"
-		Block {
-		  BlockType		  Inport
-		  Name			  "PWM [in %]"
-		  SID			  "10407"
-		  Position		  [-95, 113, -65, 127]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Bias
-		  Name			  "Bias"
-		  SID			  "10408"
-		  Position		  [-15, 102, 55, 138]
-		  ZOrder		  14
-		  Bias			  "-dc_open"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Gain
-		  Name			  "Gain"
-		  SID			  "10409"
-		  Position		  [120, 64, 300, 176]
-		  ZOrder		  11
-		  Gain			  "gamma_max/(dc_close-dc_open)"
-		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Saturate
-		  Name			  "Saturation"
-		  SID			  "10410"
-		  Ports			  [1, 1]
-		  Position		  [365, 105, 395, 135]
-		  ZOrder		  13
-		  InputPortMap		  "u0"
-		  UpperLimit		  "gamma_max"
-		  LowerLimit		  "0"
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "gamma [deg]"
-		  SID			  "10411"
-		  Position		  [470, 113, 500, 127]
-		  ZOrder		  10
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  "PWM [in %]"
-		  SrcPort		  1
-		  DstBlock		  "Bias"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  6
-		  SrcBlock		  "Gain"
-		  SrcPort		  1
-		  DstBlock		  "Saturation"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  "Saturation"
-		  SrcPort		  1
-		  DstBlock		  "gamma [deg]"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  5
-		  SrcBlock		  "Bias"
-		  SrcPort		  1
-		  DstBlock		  "Gain"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Block {
-	      BlockType		      SubSystem
-	      Name		      "gamma to PWM"
-	      SID		      "10318"
-	      Ports		      [1, 1]
-	      Position		      [105, 53, 210, 77]
-	      ZOrder		      271
-	      ForegroundColor	      "red"
-	      NamePlacement	      "alternate"
-	      RequestExecContextInheritance off
-	      Variant		      off
-	      System {
-		Name			"gamma to PWM"
-		Location		[-1928, 0, 8, 1096]
-		Open			on
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"175"
-		Block {
-		  BlockType		  Inport
-		  Name			  "gamma [deg]"
-		  SID			  "10319"
-		  Position		  [15, 113, 45, 127]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Bias
-		  Name			  "Bias"
-		  SID			  "10320"
-		  Position		  [265, 102, 335, 138]
-		  ZOrder		  12
-		  Bias			  "dc_open"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Gain
-		  Name			  "Gain"
-		  SID			  "10321"
-		  Position		  [65, 64, 245, 176]
-		  ZOrder		  11
-		  Gain			  "(dc_close-dc_open)/gamma_max"
-		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Saturate
-		  Name			  "Saturation"
-		  SID			  "10322"
-		  Ports			  [1, 1]
-		  Position		  [365, 105, 395, 135]
-		  ZOrder		  13
-		  InputPortMap		  "u0"
-		  UpperLimit		  "max(dc_close,dc_open)"
-		  LowerLimit		  "min(dc_close,dc_open)"
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "PWM [in %]"
-		  SID			  "10323"
-		  Position		  [470, 113, 500, 127]
-		  ZOrder		  10
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  ZOrder		  1
-		  SrcBlock		  "gamma [deg]"
-		  SrcPort		  1
-		  DstBlock		  "Gain"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  2
-		  SrcBlock		  "Bias"
-		  SrcPort		  1
-		  DstBlock		  "Saturation"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  3
-		  SrcBlock		  "Gain"
-		  SrcPort		  1
-		  DstBlock		  "Bias"
-		  DstPort		  1
-		}
-		Line {
-		  ZOrder		  4
-		  SrcBlock		  "Saturation"
-		  SrcPort		  1
-		  DstBlock		  "PWM [in %]"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "PWM [in %]"
-	      SID		      "13866"
-	      Position		      [370, 88, 400, 102]
-	      ZOrder		      292
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "Gamma [deg]"
-	      SID		      "13867"
-	      Position		      [370, 223, 400, 237]
-	      ZOrder		      293
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      1456
-	      SrcBlock		      "Mode"
-	      SrcPort		      1
-	      Points		      [212, 0; 0, 75]
-	      Branch {
-		ZOrder			1471
-		Points			[0, 135]
-		DstBlock		"Mode folding1"
-		DstPort			2
-	      }
-	      Branch {
-		ZOrder			1455
-		DstBlock		"Mode folding"
-		DstPort			2
-	      }
-	    }
-	    Line {
-	      ZOrder		      1457
-	      SrcBlock		      "Value"
-	      SrcPort		      1
-	      Points		      [26, 0]
-	      Branch {
-		ZOrder			1467
-		Points			[0, -60]
-		DstBlock		"gamma to PWM"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			1469
-		Points			[0, 75]
-		Branch {
-		  ZOrder		  1473
-		  Points		  [0, 60]
-		  DstBlock		  "PWM to gamma"
-		  DstPort		  1
-		}
-		Branch {
-		  ZOrder		  865
-		  DstBlock		  "Mode folding1"
-		  DstPort		  1
-		}
-	      }
-	      Branch {
-		ZOrder			1465
-		DstBlock		"Mode folding"
-		DstPort			3
-	      }
-	    }
-	    Line {
-	      ZOrder		      1458
-	      SrcBlock		      "Mode folding"
-	      SrcPort		      1
-	      DstBlock		      "PWM [in %]"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      821
-	      SrcBlock		      "gamma to PWM"
-	      SrcPort		      1
-	      DstBlock		      "Mode folding"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      1459
-	      SrcBlock		      "Mode folding1"
-	      SrcPort		      1
-	      DstBlock		      "Gamma [deg]"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      862
-	      SrcBlock		      "PWM to gamma"
-	      SrcPort		      1
-	      DstBlock		      "Mode folding1"
-	      DstPort		      3
-	    }
-	  }
+	  BlockType		  Mux
+	  Name			  "Out_to_UDP_Mux"
+	  SID			  "9708"
+	  Ports			  [13, 1]
+	  Position		  [2145, -15, 2150, 905]
+	  ZOrder		  -16
+	  ForegroundColor	  "red"
+	  Inputs		  "[1 1 9 10 15 15 11 18 3 22 11 3 8]"
+	  DisplayOption		  "bar"
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -11588,7 +12228,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Positioning\nMode"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11600,7 +12240,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "X_ref"
@@ -11706,8 +12346,8 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"ClosedLoop\nPosition SetPoint Generator"
-		Location		[-1928, 0, 8, 1096]
-		Open			on
+		Location		[-1688, 22, 8, 1088]
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11818,6 +12458,17 @@ Model {
 		}
 		Block {
 		  BlockType		  From
+		  Name			  "From_Theta_r_phys10"
+		  SID			  "13922"
+		  Position		  [30, -357, 140, -343]
+		  ZOrder		  896
+		  ForegroundColor	  "red"
+		  BackgroundColor	  "lightBlue"
+		  ShowName		  off
+		  GotoTag		  "Folding_scenario_ON"
+		}
+		Block {
+		  BlockType		  From
 		  Name			  "From_Theta_r_phys2"
 		  SID			  "11479"
 		  Position		  [125, -177, 205, -163]
@@ -11915,6 +12566,504 @@ Model {
 		  GotoTag		  "Psi_ref"
 		}
 		Block {
+		  BlockType		  From
+		  Name			  "From_Theta_r_phys8"
+		  SID			  "13920"
+		  Position		  [565, -327, 645, -313]
+		  ZOrder		  894
+		  ForegroundColor	  "red"
+		  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
+		  ShowName		  off
+		  GotoTag		  "Psi_ref"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From_Theta_r_phys9"
+		  SID			  "13921"
+		  Position		  [125, -417, 205, -403]
+		  ZOrder		  895
+		  ForegroundColor	  "red"
+		  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
+		  ShowName		  off
+		  GotoTag		  "X_ref"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Full TrajGen"
+		  SID			  "13880"
+		  Ports			  [3, 3]
+		  Position		  [305, -423, 450, -337]
+		  ZOrder		  890
+		  RequestExecContextInheritance	off
+		  Variant		  off
+		  Object {
+		    $PropName		    "MaskObject"
+		    $ObjectID		    117
+		    $ClassName		    "Simulink.Mask"
+		    Array {
+		    Type		    "Simulink.MaskParameter"
+		    Dimension		    8
+		    Object {
+		    $ObjectID		    118
+		    Type		    "edit"
+		    Name		    "Tau"
+		    Prompt		    "Tau"
+		    Value		    "[3/6 3/6 5/6]'"
+		    }
+		    Object {
+		    $ObjectID		    119
+		    Type		    "edit"
+		    Name		    "Ts_Filter"
+		    Prompt		    "Ts"
+		    Value		    "Ts_PositionLoop"
+		    }
+		    Object {
+		    $ObjectID		    120
+		    Type		    "edit"
+		    Name		    "Xmax"
+		    Prompt		    "Pos max"
+		    Value		    "PositionMax"
+		    }
+		    Object {
+		    $ObjectID		    121
+		    Type		    "edit"
+		    Name		    "Xmin"
+		    Prompt		    "Pos min"
+		    Value		    "PositionMin"
+		    }
+		    Object {
+		    $ObjectID		    122
+		    Type		    "edit"
+		    Name		    "Smax"
+		    Prompt		    "Speed max"
+		    Value		    "SpeedMax"
+		    }
+		    Object {
+		    $ObjectID		    123
+		    Type		    "edit"
+		    Name		    "Smin"
+		    Prompt		    "Speed min"
+		    Value		    "SpeedMin"
+		    }
+		    Object {
+		    $ObjectID		    124
+		    Type		    "edit"
+		    Name		    "Amax"
+		    Prompt		    "Acc max"
+		    Value		    "AccMax"
+		    }
+		    Object {
+		    $ObjectID		    125
+		    Type		    "edit"
+		    Name		    "Amin"
+		    Prompt		    "Acc min"
+		    Value		    "AccMin"
+		    }
+		    PropName		    "Parameters"
+		    }
+		  }
+		  System {
+		    Name		    "Full TrajGen"
+		    Location		    [-1688, 30, 8, 1096]
+		    Open		    on
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "A4"
+		    PaperUnits		    "centimeters"
+		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "150"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Ref"
+		    SID			    "13881"
+		    Position		    [45, 153, 75, 167]
+		    ZOrder		    -1
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "X0"
+		    SID			    "13882"
+		    Position		    [600, 243, 630, 257]
+		    ZOrder		    -2
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Reset with X0"
+		    SID			    "13883"
+		    Position		    [250, 213, 280, 227]
+		    ZOrder		    48
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Add"
+		    SID			    "13884"
+		    Ports		    [2, 1]
+		    Position		    [240, 152, 270, 183]
+		    ZOrder		    -2
+		    Inputs		    "+-"
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Gain"
+		    SID			    "13885"
+		    Position		    [500, 213, 575, 267]
+		    ZOrder		    -11
+		    BlockMirror		    on
+		    NamePlacement	    "alternate"
+		    ShowName		    off
+		    Gain		    "2*Tau.^2"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Gain1"
+		    SID			    "13886"
+		    Position		    [500, 288, 575, 342]
+		    ZOrder		    -11
+		    BlockMirror		    on
+		    NamePlacement	    "alternate"
+		    ShowName		    off
+		    Gain		    "3*Tau"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Gain3"
+		    SID			    "13887"
+		    Position		    [330, 143, 405, 197]
+		    ZOrder		    -11
+		    ShowName		    off
+		    Gain		    "1./Tau.^3"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    RateTransition
+		    Name		    "Rate Transition3"
+		    SID			    "13888"
+		    Position		    [410, 206, 440, 234]
+		    ZOrder		    47
+		    ForegroundColor	    "orange"
+		    ShowName		    off
+		    Deterministic	    off
+		    }
+		    Block {
+		    BlockType		    Saturate
+		    Name		    "Saturation"
+		    SID			    "13889"
+		    Ports		    [1, 1]
+		    Position		    [115, 145, 145, 175]
+		    ZOrder		    -10
+		    InputPortMap	    "u0"
+		    UpperLimit		    "Xmax"
+		    LowerLimit		    "Xmin"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector1"
+		    SID			    "13890"
+		    Ports		    [1, 1]
+		    Position		    [730, 225, 770, 275]
+		    ZOrder		    -17
+		    ShowName		    off
+		    InputPortWidth	    "6"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[1 2 3]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Selector
+		    Name		    "Selector2"
+		    SID			    "13891"
+		    Ports		    [1, 1]
+		    Position		    [680, 185, 720, 235]
+		    ZOrder		    -17
+		    ShowName		    off
+		    InputPortWidth	    "6"
+		    IndexOptions	    "Index vector (dialog)"
+		    Indices		    "[4 5 6]"
+		    OutputSizes		    "1"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Sum"
+		    SID			    "13892"
+		    Ports		    [3, 1]
+		    Position		    [395, 300, 425, 330]
+		    ZOrder		    -32
+		    BlockMirror		    on
+		    NamePlacement	    "alternate"
+		    ShowName		    off
+		    IconShape		    "round"
+		    Inputs		    "+|+|+"
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    DiscreteIntegrator
+		    Name		    "dA"
+		    SID			    "13893"
+		    Ports		    [1, 1]
+		    Position		    [510, 149, 570, 191]
+		    ZOrder		    -10
+		    NamePlacement	    "alternate"
+		    SampleTime		    "Ts_Filter"
+		    LimitOutput		    on
+		    UpperSaturationLimit    "Amax"
+		    LowerSaturationLimit    "Amin"
+		    ICPrevOutput	    "DiscIntNeverNeededParam"
+		    ICPrevScaledInput	    "DiscIntNeverNeededParam"
+		    }
+		    Block {
+		    BlockType		    DiscreteIntegrator
+		    Name		    "dV"
+		    SID			    "13894"
+		    Ports		    [3, 1]
+		    Position		    [780, 157, 840, 223]
+		    ZOrder		    -10
+		    NamePlacement	    "alternate"
+		    ExternalReset	    "rising"
+		    InitialConditionSource  "external"
+		    SampleTime		    "Ts_Filter"
+		    LimitOutput		    on
+		    UpperSaturationLimit    "Smax"
+		    LowerSaturationLimit    "Smin"
+		    ICPrevOutput	    "DiscIntNeverNeededParam"
+		    ICPrevScaledInput	    "DiscIntNeverNeededParam"
+		    }
+		    Block {
+		    BlockType		    DiscreteIntegrator
+		    Name		    "dX"
+		    SID			    "13895"
+		    Ports		    [3, 1]
+		    Position		    [900, 173, 960, 267]
+		    ZOrder		    -10
+		    ExternalReset	    "rising"
+		    InitialConditionSource  "external"
+		    SampleTime		    "Ts_Filter"
+		    LimitOutput		    on
+		    UpperSaturationLimit    "Xmax"
+		    LowerSaturationLimit    "Xmin"
+		    ICPrevOutput	    "DiscIntNeverNeededParam"
+		    ICPrevScaledInput	    "DiscIntNeverNeededParam"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "X_ref"
+		    SID			    "13896"
+		    Position		    [1060, 213, 1090, 227]
+		    ZOrder		    -36
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "S_ref"
+		    SID			    "13897"
+		    Position		    [1015, 98, 1045, 112]
+		    ZOrder		    -37
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "A_ref"
+		    SID			    "13898"
+		    Position		    [1015, 23, 1045, 37]
+		    ZOrder		    -38
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    ZOrder		    1
+		    SrcBlock		    "Saturation"
+		    SrcPort		    1
+		    DstBlock		    "Add"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    2
+		    SrcBlock		    "Gain3"
+		    SrcPort		    1
+		    DstBlock		    "dA"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    3
+		    SrcBlock		    "Gain"
+		    SrcPort		    1
+		    Points		    [-85, 0]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    4
+		    SrcBlock		    "Gain1"
+		    SrcPort		    1
+		    DstBlock		    "Sum"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    5
+		    SrcBlock		    "Add"
+		    SrcPort		    1
+		    DstBlock		    "Gain3"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    6
+		    SrcBlock		    "dV"
+		    SrcPort		    1
+		    Points		    [0, 0]
+		    Branch {
+		    ZOrder		    7
+		    Points		    [0, -85]
+		    DstBlock		    "S_ref"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    8
+		    Points		    [0, 125]
+		    DstBlock		    "Gain1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    9
+		    DstBlock		    "dX"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    ZOrder		    10
+		    SrcBlock		    "dA"
+		    SrcPort		    1
+		    Points		    [60, 0]
+		    Branch {
+		    ZOrder		    11
+		    Points		    [0, -140]
+		    DstBlock		    "A_ref"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    12
+		    Points		    [0, 70]
+		    DstBlock		    "Gain"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    13
+		    DstBlock		    "dV"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    ZOrder		    14
+		    SrcBlock		    "dX"
+		    SrcPort		    1
+		    Points		    [25, 0]
+		    Branch {
+		    ZOrder		    15
+		    Points		    [0, 200; -580, 0]
+		    DstBlock		    "Sum"
+		    DstPort		    3
+		    }
+		    Branch {
+		    ZOrder		    16
+		    DstBlock		    "X_ref"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    ZOrder		    17
+		    SrcBlock		    "Ref"
+		    SrcPort		    1
+		    DstBlock		    "Saturation"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    18
+		    SrcBlock		    "Reset with X0"
+		    SrcPort		    1
+		    DstBlock		    "Rate Transition3"
+		    DstPort		    1
+		    }
+		    Line {
+		    ZOrder		    19
+		    SrcBlock		    "Sum"
+		    SrcPort		    1
+		    Points		    [-195, 0; 0, -140]
+		    DstBlock		    "Add"
+		    DstPort		    2
+		    }
+		    Line {
+		    ZOrder		    20
+		    SrcBlock		    "X0"
+		    SrcPort		    1
+		    Points		    [15, 0]
+		    Branch {
+		    ZOrder		    21
+		    DstBlock		    "Selector1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    22
+		    Points		    [0, -40]
+		    DstBlock		    "Selector2"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    ZOrder		    23
+		    SrcBlock		    "Selector1"
+		    SrcPort		    1
+		    DstBlock		    "dX"
+		    DstPort		    3
+		    }
+		    Line {
+		    ZOrder		    24
+		    SrcBlock		    "Selector2"
+		    SrcPort		    1
+		    DstBlock		    "dV"
+		    DstPort		    3
+		    }
+		    Line {
+		    ZOrder		    25
+		    SrcBlock		    "Rate Transition3"
+		    SrcPort		    1
+		    Points		    [170, 0]
+		    Branch {
+		    ZOrder		    27
+		    Points		    [0, -30]
+		    DstBlock		    "dV"
+		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    28
+		    DstBlock		    "dX"
+		    DstPort		    2
+		    }
+		    }
+		  }
+		}
+		Block {
 		  BlockType		  Goto
 		  Name			  "Goto15"
 		  SID			  "11457"
@@ -12002,6 +13151,24 @@ Model {
 		  DisplayOption		  "bar"
 		}
 		Block {
+		  BlockType		  Mux
+		  Name			  "Gyo\nAcc4"
+		  SID			  "13919"
+		  Ports			  [4, 1]
+		  Position		  [670, -424, 675, -306]
+		  ZOrder		  893
+		  ForegroundColor	  "red"
+		  ShowName		  off
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  ManualSwitch
+		  Name			  "Manual Switch"
+		  SID			  "13918"
+		  Position		  [1025, -88, 1055, -52]
+		  ZOrder		  892
+		}
+		Block {
 		  BlockType		  SubSystem
 		  Name			  "Normal TrajGen"
 		  SID			  "9718"
@@ -12012,62 +13179,62 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    103
+		    $ObjectID		    126
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    8
 		    Object {
-		    $ObjectID		    104
+		    $ObjectID		    127
 		    Type		    "edit"
 		    Name		    "Tau"
 		    Prompt		    "Tau"
 		    Value		    "[3/6 3/6 5/6]'"
 		    }
 		    Object {
-		    $ObjectID		    105
+		    $ObjectID		    128
 		    Type		    "edit"
 		    Name		    "Ts_Filter"
 		    Prompt		    "Ts"
 		    Value		    "Ts_PositionLoop"
 		    }
 		    Object {
-		    $ObjectID		    106
+		    $ObjectID		    129
 		    Type		    "edit"
 		    Name		    "Xmax"
 		    Prompt		    "Pos max"
 		    Value		    "PositionMax"
 		    }
 		    Object {
-		    $ObjectID		    107
+		    $ObjectID		    130
 		    Type		    "edit"
 		    Name		    "Xmin"
 		    Prompt		    "Pos min"
 		    Value		    "PositionMin"
 		    }
 		    Object {
-		    $ObjectID		    108
+		    $ObjectID		    131
 		    Type		    "edit"
 		    Name		    "Smax"
 		    Prompt		    "Speed max"
 		    Value		    "SpeedMax"
 		    }
 		    Object {
-		    $ObjectID		    109
+		    $ObjectID		    132
 		    Type		    "edit"
 		    Name		    "Smin"
 		    Prompt		    "Speed min"
 		    Value		    "SpeedMin"
 		    }
 		    Object {
-		    $ObjectID		    110
+		    $ObjectID		    133
 		    Type		    "edit"
 		    Name		    "Amax"
 		    Prompt		    "Acc max"
 		    Value		    "AccMax"
 		    }
 		    Object {
-		    $ObjectID		    111
+		    $ObjectID		    134
 		    Type		    "edit"
 		    Name		    "Amin"
 		    Prompt		    "Acc min"
@@ -12499,62 +13666,62 @@ Model {
 		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    112
+		    $ObjectID		    135
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    8
 		    Object {
-		    $ObjectID		    113
+		    $ObjectID		    136
 		    Type		    "edit"
 		    Name		    "Tau"
 		    Prompt		    "Tau"
 		    Value		    "[3/6 3/6 5/6]'"
 		    }
 		    Object {
-		    $ObjectID		    114
+		    $ObjectID		    137
 		    Type		    "edit"
 		    Name		    "Ts_Filter"
 		    Prompt		    "Ts"
 		    Value		    "Ts_PositionLoop"
 		    }
 		    Object {
-		    $ObjectID		    115
+		    $ObjectID		    138
 		    Type		    "edit"
 		    Name		    "Xmax"
 		    Prompt		    "Pos max"
 		    Value		    "PositionMax"
 		    }
 		    Object {
-		    $ObjectID		    116
+		    $ObjectID		    139
 		    Type		    "edit"
 		    Name		    "Xmin"
 		    Prompt		    "Pos min"
 		    Value		    "PositionMin"
 		    }
 		    Object {
-		    $ObjectID		    117
+		    $ObjectID		    140
 		    Type		    "edit"
 		    Name		    "Smax"
 		    Prompt		    "Speed max"
 		    Value		    "SpeedMaxScenario"
 		    }
 		    Object {
-		    $ObjectID		    118
+		    $ObjectID		    141
 		    Type		    "edit"
 		    Name		    "Smin"
 		    Prompt		    "Speed min"
 		    Value		    "SpeedMinScenario"
 		    }
 		    Object {
-		    $ObjectID		    119
+		    $ObjectID		    142
 		    Type		    "edit"
 		    Name		    "Amax"
 		    Prompt		    "Acc max"
 		    Value		    "AccMaxScenario"
 		    }
 		    Object {
-		    $ObjectID		    120
+		    $ObjectID		    143
 		    Type		    "edit"
 		    Name		    "Amin"
 		    Prompt		    "Acc min"
@@ -12565,7 +13732,7 @@ Model {
 		  }
 		  System {
 		    Name		    "Scenario TrajGen"
-		    Location		    [-1928, 0, 8, 1096]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -13019,7 +14186,7 @@ Model {
 		  BlockType		  Outport
 		  Name			  "X_ref_FF"
 		  SID			  "9764"
-		  Position		  [1025, 193, 1055, 207]
+		  Position		  [1155, -77, 1185, -63]
 		  ZOrder		  397
 		  IconDisplay		  "Port number"
 		}
@@ -13094,13 +14261,6 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  36
-		  SrcBlock		  "Switch"
-		  SrcPort		  1
-		  DstBlock		  "X_ref_FF"
-		  DstPort		  1
-		}
-		Line {
 		  ZOrder		  37
 		  SrcBlock		  "Gyo\nAcc3"
 		  SrcPort		  1
@@ -13150,8 +14310,17 @@ Model {
 		  Branch {
 		    ZOrder		    122
 		    Points		    [0, -340]
+		    Branch {
+		    ZOrder		    167
+		    Points		    [0, -240]
+		    DstBlock		    "Full TrajGen"
+		    DstPort		    2
+		    }
+		    Branch {
+		    ZOrder		    166
 		    DstBlock		    "Scenario TrajGen"
 		    DstPort		    2
+		    }
 		  }
 		  Branch {
 		    ZOrder		    121
@@ -13272,6 +14441,71 @@ Model {
 		  DstBlock		  "Gyo\nAcc2"
 		  DstPort		  4
 		}
+		Line {
+		  ZOrder		  158
+		  SrcBlock		  "Manual Switch"
+		  SrcPort		  1
+		  DstBlock		  "X_ref_FF"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  159
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  Points		  [13, 0; 0, -260]
+		  DstBlock		  "Manual Switch"
+		  DstPort		  2
+		}
+		Line {
+		  ZOrder		  160
+		  SrcBlock		  "Full TrajGen"
+		  SrcPort		  1
+		  DstBlock		  "Gyo\nAcc4"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  161
+		  SrcBlock		  "Full TrajGen"
+		  SrcPort		  2
+		  DstBlock		  "Gyo\nAcc4"
+		  DstPort		  2
+		}
+		Line {
+		  ZOrder		  162
+		  SrcBlock		  "Full TrajGen"
+		  SrcPort		  3
+		  DstBlock		  "Gyo\nAcc4"
+		  DstPort		  3
+		}
+		Line {
+		  ZOrder		  163
+		  SrcBlock		  "Gyo\nAcc4"
+		  SrcPort		  1
+		  Points		  [313, 0; 0, 285]
+		  DstBlock		  "Manual Switch"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  164
+		  SrcBlock		  "From_Theta_r_phys8"
+		  SrcPort		  1
+		  DstBlock		  "Gyo\nAcc4"
+		  DstPort		  4
+		}
+		Line {
+		  ZOrder		  165
+		  SrcBlock		  "From_Theta_r_phys9"
+		  SrcPort		  1
+		  DstBlock		  "Full TrajGen"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  169
+		  SrcBlock		  "From_Theta_r_phys10"
+		  SrcPort		  1
+		  DstBlock		  "Full TrajGen"
+		  DstPort		  3
+		}
 	      }
 	    }
 	    Block {
@@ -13368,7 +14602,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "9765::8829"
-		  Tag			  "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 50"
+		  Tag			  "Stateflow S-Function COM_ViconController 50"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
 		  ZOrder		  4
@@ -16564,20 +17798,20 @@ Model {
 		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    121
+		    $ObjectID		    144
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    122
+		    $ObjectID		    145
 		    Type		    "edit"
 		    Name		    "Max_Sat"
 		    Prompt		    "Max_Sat"
 		    Value		    "20*pi/180*9.81"
 		    }
 		    Object {
-		    $ObjectID		    123
+		    $ObjectID		    146
 		    Type		    "edit"
 		    Name		    "Min_Sat"
 		    Prompt		    "Min_Sat"
@@ -16588,7 +17822,7 @@ Model {
 		    }
 		    System {
 		    Name		    "PDX"
-		    Location		    [-1928, 0, 8, 1096]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -17187,20 +18421,20 @@ Model {
 		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    124
+		    $ObjectID		    147
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    125
+		    $ObjectID		    148
 		    Type		    "edit"
 		    Name		    "Max_Sat"
 		    Prompt		    "Max_Sat"
 		    Value		    "20*pi/180*9.81"
 		    }
 		    Object {
-		    $ObjectID		    126
+		    $ObjectID		    149
 		    Type		    "edit"
 		    Name		    "Min_Sat"
 		    Prompt		    "Min_Sat"
@@ -17812,20 +19046,20 @@ Model {
 		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    127
+		    $ObjectID		    150
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    2
 		    Object {
-		    $ObjectID		    128
+		    $ObjectID		    151
 		    Type		    "edit"
 		    Name		    "Max_Sat"
 		    Prompt		    "Max_Sat"
 		    Value		    "Tmax*g*4"
 		    }
 		    Object {
-		    $ObjectID		    129
+		    $ObjectID		    152
 		    Type		    "edit"
 		    Name		    "Min_Sat"
 		    Prompt		    "Min_Sat"
@@ -19923,7 +21157,7 @@ Model {
 		  Variant		  off
 		  System {
 		    Name		    "Recovery state machine"
-		    Location		    [-8, 0, 1928, 1056]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -20096,7 +21330,7 @@ Model {
 		    Variant		    off
 		    System {
 		    Name		    "State machine"
-		    Location		    [-8, 0, 1928, 1056]
+		    Location		    [-1688, 30, 8, 1096]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -24490,7 +25724,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition10"
 	  SID			  "10068"
-	  Position		  [690, 679, 720, 701]
+	  Position		  [695, 709, 725, 731]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24501,7 +25735,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition11"
 	  SID			  "10069"
-	  Position		  [690, 719, 720, 741]
+	  Position		  [695, 754, 725, 776]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24512,7 +25746,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition12"
 	  SID			  "10242"
-	  Position		  [690, 759, 720, 781]
+	  Position		  [690, 799, 720, 821]
 	  ZOrder		  51
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24523,7 +25757,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition13"
 	  SID			  "10243"
-	  Position		  [690, 799, 720, 821]
+	  Position		  [690, 844, 720, 866]
 	  ZOrder		  50
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24587,7 +25821,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition19"
 	  SID			  "10075"
-	  Position		  [1265, 679, 1290, 701]
+	  Position		  [1265, 684, 1290, 706]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24660,7 +25894,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition25"
 	  SID			  "10080"
-	  Position		  [1880, 14, 1910, 36]
+	  Position		  [1925, 14, 1955, 36]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24702,7 +25936,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition29"
 	  SID			  "10336"
-	  Position		  [970, 653, 1000, 677]
+	  Position		  [980, 658, 1010, 682]
 	  ZOrder		  278
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24796,7 +26030,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition37"
 	  SID			  "10091"
-	  Position		  [1765, 959, 1795, 981]
+	  Position		  [1755, 1144, 1785, 1166]
 	  ZOrder		  32
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24897,7 +26131,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition46"
 	  SID			  "13016"
-	  Position		  [690, 919, 720, 941]
+	  Position		  [690, 979, 720, 1001]
 	  ZOrder		  426
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24908,7 +26142,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition47"
 	  SID			  "11821"
-	  Position		  [690, 839, 720, 861]
+	  Position		  [690, 889, 720, 911]
 	  ZOrder		  392
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24919,7 +26153,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition48"
 	  SID			  "11829"
-	  Position		  [690, 879, 720, 901]
+	  Position		  [690, 934, 720, 956]
 	  ZOrder		  398
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -24950,31 +26184,9 @@ Model {
 	}
 	Block {
 	  BlockType		  RateTransition
-	  Name			  "Rate Transition50"
-	  SID			  "13324"
-	  Position		  [690, 959, 720, 981]
-	  ZOrder		  478
-	  ForegroundColor	  "red"
-	  ShowName		  off
-	  Deterministic		  off
-	  OutPortSampleTime	  "Ts_AttitudeLoop"
-	}
-	Block {
-	  BlockType		  RateTransition
-	  Name			  "Rate Transition51"
-	  SID			  "13354"
-	  Position		  [690, 999, 720, 1021]
-	  ZOrder		  480
-	  ForegroundColor	  "red"
-	  ShowName		  off
-	  Deterministic		  off
-	  OutPortSampleTime	  "Ts_AttitudeLoop"
-	}
-	Block {
-	  BlockType		  RateTransition
 	  Name			  "Rate Transition52"
 	  SID			  "13500"
-	  Position		  [690, 1039, 720, 1061]
+	  Position		  [690, 1024, 720, 1046]
 	  ZOrder		  488
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25059,7 +26271,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition6"
 	  SID			  "10103"
-	  Position		  [690, 599, 720, 621]
+	  Position		  [695, 619, 725, 641]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25080,7 +26292,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition61"
 	  SID			  "13788"
-	  Position		  [1765, 934, 1795, 956]
+	  Position		  [1755, 1119, 1785, 1141]
 	  ZOrder		  539
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25132,6 +26344,26 @@ Model {
 	}
 	Block {
 	  BlockType		  RateTransition
+	  Name			  "Rate Transition66"
+	  SID			  "13999"
+	  Position		  [2050, 854, 2080, 876]
+	  ZOrder		  621
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Deterministic		  off
+	}
+	Block {
+	  BlockType		  RateTransition
+	  Name			  "Rate Transition67"
+	  SID			  "14015"
+	  Position		  [1995, 1444, 2025, 1466]
+	  ZOrder		  638
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Deterministic		  off
+	}
+	Block {
+	  BlockType		  RateTransition
 	  Name			  "Rate Transition68"
 	  SID			  "10105"
 	  Position		  [410, 344, 440, 366]
@@ -25165,7 +26397,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition9"
 	  SID			  "10107"
-	  Position		  [690, 639, 720, 661]
+	  Position		  [695, 664, 725, 686]
 	  ZOrder		  -10
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25191,8 +26423,9 @@ Model {
 	  Name			  "Selector"
 	  SID			  "13859"
 	  Ports			  [1, 1]
-	  Position		  [85, 776, 125, 814]
+	  Position		  [85, 780, 120, 790]
 	  ZOrder		  572
+	  ShowName		  off
 	  InputPortWidth	  "5"
 	  IndexOptions		  "Index vector (dialog)"
 	  Indices		  "1"
@@ -25210,6 +26443,28 @@ Model {
 	  IndexOptions		  "Index vector (dialog)"
 	  Indices		  "[3]"
 	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Sub_angles"
+	  SID			  "13981"
+	  Ports			  [1, 4]
+	  Position		  [15, 1341, 20, 1419]
+	  ZOrder		  600
+	  ForegroundColor	  "red"
+	  NamePlacement		  "alternate"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "T_poll_ms"
+	  SID			  "13970"
+	  Position		  [1850, 1523, 1900, 1537]
+	  ZOrder		  593
+	  ForegroundColor	  "orange"
+	  Value			  "5"
+	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
+	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Terminator
@@ -25253,7 +26508,7 @@ Model {
 	  BlockType		  DataTypeConversion
 	  Name			  "To single3"
 	  SID			  "10114"
-	  Position		  [1870, 951, 1920, 989]
+	  Position		  [1860, 1136, 1910, 1174]
 	  ZOrder		  31
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25264,7 +26519,7 @@ Model {
 	  BlockType		  DataTypeConversion
 	  Name			  "To single4"
 	  SID			  "13791"
-	  Position		  [1870, 926, 1920, 964]
+	  Position		  [1860, 1111, 1910, 1149]
 	  ZOrder		  542
 	  ForegroundColor	  "red"
 	  ShowName		  off
@@ -25276,13 +26531,13 @@ Model {
 	  Name			  "Torques \nDisturbances"
 	  SID			  "10115"
 	  Ports			  [2, 2]
-	  Position		  [1305, 609, 1445, 716]
+	  Position		  [1305, 614, 1445, 721]
 	  ZOrder		  -179
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Torques \nDisturbances"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -25626,7 +26881,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "10133::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 4"
+		    Tag			    "Stateflow S-Function COM_ViconController 4"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
 		    ZOrder		    4
@@ -25889,7 +27144,7 @@ Model {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
 		    SID			    "13455::8829"
-		    Tag			    "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 6"
+		    Tag			    "Stateflow S-Function COM_ViconController 6"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
 		    ZOrder		    4
@@ -26288,14 +27543,14 @@ Model {
 	  Name			  "Torques saturation"
 	  SID			  "10281"
 	  Ports			  [2, 2]
-	  Position		  [1020, 622, 1120, 678]
+	  Position		  [1020, 624, 1120, 686]
 	  ZOrder		  68
 	  NamePlacement		  "alternate"
 	  RequestExecContextInheritance	off
 	  Variant		  off
 	  System {
 	    Name		    "Torques saturation"
-	    Location		    [-1928, 0, 8, 1096]
+	    Location		    [-1688, 30, 8, 1096]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -26464,7 +27719,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "10305::22"
-		  Tag			  "Stateflow S-Function COM_ViconController_x4morf_quat_withRecov_posMod 11"
+		  Tag			  "Stateflow S-Function COM_ViconController 11"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
 		  ZOrder		  8
@@ -26859,6 +28114,54 @@ Model {
 	  Value			  "single(0)"
 	}
 	Block {
+	  BlockType		  Reference
+	  Name			  "float32 to uint8 (BE)"
+	  SID			  "14014"
+	  Ports			  [1, 1]
+	  Position		  [60, 811, 145, 829]
+	  ZOrder		  637
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "int16 to float (BE)"
+	  SID			  "13931"
+	  Ports			  [1, 1]
+	  Position		  [45, 1106, 130, 1124]
+	  ZOrder		  587
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "int16 to float (BE)1"
+	  SID			  "13932"
+	  Ports			  [1, 1]
+	  Position		  [45, 1136, 130, 1154]
+	  ZOrder		  588
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "int16 to float (BE)2"
+	  SID			  "13933"
+	  Ports			  [1, 1]
+	  Position		  [45, 1166, 130, 1184]
+	  ZOrder		  589
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/int16 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  "udp_received_from_gumstix\ndemux1"
 	  SID			  "10136"
@@ -26871,19 +28174,115 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  Reference
+	  Name			  "uint16 to uint8 (BE)"
+	  SID			  "13971"
+	  Ports			  [1, 1]
+	  Position		  [1965, 1521, 2050, 1539]
+	  ZOrder		  596
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)"
+	  SID			  "13982"
+	  Ports			  [1, 1]
+	  Position		  [45, 1341, 130, 1359]
+	  ZOrder		  606
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)1"
+	  SID			  "13983"
+	  Ports			  [1, 1]
+	  Position		  [45, 1361, 130, 1379]
+	  ZOrder		  607
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)2"
+	  SID			  "13984"
+	  Ports			  [1, 1]
+	  Position		  [45, 1381, 130, 1399]
+	  ZOrder		  608
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)3"
+	  SID			  "13985"
+	  Ports			  [1, 1]
+	  Position		  [45, 1401, 130, 1419]
+	  ZOrder		  609
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to uint16 (BE)"
+	  SID			  "13986"
+	  Ports			  [1, 1]
+	  Position		  [45, 1491, 130, 1509]
+	  ZOrder		  610
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to uint16 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to uint16 (BE)1"
+	  SID			  "13987"
+	  Ports			  [1, 1]
+	  Position		  [45, 1551, 130, 1569]
+	  ZOrder		  611
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to uint16 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to uint32 (BE)"
+	  SID			  "14003"
+	  Ports			  [1, 1]
+	  Position		  [45, 1431, 130, 1449]
+	  ZOrder		  625
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to uint32 (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "Out_to_UDP"
 	  SID			  "10137"
-	  Position		  [2200, 403, 2230, 417]
+	  Position		  [2200, 438, 2230, 452]
 	  ZOrder		  -181
 	  ForegroundColor	  "red"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "Out_to_RS232"
+	  Name			  "Out_to_Teensy"
 	  SID			  "10138"
-	  Position		  [2210, 903, 2240, 917]
+	  Position		  [2200, 1088, 2230, 1102]
 	  ZOrder		  -182
 	  ForegroundColor	  "red"
 	  Port			  "2"
@@ -26893,10 +28292,20 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out_to_PWM"
 	  SID			  "10139"
-	  Position		  [2210, 953, 2240, 967]
+	  Position		  [2200, 1138, 2230, 1152]
 	  ZOrder		  33
 	  ForegroundColor	  "red"
 	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out_to_Odroid"
+	  SID			  "13973"
+	  Position		  [2200, 1458, 2230, 1472]
+	  ZOrder		  590
+	  ForegroundColor	  "red"
+	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -26907,42 +28316,11 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  2
-	  SrcBlock		  "In_from_RS232"
-	  SrcPort		  1
-	  DstBlock		  "Data Type Conversion"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  3
 	  SrcBlock		  "In_from_UDP"
 	  SrcPort		  1
 	  DstBlock		  "In_from_UDP_Demux"
 	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "In_from_RS232_Demux"
-	  SrcPort		  1
-	  DstBlock		  "Goto_Theta_er6"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Data Type Conversion"
-	  SrcPort		  1
-	  Points		  [5, 0]
-	  Branch {
-	    ZOrder		    1110
-	    Points		    [0, 155]
-	    DstBlock		    "Goto_Theta_er23"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    1109
-	    DstBlock		    "In_from_RS232_Demux"
-	    DstPort		    1
-	  }
 	}
 	Line {
 	  ZOrder		  6
@@ -27243,20 +28621,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  58
-	  SrcBlock		  "In_from_RS232_Demux"
-	  SrcPort		  2
-	  DstBlock		  "Goto_Theta_er1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  59
-	  SrcBlock		  "In_from_RS232_Demux"
-	  SrcPort		  3
-	  DstBlock		  "Goto_Theta_er31"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  60
 	  SrcBlock		  "From_Theta_r_phys50"
 	  SrcPort		  1
@@ -27433,13 +28797,6 @@ Model {
 	  DstPort		  4
 	}
 	Line {
-	  ZOrder		  88
-	  SrcBlock		  "In_from_RS232_Demux"
-	  SrcPort		  4
-	  DstBlock		  "Goto_Theta_er19"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  89
 	  SrcBlock		  "Rate Transition1"
 	  SrcPort		  1
@@ -27471,10 +28828,10 @@ Model {
 	  ZOrder		  93
 	  SrcBlock		  "Rate Transition6"
 	  SrcPort		  1
-	  Points		  [15, 0]
+	  Points		  [10, 0]
 	  Branch {
-	    ZOrder		    3017
-	    Points		    [0, -25; 506, 0; 0, -95]
+	    ZOrder		    3507
+	    Points		    [0, -45; 506, 0; 0, -95]
 	    DstBlock		    "Man/auto switch"
 	    DstPort		    1
 	  }
@@ -27918,8 +29275,8 @@ Model {
 	  SrcPort		  1
 	  Points		  [45, 0]
 	  Branch {
-	    ZOrder		    3019
-	    Points		    [0, -25]
+	    ZOrder		    3508
+	    Points		    [0, -30]
 	    DstBlock		    "Goto_Theta_er33"
 	    DstPort		    1
 	  }
@@ -27954,7 +29311,6 @@ Model {
 	  ZOrder		  640
 	  SrcBlock		  "Torques saturation"
 	  SrcPort		  2
-	  Points		  [1, 0; 0, 80]
 	  DstBlock		  "Convert1"
 	  DstPort		  1
 	}
@@ -27978,13 +29334,6 @@ Model {
 	  SrcBlock		  "Convert1"
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er18"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  811
-	  SrcBlock		  "In_from_UDP_Demux"
-	  SrcPort		  7
-	  DstBlock		  " "
 	  DstPort		  1
 	}
 	Line {
@@ -28279,7 +29628,7 @@ Model {
 	  ZOrder		  2118
 	  SrcBlock		  "Arena Security"
 	  SrcPort		  1
-	  DstBlock		  "Out_to_RS232"
+	  DstBlock		  "Out_to_Teensy"
 	  DstPort		  1
 	}
 	Line {
@@ -28288,34 +29637,6 @@ Model {
 	  SrcPort		  2
 	  DstBlock		  "Out_to_PWM"
 	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3280
-	  SrcBlock		  "From7"
-	  SrcPort		  1
-	  DstBlock		  "Rate Transition50"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2122
-	  SrcBlock		  "Rate Transition50"
-	  SrcPort		  1
-	  DstBlock		  "Attitude\ncontroller"
-	  DstPort		  10
-	}
-	Line {
-	  ZOrder		  2123
-	  SrcBlock		  "From_Theta_r_phys49"
-	  SrcPort		  1
-	  DstBlock		  "Rate Transition51"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2124
-	  SrcBlock		  "Rate Transition51"
-	  SrcPort		  1
-	  DstBlock		  "Attitude\ncontroller"
-	  DstPort		  11
 	}
 	Line {
 	  ZOrder		  2383
@@ -28351,7 +29672,7 @@ Model {
 	  SrcBlock		  "Rate Transition52"
 	  SrcPort		  1
 	  DstBlock		  "Attitude\ncontroller"
-	  DstPort		  12
+	  DstPort		  10
 	}
 	Line {
 	  ZOrder		  2489
@@ -28617,7 +29938,6 @@ Model {
 	  ZOrder		  2961
 	  SrcBlock		  "Logical\nOperator1"
 	  SrcPort		  1
-	  Points		  [15, 0; 0, -5]
 	  DstBlock		  "Logical\nOperator"
 	  DstPort		  2
 	}
@@ -28715,7 +30035,7 @@ Model {
 	  Points		  [13, 0]
 	  Branch {
 	    ZOrder		    3014
-	    Points		    [0, 60]
+	    Points		    [0, 50]
 	    DstBlock		    "Selector"
 	    DstPort		    1
 	  }
@@ -28740,31 +30060,10 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3020
-	  SrcBlock		  " "
-	  SrcPort		  1
-	  DstBlock		  "PWM/deg convert"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3021
-	  SrcBlock		  " "
-	  SrcPort		  2
-	  DstBlock		  "PWM/deg convert"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  3022
-	  SrcBlock		  "PWM/deg convert"
-	  SrcPort		  1
+	  ZOrder		  3513
+	  SrcBlock		  "In_from_UDP_Demux"
+	  SrcPort		  7
 	  DstBlock		  "Goto_Theta_er4"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3023
-	  SrcBlock		  "PWM/deg convert"
-	  SrcPort		  2
-	  DstBlock		  "Goto_Theta_er15"
 	  DstPort		  1
 	}
 	Line {
@@ -28795,6 +30094,363 @@ Model {
 	  DstBlock		  "Torques saturation"
 	  DstPort		  1
 	}
+	Line {
+	  ZOrder		  3379
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  1
+	  DstBlock		  "int16 to float (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3380
+	  SrcBlock		  "In_from_Teensy"
+	  SrcPort		  1
+	  DstBlock		  "In_from_Teensy_Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3381
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  2
+	  DstBlock		  "int16 to float (BE)1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3382
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  3
+	  DstBlock		  "int16 to float (BE)2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3383
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  5
+	  DstBlock		  "Convert3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3384
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  6
+	  DstBlock		  "Convert2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3385
+	  SrcBlock		  "int16 to float (BE)"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er54"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3386
+	  SrcBlock		  "int16 to float (BE)1"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er49"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3387
+	  SrcBlock		  "int16 to float (BE)2"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er51"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3388
+	  SrcBlock		  "In_from_Teensy_Demux"
+	  SrcPort		  4
+	  DstBlock		  "Goto_Theta_er52"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3390
+	  SrcBlock		  "T_poll_ms"
+	  SrcPort		  1
+	  DstBlock		  "uint16 to uint8 (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3465
+	  SrcBlock		  "DETECTOR_PARAMETERS"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  3392
+	  SrcBlock		  "CAMERA_PARAMETERS"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3393
+	  SrcBlock		  "uint16 to uint8 (BE)"
+	  SrcPort		  1
+	  DstBlock		  "Out_from_Odroid_Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3396
+	  SrcBlock		  "In_from_Odroid"
+	  SrcPort		  1
+	  DstBlock		  "In_from_Odroid_Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3397
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  1
+	  DstBlock		  "Sub_angles"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3398
+	  SrcBlock		  "Sub_angles"
+	  SrcPort		  1
+	  DstBlock		  "uint8 to float (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3399
+	  SrcBlock		  "Sub_angles"
+	  SrcPort		  2
+	  DstBlock		  "uint8 to float (BE)1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3400
+	  SrcBlock		  "Sub_angles"
+	  SrcPort		  3
+	  DstBlock		  "uint8 to float (BE)2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3401
+	  SrcBlock		  "Sub_angles"
+	  SrcPort		  4
+	  DstBlock		  "uint8 to float (BE)3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3402
+	  SrcBlock		  "uint8 to float (BE)"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3403
+	  SrcBlock		  "uint8 to float (BE)1"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc5"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3404
+	  SrcBlock		  "uint8 to float (BE)2"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc5"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  3405
+	  SrcBlock		  "uint8 to float (BE)3"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc5"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  3406
+	  SrcBlock		  "Gyo\nAcc5"
+	  SrcPort		  1
+	  Points		  [127, 0]
+	  Branch {
+	    ZOrder		    3415
+	    Points		    [0, 30; 133, 0; 0, 20]
+	    DstBlock		    "Gyo\nAcc6"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    3414
+	    DstBlock		    "Goto_Theta_er1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  3407
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  3
+	  DstBlock		  "uint8 to uint16 (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3408
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  4
+	  DstBlock		  "uint8 to uint16 (BE)1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3412
+	  SrcBlock		  "uint8 to uint16 (BE)1"
+	  SrcPort		  1
+	  Points		  [158, 0]
+	  Branch {
+	    ZOrder		    3423
+	    Points		    [0, -30; 134, 0; 0, -25]
+	    DstBlock		    "Data Type Conversion6"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    3422
+	    DstBlock		    "Goto_Theta_er23"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  3413
+	  SrcBlock		  "uint8 to uint16 (BE)"
+	  SrcPort		  1
+	  Points		  [161, 0]
+	  Branch {
+	    ZOrder		    3419
+	    Points		    [0, -20]
+	    DstBlock		    "Data Type Conversion5"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    3418
+	    DstBlock		    "Goto_Theta_er19"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  3448
+	  SrcBlock		  "Data Type Conversion5"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc6"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  3451
+	  SrcBlock		  "uint8 to uint32 (BE)"
+	  SrcPort		  1
+	  Points		  [160, 0]
+	  Branch {
+	    ZOrder		    3455
+	    Points		    [0, 15]
+	    DstBlock		    "Data Type Conversion7"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    3452
+	    DstBlock		    "Goto_Theta_er6"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  3436
+	  SrcBlock		  "From10"
+	  SrcPort		  1
+	  DstBlock		  "Rate Transition66"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3437
+	  SrcBlock		  "Rate Transition66"
+	  SrcPort		  1
+	  DstBlock		  "Out_to_UDP_Mux"
+	  DstPort		  13
+	}
+	Line {
+	  ZOrder		  3450
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  2
+	  DstBlock		  "uint8 to uint32 (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3449
+	  SrcBlock		  "Data Type Conversion6"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc6"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  3456
+	  SrcBlock		  "Data Type Conversion7"
+	  SrcPort		  1
+	  DstBlock		  "Gyo\nAcc6"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3458
+	  SrcBlock		  "Gyo\nAcc6"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er31"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3459
+	  SrcBlock		  "Convert2"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er50"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3460
+	  SrcBlock		  "Convert3"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er53"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3461
+	  SrcBlock		  "Manual Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out_to_Odroid"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3462
+	  SrcBlock		  "From15"
+	  SrcPort		  1
+	  DstBlock		  "Rate Transition67"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3463
+	  SrcBlock		  "Out_from_Odroid_Demux"
+	  SrcPort		  1
+	  Points		  [13, 0; 0, -115]
+	  DstBlock		  "Manual Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3464
+	  SrcBlock		  "In_from_UDP_Demux"
+	  SrcPort		  10
+	  DstBlock		  "float32 to uint8 (BE)"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3466
+	  SrcBlock		  "float32 to uint8 (BE)"
+	  SrcPort		  1
+	  Points		  [-5, 0]
+	  DstBlock		  "Goto_Theta_er55"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3467
+	  SrcBlock		  "Rate Transition67"
+	  SrcPort		  1
+	  DstBlock		  "Manual Switch"
+	  DstPort		  1
+	}
 	Annotation {
 	  SID			  "10140"
 	  Position		  [1572, 272, 1574, 287]
@@ -28816,7 +30472,7 @@ Model {
       Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		130
+	$ObjectID		153
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:14\n    ProcessConfigMask_COM(gcb, i);\nend"
 	Display			"image(imread('Configuration_v2.jpg'));"
@@ -28824,7 +30480,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  14
 	  Object {
-	    $ObjectID		    131
+	    $ObjectID		    154
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28841,7 +30497,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    132
+	    $ObjectID		    155
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28864,7 +30520,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    133
+	    $ObjectID		    156
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28881,7 +30537,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    134
+	    $ObjectID		    157
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28897,7 +30553,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    135
+	    $ObjectID		    158
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28913,7 +30569,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    136
+	    $ObjectID		    159
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28929,7 +30585,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    137
+	    $ObjectID		    160
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28945,7 +30601,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    138
+	    $ObjectID		    161
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28961,7 +30617,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    139
+	    $ObjectID		    162
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28977,7 +30633,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    140
+	    $ObjectID		    163
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -28994,7 +30650,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    141
+	    $ObjectID		    164
 	    Type		    "edit"
 	    Name		    "MaxTaskPriority"
 	    Prompt		    "Maximum Task Priority [1-99]"
@@ -29003,7 +30659,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    142
+	    $ObjectID		    165
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29019,7 +30675,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    143
+	    $ObjectID		    166
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29036,7 +30692,7 @@ Model {
 	    TabName		    "Hardware"
 	  }
 	  Object {
-	    $ObjectID		    144
+	    $ObjectID		    167
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29077,15 +30733,15 @@ Model {
       BlockType		      Outport
       Name		      "Out_to_Serial1"
       SID		      "8752"
-      Position		      [685, 405, 830, 505]
+      Position		      [685, 345, 830, 445]
       ZOrder		      -6
       IconDisplay	      "Port number"
       OutDataTypeStr	      "int16"
-      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
-      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
+      PortDimensions	      "Gumstix.RS232.Emission(2).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(2).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		145
+	$ObjectID		168
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:13\n    ProcessRS232OutportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Emission_Block;"
@@ -29093,7 +30749,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  13
 	  Object {
-	    $ObjectID		    146
+	    $ObjectID		    169
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
@@ -29102,7 +30758,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    147
+	    $ObjectID		    170
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29124,7 +30780,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    148
+	    $ObjectID		    171
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29156,7 +30812,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    149
+	    $ObjectID		    172
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29199,7 +30855,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    150
+	    $ObjectID		    173
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Sample Time [s]"
@@ -29208,7 +30864,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    151
+	    $ObjectID		    174
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29224,7 +30880,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    152
+	    $ObjectID		    175
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -29233,7 +30889,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    153
+	    $ObjectID		    176
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29250,7 +30906,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    154
+	    $ObjectID		    177
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -29259,7 +30915,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    155
+	    $ObjectID		    178
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -29269,7 +30925,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    156
+	    $ObjectID		    179
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29286,7 +30942,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    157
+	    $ObjectID		    180
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -29296,7 +30952,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    158
+	    $ObjectID		    181
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -29314,7 +30970,7 @@ Model {
       BlockType		      Outport
       Name		      "Out_to_UDP_1"
       SID		      "8828"
-      Position		      [675, 240, 840, 340]
+      Position		      [675, 220, 840, 320]
       ZOrder		      23
       Port		      "2"
       IconDisplay	      "Port number"
@@ -29323,7 +30979,7 @@ Model {
       SampleTime	      "Gumstix.UDP.Emission(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		159
+	$ObjectID		182
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:7\n    ProcessUDPOutportMask_COM(gcb, i);\nend"
 	Display			"Display_UDP_Emission_Block;"
@@ -29331,15 +30987,15 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  7
 	  Object {
-	    $ObjectID		    160
+	    $ObjectID		    183
 	    Type		    "edit"
 	    Name		    "UDP_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "119"
+	    Value		    "127"
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 1);"
 	  }
 	  Object {
-	    $ObjectID		    161
+	    $ObjectID		    184
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29360,7 +31016,7 @@ Model {
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 2);"
 	  }
 	  Object {
-	    $ObjectID		    162
+	    $ObjectID		    185
 	    Type		    "edit"
 	    Name		    "UDP_RemoteIPaddress"
 	    Prompt		    "remote peer's IP address (IPv4)"
@@ -29368,7 +31024,7 @@ Model {
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 3);"
 	  }
 	  Object {
-	    $ObjectID		    163
+	    $ObjectID		    186
 	    Type		    "edit"
 	    Name		    "UDP_RemotePort"
 	    Prompt		    "remote peer's Port (1023<port<65536)"
@@ -29376,7 +31032,7 @@ Model {
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 4);"
 	  }
 	  Object {
-	    $ObjectID		    164
+	    $ObjectID		    187
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29391,7 +31047,7 @@ Model {
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 5);"
 	  }
 	  Object {
-	    $ObjectID		    165
+	    $ObjectID		    188
 	    Type		    "edit"
 	    Name		    "UDP_LocalPort"
 	    Prompt		    "Local port to use"
@@ -29399,7 +31055,7 @@ Model {
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 6);"
 	  }
 	  Object {
-	    $ObjectID		    166
+	    $ObjectID		    189
 	    Type		    "edit"
 	    Name		    "UDP_SampleTime"
 	    Prompt		    "Emission Sample Time [s]"
@@ -29414,7 +31070,7 @@ Model {
       BlockType		      Outport
       Name		      "Out_to_PWM"
       SID		      "8830"
-      Position		      [660, 568, 855, 672]
+      Position		      [660, 468, 855, 572]
       ZOrder		      26
       Port		      "3"
       IconDisplay	      "Port number"
@@ -29423,7 +31079,7 @@ Model {
       SampleTime	      "evalin('base', 'Gumstix.PWM.SampleTime')"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		167
+	$ObjectID		190
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:8\n    ProcessPWMmask_COM(gcb, i);\nend"
 	Display			"Display_PWM_Block;"
@@ -29432,15 +31088,15 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    168
+	    $ObjectID		    191
 	    Type		    "edit"
 	    Name		    "TimersList"
 	    Prompt		    "Active PWM (example: [8,9,10,11])"
-	    Value		    "9"
+	    Value		    "8"
 	    Callback		    "ProcessPWMmask_COM(gcb, 1);"
 	  }
 	  Object {
-	    $ObjectID		    169
+	    $ObjectID		    192
 	    Type		    "edit"
 	    Name		    "PwmFrequency"
 	    Prompt		    "PWM Frequency [Hz]"
@@ -29448,7 +31104,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 2);"
 	  }
 	  Object {
-	    $ObjectID		    170
+	    $ObjectID		    193
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -29463,7 +31119,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 3);"
 	  }
 	  Object {
-	    $ObjectID		    171
+	    $ObjectID		    194
 	    Type		    "edit"
 	    Name		    "ServoMin"
 	    Prompt		    "Servo Min Value [tenth's of us]"
@@ -29472,7 +31128,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 4);"
 	  }
 	  Object {
-	    $ObjectID		    172
+	    $ObjectID		    195
 	    Type		    "edit"
 	    Name		    "ServoMax"
 	    Prompt		    "Servo Max Value [tenth's of us]"
@@ -29481,7 +31137,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 5);"
 	  }
 	  Object {
-	    $ObjectID		    173
+	    $ObjectID		    196
 	    Type		    "edit"
 	    Name		    "PWM_DefaultValue"
 	    Prompt		    "Default Pwm Value"
@@ -29489,7 +31145,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 6);"
 	  }
 	  Object {
-	    $ObjectID		    174
+	    $ObjectID		    197
 	    Type		    "edit"
 	    Name		    "PWM_SampleTime"
 	    Prompt		    "Refresh Sample Time [s]"
@@ -29497,12 +31153,250 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 7);"
 	  }
 	  Object {
-	    $ObjectID		    175
+	    $ObjectID		    198
 	    Type		    "checkbox"
 	    Name		    "PWM_KeepAfterStop"
 	    Prompt		    "Keep Default Pwm Value after program stop"
 	    Value		    "off"
 	    Callback		    "ProcessPWMmask_COM(gcb, 8);"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Serial_Out_Odroid"
+      SID		      "13989"
+      Position		      [685, 595, 830, 695]
+      ZOrder		      31
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "uint8"
+      PortDimensions	      "Gumstix.RS232.Emission(1).NbData"
+      SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		199
+	$ClassName		"Simulink.Mask"
+	Initialization		"for i=1:1:13\n    ProcessRS232OutportMask_COM(gcb, i);\nend\n"
+	Display			"Display_RS232_Emission_Block;"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  13
+	  Object {
+	    $ObjectID		    200
+	    Type		    "edit"
+	    Name		    "RS232_NbData"
+	    Prompt		    "Number of Sent Data"
+	    Value		    "48"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 1);\n"
+	    TabName		    "Emission"
+	  }
+	  Object {
+	    $ObjectID		    201
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      8
+	      Cell		      "double64"
+	      Cell		      "float32"
+	      Cell		      "int32"
+	      Cell		      "unsigned int32"
+	      Cell		      "int16"
+	      Cell		      "unsigned int16"
+	      Cell		      "char8"
+	      Cell		      "unsigned char8"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_DataType"
+	    Prompt		    "RS232 Data Type"
+	    Value		    "unsigned char8"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 2);\n"
+	    TabName		    "Emission"
+	  }
+	  Object {
+	    $ObjectID		    202
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      18
+	      Cell		      "/dev/ttyO0"
+	      Cell		      "/dev/ttyO1"
+	      Cell		      "/dev/ttyO2"
+	      Cell		      "/dev/ttyO3"
+	      Cell		      "/dev/ttyO4"
+	      Cell		      "/dev/ttyO5"
+	      Cell		      "/dev/ttyO6"
+	      Cell		      "/dev/ttyO7"
+	      Cell		      "/dev/ttyO8"
+	      Cell		      "/dev/ttyO9"
+	      Cell		      "/dev/ttyO10"
+	      Cell		      "/dev/ttyO11"
+	      Cell		      "/dev/ttyO12"
+	      Cell		      "/dev/ttyO13"
+	      Cell		      "/dev/ttyO14"
+	      Cell		      "/dev/ttyO15"
+	      Cell		      "/dev/ttyUSB0"
+	      Cell		      "/dev/ttyUSB1"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_Port"
+	    Prompt		    "Serial Port"
+	    Value		    "/dev/ttyO2"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 3);\n"
+	    TabName		    "Emission"
+	  }
+	  Object {
+	    $ObjectID		    203
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      29
+	      Cell		      "50"
+	      Cell		      "75"
+	      Cell		      "110"
+	      Cell		      "134"
+	      Cell		      "150"
+	      Cell		      "200"
+	      Cell		      "300"
+	      Cell		      "600"
+	      Cell		      "1200"
+	      Cell		      "1800"
+	      Cell		      "2400"
+	      Cell		      "4800"
+	      Cell		      "9600"
+	      Cell		      "19200"
+	      Cell		      "38400"
+	      Cell		      "57600"
+	      Cell		      "115200"
+	      Cell		      "230400"
+	      Cell		      "460800"
+	      Cell		      "576000"
+	      Cell		      "921600"
+	      Cell		      "1000000"
+	      Cell		      "1152000"
+	      Cell		      "1500000"
+	      Cell		      "2000000"
+	      Cell		      "2500000"
+	      Cell		      "3000000"
+	      Cell		      "3500000"
+	      Cell		      "4000000"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_BaudRate"
+	    Prompt		    "BaudRate"
+	    Value		    "115200"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 4);\n"
+	    TabName		    "Emission"
+	  }
+	  Object {
+	    $ObjectID		    204
+	    Type		    "edit"
+	    Name		    "RS232_SampleTime"
+	    Prompt		    "Sample Time [s]"
+	    Value		    "Ts_detector"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 5);\n"
+	    TabName		    "Emission"
+	  }
+	  Object {
+	    $ObjectID		    205
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      2
+	      Cell		      "None"
+	      Cell		      "1 byte"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StreamHeaderReception"
+	    Prompt		    "Stream Header"
+	    Value		    "1 byte"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 6);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    206
+	    Type		    "edit"
+	    Name		    "RS232_StreamHeaderValue"
+	    Prompt		    "Stream header value [0-255]"
+	    Value		    "170"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 7);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    207
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "WaitStart -> SendStart"
+	      Cell		      "SendStart -> WaitStart"
+	      Cell		      "None"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StartProtocol"
+	    Prompt		    "RS232 Start Protocol"
+	    Value		    "SendStart -> WaitStart"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 8);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    208
+	    Type		    "edit"
+	    Name		    "RS232_StartTimeOut"
+	    Prompt		    "Start Stream Waiting TimeOut [ms]"
+	    Value		    "100"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 9);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    209
+	    Type		    "edit"
+	    Name		    "RS232_StartStream"
+	    Prompt		    "Start Message"
+	    Value		    "START"
+	    Evaluate		    "off"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 10);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    210
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "WaitStop -> SendStop"
+	      Cell		      "SendStop -> WaitStop"
+	      Cell		      "None"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RS232_StopProtocol"
+	    Prompt		    "RS232 Stop Protocol"
+	    Value		    "None"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 11);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    211
+	    Type		    "edit"
+	    Name		    "RS232_StopTimeOut"
+	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
+	    Value		    "100"
+	    Visible		    "off"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 12);"
+	    TabName		    "Header and Synchro Protocol"
+	  }
+	  Object {
+	    $ObjectID		    212
+	    Type		    "edit"
+	    Name		    "RS232_StopStream"
+	    Prompt		    "Stop Message"
+	    Value		    "STOP"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    Callback		    "ProcessRS232OutportMask_COM(gcb, 13);"
+	    TabName		    "Header and Synchro Protocol"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -29516,7 +31410,7 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      13
+      ZOrder		      17
       SrcBlock		      "In_from_Serial"
       SrcPort		      1
       DstBlock		      "GUMSTIX"
@@ -29543,6 +31437,20 @@ Model {
       DstBlock		      "Out_to_PWM"
       DstPort		      1
     }
+    Line {
+      ZOrder		      18
+      SrcBlock		      "Serial_In_Odroid"
+      SrcPort		      1
+      DstBlock		      "GUMSTIX"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      19
+      SrcBlock		      "GUMSTIX"
+      SrcPort		      4
+      DstBlock		      "Serial_Out_Odroid"
+      DstPort		      1
+    }
   }
 }
 #Finite State Machines
@@ -29553,7 +31461,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "COM_ViconController_x4morf_quat_withRecov_posMod"
+    name		    "COM_ViconController"
     created		    "27-Feb-2012 19:38:42"
     isLibrary		    0
     firstTarget		    139
@@ -30433,7 +32341,10 @@ Stateflow {
     firstTransition	    70
     firstJunction	    69
     viewObj		    48
+    visible		    1
     machine		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    60
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

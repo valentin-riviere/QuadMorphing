@@ -1,10 +1,6 @@
-%
-% PRECAUTIONS:
-% Before run this script, be sure to have correctly complete the TWO models
-% QUARC_your_model_name and VERDEX_your_model_name.
-%                                                                         %
-% Augustin MANECY 29/05/2012                                              %
-%                                                                         %
+% TODO
+% - Modify robot parameters
+% - Modify Trajectory Generator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -21,13 +17,13 @@ close all;
 HostModelName = 'ViconController';
 ComModelName = 'ViconController';
         
-%%%%%%%%% PARAMETERES %%%%%%%%%%
+%%%%%%%%% PARAMETERES %%    %%%%%%%%
 
 % Sample time initialisation
 ComMinSampleTime    = 1/400;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
 HostMinSampleTime   = 1/400;     % put here your sample time in seconds for Host
 
-Ts_Eye = 1/400;
+Ts_detector = 1/100;
 Ts_AttitudeLoop = 1/200;
 Ts_PositionLoop = 1/100;
 Ts_Wifi = 1/200;
@@ -85,7 +81,7 @@ load('AccCalib_Transformation_X4morf_Robot');    %%%%%% TO MODIFYYYYYYYYYYYYYYYY
 
 %%
     % Generation of files to copy on the gumstix
-GenereCOM(ComModelName, ComMinSampleTime);
+% GenereCOM(ComModelName, ComMinSampleTime);
 
 %% DO NOT MODIFY THIS PART!
 CleanUpHostModel(HostModelName);

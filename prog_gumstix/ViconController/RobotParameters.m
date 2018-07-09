@@ -180,8 +180,8 @@ gyrZ_bias = -1.37;      % r, -> yaw     [deg/s]
 %% ServoMotor for folding
 
 gamma_max = 89; % in deg
-dc_close = 25;    % in % corresponds to gamma_max
-dc_open = 63;    % in % corresponds to gamma = 0°
+dc_close = 78;    % in % corresponds to gamma_max
+dc_open = 28;    % in % corresponds to gamma = 0°
 
 %% UAV STRUCTURE
 
