@@ -1,46 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-PropConf = 'F30';
-
-phi_ref = 0;    % [deg]
-theta_ref = 0;  % [deg]
-psi_ref = 0;    % [deg]
-
-% saturation for position controller
-phi_max    = 30;                % [deg]
-theta_max  = 30;                % [deg]
-Thrust_max = 90;                % [%] percent of maximal thrust asked for each motor...
-PositionMax = [2.5; 2.5; 3];    % [m]
-PositionMin = [-2.5; -2.5; 0];  % [m]
-SpeedMax = [1; 1; 1]; % [1; 1; 1];           % [m.s^-1]
-SpeedMin = [-1; -1; -1]; % [-1; -1; -1];        % [m.s^-1]
-
-X_int_sat = [2, 2, 2]';	% [m] Maximum value of the integral of position's error
-
-% saturation for attitude controller
-OmegaMax = [800; 800; 500];     % [deg.s^-1]
-OmegaMin = -[800; 800; 500];    % [deg.s^-1]
-
-% initial states of robot
-Vx_0 = 0;
-Vy_0 = 0;
-Vz_0 = 0;
-Velocity_0 = [Vx_0 Vy_0 Vz_0];
-
-X_0 = 0;
-Y_0 = 0;
-Z_0 = 0;
-
-p_0 = 0;
-q_0 = 0;
-r_0 = 0;
-
-phi_0 = 0;
-theta_0 = 0;
-psi_0 = 0;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% END CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % universal constants
 g = 9.81;           % [m.s^-2] gravition constant
 rho_air = 1.2041;   % [kg.m^-3] air density
@@ -53,11 +10,14 @@ rad2deg = 180/pi;
 
 %% UAV Parameters
 
+% Folding parameters
+time_unfolding = 230e-3;
+
 % mass and dimension for default position
-m = 0.800;		% [kg]
-Ix = 5.30e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
-Iy = 1.96e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
-Iz = 1.72e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+m = 0.380;		% [kg]
+Ix = 8e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+Iy = 3.23e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+Iz = 3.2e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
 
 L = 0.28;       % [m]   length of quadrotor
 l_b = 0.14;     % [m]   width of quadrotor
@@ -98,57 +58,25 @@ theta1 = -10;       % [deg] equivalent twist angle (due to chord reduction)
 c = 1.6e-2;         % [m] rotor chord
 r = 6.0e-2;         % [m] rotor radius
 a = 6.0;            % [-] lift slope coefficient
-switch PropConf
-    case 'F30'
-        MinArmed = 1000;        % [us]
-        MinThrottle = 1100;     % [us]
-        MaxThrottle = 2000;     % [us]
-        
-        Tprop_CL = 0.1; % [s] time constant of the closed loop for propeller's rotation rate (2nd order) tf(1, [1/(7*2*pi) 1])^2
-        cTm = 1.0194e-7;      % [kg.s^2.rad^-2] thrust coefficient
-        cQm = 1.0031e-9;     % [kg.s^2.rad^-2] drag coefficient
-        Tmax = .8155;       % [kg] maximum thrust achievable per rotor
-        Tmin = .0097;       % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle) 
-    case 'Tmotor'
-        MinArmed = 1000;        % [us]
-        MinThrottle = 1100;     % [us]
-        MaxThrottle = 2000;     % [us]
-        
-        Tprop_CL = 108e-3/4.8; % [s] time constant of the closed loop for propeller's rotation rate (2nd order) tf(1, [1/(7*2*pi) 1])^2
-        cTm = 2.89e-7;      % [kg.s^2.rad^-2] thrust coefficient
-        cQm = 1.141e-8;     % [kg.s^2.rad^-2] drag coefficient
-        Tmax = .1643;       % [kg] maximum thrust achievable per rotor
-        Tmin = .0183;       % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle)
-    case 'Turnigy'
-        MinArmed = 1000;        % [us]
-        MinThrottle = 1100;     % [us]
-        MaxThrottle = 2000;     % [us]
-        
-        Tprop_CL = 90e-3/3; % [s] time constant of the closed loop for propeller's rotation rate 
-        cTm = 1.2356e-7;    % [kg.s^2.rad^-2] thrust coefficient
-        cQm = 9.0668e-9;    % [kg.s^2.rad^-2] drag coefficient
-        Tmax = .160;        % [kg] maximum thrust achievable per rotor
-        Tmin = .02;         % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle)
-end
 
-%% Saturations computations
+MinArmed = 1000;        % [us]
+MinThrottle = 1200;     % [us]
+MaxThrottle = 2000;     % [us]
 
-AnglesMax = [phi_max; theta_max; inf];
-AnglesMin = [-phi_max; -theta_max; -inf];
-AnglesMax = deg2rad*AnglesMax;
-AnglesMin = deg2rad*AnglesMin;
-
-AccMax = [g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Thrust_max/100*Tmax];
-AccMin = -[g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Tmin];
-
-OmegaMax = deg2rad*OmegaMax;
-OmegaMin = deg2rad*OmegaMin;
+Tprop_CL = 0.1; % [s] time constant of the closed loop for propeller's rotation rate (2nd order) tf(1, [1/(7*2*pi) 1])^2
+cTm = 1.0194e-7;      % [kg.s^2.rad^-2] thrust coefficient
+cQm = 1.0031e-9;     % [kg.s^2.rad^-2] drag coefficient
+Tmax = .8155;       % [kg] maximum thrust achievable per rotor
+Tmin = .0097;       % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle) 
 
 %% deduction of other parameters
 eff = 0.90;
 cT = eff*cTm*g;                     % [N.s^2.rad^-2] thrust coefficient
-% cQ = cT*sqrt(cT/2);             % [-] drag coefficient
+% cT = 2.45e-6;
+% cT_fold = 0.97e-6;
+cT_fold = cT;
 cQ = cQm*g;             % [-] drag coefficient
+% cQ = 2.2e-8;
 sigma = nb_rotor*c/(pi*r);      % [-] solidity ratio (Air of blade/ Air of rotor disc)
 gamma = rho_air*a*c*r^4/Ib;     % [-] lock Number
 theta0 = theta0*pi/180;         % [rad]
@@ -162,17 +90,78 @@ A1c = (8/3*theta0+2*theta1);
 % control mixer matrix
 
 % matrix for x configuration
+Delta_Thrust_sat = [l_b*(cT*omega_r_max^2-cT*omega_r_min^2);...
+					L*(cT*omega_r_max^2-cT*omega_r_min^2);...
+					2*(cQ*omega_r_max^2-cQ*omega_r_min^2)];
+
 Gamma = [   cT ,   cT ,   cT ,  cT  ;...
 		  -l_b/2*cT,  l_b/2*cT,  l_b/2*cT, -l_b/2*cT;...
 		  -L/2*cT, -L/2*cT,  L/2*cT, L/2*cT ;...
 		  +cQ  ,  -cQ ,  +cQ , -cQ  ];
+ 
+% control mixer matrix & torques saturation
+[iGamma,TorquesSat] = gen_iGamma(l_b,L,cT,cT_fold,cQ,omega_r_min,omega_r_max);
 
-Delta_Thrust_sat = [l_b*(cT*omega_r_max^2-cT*omega_r_min^2);...
-					L*(cT*omega_r_max^2-cT*omega_r_min^2);...
-					2*(cQ*omega_r_max^2-cQ*omega_r_min^2)];
-      
-iGamma = inv(Gamma);
-           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+phi_ref = 0;    % [deg]
+theta_ref = 0;  % [deg]
+psi_ref = 0;    % [deg]
+
+% saturation for position controller
+phi_max    = 30;                % [deg]
+theta_max  = 30;                % [deg]
+Thrust_max = 90;                % [%] percent of maximal thrust asked for each motor...
+AnglesMax = [phi_max; theta_max; inf];
+AnglesMin = [-phi_max; -theta_max; -inf];
+% OmegaMax = [800; 800; 500];     % [deg.s^-1]
+% OmegaMin = -[800; 800; 500];    % [deg.s^-1]
+%%%%%%%%%%%%%%%%%%%%%%%%%TEST%%%%%%%%%%%%%%%%%%%%%%%%%%
+OmegaMax = [100; 100; 40];     % [deg.s^-1]
+OmegaMin = -[100; 100; 40];    % [deg.s^-1]
+dOmegaMax = I\TorquesSat;
+dOmegaMin = -I\TorquesSat;
+AnglesMax = deg2rad*AnglesMax;
+AnglesMin = deg2rad*AnglesMin;
+OmegaMax = deg2rad*OmegaMax;
+OmegaMin = deg2rad*OmegaMin;
+
+PositionMax = [5.7 ; 2.5; 3];             % [m]
+PositionMin = [-0.2; -2.5; 0];             % [m]
+PositionSecuMax = [5.5 ; 3 ; 4];        % [m]
+PositionSecuMin = [-0.5; -3; -0.07];    % [m]
+SpeedMax = [1; 1; 1];                   % [m.s^-1]
+SpeedMin = [-1; -1; -1];                % [m.s^-1]
+SpeedMaxScenario = [3; 1; 3];           % [m.s^-1]
+SpeedMinScenario = [-3; -1; -3];        % [m.s^-1]
+AccMax = [g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Thrust_max/100*Tmax];
+AccMin = -[g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Tmin];
+AccMaxScenario = [g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Thrust_max/100*Tmax];
+AccMinScenario = -[g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Tmin];
+
+X_int_sat = [2, 2, 2]';	% [m] Maximum value of the integral of position's error
+% X_int_sat = [0.5, 2, 2]';
+
+% initial states of robot
+Vx_0 = 0;
+Vy_0 = 0;
+Vz_0 = 0;
+Velocity_0 = [Vx_0 Vy_0 Vz_0];
+
+X_0 = 0;
+Y_0 = 0;
+Z_0 = 0;
+
+p_0 = 0;
+q_0 = 0;
+r_0 = 0;
+
+phi_0 = 0;
+theta_0 = 0;
+psi_0 = 0;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% END CUSTOMIZATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% PWM initialization
 
 a_PWM = (MaxThrottle-MinThrottle)/(omega_r_max-omega_r_min);
@@ -187,6 +176,12 @@ accZ_bias = 0.26;
 gyrX_bias = 2.25;       % p, -> roll    [deg/s]
 gyrY_bias = -0.58;      % q, -> pitch   [deg/s]
 gyrZ_bias = -1.37;      % r, -> yaw     [deg/s]
+
+%% ServoMotor for folding
+
+gamma_max = 89; % in deg
+dc_close = 25;    % in % corresponds to gamma_max
+dc_open = 63;    % in % corresponds to gamma = 0°
 
 %% UAV STRUCTURE
 
@@ -226,6 +221,9 @@ UAVstruct.sensors.gyr.bias = pi/180*[gyrX_bias;...
                                      gyrZ_bias];
 
 UAVstruct.control.Delta_Thrust_sat = Delta_Thrust_sat;
+
+UAVstruct.TorquesSat = TorquesSat;
+UAVstruct.iGamma = iGamma;
 
 % generate the busobject corresponding to the structure
 UAVstruct_BusObject;
