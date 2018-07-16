@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3233"
+    ComputedModelVersion    "1.3234"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -33,7 +33,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1936.0, 1056.0]
+      Location		      [-1928.0, -8.0, 1936.0, 1096.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -58,9 +58,9 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1886.0, 879.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [2867.372962055585, 919.35147867967237]
+	  Extents		  [1886.0, 919.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [1880.4969900563835, 514.39403673080312]
 	}
 	Object {
 	  $ObjectID		  6
@@ -69,7 +69,7 @@ Model {
 	  LoadSaveID		  "12342"
 	  Extents		  [1886.0, 879.0]
 	  ZoomFactor		  [1.25]
-	  Offset		  [-29.727337165224419, -200.55352941553468]
+	  Offset		  [-29.727337165224412, -200.55352941553468]
 	}
 	PropName		"EditorsInfo"
       }
@@ -82,9 +82,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 12 15:07:16 2018"
-  RTWModifiedTimeStamp	  453308798
-  ModelVersionFormat	  "1.%<AutoIncrement:3233>"
+  LastModifiedDate	  "Mon Jul 16 14:30:15 2018"
+  RTWModifiedTimeStamp	  453652213
+  ModelVersionFormat	  "1.%<AutoIncrement:3234>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -5871,7 +5871,7 @@ Model {
   }
   System {
     Name		    "QUARC_BancMonitor"
-    Location		    [-8, 0, 1928, 1056]
+    Location		    [-1928, -8, 8, 1088]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -5883,9 +5883,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "150"
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "12487"
+    SIDHighWatermark	    "12488"
     Block {
       BlockType		      SubSystem
       Name		      "Att CTL Param"
@@ -6843,6 +6843,16 @@ Model {
       BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
       ShowName		      off
       GotoTag		      "slider_Meas"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto13"
+      SID		      "12488"
+      Position		      [2655, 701, 2765, 719]
+      ZOrder		      640
+      BackgroundColor	      "cyan"
+      ShowName		      off
+      GotoTag		      "UDP_sent"
     }
     Block {
       BlockType		      Goto
@@ -10918,7 +10928,8 @@ Model {
 	  Ports			  [2]
 	  Position		  [415, 271, 445, 304]
 	  ZOrder		  610
-	  ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData2'))"
+	  ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData2'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat',"
+	  "'Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
 	  NumInputPorts		  "2"
 	}
 	Block {
@@ -11240,7 +11251,7 @@ Model {
 	  ZOrder		  52
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
-	  Points		  [34, 0; 0, 0]
+	  Points		  [34, 0]
 	  Branch {
 	    ZOrder		    64
 	    DstBlock		    "Discrete Filter (mean)1"
@@ -11311,7 +11322,6 @@ Model {
 	  ZOrder		  74
 	  SrcBlock		  "Divide"
 	  SrcPort		  1
-	  Points		  [30, 0]
 	  DstBlock		  "gap width est"
 	  DstPort		  1
 	}
@@ -22449,7 +22459,7 @@ Model {
       Variant		      off
       System {
 	Name			"Vicon2Meas"
-	Location		[-8, 0, 1928, 1056]
+	Location		[-1928, -8, 8, 1088]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -22461,7 +22471,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"125"
 	Block {
 	  BlockType		  Inport
 	  Name			  "new_stream"
@@ -22809,7 +22819,8 @@ Model {
 	  Ports			  [1]
 	  Position		  [845, 920, 885, 960]
 	  ZOrder		  459
-	  ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'))"
+	  ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'),StrPVP('LimitDataPoints','on'),StrPVP('DataFormat',"
+	  "'Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
 	}
 	Block {
 	  BlockType		  RateTransition
@@ -26107,8 +26118,18 @@ Model {
       ZOrder		      334
       SrcBlock		      "UDP_sent_to_gumstix\nmux"
       SrcPort		      1
-      DstBlock		      "SendReceiveUDP"
-      DstPort		      1
+      Points		      [29, 0]
+      Branch {
+	ZOrder			2254
+	Points			[0, -110]
+	DstBlock		"Goto13"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			2253
+	DstBlock		"SendReceiveUDP"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      335
@@ -26919,7 +26940,6 @@ Model {
       ZOrder		      2136
       SrcBlock		      "Vicon2Meas"
       SrcPort		      1
-      Points		      [0, 0]
       DstBlock		      "Goto14"
       DstPort		      1
     }
@@ -26927,7 +26947,6 @@ Model {
       ZOrder		      2137
       SrcBlock		      "Vicon2Meas"
       SrcPort		      2
-      Points		      [0, 0]
       DstBlock		      "Goto6"
       DstPort		      1
     }
@@ -26935,7 +26954,6 @@ Model {
       ZOrder		      2138
       SrcBlock		      "Vicon2Meas"
       SrcPort		      3
-      Points		      [0, 0]
       DstBlock		      "Goto5"
       DstPort		      1
     }
@@ -26943,7 +26961,6 @@ Model {
       ZOrder		      2139
       SrcBlock		      "Vicon2Meas"
       SrcPort		      4
-      Points		      [0, 0]
       DstBlock		      "Goto3"
       DstPort		      1
     }
@@ -26951,7 +26968,6 @@ Model {
       ZOrder		      2140
       SrcBlock		      "Vicon2Meas"
       SrcPort		      5
-      Points		      [0, 0]
       DstBlock		      "Goto10"
       DstPort		      1
     }
@@ -26959,7 +26975,6 @@ Model {
       ZOrder		      2141
       SrcBlock		      "Vicon2Meas"
       SrcPort		      6
-      Points		      [0, 0]
       DstBlock		      "Goto11"
       DstPort		      1
     }
@@ -27323,8 +27338,6 @@ Stateflow {
     firstJunction	    23
     viewObj		    14
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    45
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
