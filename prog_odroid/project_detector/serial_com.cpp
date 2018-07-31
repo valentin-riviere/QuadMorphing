@@ -87,6 +87,10 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 			if (socket_on)	// Socket is initialized
 			{
 				// Write on Serial Port
+#ifdef DEBUG_SERIAL
+				cout << "Send Bytes :" << endl;
+				p_s_out->print();
+#endif
 				sem_wait(sem); // Critical section
 					p_s_out->to_buffer(write_buffer);
 				sem_post(sem);
