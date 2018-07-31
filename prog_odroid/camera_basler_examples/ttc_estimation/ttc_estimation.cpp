@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ACQUISITION_CONTINUOUS
 
 // Debug flag
-//#define VIEWER_ON	// Active viewer
+#define VIEWER_ON	// Active viewer
 //#define SAVE_IMG	// Save images in results/
 
 using namespace cv;
@@ -37,13 +37,12 @@ using namespace Pylon;
 using namespace std;
 
 // Header for functions
+void InitProcess(void);
 void process(void);
 
 /// Global variables
 float tau = 0; // Time to contact (in s)
 chrono::duration<double> Ts; // time between two frames (in s)
-
-// Parameters
 
 // Number of images to be grabbed if no continuous acquisition
 #ifndef ACQUISITION_CONTINUOUS
@@ -53,7 +52,7 @@ static const uint32_t c_countOfImagesToGrab = 1000;
 // Camera Parameters
 const uint8_t MaxNumBuffer = 5;
 const uint16_t cam_width = 640, cam_height = 480;
-const uint16_t cam_offsetX = 0, cam_offsetY = 0;
+const uint16_t cam_offsetX = 480, cam_offsetY = 360;
 const uint16_t fps_max = 100;
 
 // OpenCV variables
@@ -62,6 +61,7 @@ uint16_t width = 640;
 Mat img_src, img_prec, img_dx, img_dy, img_dt;
 Mat edges;
 uint64_t img_time = 0, img_time_prec = 0;
+Mat x,y;	// For ttc computation
 
 int main(int argc, char* argv[])
 {
@@ -86,13 +86,16 @@ int main(int argc, char* argv[])
 	// Var init
 	img_src = Mat(height,width,CV_8UC1);
 	img_prec = Mat(height,width,CV_8UC1);
-	img_dx = Mat(height,width,CV_8UC1);
-	img_dy = Mat(height,width,CV_8UC1);
-	img_dt = Mat(height,width,CV_8UC1);
+	img_dx = Mat(height,width,CV_16S);
+	img_dy = Mat(height,width,CV_16S);
+	img_dt = Mat(height,width,CV_16S);
 	edges = Mat(img_src.size(), img_src.type());
 
     // Before using any pylon methods, the pylon runtime must be initialized. 
     PylonInitialize();
+	
+	// Initialization for vars during img processing
+//	InitProcess();
 
     try
     {
@@ -175,7 +178,9 @@ auto t_s = chrono::system_clock::now();
 					process();
 
 #ifdef VIEWER_ON
-				imshow(window_name,edges); waitKey(10);
+				Mat img_show(height,width,CV_8UC1);
+				img_dt.convertTo(img_show,CV_8UC1);
+				imshow(window_name,img_show); waitKey(10);
 #endif
 
 #ifdef SAVE_IMG
@@ -213,17 +218,31 @@ auto t_s = chrono::system_clock::now();
 }
 
 /**
+ * @function InitProcess
+ */
+void InitProcess(void)
+{
+	x = Mat(width,height,CV_16SC1);
+	y = Mat(width,height,CV_16SC1);
+
+	for (uint16_t i = 0 ; i < img_src.cols ; i++)
+	{
+		for (uint16_t j = 0 ; j < img_src.rows ; j++)
+		{
+			x.at<uint16_t>(j,i) = (-width/2 + j);
+			y.at<uint16_t>(j,i) = (-height/2 + i);
+		}
+	}
+}
+
+/**
  * @function process
  */
 void process(void)
 {
 	// dx, dy and dt
-//cout << "Sobel x" << endl;
-	Sobel(img_src,img_dx,CV_8U,1,0);
-//cout << "Sobel y" << endl;
-	Sobel(img_src,img_dy,CV_8U,0,1);
-//cout << "dt" << endl;
-	subtract(img_src,img_prec,img_dt);
+	spatialGradient(img_src,img_dx,img_dy);
+	subtract(img_src,img_prec,img_dt,noArray(),CV_16SC1);
 	
 	// num and den for tau
 	float grad = 0, num = 0, den = 0;
@@ -232,15 +251,19 @@ void process(void)
 //cout << i+1 << "/" << img_src.cols << endl;
 		for (uint16_t j = 0 ; j < img_src.rows ; j++)
 		{
-//cout << j+1 << "/" << img_src.rows << endl;
-			grad = i*img_dx.at<uint8_t>(j,i)+j*img_dy.at<uint8_t>(j,i);
+			grad = (i-(img_src.cols-1)/2.0)*img_dx.at<int16_t>(j,i)+(j-(img_src.rows-1)/2.0)*img_dy.at<int16_t>(j,i);
+cout << grad << endl;
 			num -= grad*grad;
-			den += grad*img_dt.at<uint8_t>(j,i);
+			den += grad*img_dt.at<int16_t>(j,i);
 		}
 	}
 
 	// time to collision
-	tau = num/den*(img_time-img_time_prec)*0.000000001;
+	float c = den/(num*(img_time-img_time_prec)*0.000000001);
+	if (c > 0.005)
+		tau = 1.0/c;
+	else	
+		tau = 0;
 
 	cout << "Time between images : " << Ts.count() << "s" << " and " << img_time-img_time_prec << endl;
 	cout << "Tau : " << tau << "s" << endl;
