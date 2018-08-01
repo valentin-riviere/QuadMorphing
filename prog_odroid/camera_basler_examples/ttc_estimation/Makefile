@@ -3,7 +3,7 @@
 
 # The program to build
 NAME   := ttc_estimation
-SRC	   := ttc_estimation.cpp
+SRC	   := string_tools.cpp ttc_estimation.cpp
 OBJ	   := $(SRC:.cpp=.o)
 
 # Installation directories for pylon
@@ -19,11 +19,14 @@ LDLIBS     := $(shell $(PYLON_ROOT)/bin/pylon-config --libs) $(shell pkg-config 
 # Rules for building
 all: $(NAME)
 
-$(NAME): $(NAME).o
-	$(LD) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+$(NAME): $(SRC)
+	$(CXX) $(LDFLAGS) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDLIBS)
 
-%.o: %.cpp
+$(NAME).o: $(OBJ) $(NAME).cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@.o string_tools.o ttc_estimation.cpp
+
+$(OBJ): $(SRC)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) $(OBJ) $(NAME).o $(NAME)
