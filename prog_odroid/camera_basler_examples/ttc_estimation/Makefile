@@ -12,21 +12,22 @@ PYLON_ROOT ?= /opt/pylon5
 # Build tools and flags
 LD         := $(CXX)
 CPPFLAGS   := $(shell $(PYLON_ROOT)/bin/pylon-config --cflags) $(shell pkg-config opencv --cflags)
-CXXFLAGS   := -O2 -std=c++11 #e.g., CXXFLAGS=-g -O0 for debugging
+CXXFLAGS   := -O2 -std=c++11
+DBGCXXFLAGS	:= -O0 -g -std=c++11
 LDFLAGS    := $(shell $(PYLON_ROOT)/bin/pylon-config --libs-rpath)
 LDLIBS     := $(shell $(PYLON_ROOT)/bin/pylon-config --libs) $(shell pkg-config opencv --libs)
 
 # Rules for building
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CXX) $(LDFLAGS) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDLIBS)
+debug: CXXFLAGS := $(DBGCXXFLAGS)
+debug: $(NAME)
 
-$(NAME).o: $(OBJ) $(NAME).cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@.o string_tools.o ttc_estimation.cpp
+$(NAME): $(OBJ)
+	$(LD) $(CPPFLAGS) $(LDFLAGS) $(CXXFLAGS) -o $@ $^ $(LDLIBS)
 
-$(OBJ): $(SRC)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+%.o: %.cpp
+	$(LD) $(CPPFLAGS) $(LDFLAGS) $(CXXFLAGS) -c -o $@ $< $(LDLIBS)
 
 clean:
 	$(RM) $(OBJ) $(NAME).o $(NAME)
