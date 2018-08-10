@@ -1,4 +1,3 @@
-
 /*
 This file is part of QuadMorphing project
 Copyright (C) 2018 - Institute of Movement Sciences (Marseille, FRANCE)
@@ -34,11 +33,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ACQUISITION_CONTINUOUS
 
 // Debug flag
-#define IMAGES	// Load images instead of camera use
+//#define IMAGES	 Load images instead of camera use
 //#define VERBOSE	// For fps view
-#define VIEWER_ON	// Active viewer
+//#define VIEWER_ON	// Active viewer
 //#define SAVE_IMG	// Save images in results/
 #define SAVE_RES	// Save results in results.txt
+//#define BENCHMARK	// Print execution time of distincts parts
 
 #ifdef IMAGES
 	#define IMAGES_PATH "/home/odroid/Pictures/textures/800x600/V2/fps100/D3/*.png"
@@ -52,10 +52,11 @@ using namespace std;
 // Header for functions
 void process(void);
 float median(deque<float>);
+void blur_resize(Mat &, Mat &);
 
 /// Global variables
-chrono::duration<double> Ts; // time between two frames (in s)
-auto t_s = chrono::system_clock::now();
+chrono::duration<double> Ts, T; // time between two frames (in s)
+auto t_e = chrono::system_clock::now(), t_s = chrono::system_clock::now(), t_p = chrono::system_clock::now(), t_n = chrono::system_clock::now();
 deque<float> tau_list;
 vector<float> tau_vector;
 
@@ -83,10 +84,9 @@ uint16_t height = 600;
 uint16_t width = 800;
 uint16_t h_ss = round(height/subsample);
 uint16_t w_ss = round(width/subsample);
-Mat img_src, img_now, img_prec, img_dx, img_dy, img_dt;
+Mat img_src, img_now, img_resized, img_prec, img_dx, img_dy, img_dt;
 Mat edges;
 uint64_t img_time = 0, img_time_prec = 0;
-Mat x,y;	// For ttc computation
 
 // Window Viewer
 const char* window_name = "Viewer";
@@ -114,6 +114,7 @@ int main(int argc, char* argv[])
 	img_src = Mat(height,width,CV_8UC1);
 	img_prec = Mat(h_ss,w_ss,CV_32F);
 	img_now = Mat(h_ss,w_ss,CV_32F);
+	img_resized = Mat(h_ss,w_ss,CV_8UC1);
 	img_dx = Mat(h_ss,w_ss,CV_32F);
 	img_dy = Mat(h_ss,w_ss,CV_32F);
 	img_dt = Mat(h_ss,w_ss,CV_32F);
@@ -184,11 +185,10 @@ int main(int argc, char* argv[])
 			// Image saving
 			while (camera.IsGrabbing())
 			{
+				t_e = chrono::system_clock::now();
+
 				camera.RetrieveResult(100,ptrGrabResult, TimeoutHandling_ThrowException);
-	//			auto t_e = chrono::system_clock::now();
-	//			Ts = t_e-t_s;
-	//			t_s = t_e;
-			
+
 				if (ptrGrabResult->GrabSucceeded())
 				{
 	#ifdef VERBOSE
@@ -205,6 +205,11 @@ int main(int argc, char* argv[])
 					img_src = Mat(img_src.size(), img_src.type(),(uint8_t*) ptrGrabResult->GetBuffer());
 					img_time = ptrGrabResult->GetTimeStamp();
 
+					// Blur image and resize it
+					blur_resize(img_src,img_now);
+					GaussianBlur(img_now,img_now,Size(0,0),sigma_gauss); // Blur image
+
+
 					// Image processing (avoid first image)
 					if (num_img != 0)
 						process();
@@ -220,6 +225,11 @@ int main(int argc, char* argv[])
 					sprintf(str_buffer,"results/rec%d_%llu.png",num_img,img_time);
 					imwrite(str_buffer,edges,save_param);
 	#endif
+
+					t_s = chrono::system_clock::now();
+					Ts = t_s-t_e;
+
+					cout << "Time between two loops : " << Ts.count() << "s" << " and time between two frames :" << (img_time-img_time_prec)*0.000000001 << "s" << endl;
 				}
 				else
 		        {
@@ -257,33 +267,45 @@ int main(int argc, char* argv[])
 
 		for (size_t k = 0 ; k<list_path.size() ; k++)
 		{
+			t_e = chrono::system_clock::now();
+
 			// Convert for openCV and get time
+#ifndef BENCHMARK
 			img_now.copyTo(img_prec);
 			img_time_prec = 0;
 			img_src = imread(list_path[k],IMREAD_GRAYSCALE);
-			img_src.convertTo(img_now,CV_32F); // Convert image
-
-			GaussianBlur(img_now,img_now,Size(0,0),2);
-			resize(img_now,img_now,Size(w_ss,h_ss),0,0,INTER_LINEAR);	// Resize image
-//for (uint16_t j = 0 ; j < img_now.rows-1 ; j++)
-//{
-//cout << j << "\t";
-//	for (uint16_t i = 0 ; i < img_now.cols-1 ; i++)
-//	{
-//cout << img_now.at<float>(j,i) << "\t";
-//	}
-//cout << endl;
-//}
-
-//cout << img_now.at<float>(3,3) << endl;
+			blur_resize(img_src,img_now);
 			GaussianBlur(img_now,img_now,Size(0,0),sigma_gauss); // Blur image
-//cout << img_now.at<float>(3,3) << endl;
-//getchar();
+#else
+			t_p = chrono::system_clock::now();
+			img_now.copyTo(img_prec);
+			t_n = chrono::system_clock::now(); T = t_n-t_p;
+			cout << "copy previous image : " << T.count() << endl;
+			img_time_prec = 0;
+			t_p = chrono::system_clock::now();
+			img_src = imread(list_path[k],IMREAD_GRAYSCALE);
+			t_n = chrono::system_clock::now(); T = t_n-t_p;
+			cout << "imread : " << T.count() << endl;
+			t_p = chrono::system_clock::now();
+			blur_resize(img_src,img_now);
+			t_n = chrono::system_clock::now(); T = t_n-t_p;
+			cout << "Blur and resize: " << T.count() << endl;
+			t_p = chrono::system_clock::now();
+			GaussianBlur(img_now,img_now,Size(0,0),sigma_gauss); // Blur image
+			t_n = chrono::system_clock::now(); T = t_n-t_p;
+			cout << "Gaussian blur : " << T.count() << endl;
+#endif
+
 			img_time = 1000000000.0/FPS;	// in ns
 
 			// Image processing (avoid first image)
 			if (num_img != 0)
 				process();
+
+			t_s = chrono::system_clock::now();
+			Ts = t_s-t_e;
+
+			cout << "Time between two loops : " << Ts.count() << "s" << " and time between two frames :" << (img_time-img_time_prec)*0.000000001 << "s" << endl;
 
 	#ifdef VIEWER_ON
 			Mat img_show(height,width,CV_8UC1);
@@ -314,6 +336,9 @@ void process(void)
 	float tau = 0, tau_fil; // Time to contact (in s)
 	uint32_t it = 0;
 
+#ifdef BENCHMARK
+	t_p = chrono::system_clock::now();
+#endif
 	for (uint16_t i = 0 ; i < img_now.cols-1 ; i++)
 	{
 		for (uint16_t j = 0 ; j < img_now.rows-1 ; j++)
@@ -329,38 +354,38 @@ void process(void)
 				tau -= grad/Et;
 				it++;
 			}
-
-//cout << "i" << i << endl;
-//cout << "j" << j << endl;		
-//cout << "Et : " << Et << endl;
-//cout << "Gx : " << Gx << endl;
-//cout << "Gy : " << Gy << endl;
-//cout << "grad : " << grad << endl;
-//getchar();
 		}
 	}
 
 	// time to collision
 	tau = (float) (tau / it) * (img_time-img_time_prec)*0.000000001;
-	
+
 	// Store in queue
 	if (tau_list.size() > n_median)	// Keep only N_median values
 		tau_list.pop_back();
 	tau_list.push_front(tau);
 
+#ifndef BENCHMARK
 	// Perform median filtering
 	tau_fil = median(tau_list);
 
-#ifdef SAVE_RES
+	#ifdef SAVE_RES
 	// Store in list
 	tau_vector.push_back(tau_fil);
+	#endif
+#else
+	t_n = chrono::system_clock::now(); T = t_n-t_p;
+	cout << "tau computation : " << T.count() << endl;
+	t_p = chrono::system_clock::now();
+
+	// Perform median filtering
+	tau_fil = median(tau_list);
+
+	t_n = chrono::system_clock::now(); T = t_n-t_p;
+	cout << "median filtering : " << T.count() << endl;
+	t_p = chrono::system_clock::now();
 #endif
 
-auto t_e = chrono::system_clock::now();
-Ts = t_e-t_s;
-t_s = t_e;
-
-	cout << "Time between images : " << Ts.count() << "s" << " and " << img_time-img_time_prec << endl;
 	cout << "Tau : " << tau << "s" << endl;
 	cout << "Tau filtered : " << tau_fil << "s" << endl;
 }
@@ -378,4 +403,25 @@ float median(deque<float> list)
 		res = (list[N/2 - 1] + list[N/2])/2.0;
 
 	return res;
+}
+
+void blur_resize(Mat & src, Mat & dst)
+{
+	for (uint16_t i = 0 ; i < dst.cols ; i++)
+	{
+		for (uint16_t j = 0 ; j < dst.rows ; j++)
+		{
+			dst.at<float>(j,i) = (
+src.at<uint8_t>(5*j,5*i)+src.at<uint8_t>(5*j+1,5*i)+src.at<uint8_t>(5*j+2,5*i)+src.at<uint8_t>(5*j+3,5*i)+src.at<uint8_t>(5*j+4,5*i)
++
+src.at<uint8_t>(5*j,5*i+1)+src.at<uint8_t>(5*j+1,5*i+1)+src.at<uint8_t>(5*j+2,5*i+1)+src.at<uint8_t>(5*j+3,5*i+1)+src.at<uint8_t>(5*j+4,5*i+1)
++
+src.at<uint8_t>(5*j,5*i+2)+src.at<uint8_t>(5*j+1,5*i+2)+src.at<uint8_t>(5*j+2,5*i+2)+src.at<uint8_t>(5*j+3,5*i+2)+src.at<uint8_t>(5*j+4,5*i+2)
++
+src.at<uint8_t>(5*j,5*i+3)+src.at<uint8_t>(5*j+1,5*i+3)+src.at<uint8_t>(5*j+2,5*i+3)+src.at<uint8_t>(5*j+3,5*i+3)+src.at<uint8_t>(5*j+4,5*i+3)
++
+src.at<uint8_t>(5*j,5*i+4)+src.at<uint8_t>(5*j+1,5*i+4)+src.at<uint8_t>(5*j+2,5*i+4)+src.at<uint8_t>(5*j+3,5*i+4)+src.at<uint8_t>(5*j+4,5*i+4)
+)/25.0;
+		}
+	}
 }
