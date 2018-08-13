@@ -1,6 +1,7 @@
 # project_detector
 
 Execute project_detector to detect square and send subtented angles to gumstix via Serial Communication.
+
 UPDATE :
 - Add time-to-collision computation for gap width estimation
 
