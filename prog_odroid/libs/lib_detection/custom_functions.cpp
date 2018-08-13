@@ -298,3 +298,21 @@ void sub_angles_from_square(const Square & square, float * sub_angles, const uns
 	sub_angles[UP] = atan((-2.0 * ((float)(c[1].y)/height) + 1.0)*tan(FOV_div2[1]));
 	sub_angles[DOWN] = atan((-2.0 * ((float)(c[3].y)/height) + 1.0)*tan(FOV_div2[1]));
 }
+
+/**
+ * @function median
+ */
+float median(deque<float> list)
+{
+	float res;
+
+	sort(list.begin(),list.end());
+
+	uint16_t N = list.size();
+	if (N % 2 != 0) // If odd number
+		res = list[N/2];
+	else
+		res = (list[N/2 - 1] + list[N/2])/2.0;
+
+	return res;
+}

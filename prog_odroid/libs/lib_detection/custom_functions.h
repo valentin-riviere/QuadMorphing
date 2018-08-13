@@ -25,6 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "class_types.h"
 
 #include <iostream>
+#include <algorithm>
+#include <deque>
 #include <math.h>
 #include <string.h>
 
@@ -67,5 +69,8 @@ void update_roi(Rect & ROI, const Square & sel_square, const float * roi_offsets
 // Find subtented angles from square (left, up, right, down : origin in the center of the image and positive on right and top of image)
 void sub_angles_from_square(const Square & square, float * sub_angles, const Point & roi_pos, const unsigned int & width, const unsigned int & height, const float * FOV_div2);
 void sub_angles_from_square(const Square & square, float * sub_angles, const unsigned int & width, const unsigned int & height, const float * FOV_div2);
+
+// Compute median from list deque 
+float median(deque<float> list);
 
 #endif

@@ -33,12 +33,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ACQUISITION_CONTINUOUS
 
 // Debug flag
-//#define IMAGES	 Load images instead of camera use
+#define IMAGES	 Load images instead of camera use
 //#define VERBOSE	// For fps view
 //#define VIEWER_ON	// Active viewer
 //#define SAVE_IMG	// Save images in results/
 #define SAVE_RES	// Save results in results.txt
-//#define BENCHMARK	// Print execution time of distincts parts
+#define BENCHMARK	// Print execution time of distincts parts
 
 #ifdef IMAGES
 	#define IMAGES_PATH "/home/odroid/Pictures/textures/800x600/V2/fps100/D3/*.png"
@@ -334,6 +334,7 @@ int main(int argc, char* argv[])
 void process(void)
 {
 	float tau = 0, tau_fil; // Time to contact (in s)
+	float num = 0, den = 0;
 	uint32_t it = 0;
 
 #ifdef BENCHMARK
@@ -351,14 +352,17 @@ void process(void)
 
 			if (Et > thresh_Et)
 			{
-				tau -= grad/Et;
+				num -= grad*Et;
+				den += Et*Et;
+//				tau -= grad/Et;
 				it++;
 			}
 		}
 	}
 
 	// time to collision
-	tau = (float) (tau / it) * (img_time-img_time_prec)*0.000000001;
+//	tau = (float) (tau / it) * (img_time-img_time_prec)*0.000000001;
+	tau = num/den*(img_time-img_time_prec)*0.000000001;
 
 	// Store in queue
 	if (tau_list.size() > n_median)	// Keep only N_median values
