@@ -29,11 +29,9 @@ using namespace std;
  // Max time for auto exposure (in us)
 
 // Initialize and configure camera
-void camera_init(CInstantCamera* cam, const unsigned int width = 800, const unsigned int height = 600, const unsigned int offset_x = 400, 
-		const unsigned int offset_y = 300, const unsigned int MaxNumBuffer = 5,
-		const bool binning_on = false, const float expoAutoMax = 5000, const gcstring binning_mode = "Average");
-GenApi::CCommandPtr camera_init_trigger(CInstantCamera* cam, const unsigned int width = 800, const unsigned int height = 600, const unsigned int offset_x = 400, 			const unsigned int offset_y = 300, const unsigned int MaxNumBuffer = 5,
-		const bool binning_on = false, const float expoAutoMax = 5000, const gcstring binning_mode = "Average");
+void camera_init(CInstantCamera* cam, const unsigned int width = 800, const unsigned int height = 600, const unsigned int offset_x = 400, const unsigned int offset_y = 300, const unsigned int MaxNumBuffer = 5, const bool binning_on = false, const bool expoAuto = false, const float expoTime = 5000, const float gain = 5, const gcstring binning_mode = "Average");
+
+GenApi::CCommandPtr camera_init_trigger(CInstantCamera* cam, const unsigned int width = 800, const unsigned int height = 600, const unsigned int offset_x = 400, const unsigned int offset_y = 300, const unsigned int MaxNumBuffer = 5, const bool binning_on = false, const float expoAutoMax = 5000, const gcstring binning_mode = "Average");
 void camera_close(CInstantCamera* cam);
 
 #endif

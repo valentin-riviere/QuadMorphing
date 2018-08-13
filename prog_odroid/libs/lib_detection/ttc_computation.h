@@ -22,6 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
+//#define DEBUG_TTC // Print ttc for each image
+
 using namespace cv;
 using namespace std;
 

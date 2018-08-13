@@ -73,12 +73,17 @@ float compute_ttc(const Mat & img_prev, const Mat & img_now, const float Ts, con
 	tau = num/den*Ts;
 
 	// Store in queue
-	if (tau_list.size() > n_median)	// Keep only N_median values
+	if (tau_list.size() >= n_median)	// Keep only N_median values
 		tau_list.pop_back();
 	tau_list.push_front(tau);
 
 	// Perform median filtering
 	tau_fil = median(tau_list);
+
+#ifdef DEBUG_TTC
+	cout << "TTC = " << tau_fil << "s" << endl;
+	cout << "size of list = " << tau_list.size() << "s" << endl;
+#endif
 
 	return tau_fil;
 }

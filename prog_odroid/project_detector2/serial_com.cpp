@@ -86,6 +86,8 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 
 			if (socket_on)	// Socket is initialized
 			{
+
+
 				// Write on Serial Port
 #ifdef DEBUG_SERIAL
 				cout << "Send Bytes :" << endl;
@@ -100,6 +102,7 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 					cout << "UART TX error: " << strerror(errno) << endl;
 					loop_main = false;
 				}
+
 
 				// Read on Serial Port
 				bytes_read = header_wait_read_serial(read_buffer,NB_BYTE_TO_READ,HEADER);
@@ -128,6 +131,7 @@ int serial_com(Stream_in * p_s_in, const Stream_out * p_s_out, bool * p_sh_start
 						*p_sh_start = true;							// Detection is set
 					sem_post(sem);
 				}
+
 
 				ticks++;
 			}

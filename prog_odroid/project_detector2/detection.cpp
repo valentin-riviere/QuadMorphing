@@ -69,7 +69,7 @@ int detection(const Stream_in * p_s_in, Stream_out * p_s_out, bool * p_sh_start,
 			try
 			{
 				// Initialize and configure camera
-				camera_init(&camera,s_in_cpy.width,s_in_cpy.height, s_in_cpy.offset_x, s_in_cpy.offset_y, s_in_cpy.max_num_buffer, s_in_cpy.binning, s_in_cpy.expo_auto_max);
+				camera_init(&camera,s_in_cpy.width,s_in_cpy.height, s_in_cpy.offset_x, s_in_cpy.offset_y, s_in_cpy.max_num_buffer, s_in_cpy.binning, false, s_in_cpy.expo_auto_max,5);
 
 				// Start grabbing
 				camera.StartGrabbing(GrabStrategy_LatestImageOnly);

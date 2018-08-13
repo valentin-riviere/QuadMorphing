@@ -31,7 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <chrono>
 #include <unistd.h>
 #include <semaphore.h>
-#include "def.h"
 #include "class_def.h"
 #include "class_types.h"
 #include "drawing.h"
@@ -40,7 +39,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "camera.h"
 #include "ttc_computation.h"
 
-#define DEBUG_DETECTION
+//#define DEBUG_DETECTION
 //#define TIME_EXEC		// To print execution time for each part of the code
 //#define PRINT_SUBANGLES	// Print subangles
 

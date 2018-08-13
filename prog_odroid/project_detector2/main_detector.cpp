@@ -15,6 +15,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+//#define PRINT_DEBUG		// Print execution information
+//#define T_PRINT	1000	// Time between two prints (in ms)
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <sys/mman.h>
 #include <semaphore.h>
 #include <sys/resource.h>
-#include "def.h"
+#include "class_def.h"
 #include "detection.h"
 #include "serial_com.h"
 
