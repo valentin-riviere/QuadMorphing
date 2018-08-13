@@ -1,0 +1,16 @@
+# Prog Gumstix
+## Vicon Controller
+For flying.
+
+- x4_morf_v1 : old version without odroid
+- v1 : with dtheta/dt
+- v2 : with ttc
+
+# Test
+Multiple scripts to test all boards
+
+# Custom Lib
+Contains custom simulink librairy blocks
+
+# Banc Monitor
+To Monitor S

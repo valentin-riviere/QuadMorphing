@@ -1,10 +1,6 @@
-%
-% PRECAUTIONS:
-% Before run this script, be sure to have correctly complete the TWO models
-% QUARC_your_model_name and VERDEX_your_model_name.
-%                                                                         %
-% Augustin MANECY 29/05/2012                                              %
-%                                                                         %
+% TODO
+% - Modify robot parameters
+% - Modify Trajectory Generator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -18,25 +14,26 @@ close all;
     
 % %%%%%%%%%%%%%%%%%% section to be completed by user %%%%%%%%%%%%%%%%%%%%%
 
-% test_gumstix_only_odroid or test_gumstix_without_odroid or test_gumstix
-% or test_pwm
-ComModelName = 'test_gumstix_only_odroid';
-
-%%%%%%%%% PARAMETERES %%%%%%%%%%
+HostModelName = 'ViconController';
+ComModelName = 'ViconController';
+        
+%%%%%%%%% PARAMETERES %%    %%%%%%%%
 
 % Sample time initialisation
-ComMinSampleTime    = 1/200;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
+ComMinSampleTime    = 1/400;     % put here the minimal sample time in seconds for gumstix (which will correspond to fundamental sample time)
+HostMinSampleTime   = 1/400;     % put here your sample time in seconds for Host
 
+Ts_detector = 1/100;
 Ts_AttitudeLoop = 1/200;
 Ts_PositionLoop = 1/100;
 Ts_Wifi = 1/200;
+Ts_RCB = 1/400;
 Ts_DSM = 1/50;      
 Ts_Display = 1/20;
-Ts_detector = 1/100;
 
 % specifics initialisation for model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    LandingHeight = 0.06;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
+    LandingHeight = 0.08;   % [m] height under which the inegrator (position loop) and the thrust feedforward are stopped
     g = 9.81;
     Mag_ref = [23806.2;...
                395.3;...
@@ -76,12 +73,18 @@ Ts_detector = 1/100;
     display('     done!');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Acc calibration
-load('AccCalib_Transformation_X4morf_Robot'); 
-
 % Quadri's parameters
 RobotParameters;
 
+% Acc calibration
+load('AccCalib_Transformation_X4morf_Robot');    %%%%%% TO MODIFYYYYYYYYYYYYYYYYYYYYYY
+
 %%
     % Generation of files to copy on the gumstix
-GenereCOM(ComModelName, ComMinSampleTime);
+% GenereCOM(ComModelName, ComMinSampleTime);
+
+%% DO NOT MODIFY THIS PART!
+CleanUpHostModel(HostModelName);
+mex SfunCPP_RecoverVicon_SDK.cpp 
+    % clean up all previous compiled file and directories
+GenereHost(HostModelName, HostMinSampleTime);
