@@ -42,7 +42,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3219"
+    ComputedModelVersion    "1.3252"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -65,7 +65,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1688.0, 30.0, 1696.0, 1066.0]
+      Location		      [-8.0, -8.0, 1696.0, 1026.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -155,7 +155,7 @@ Model {
 	  LoadSaveID		  "12775"
 	  Extents		  [1646.0, 889.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [13.129336412931309, -161.98360784046031]
+	  Offset		  [13.129336412931252, -161.98360784046031]
 	}
 	Object {
 	  $ObjectID		  13
@@ -205,11 +205,11 @@ Model {
 	Object {
 	  $ObjectID		  18
 	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "9355"
-	  Extents		  [1646.0, 889.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-15.877871747205351, -138.57399585083985]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1646.0, 849.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [-166.31790905399589, 79.842007326332251]
 	}
 	Object {
 	  $ObjectID		  19
@@ -283,11 +283,11 @@ Model {
   Creator		  "Kjenab"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "arenebiorob"
+  LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 09 17:38:01 2018"
-  RTWModifiedTimeStamp	  453058500
-  ModelVersionFormat	  "1.%<AutoIncrement:3219>"
+  LastModifiedDate	  "Mon Aug 13 16:11:49 2018"
+  RTWModifiedTimeStamp	  456077508
+  ModelVersionFormat	  "1.%<AutoIncrement:3252>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1370,8 +1370,8 @@ Model {
   }
   System {
     Name		    "COM_ViconController"
-    Location		    [-1688, 30, 8, 1096]
-    Open		    off
+    Location		    [-8, -8, 1688, 1018]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1382,9 +1382,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "150"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "14021"
+    SIDHighWatermark	    "14059"
     Block {
       BlockType		      Inport
       Name		      "In_from_Serial"
@@ -1676,7 +1676,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "UDP_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "117"
+	    Value		    "119"
 	    Callback		    "ProcessUDPInportMask_COM(gcb, 1);"
 	  }
 	  Object {
@@ -1801,7 +1801,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "28"
+	    Value		    "32"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
 	    TabName		    "Reception"
 	  }
@@ -2052,8 +2052,8 @@ Model {
       Variant		      off
       System {
 	Name			"GUMSTIX"
-	Location		[-1688, 30, 8, 1096]
-	Open			on
+	Location		[-8, -8, 1688, 1018]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2064,7 +2064,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"125"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In_from_UDP"
@@ -2088,7 +2088,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "In_from_Odroid"
 	  SID			  "13974"
-	  Position		  [-110, 1463, -80, 1477]
+	  Position		  [-110, 1493, -80, 1507]
 	  ZOrder		  598
 	  ForegroundColor	  "red"
 	  Port			  "3"
@@ -6961,7 +6961,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "DETECTOR_PARAMETERS"
-	    Location		    [-1688, 22, 8, 1088]
+	    Location		    [-8, -8, 1688, 1018]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6989,12 +6989,12 @@ Model {
 	      BlockType		      Mux
 	      Name		      "Mux6"
 	      SID		      "13952"
-	      Ports		      [8, 1]
-	      Position		      [315, -91, 320, 231]
+	      Ports		      [10, 1]
+	      Position		      [315, -92, 320, 312]
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[2 2 2 4 2 4 2 4]"
+	      Inputs		      "[2 2 2 4 2 4 2 4 4 2]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -7056,6 +7056,18 @@ Model {
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)3"
+	      SID		      "14057"
+	      Ports		      [1, 1]
+	      Position		      [175, 241, 260, 259]
+	      ZOrder		      601
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "k_approx"
 	      SID		      "13958"
@@ -7063,6 +7075,28 @@ Model {
 	      ZOrder		      1
 	      ForegroundColor	      "orange"
 	      Value		      "0.02"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "n_median"
+	      SID		      "14058"
+	      Position		      [25, 281, 130, 299]
+	      ZOrder		      602
+	      ForegroundColor	      "orange"
+	      Value		      "21"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_Et"
+	      SID		      "14056"
+	      Position		      [25, 241, 130, 259]
+	      ZOrder		      600
+	      ForegroundColor	      "orange"
+	      Value		      "1e-3"
 	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
 	      SampleTime	      "-1"
 	    }
@@ -7171,10 +7205,22 @@ Model {
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)5"
+	      SID		      "14059"
+	      Ports		      [1, 1]
+	      Position		      [175, 281, 260, 299]
+	      ZOrder		      603
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "Detector_param"
 	      SID		      "13967"
-	      Position		      [360, 63, 390, 77]
+	      Position		      [360, 103, 390, 117]
 	      ZOrder		      -22
 	      ForegroundColor	      "orange"
 	      IconDisplay	      "Port number"
@@ -7297,6 +7343,34 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "Mux6"
 	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      32
+	      SrcBlock		      "thresh_Et"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)3"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      33
+	      SrcBlock		      "n_median"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)5"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      34
+	      SrcBlock		      "float32 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      9
+	    }
+	    Line {
+	      ZOrder		      35
+	      SrcBlock		      "uint16 to uint8 (BE)5"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      10
 	    }
 	  }
 	}
@@ -9354,6 +9428,16 @@ Model {
 	}
 	Block {
 	  BlockType		  From
+	  Name			  "From12"
+	  SID			  "14030"
+	  Position		  [585, 1233, 690, 1247]
+	  ZOrder		  648
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "sub_angles"
+	}
+	Block {
+	  BlockType		  From
 	  Name			  "From13"
 	  SID			  "13769"
 	  Position		  [1800, 789, 1905, 801]
@@ -9381,6 +9465,26 @@ Model {
 	  BackgroundColor	  "cyan"
 	  ShowName		  off
 	  GotoTag		  "odroid_parameters"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From16"
+	  SID			  "14052"
+	  Position		  [1855, 913, 1960, 927]
+	  ZOrder		  665
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "w_gap"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From17"
+	  SID			  "14053"
+	  Position		  [1855, 938, 1960, 952]
+	  ZOrder		  666
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "h_gap"
 	}
 	Block {
 	  BlockType		  From
@@ -9441,6 +9545,16 @@ Model {
 	  BackgroundColor	  "orange"
 	  ShowName		  off
 	  GotoTag		  "gamma"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From7"
+	  SID			  "14024"
+	  Position		  [585, 1193, 690, 1207]
+	  ZOrder		  642
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "ttc"
 	}
 	Block {
 	  BlockType		  From
@@ -10097,6 +10211,17 @@ Model {
 	}
 	Block {
 	  BlockType		  From
+	  Name			  "From_Theta_r_phys63"
+	  SID			  "14026"
+	  Position		  [585, 1153, 665, 1167]
+	  ZOrder		  644
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
+	  ShowName		  off
+	  GotoTag		  "V_mes"
+	}
+	Block {
+	  BlockType		  From
 	  Name			  "From_Theta_r_phys65"
 	  SID			  "9614"
 	  Position		  [305, 363, 385, 377]
@@ -10148,6 +10273,360 @@ Model {
 	  Criteria		  "u2 > Threshold"
 	  InputSameDT		  off
 	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Gap size estimation"
+	  SID			  "14046"
+	  Ports			  [3, 2]
+	  Position		  [800, 1140, 910, 1260]
+	  ZOrder		  -301
+	  RequestExecContextInheritance	off
+	  Variant		  off
+	  System {
+	    Name		    "Gap size estimation"
+	    Location		    [-8, -8, 1688, 1018]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "125"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Speed"
+	      SID		      "14047"
+	      Position		      [45, 53, 75, 67]
+	      ZOrder		      661
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "ttc"
+	      SID		      "14048"
+	      Position		      [45, 78, 75, 92]
+	      ZOrder		      662
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "sub_angles"
+	      SID		      "14049"
+	      Position		      [45, 188, 75, 202]
+	      ZOrder		      663
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "\n"
+	      SID		      "14025"
+	      Ports		      [3, 1]
+	      Position		      [280, 21, 335, 99]
+	      ZOrder		      643
+	      Inputs		      "3"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "14039"
+	      Position		      [190, 150, 220, 180]
+	      ZOrder		      657
+	      ShowName		      off
+	      Gain		      "1/2"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      SID		      "14040"
+	      Position		      [190, 210, 220, 240]
+	      ZOrder		      658
+	      ShowName		      off
+	      Gain		      "1/2"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Selector
+	      Name		      "Selector2"
+	      SID		      "14027"
+	      Ports		      [1, 1]
+	      Position		      [225, 55, 260, 65]
+	      ZOrder		      645
+	      ShowName		      off
+	      InputPortWidth	      "3"
+	      IndexOptions	      "Index vector (dialog)"
+	      Indices		      "1"
+	      OutputSizes	      "1"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      SID		      "14033"
+	      Ports		      [2, 1]
+	      Position		      [155, 155, 175, 175]
+	      ZOrder		      651
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|-+"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      SID		      "14034"
+	      Ports		      [2, 1]
+	      Position		      [140, 215, 160, 235]
+	      ZOrder		      652
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "+-|"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "T_poll_ms1"
+	      SID		      "14028"
+	      Position		      [240, 28, 265, 42]
+	      ZOrder		      646
+	      ForegroundColor	      "orange"
+	      ShowName		      off
+	      Value		      "2"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Trigonometry
+	      Name		      "Trigonometric\nFunction"
+	      SID		      "14038"
+	      Ports		      [1, 1]
+	      Position		      [290, 250, 320, 280]
+	      ZOrder		      656
+	      ShowName		      off
+	      Operator		      "tan"
+	    }
+	    Block {
+	      BlockType		      Trigonometry
+	      Name		      "Trigonometric\nFunction1"
+	      SID		      "14042"
+	      Ports		      [1, 1]
+	      Position		      [290, 150, 320, 180]
+	      ZOrder		      660
+	      ShowName		      off
+	      Operator		      "tan"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "h"
+	      SID		      "14037"
+	      Ports		      [2, 1]
+	      Position		      [380, 206, 435, 284]
+	      ZOrder		      655
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "l,u,r,d"
+	      SID		      "14032"
+	      Ports		      [1, 4]
+	      Position		      [100, 156, 105, 234]
+	      ZOrder		      650
+	      ForegroundColor	      "red"
+	      NamePlacement	      "alternate"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "w"
+	      SID		      "14036"
+	      Ports		      [2, 1]
+	      Position		      [380, 106, 435, 184]
+	      ZOrder		      654
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "w_gap"
+	      SID		      "14050"
+	      Position		      [505, 138, 535, 152]
+	      ZOrder		      664
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "h_gap"
+	      SID		      "14051"
+	      Position		      [505, 238, 535, 252]
+	      ZOrder		      665
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      ZOrder		      3743
+	      SrcBlock		      "Selector2"
+	      SrcPort		      1
+	      DstBlock		      "\n"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      3767
+	      SrcBlock		      "ttc"
+	      SrcPort		      1
+	      DstBlock		      "\n"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      3744
+	      SrcBlock		      "T_poll_ms1"
+	      SrcPort		      1
+	      DstBlock		      "\n"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3766
+	      SrcBlock		      "Speed"
+	      SrcPort		      1
+	      DstBlock		      "Selector2"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3750
+	      SrcBlock		      "l,u,r,d"
+	      SrcPort		      4
+	      DstBlock		      "Sum1"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      3747
+	      SrcBlock		      "l,u,r,d"
+	      SrcPort		      3
+	      Points		      [55, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      3768
+	      SrcBlock		      "sub_angles"
+	      SrcPort		      1
+	      DstBlock		      "l,u,r,d"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3748
+	      SrcBlock		      "l,u,r,d"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3749
+	      SrcBlock		      "l,u,r,d"
+	      SrcPort		      2
+	      Points		      [40, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3752
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3760
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      Points		      [34, 0; 0, 40]
+	      DstBlock		      "Trigonometric\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3770
+	      SrcBlock		      "h"
+	      SrcPort		      1
+	      DstBlock		      "h_gap"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3759
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Trigonometric\nFunction1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3758
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3762
+	      SrcBlock		      "Trigonometric\nFunction1"
+	      SrcPort		      1
+	      DstBlock		      "w"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      3753
+	      SrcBlock		      "\n"
+	      SrcPort		      1
+	      Points		      [18, 0; 0, 65]
+	      Branch {
+		ZOrder			3757
+		Points			[0, 100]
+		DstBlock		"h"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			3756
+		DstBlock		"w"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      ZOrder		      3769
+	      SrcBlock		      "w"
+	      SrcPort		      1
+	      DstBlock		      "w_gap"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3761
+	      SrcBlock		      "Trigonometric\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "h"
+	      DstPort		      2
+	    }
+	  }
 	}
 	Block {
 	  BlockType		  Goto
@@ -10302,6 +10781,16 @@ Model {
 	  BackgroundColor	  "[1.000000, 0.501961, 0.501961]"
 	  ShowName		  off
 	  GotoTag		  "RAW_Gyro"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er15"
+	  SID			  "14023"
+	  Position		  [315, 1613, 400, 1627]
+	  ZOrder		  641
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "ttc"
 	}
 	Block {
 	  BlockType		  Goto
@@ -10777,6 +11266,26 @@ Model {
 	}
 	Block {
 	  BlockType		  Goto
+	  Name			  "Goto_Theta_er56"
+	  SID			  "14044"
+	  Position		  [980, 1163, 1065, 1177]
+	  ZOrder		  662
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "w_gap"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er57"
+	  SID			  "14045"
+	  Position		  [980, 1223, 1065, 1237]
+	  ZOrder		  663
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "h_gap"
+	}
+	Block {
+	  BlockType		  Goto
 	  Name			  "Goto_Theta_er6"
 	  SID			  "13976"
 	  Position		  [315, 1433, 400, 1447]
@@ -10903,11 +11412,11 @@ Model {
 	  BlockType		  Demux
 	  Name			  "In_from_Odroid_Demux"
 	  SID			  "13980"
-	  Ports			  [1, 4]
-	  Position		  [-10, 1346, -5, 1594]
+	  Ports			  [1, 5]
+	  Position		  [-10, 1348, -5, 1652]
 	  ZOrder		  599
 	  ForegroundColor	  "red"
-	  Outputs		  "[16 8 2 2]"
+	  Outputs		  "[16 8 2 2 4]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -10929,7 +11438,7 @@ Model {
 	  Position		  [-15, 22, -10, 853]
 	  ZOrder		  -7
 	  ForegroundColor	  "green"
-	  Outputs		  "[1 10 17 4 36 24 1 2 10 12]"
+	  Outputs		  "[1 10 17 4 36 24 1 2 10 14]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -12189,11 +12698,11 @@ Model {
 	  BlockType		  Mux
 	  Name			  "Out_to_UDP_Mux"
 	  SID			  "9708"
-	  Ports			  [13, 1]
-	  Position		  [2145, -15, 2150, 905]
+	  Ports			  [14, 1]
+	  Position		  [2145, -18, 2150, 978]
 	  ZOrder		  -16
 	  ForegroundColor	  "red"
-	  Inputs		  "[1 1 9 10 15 15 11 18 3 22 11 3 8]"
+	  Inputs		  "[1 1 9 10 15 15 11 18 3 22 11 3 8 2]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -24980,7 +25489,6 @@ Model {
 	      ZOrder		      316
 	      SrcBlock		      "From_Theta_r_phys40"
 	      SrcPort		      1
-	      Points		      [35, 0]
 	      DstBlock		      "Vicon Position \nController"
 	      DstPort		      2
 	    }
@@ -24995,7 +25503,6 @@ Model {
 	      ZOrder		      309
 	      SrcBlock		      "ClosedLoop\nPosition SetPoint Generator"
 	      SrcPort		      1
-	      Points		      [330, 0]
 	      DstBlock		      "Vicon Position \nController"
 	      DstPort		      1
 	    }
@@ -25017,7 +25524,6 @@ Model {
 	      ZOrder		      487
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      1
-	      Points		      [0, 0]
 	      DstBlock		      "In_from_RS232_Demux2"
 	      DstPort		      1
 	    }
@@ -25081,7 +25587,6 @@ Model {
 	      ZOrder		      315
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      4
-	      Points		      [0, 0]
 	      DstBlock		      "XYZ_PIDterm"
 	      DstPort		      1
 	    }
@@ -25113,7 +25618,6 @@ Model {
 	      ZOrder		      325
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      3
-	      Points		      [0, 0]
 	      DstBlock		      "Thrust_ref"
 	      DstPort		      1
 	    }
@@ -25128,7 +25632,6 @@ Model {
 	      ZOrder		      324
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      2
-	      Points		      [0, 0]
 	      DstBlock		      "Angles_ref"
 	      DstPort		      1
 	    }
@@ -25136,7 +25639,7 @@ Model {
 	      ZOrder		      326
 	      SrcBlock		      "Vicon Position \nController"
 	      SrcPort		      5
-	      Points		      [0, 0; 26, 0]
+	      Points		      [26, 0]
 	      Branch {
 		ZOrder			480
 		Points			[0, -30]
@@ -25505,6 +26008,16 @@ Model {
 	  ShowName		  off
 	  Deterministic		  off
 	  OutPortSampleTime	  "Ts_AttitudeLoop"
+	}
+	Block {
+	  BlockType		  RateTransition
+	  Name			  "Rate Transition3"
+	  SID			  "14055"
+	  Position		  [2050, 924, 2080, 946]
+	  ZOrder		  668
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Deterministic		  off
 	}
 	Block {
 	  BlockType		  RateTransition
@@ -27614,6 +28127,18 @@ Model {
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  Mux
+	  Name			  "XYZ_ctrl3"
+	  SID			  "14054"
+	  Ports			  [2, 1]
+	  Position		  [1975, 906, 1980, 959]
+	  ZOrder		  667
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
 	  BlockType		  Constant
 	  Name			  "debug"
 	  SID			  "13795"
@@ -27765,6 +28290,18 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)4"
+	  SID			  "14022"
+	  Ports			  [1, 1]
+	  Position		  [45, 1611, 130, 1629]
+	  ZOrder		  640
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "uint8 to uint16 (BE)"
 	  SID			  "13986"
 	  Ports			  [1, 1]
@@ -27803,7 +28340,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out_to_UDP"
 	  SID			  "10137"
-	  Position		  [2200, 438, 2230, 452]
+	  Position		  [2200, 473, 2230, 487]
 	  ZOrder		  -181
 	  ForegroundColor	  "red"
 	  IconDisplay		  "Port number"
@@ -29742,6 +30279,7 @@ Model {
 	  ZOrder		  3407
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  3
+	  Points		  [0, 0]
 	  DstBlock		  "uint8 to uint16 (BE)"
 	  DstPort		  1
 	}
@@ -29749,6 +30287,7 @@ Model {
 	  ZOrder		  3408
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  4
+	  Points		  [0, 0]
 	  DstBlock		  "uint8 to uint16 (BE)1"
 	  DstPort		  1
 	}
@@ -29828,6 +30367,7 @@ Model {
 	  ZOrder		  3450
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  2
+	  Points		  [0, 0]
 	  DstBlock		  "uint8 to uint32 (BE)"
 	  DstPort		  1
 	}
@@ -29899,7 +30439,6 @@ Model {
 	  ZOrder		  3466
 	  SrcBlock		  "float32 to uint8 (BE)"
 	  SrcPort		  1
-	  Points		  [-5, 0]
 	  DstBlock		  "Goto_Theta_er55"
 	  DstPort		  1
 	}
@@ -29923,6 +30462,83 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Goto_Theta_er29"
 	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3737
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  5
+	  DstBlock		  "uint8 to float (BE)4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3738
+	  SrcBlock		  "uint8 to float (BE)4"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er15"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3766
+	  SrcBlock		  "From_Theta_r_phys63"
+	  SrcPort		  1
+	  DstBlock		  "Gap size estimation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3767
+	  SrcBlock		  "From7"
+	  SrcPort		  1
+	  DstBlock		  "Gap size estimation"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3768
+	  SrcBlock		  "From12"
+	  SrcPort		  1
+	  DstBlock		  "Gap size estimation"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  3769
+	  SrcBlock		  "Gap size estimation"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er56"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3770
+	  SrcBlock		  "Gap size estimation"
+	  SrcPort		  2
+	  DstBlock		  "Goto_Theta_er57"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3771
+	  SrcBlock		  "From16"
+	  SrcPort		  1
+	  DstBlock		  "XYZ_ctrl3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3772
+	  SrcBlock		  "From17"
+	  SrcPort		  1
+	  DstBlock		  "XYZ_ctrl3"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3773
+	  SrcBlock		  "XYZ_ctrl3"
+	  SrcPort		  1
+	  DstBlock		  "Rate Transition3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3774
+	  SrcBlock		  "Rate Transition3"
+	  SrcPort		  1
+	  DstBlock		  "Out_to_UDP_Mux"
+	  DstPort		  14
 	}
 	Annotation {
 	  SID			  "10140"
@@ -30464,7 +31080,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "UDP_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "127"
+	    Value		    "129"
 	    Callback		    "ProcessUDPOutportMask_COM(gcb, 1);"
 	  }
 	  Object {
@@ -30662,7 +31278,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "48"
+	    Value		    "54"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 1);\n"
 	    TabName		    "Emission"
 	  }
@@ -31814,10 +32430,7 @@ Stateflow {
     firstTransition	    70
     firstJunction	    69
     viewObj		    48
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    60
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
