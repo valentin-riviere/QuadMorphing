@@ -22,7 +22,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1606"
+    ComputedModelVersion    "1.1623"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -62,37 +62,16 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Array {
-	Type			"Simulink.EditorInfo"
-	Dimension		3
-	Object {
-	  $ObjectID		  5
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-236.43845031268188, -73.96750599146327]
-	}
-	Object {
-	  $ObjectID		  6
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "9355"
-	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [1.75]
-	  Offset		  [802.88227667368619, 601.379895721305]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "10223"
-	  Extents		  [1646.0, 849.0]
-	  ZoomFactor		  [2.5]
-	  Offset		  [-77.631256975621525, -80.412072252811015]
-	}
-	PropName		"EditorsInfo"
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[1646.0, 852.0]
+	ZoomFactor		[1.0]
+	Offset			[-236.43845031268188, -73.96750599146327]
       }
     }
   }
@@ -103,9 +82,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "valentin_riviere"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon May 07 16:30:35 2018"
-  RTWModifiedTimeStamp	  447611323
-  ModelVersionFormat	  "1.%<AutoIncrement:1606>"
+  LastModifiedDate	  "Mon Aug 13 15:42:40 2018"
+  RTWModifiedTimeStamp	  456075747
+  ModelVersionFormat	  "1.%<AutoIncrement:1623>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -147,7 +126,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    8
+    $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "COM_test_gumstix_only_odroid"
     Array {
@@ -190,13 +169,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      7
       Version		      "1.15.1"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  8
 	  Version		  "1.15.1"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
@@ -233,7 +212,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  9
 	  Version		  "1.15.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -269,7 +248,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  10
 	  Version		  "1.15.1"
 	  BlockReduction	  on
 	  BooleanDataType	  on
@@ -313,7 +292,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  11
 	  Version		  "1.15.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -403,7 +382,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  12
 	  Version		  "1.15.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -443,7 +422,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  13
 	  Version		  "1.15.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
@@ -459,7 +438,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  14
 	  Version		  "1.15.1"
 	  SFSimEcho		  on
 	  SimCtrlC		  on
@@ -471,7 +450,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  15
 	  Version		  "1.15.1"
 	  SystemTargetFile	  "ert.tlc"
 	  TLCOptions		  ""
@@ -522,7 +501,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      16
 	      Version		      "1.15.1"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -565,7 +544,7 @@ Model {
 	    }
 	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      17
 	      Version		      "1.15.1"
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
@@ -698,7 +677,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  20
+	  $ObjectID		  18
 	  Version		  "1.15.1"
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -735,11 +714,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    7
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    19
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -935,7 +914,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "10354"
+    SIDHighWatermark	    "10360"
     Block {
       BlockType		      Inport
       Name		      "Serial_In_Odroid"
@@ -948,7 +927,7 @@ Model {
       SampleTime	      "Gumstix.RS232.Reception(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		20
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:15\n    ProcessRS232InportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Reception_Block;"
@@ -957,16 +936,16 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  15
 	  Object {
-	    $ObjectID		    23
+	    $ObjectID		    21
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Received Data"
-	    Value		    "28"
+	    Value		    "32"
 	    Callback		    "ProcessRS232InportMask_COM(gcb, 1);\n"
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    24
+	    $ObjectID		    22
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -988,7 +967,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    25
+	    $ObjectID		    23
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1020,7 +999,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    26
+	    $ObjectID		    24
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1063,7 +1042,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    27
+	    $ObjectID		    25
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Reception Sample Time [s]"
@@ -1072,7 +1051,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    28
+	    $ObjectID		    26
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1088,7 +1067,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    29
+	    $ObjectID		    27
 	    Type		    "edit"
 	    Name		    "RS232_BlockingTimeOut"
 	    Prompt		    "Blocking Time Out [s]"
@@ -1098,7 +1077,7 @@ Model {
 	    TabName		    "Reception"
 	  }
 	  Object {
-	    $ObjectID		    30
+	    $ObjectID		    28
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1114,7 +1093,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    31
+	    $ObjectID		    29
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -1123,7 +1102,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    32
+	    $ObjectID		    30
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1140,7 +1119,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    33
+	    $ObjectID		    31
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -1149,7 +1128,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    34
+	    $ObjectID		    32
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -1159,7 +1138,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    35
+	    $ObjectID		    33
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1176,7 +1155,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    36
+	    $ObjectID		    34
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -1186,7 +1165,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    37
+	    $ObjectID		    35
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
@@ -1212,7 +1191,7 @@ Model {
       System {
 	Name			"GUMSTIX"
 	Location		[-8, 0, 1688, 1026]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1228,7 +1207,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "In_from_Odroid"
 	  SID			  "10163"
-	  Position		  [340, 743, 370, 757]
+	  Position		  [340, 773, 370, 787]
 	  ZOrder		  70
 	  ForegroundColor	  "red"
 	  IconDisplay		  "Port number"
@@ -1264,7 +1243,7 @@ Model {
 	      Position		      [25, 241, 130, 259]
 	      ZOrder		      5
 	      ForegroundColor	      "orange"
-	      Value		      "[pi*15/180 pi*10/180]"
+	      Value		      "[pi*63.7/180 pi*49.9/180]"
 	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
 	      SampleTime	      "-1"
 	    }
@@ -1309,7 +1288,7 @@ Model {
 	      Position		      [25, 161, 130, 179]
 	      ZOrder		      2
 	      ForegroundColor	      "orange"
-	      Value		      "1000"
+	      Value		      "5000"
 	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
 	      SampleTime	      "-1"
 	    }
@@ -1320,7 +1299,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 241, 280, 259]
 	      ZOrder		      250
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1354,7 +1333,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 41, 280, 59]
 	      ZOrder		      245
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1366,7 +1345,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 81, 280, 99]
 	      ZOrder		      246
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1378,7 +1357,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 1, 280, 19]
 	      ZOrder		      251
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1390,7 +1369,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 161, 280, 179]
 	      ZOrder		      248
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1402,7 +1381,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 201, 280, 219]
 	      ZOrder		      249
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1414,7 +1393,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [195, 121, 280, 139]
 	      ZOrder		      252
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1558,7 +1537,7 @@ Model {
 	  System {
 	    Name		    "DETECTOR_PARAMETERS"
 	    Location		    [-8, 0, 1688, 1026]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1574,12 +1553,12 @@ Model {
 	      BlockType		      Mux
 	      Name		      "Mux6"
 	      SID		      "10226"
-	      Ports		      [7, 1]
-	      Position		      [315, -48, 320, 228]
+	      Ports		      [9, 1]
+	      Position		      [315, -48, 320, 308]
 	      ZOrder		      -16
 	      ForegroundColor	      "orange"
 	      ShowName		      off
-	      Inputs		      "[2 2 4 2 4 2 4]"
+	      Inputs		      "[2 2 4 2 4 2 4 4 2]"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1611,7 +1590,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 41, 260, 59]
 	      ZOrder		      245
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1623,7 +1602,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 121, 260, 139]
 	      ZOrder		      246
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1635,7 +1614,19 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 201, 260, 219]
 	      ZOrder		      247
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "float32 to uint8 (BE)3"
+	      SID		      "10356"
+	      Ports		      [1, 1]
+	      Position		      [175, 241, 260, 259]
+	      ZOrder		      256
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/float32 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1648,6 +1639,28 @@ Model {
 	      ZOrder		      1
 	      ForegroundColor	      "orange"
 	      Value		      "0.02"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "n_median"
+	      SID		      "10357"
+	      Position		      [25, 281, 130, 299]
+	      ZOrder		      257
+	      ForegroundColor	      "orange"
+	      Value		      "21"
+	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thresh_Et"
+	      SID		      "10355"
+	      Position		      [25, 241, 130, 259]
+	      ZOrder		      255
+	      ForegroundColor	      "orange"
+	      Value		      "1e-3"
 	      OutDataTypeStr	      "Inherit: Inherit via back propagation"
 	      SampleTime	      "-1"
 	    }
@@ -1702,7 +1715,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, -39, 260, -21]
 	      ZOrder		      253
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1714,7 +1727,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 1, 260, 19]
 	      ZOrder		      254
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1726,7 +1739,7 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 81, 260, 99]
 	      ZOrder		      251
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1738,7 +1751,19 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [175, 161, 260, 179]
 	      ZOrder		      252
-	      LibraryVersion	      "1.19"
+	      LibraryVersion	      "1.40"
+	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
+	      SourceType	      "SubSystem"
+	      ContentPreviewEnabled   off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "uint16 to uint8 (BE)4"
+	      SID		      "10358"
+	      Ports		      [1, 1]
+	      Position		      [175, 281, 260, 299]
+	      ZOrder		      258
+	      LibraryVersion	      "1.40"
 	      SourceBlock	      "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	      SourceType	      "SubSystem"
 	      ContentPreviewEnabled   off
@@ -1747,7 +1772,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Detector_param"
 	      SID		      "10232"
-	      Position		      [360, 83, 390, 97]
+	      Position		      [360, 123, 390, 137]
 	      ZOrder		      -22
 	      ForegroundColor	      "orange"
 	      IconDisplay	      "Port number"
@@ -1798,6 +1823,7 @@ Model {
 	      ZOrder		      51
 	      SrcBlock		      "float32 to uint8 (BE)"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      3
 	    }
@@ -1805,6 +1831,7 @@ Model {
 	      ZOrder		      53
 	      SrcBlock		      "float32 to uint8 (BE)1"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      5
 	    }
@@ -1812,6 +1839,7 @@ Model {
 	      ZOrder		      56
 	      SrcBlock		      "float32 to uint8 (BE)2"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      7
 	    }
@@ -1833,6 +1861,7 @@ Model {
 	      ZOrder		      62
 	      SrcBlock		      "uint16 to uint8 (BE)2"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      4
 	    }
@@ -1840,6 +1869,7 @@ Model {
 	      ZOrder		      64
 	      SrcBlock		      "uint16 to uint8 (BE)3"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      6
 	    }
@@ -1854,8 +1884,37 @@ Model {
 	      ZOrder		      77
 	      SrcBlock		      "uint16 to uint8 (BE)1"
 	      SrcPort		      1
+	      Points		      [35, 0]
 	      DstBlock		      "Mux6"
 	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      78
+	      SrcBlock		      "thresh_Et"
+	      SrcPort		      1
+	      DstBlock		      "float32 to uint8 (BE)3"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      79
+	      SrcBlock		      "n_median"
+	      SrcPort		      1
+	      DstBlock		      "uint16 to uint8 (BE)4"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      80
+	      SrcBlock		      "float32 to uint8 (BE)3"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      8
+	    }
+	    Line {
+	      ZOrder		      81
+	      SrcBlock		      "uint16 to uint8 (BE)4"
+	      SrcPort		      1
+	      DstBlock		      "Mux6"
+	      DstPort		      9
 	    }
 	  }
 	}
@@ -1866,9 +1925,19 @@ Model {
 	  Position		  [875, 503, 1075, 527]
 	  ZOrder		  36
 	  ForegroundColor	  "orange"
-	  Value			  "[70 70]"
+	  Value			  "[0 0]"
 	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
 	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er1"
+	  SID			  "10360"
+	  Position		  [655, 893, 740, 907]
+	  ZOrder		  246
+	  BackgroundColor	  "cyan"
+	  ShowName		  off
+	  GotoTag		  "ttc"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1925,11 +1994,11 @@ Model {
 	  BlockType		  Demux
 	  Name			  "In_from_Odroid_Demux"
 	  SID			  "10165"
-	  Ports			  [1, 4]
-	  Position		  [440, 626, 445, 874]
+	  Ports			  [1, 5]
+	  Position		  [440, 628, 445, 932]
 	  ZOrder		  72
 	  ForegroundColor	  "red"
-	  Outputs		  "[16 8 2 2]"
+	  Outputs		  "[16 8 2 2 4]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -1951,7 +2020,7 @@ Model {
 	  Position		  [1310, 660, 1315, 835]
 	  ZOrder		  184
 	  ForegroundColor	  "red"
-	  Inputs		  "[2 24 2 20]"
+	  Inputs		  "[2 24 2 26]"
 	  DisplayOption		  "bar"
 	}
 	Block {
@@ -1977,12 +2046,12 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "T_poll_ms"
+	  Name			  "T_poll_ms / FPS"
 	  SID			  "10217"
 	  Position		  [1110, 673, 1160, 687]
 	  ZOrder		  192
 	  ForegroundColor	  "orange"
-	  Value			  "10"
+	  Value			  "20"
 	  OutDataTypeStr	  "Inherit: Inherit via back propagation"
 	  SampleTime		  "-1"
 	}
@@ -2003,7 +2072,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [1190, 671, 1275, 689]
 	  ZOrder		  243
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2015,7 +2084,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [1190, 761, 1275, 779]
 	  ZOrder		  244
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint16 to uint8 (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2027,7 +2096,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 621, 580, 639]
 	  ZOrder		  237
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2039,7 +2108,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 641, 580, 659]
 	  ZOrder		  238
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2051,7 +2120,7 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 661, 580, 679]
 	  ZOrder		  239
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2063,7 +2132,19 @@ Model {
 	  Ports			  [1, 1]
 	  Position		  [495, 681, 580, 699]
 	  ZOrder		  240
-	  LibraryVersion	  "1.19"
+	  LibraryVersion	  "1.40"
+	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
+	  SourceType		  "SubSystem"
+	  ContentPreviewEnabled	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "uint8 to float (BE)4"
+	  SID			  "10359"
+	  Ports			  [1, 1]
+	  Position		  [495, 891, 580, 909]
+	  ZOrder		  245
+	  LibraryVersion	  "1.40"
 	  SourceBlock		  "custom_lib/CONVERTERS/uint8 to float (BE)"
 	  SourceType		  "SubSystem"
 	  ContentPreviewEnabled	  off
@@ -2189,6 +2270,7 @@ Model {
 	  ZOrder		  384
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  3
+	  Points		  [0, 0]
 	  DstBlock		  "Goto_Theta_er7"
 	  DstPort		  1
 	}
@@ -2196,6 +2278,7 @@ Model {
 	  ZOrder		  385
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  4
+	  Points		  [0, 0]
 	  DstBlock		  "Goto_Theta_er8"
 	  DstPort		  1
 	}
@@ -2208,7 +2291,7 @@ Model {
 	}
 	Line {
 	  ZOrder		  506
-	  SrcBlock		  "T_poll_ms"
+	  SrcBlock		  "T_poll_ms / FPS"
 	  SrcPort		  1
 	  DstBlock		  "uint16 to uint8 (BE)"
 	  DstPort		  1
@@ -2245,6 +2328,7 @@ Model {
 	  ZOrder		  541
 	  SrcBlock		  "In_from_Odroid_Demux"
 	  SrcPort		  2
+	  Points		  [0, 0]
 	  DstBlock		  "Goto_Theta_er5"
 	  DstPort		  1
 	}
@@ -2254,6 +2338,20 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Out_from_Odroid_Demux"
 	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  545
+	  SrcBlock		  "In_from_Odroid_Demux"
+	  SrcPort		  5
+	  DstBlock		  "uint8 to float (BE)4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  546
+	  SrcBlock		  "uint8 to float (BE)4"
+	  SrcPort		  1
+	  DstBlock		  "Goto_Theta_er1"
+	  DstPort		  1
 	}
 	Annotation {
 	  SID			  "10349"
@@ -2292,7 +2390,7 @@ Model {
       Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		38
+	$ObjectID		36
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:14\n    ProcessConfigMask_COM(gcb, i);\nend"
 	Display			"image(imread('Configuration_v2.jpg'));"
@@ -2300,7 +2398,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  14
 	  Object {
-	    $ObjectID		    39
+	    $ObjectID		    37
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2317,7 +2415,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    40
+	    $ObjectID		    38
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2340,7 +2438,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    41
+	    $ObjectID		    39
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2357,7 +2455,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    42
+	    $ObjectID		    40
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2373,7 +2471,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    43
+	    $ObjectID		    41
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2389,7 +2487,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    44
+	    $ObjectID		    42
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2405,7 +2503,7 @@ Model {
 	    TabName		    "Input-Ouput Verbose"
 	  }
 	  Object {
-	    $ObjectID		    45
+	    $ObjectID		    43
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2421,7 +2519,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    46
+	    $ObjectID		    44
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2437,7 +2535,7 @@ Model {
 	    TabName		    "Timing Debug"
 	  }
 	  Object {
-	    $ObjectID		    47
+	    $ObjectID		    45
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2453,7 +2551,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    48
+	    $ObjectID		    46
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2470,7 +2568,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    49
+	    $ObjectID		    47
 	    Type		    "edit"
 	    Name		    "MaxTaskPriority"
 	    Prompt		    "Maximum Task Priority [1-99]"
@@ -2479,7 +2577,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    50
+	    $ObjectID		    48
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2495,7 +2593,7 @@ Model {
 	    TabName		    "TimeScheduler"
 	  }
 	  Object {
-	    $ObjectID		    51
+	    $ObjectID		    49
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2512,7 +2610,7 @@ Model {
 	    TabName		    "Hardware"
 	  }
 	  Object {
-	    $ObjectID		    52
+	    $ObjectID		    50
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2561,7 +2659,7 @@ Model {
       SampleTime	      "evalin('base', 'Gumstix.PWM.SampleTime')"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		53
+	$ObjectID		51
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:8\n    ProcessPWMmask_COM(gcb, i);\nend"
 	Display			"Display_PWM_Block;"
@@ -2570,7 +2668,7 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    54
+	    $ObjectID		    52
 	    Type		    "edit"
 	    Name		    "TimersList"
 	    Prompt		    "Active PWM (example: [8,9,10,11])"
@@ -2578,7 +2676,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 1);"
 	  }
 	  Object {
-	    $ObjectID		    55
+	    $ObjectID		    53
 	    Type		    "edit"
 	    Name		    "PwmFrequency"
 	    Prompt		    "PWM Frequency [Hz]"
@@ -2586,7 +2684,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 2);"
 	  }
 	  Object {
-	    $ObjectID		    56
+	    $ObjectID		    54
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2601,7 +2699,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 3);"
 	  }
 	  Object {
-	    $ObjectID		    57
+	    $ObjectID		    55
 	    Type		    "edit"
 	    Name		    "ServoMin"
 	    Prompt		    "Servo Min Value [tenth's of us]"
@@ -2610,7 +2708,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 4);"
 	  }
 	  Object {
-	    $ObjectID		    58
+	    $ObjectID		    56
 	    Type		    "edit"
 	    Name		    "ServoMax"
 	    Prompt		    "Servo Max Value [tenth's of us]"
@@ -2619,15 +2717,15 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 5);"
 	  }
 	  Object {
-	    $ObjectID		    59
+	    $ObjectID		    57
 	    Type		    "edit"
 	    Name		    "PWM_DefaultValue"
 	    Prompt		    "Default Pwm Value"
-	    Value		    "30"
+	    Value		    "0"
 	    Callback		    "ProcessPWMmask_COM(gcb, 6);"
 	  }
 	  Object {
-	    $ObjectID		    60
+	    $ObjectID		    58
 	    Type		    "edit"
 	    Name		    "PWM_SampleTime"
 	    Prompt		    "Refresh Sample Time [s]"
@@ -2635,7 +2733,7 @@ Model {
 	    Callback		    "ProcessPWMmask_COM(gcb, 7);"
 	  }
 	  Object {
-	    $ObjectID		    61
+	    $ObjectID		    59
 	    Type		    "checkbox"
 	    Name		    "PWM_KeepAfterStop"
 	    Prompt		    "Keep Default Pwm Value after program stop"
@@ -2659,7 +2757,7 @@ Model {
       SampleTime	      "Gumstix.RS232.Emission(1).SampleTime"
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		62
+	$ObjectID		60
 	$ClassName		"Simulink.Mask"
 	Initialization		"for i=1:1:13\n    ProcessRS232OutportMask_COM(gcb, i);\nend\n"
 	Display			"Display_RS232_Emission_Block;"
@@ -2667,16 +2765,16 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  13
 	  Object {
-	    $ObjectID		    63
+	    $ObjectID		    61
 	    Type		    "edit"
 	    Name		    "RS232_NbData"
 	    Prompt		    "Number of Sent Data"
-	    Value		    "48"
+	    Value		    "54"
 	    Callback		    "ProcessRS232OutportMask_COM(gcb, 1);\n"
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    64
+	    $ObjectID		    62
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2698,7 +2796,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    65
+	    $ObjectID		    63
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2730,7 +2828,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    66
+	    $ObjectID		    64
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2773,7 +2871,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    67
+	    $ObjectID		    65
 	    Type		    "edit"
 	    Name		    "RS232_SampleTime"
 	    Prompt		    "Sample Time [s]"
@@ -2782,7 +2880,7 @@ Model {
 	    TabName		    "Emission"
 	  }
 	  Object {
-	    $ObjectID		    68
+	    $ObjectID		    66
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2798,7 +2896,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    69
+	    $ObjectID		    67
 	    Type		    "edit"
 	    Name		    "RS232_StreamHeaderValue"
 	    Prompt		    "Stream header value [0-255]"
@@ -2807,7 +2905,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    70
+	    $ObjectID		    68
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2824,7 +2922,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    71
+	    $ObjectID		    69
 	    Type		    "edit"
 	    Name		    "RS232_StartTimeOut"
 	    Prompt		    "Start Stream Waiting TimeOut [ms]"
@@ -2833,7 +2931,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    72
+	    $ObjectID		    70
 	    Type		    "edit"
 	    Name		    "RS232_StartStream"
 	    Prompt		    "Start Message"
@@ -2843,7 +2941,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    73
+	    $ObjectID		    71
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2860,7 +2958,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    74
+	    $ObjectID		    72
 	    Type		    "edit"
 	    Name		    "RS232_StopTimeOut"
 	    Prompt		    "Stop Stream Waiting TimeOut [ms]"
@@ -2870,7 +2968,7 @@ Model {
 	    TabName		    "Header and Synchro Protocol"
 	  }
 	  Object {
-	    $ObjectID		    75
+	    $ObjectID		    73
 	    Type		    "edit"
 	    Name		    "RS232_StopStream"
 	    Prompt		    "Stop Message"
