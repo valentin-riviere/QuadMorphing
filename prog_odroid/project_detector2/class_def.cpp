@@ -82,6 +82,6 @@ void Stream_out::to_buffer(uint8_t * write_buffer) const
 	uint64_2_uint8(&time_frame,write_buffer+16);
 	uint16_2_uint8(&no_detect,write_buffer+24);
 	uint16_2_uint8(&init_detect,write_buffer+26);
-	float_2_uint8(&ttc, write_buffer+30);
+	float_2_uint8(&ttc, write_buffer+28);
 }
 
