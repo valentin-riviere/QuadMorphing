@@ -81,10 +81,10 @@ load('AccCalib_Transformation_X4morf_Robot');    %%%%%% TO MODIFYYYYYYYYYYYYYYYY
 
 %%
     % Generation of files to copy on the gumstix
-% GenereCOM(ComModelName, ComMinSampleTime);
+GenereCOM(ComModelName, ComMinSampleTime);
 
-%% DO NOT MODIFY THIS PART!
+% DO NOT MODIFY THIS PART!
 CleanUpHostModel(HostModelName);
 mex SfunCPP_RecoverVicon_SDK.cpp 
-    % clean up all previous compiled file and directories
+%     clean up all previous compiled file and directories
 GenereHost(HostModelName, HostMinSampleTime);

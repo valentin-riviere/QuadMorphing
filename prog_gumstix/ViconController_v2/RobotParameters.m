@@ -14,15 +14,15 @@ rad2deg = 180/pi;
 time_unfolding = 230e-3;
 
 % mass and dimension for default position
-m = 0.380;		% [kg]
-Ix = 8e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
-Iy = 3.23e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
-Iz = 3.2e-3;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+m = 0.700;		% [kg]
+Ix = 13.6e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+Iy = 44.1e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
+Iz = 40.6e-4;	% [kg.m^2]  UAV inertia momentum around X-axis in body frame
 
 L = 0.28;       % [m]   length of quadrotor
 l_b = 0.14;     % [m]   width of quadrotor
 hG = 0;         % [m]   height relative to body frame's origin of the center of mass
-hT = 55e-3;     % [m]   height of the thrust center of each rotor relative to center of mass
+hT = 60e-3;     % [m]   height of the thrust center of each rotor relative to center of mass
 
 D = [L/2 , -l_b/2 , hT;...
      L/2 , l_b/2 , hT;...
@@ -66,7 +66,7 @@ MaxThrottle = 2000;     % [us]
 Tprop_CL = 0.1; % [s] time constant of the closed loop for propeller's rotation rate (2nd order) tf(1, [1/(7*2*pi) 1])^2
 cTm = 1.0194e-7;      % [kg.s^2.rad^-2] thrust coefficient
 cQm = 1.0031e-9;     % [kg.s^2.rad^-2] drag coefficient
-Tmax = .8155;       % [kg] maximum thrust achievable per rotor
+Tmax = .7;       % [kg] maximum thrust achievable per rotor
 Tmin = .0097;       % [kg] minimum thrust achievable per rotor (to ensure that omega_r > 0 and ensure the existence of flapping angle) 
 
 %% deduction of other parameters
@@ -130,8 +130,8 @@ PositionMax = [5.7 ; 2.5; 3];             % [m]
 PositionMin = [-0.2; -2.5; 0];             % [m]
 PositionSecuMax = [5.5 ; 3 ; 4];        % [m]
 PositionSecuMin = [-0.5; -3; -0.07];    % [m]
-SpeedMax = [1; 1; 1];                   % [m.s^-1]
-SpeedMin = [-1; -1; -1];                % [m.s^-1]
+SpeedMax = [1; 1; 2];                   % [m.s^-1]
+SpeedMin = [-1; -1; -2];                % [m.s^-1]
 SpeedMaxScenario = [3; 1; 3];           % [m.s^-1]
 SpeedMinScenario = [-3; -1; -3];        % [m.s^-1]
 AccMax = [g*tan(AnglesMax(1)); g*tan(AnglesMax(2)); g*nb_rotor*Thrust_max/100*Tmax];
