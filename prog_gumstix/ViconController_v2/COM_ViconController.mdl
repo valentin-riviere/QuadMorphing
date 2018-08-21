@@ -42,7 +42,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3456"
+    ComputedModelVersion    "1.3465"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -182,7 +182,7 @@ Model {
 	  LoadSaveID		  "12480"
 	  Extents		  [1868.0, 861.0]
 	  ZoomFactor		  [1.25]
-	  Offset		  [1268.1992038090557, 43.294256639553232]
+	  Offset		  [1268.1992038090557, 43.294256639553225]
 	}
 	Object {
 	  $ObjectID		  16
@@ -290,7 +290,7 @@ Model {
 	  LoadSaveID		  "9548"
 	  Extents		  [1868.0, 861.0]
 	  ZoomFactor		  [2.38]
-	  Offset		  [-0.42016806722688216, -33.731087558988662]
+	  Offset		  [-0.42016806722688216, -33.73108755898869]
 	}
 	Object {
 	  $ObjectID		  28
@@ -299,7 +299,7 @@ Model {
 	  LoadSaveID		  "9355"
 	  Extents		  [1868.0, 861.0]
 	  ZoomFactor		  [2.0]
-	  Offset		  [-200.075613264389, 899.24625608798669]
+	  Offset		  [113.60449772248171, 1554.7051283318151]
 	}
 	PropName		"EditorsInfo"
       }
@@ -312,9 +312,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "arenebiorob"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Aug 20 16:14:05 2018"
-  RTWModifiedTimeStamp	  456682440
-  ModelVersionFormat	  "1.%<AutoIncrement:3456>"
+  LastModifiedDate	  "Tue Aug 21 09:17:30 2018"
+  RTWModifiedTimeStamp	  456743848
+  ModelVersionFormat	  "1.%<AutoIncrement:3465>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1411,7 +1411,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "14169"
+    SIDHighWatermark	    "14173"
     Block {
       BlockType		      Inport
       Name		      "In_from_Serial"
@@ -10431,6 +10431,16 @@ Model {
 	}
 	Block {
 	  BlockType		  From
+	  Name			  "From_Theta_r_phys67"
+	  SID			  "14171"
+	  Position		  [1800, 768, 1905, 782]
+	  ZOrder		  762
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  GotoTag		  "state_speed_ctrl"
+	}
+	Block {
+	  BlockType		  From
 	  Name			  "From_Theta_r_phys68"
 	  SID			  "14140"
 	  Position		  [1800, 708, 1905, 722]
@@ -11571,6 +11581,17 @@ Model {
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  GotoTag		  "scenario_start"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto_Theta_er62"
+	  SID			  "14170"
+	  Position		  [470, 998, 565, 1012]
+	  ZOrder		  761
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  GotoTag		  "state_speed_ctrl"
 	}
 	Block {
 	  BlockType		  Goto
@@ -27161,6 +27182,16 @@ Model {
 	}
 	Block {
 	  BlockType		  RateTransition
+	  Name			  "Rate Transition71"
+	  SID			  "14172"
+	  Position		  [1930, 764, 1950, 786]
+	  ZOrder		  763
+	  ForegroundColor	  "red"
+	  ShowName		  off
+	  Deterministic		  off
+	}
+	Block {
+	  BlockType		  RateTransition
 	  Name			  "Rate Transition8"
 	  SID			  "10247"
 	  Position		  [2060, 504, 2090, 526]
@@ -28888,16 +28919,6 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "debug"
-	  SID			  "13795"
-	  Position		  [1735, 772, 1785, 788]
-	  ZOrder		  546
-	  ForegroundColor	  "magenta"
-	  NamePlacement		  "alternate"
-	  Value			  "single(0)"
-	}
-	Block {
-	  BlockType		  Constant
 	  Name			  "debug1"
 	  SID			  "13798"
 	  Position		  [250, 1142, 300, 1158]
@@ -30591,13 +30612,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  2941
-	  SrcBlock		  "debug"
-	  SrcPort		  1
-	  DstBlock		  "XYZ_ctrl2"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  2543
 	  SrcBlock		  "From13"
 	  SrcPort		  1
@@ -30710,7 +30724,6 @@ Model {
 	  ZOrder		  2999
 	  SrcBlock		  " 3"
 	  SrcPort		  1
-	  Points		  [-5, 0]
 	  DstBlock		  "Goto15"
 	  DstPort		  1
 	}
@@ -30718,7 +30731,6 @@ Model {
 	  ZOrder		  3000
 	  SrcBlock		  " 3"
 	  SrcPort		  2
-	  Points		  [-5, 0]
 	  DstBlock		  "Goto_Theta_er47"
 	  DstPort		  1
 	}
@@ -30740,7 +30752,6 @@ Model {
 	  ZOrder		  3006
 	  SrcBlock		  " 3"
 	  SrcPort		  3
-	  Points		  [-5, 0]
 	  DstBlock		  "Goto_Theta_er48"
 	  DstPort		  1
 	}
@@ -31399,7 +31410,6 @@ Model {
 	  ZOrder		  4194
 	  SrcBlock		  "Logical\nOperator2"
 	  SrcPort		  1
-	  Points		  [-5, 0]
 	  DstBlock		  "Goto_Theta_er60"
 	  DstPort		  1
 	}
@@ -31457,9 +31467,18 @@ Model {
 	  ZOrder		  4331
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  2
-	  Points		  [9, 0; 0, 55]
-	  DstBlock		  "Initial X"
-	  DstPort		  1
+	  Points		  [9, 0]
+	  Branch {
+	    ZOrder		    4438
+	    DstBlock		    "Goto_Theta_er62"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    4437
+	    Points		    [0, 55]
+	    DstBlock		    "Initial X"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  ZOrder		  4332
@@ -31496,6 +31515,21 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  4440
+	  SrcBlock		  "From_Theta_r_phys67"
+	  SrcPort		  1
+	  DstBlock		  "Rate Transition71"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4441
+	  SrcBlock		  "Rate Transition71"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "XYZ_ctrl2"
+	  DstPort		  1
 	}
 	Annotation {
 	  SID			  "10140"
@@ -34893,11 +34927,12 @@ Stateflow {
       isEML		      1
       script		      "function [speed_ctrl_on, state] = speed_order(ttc, ttc_condition, scenario_start_rise, scenario_n"
       "um, state_prec)\n%#codegen\n%% State machine for speed ctrl on in scenario 3\n\nif( scenario_num == 3)\n    if( "
-      "state_prec == 0 && scenario_start_rise == 1) % scenario start\n        state = 1;\n    elseif (state_prec == 1 &"
-      "& ttc >= 0.5)  % initialize when ttc reach a value (=0.3)\n        state = 2;\n    elseif (state_prec == 2 && tt"
-      "c <= ttc_condition)    % Disable speed ctrl when ttc <= ttc_condition\n        state = 3;\n    elseif (state_pre"
-      "c == 4 && scenario_start_rise == 0)\n        state = 0;\n    else\n        state = state_prec;\n    end\nelse\n "
-      "   state = 0;  \nend\n\nif (state == 1 || state == 2)\n    speed_ctrl_on = 1;\nelse\n    speed_ctrl_on = 0;\nend"
+      "state_prec == 0 && scenario_start_rise == 1) % scenario start\n        state = single(1);\n    elseif (state_pre"
+      "c == 1 && ttc >= ttc_condition + 0.05)  % initialize when ttc reach a value\n        state = single(2);\n    els"
+      "eif (state_prec == 2 && ttc <= ttc_condition)    % Disable speed ctrl when ttc <= ttc_condition\n        state ="
+      " single(3);\n    elseif (state_prec == 3 && scenario_start_rise == 0)\n        state = single(0);\n    else\n   "
+      "     state = state_prec;\n    end\nelse\n    state = single(0);  \nend\n\nif (state == 1 || state == 2)\n    spe"
+      "ed_ctrl_on = single(1);\nelse\n    speed_ctrl_on = single(0);\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -34974,15 +35009,14 @@ Stateflow {
 	size			"-1"
       }
       type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_BOOLEAN_TYPE
 	isSigned		1
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "boolean"
   }
   data {
     id			    131
@@ -35019,7 +35053,7 @@ Stateflow {
       }
       type {
 	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_SINGLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
@@ -35041,7 +35075,7 @@ Stateflow {
       }
       type {
 	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_SINGLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
