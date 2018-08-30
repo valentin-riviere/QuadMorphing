@@ -35,7 +35,7 @@ static uint8_t init_OK = 0;
 static uint8_t ManualMode = 1;
 static uint8_t MotorsArmed = 0;
 static int8_t n_offset = 0;
-static int16_t DataToSend[23] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+static uint16_t DataToSend[23] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 static uint32_t currentTime = 0;
 volatile struct RegulSignals RegulSig;
 volatile struct PID Pid[NB_ROTOR];
@@ -151,11 +151,17 @@ void setup()
 	led_blink_1s();
 	Serial.println("Start...");
 
+	Serial.println("Init Sensors...");
 	initSensors();
+	Serial.println("Init Receiver...");
 	configureReceiver();
+	Serial.println("Init Motor...");
 	initMotors();
+	Serial.println("Init Regulation...");
 	initRegul();
+	
 #ifdef TACHY_ON
+	Serial.println("Init Tachys...");
 	setupTachys();
 #endif
 
@@ -227,7 +233,7 @@ void loop()
 		#endif
 	}
 	
-	
+	#if defined(ECHO_DISPLAY) || defined(ECHO_TIME_EXEC_RCB2)
 		// each 1s, 1Hz, Display Loop
 		if (currentTime >= DispTime)
 		{
@@ -245,6 +251,7 @@ void loop()
 				DisplayTimeExecRCB2();
 			#endif
 		}
+	#endif
 
 	currentTime = micros();
 }
@@ -254,7 +261,7 @@ void CheckBattery(void)
 	static uint8_t ind = 0;
 	static int16_t vbatRawArray[8] = {VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX, VBAT_LEVEL_MAX};
 
-	vbatRawArray[(ind++)%8] = (int16_t)(analogRead(V_BATPIN));
+	vbatRawArray[(ind++)%8] = analogRead(V_BATPIN);
 
 	vbatRaw = 0;
 	for (uint8_t i=0;i<8;i++)

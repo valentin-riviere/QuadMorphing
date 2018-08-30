@@ -80,11 +80,11 @@ You should have received a copy of the GNU General Public License along with thi
 	#define AK8963_ADDRESS 0x0C   // Address of magnetometer
 	#define MS5611_ADDRESS 0x77   // Address of altimeter
 	// #define MAG_USAGE	// Use Magnetometer (slow acquisition, doesn't work with CLOSED_LOOP)
-	// #define MAG_CALIB // Calibration
 	// #define ACC_CALIB
-	#define ACC_BIAS_X 0.00f	// Bias for accelerometer (only used for manual and autopilot)
-	#define ACC_BIAS_Y 0.05f
-	#define ACC_BIAS_Z 0.03f
+	// #define MAG_CALIB // Calibration
+	#define ACC_BIAS_X 0.00f	// Bias for accelerometer (Used if USE_TEENSY_CAL defined)
+	#define ACC_BIAS_Y 0.04f //0.05f
+	#define ACC_BIAS_Z 0.01f //0.03f
 	#define USE_TEENSY_CAL	// Define to use Teensy calibration for gumstix data
 	
 	/************** I2C IMU **************/
@@ -93,6 +93,7 @@ You should have received a copy of the GNU General Public License along with thi
 	#define I2C_RATE I2C_RATE_400
 	
 	/************** UART1 GUMSTIX **************/
+	// #define DEBUG_UART
 	#define UART1_SPEED 115200
 	#define NB_DATA_TO_RECEIVE 4
 	#define NB_MISSED_GUMSTIX 3		// Number of missing string before activating autopilot

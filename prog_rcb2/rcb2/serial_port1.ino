@@ -163,6 +163,15 @@ uint8_t SendnUInt32_RS232(uint32_t *ToSend, uint8_t NbToSend)
 // send int16
 uint8_t HeaderSendnInt16_RS232(int16_t *ToSend, uint8_t NbToSend, uint8_t Header)
 {
+#if defined(DEBUG_UART)
+	for(uint16_t i=0; i<NbToSend; i++)
+    {
+      Serial.print(ToSend[i]);
+      Serial.print(" ");
+    }
+	Serial.println("");
+#endif
+
   Serial1.write(Header);
   return(Serial1.write((const uint8_t*)ToSend, NbToSend*NB_INT16_BYTE));
 }
@@ -200,6 +209,15 @@ uint8_t SendnInt16_RS232(int16_t *ToSend, uint8_t NbToSend)
 // send UInt16
 uint8_t HeaderSendnUInt16_RS232(uint16_t *ToSend, uint8_t NbToSend, uint8_t Header)
 {
+#if defined(DEBUG_UART)
+	for(uint16_t i=0; i<NbToSend; i++)
+    {
+      Serial.print(ToSend[i]);
+      Serial.print(" ");
+    }
+	Serial.println("");
+#endif
+
     Serial1.write(&Header,1);
     return(Serial1.write((const uint8_t*)ToSend, NbToSend*NB_UINT16_BYTE));
 }

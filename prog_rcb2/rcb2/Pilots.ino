@@ -18,7 +18,7 @@ extern float magADC[3];
 void Pilot_loop()
 {
 	uint32_t TestTime;
-
+	
 	if(ManualMode == 0)
 	{
 		/*********** INITIALISATION TEST ***********
@@ -240,11 +240,6 @@ sei();
 	IMU_getADC_full();
 
 	// copy acc(in g)/ang_speed(in rad/s)/mag(in mG)/pressure(in mBar) values in DataToSend
-#ifdef USE_TEENSY_CAL	// If Teensy calibration used
-	accADC[0] = accADC[0] + accelBias[0];
-	accADC[1] = accADC[1] + accelBias[1];
-	accADC[2] = accADC[2] - accelBias[2];
-#endif
 	memcpy(DataToSend, accADC, 12);     	// copy 3*4bytes (3*float32)
 	memcpy(&DataToSend[6], gyroADC, 12); 	// copy 3*4bytes (3*float32)
 	memcpy(&DataToSend[12], magADC, 12); 	// copy 3*4bytes (3*float32)
@@ -259,9 +254,9 @@ sei();
 	// send data values
 cli();
 	#ifdef HEADER_RS232_ON
-		HeaderSendnInt16_RS232(DataToSend, 27, 170);
+		HeaderSendnUInt16_RS232(DataToSend, 27, 170);
 	#else
-		SendnInt16_RS232(DataToSend, 27); 
+		SendnUInt16_RS232(DataToSend, 27); 
 	#endif 
 sei();
 	//n_read = NB_DATA_TO_RECEIVE; // to avoid error with
@@ -287,7 +282,7 @@ void GumstixPilot_OneStep(void)
 
 	// recover IMU values
 	IMU_getADC_full();
-
+	
 	// copy acc(in g)/ang_speed(in rad/s)/mag(in mG)/pressure(in mBar) values in DataToSend
 	memcpy(DataToSend, accADC, 12);     	// copy 3*4bytes
 	memcpy(&DataToSend[6], gyroADC, 12); 	// copy 3*4bytes
@@ -303,9 +298,9 @@ void GumstixPilot_OneStep(void)
 	// send data values
 cli();
 	#ifdef HEADER_RS232_ON
-		HeaderSendnInt16_RS232(DataToSend, 27, 170);
+		HeaderSendnUInt16_RS232(DataToSend, 27, 170);
 	#else
-		SendnInt16_RS232(DataToSend, 27); 
+		SendnUInt16_RS232(DataToSend, 27); 
 	#endif 
 sei();
 

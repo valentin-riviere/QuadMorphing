@@ -13,7 +13,6 @@ You should have received a copy of the GNU General Public License along with thi
 
 extern float deltat;
 static float eInt[3] = {0.0f, 0.0f, 0.0f};
-extern float accelBias[3];
 
 void EstimateAttitude(void)
 {
@@ -43,9 +42,9 @@ void EstimateAttitude_CF(void)
 	int i;
 
 	// accelerometer
-	a_bar[0] = accADC[0] + accelBias[0];
-	a_bar[1] = accADC[1] + accelBias[1];
-	a_bar[2] = accADC[2] - accelBias[2];
+	a_bar[0] = accADC[0];
+	a_bar[1] = accADC[1];
+	a_bar[2] = accADC[2];
 	
 	// magnetometer Not used by quat and euler angles
 #ifdef MAG_USAGE
@@ -141,7 +140,7 @@ void EstimateAttitude_Mahony(void)
 {
 	float q1 = Q_hat[0], q2 = Q_hat[1], q3 = Q_hat[2], q4 = Q_hat[3];   // short name local variable for readability
 	float ax, ay, az;
-	ax = (accADC[0] + accelBias[0]); ay = (accADC[1] + accelBias[1]); az = (accADC[2] - accelBias[2]);
+	ax = accADC[0]; ay = accADC[1]; az = accADC[2];
 	float gx = gyroADC[0], gy = gyroADC[1], gz = gyroADC[2];
 	float mx, my, mz;
 #ifdef MAG_USAGE

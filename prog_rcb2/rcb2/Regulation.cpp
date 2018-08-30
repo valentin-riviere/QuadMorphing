@@ -114,7 +114,7 @@ void StartRotor(uint8_t RotorNum)
 		if (RegulSig.RotorStatus[RotorNum] == NOT_ARMED)
 		{
 			// apply pwm to arm motors
-			RegulSig.TimeUp_PWM_ESC[RotorNum] = ARM_ROTOR_PWM;		
+			RegulSig.TimeUp_PWM_ESC[RotorNum] = ARM_ROTOR_PWM;
 			
 			sprintf((char*)str, "Rotor %d Arming with %d...\n", RotorNum+1, ARM_ROTOR_PWM);
 			Serial.print(str);
